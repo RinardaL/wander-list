@@ -1176,6 +1176,18 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; color: var(
   font-weight: 600;
   margin: 2px 0;
 }
+.time-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.78rem;
+  color: var(--warning-amber);
+  background: rgba(196, 120, 30, 0.12);
+  padding: 3px 10px;
+  border-radius: 100px;
+  font-weight: 600;
+  margin: 2px 6px 2px 0;
+}
 
 /* Need to know */
 .culture-grid {
