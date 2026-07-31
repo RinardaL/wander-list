@@ -91,9 +91,20 @@
 
   <!-- ===== TAB: DAY BY DAY ===== -->
   <div class="tab-panel active" id="panel-days">
+    <div class="duration-picker reveal">
+      <span class="duration-picker-label">How many days do you have?</span>
+      <div class="duration-options" id="durationOptions">
+        <button class="filter-chip duration-btn" data-days="3">3 Days</button>
+        <button class="filter-chip duration-btn" data-days="4">4 Days</button>
+        <button class="filter-chip duration-btn" data-days="5">5 Days</button>
+        <button class="filter-chip duration-btn active" data-days="7">7 Days (Full)</button>
+      </div>
+      <label class="duration-custom">Custom: <input type="number" id="customDuration" min="1" max="14" placeholder="e.g. 6"></label>
+    </div>
+    <p class="duration-note" id="durationNote" hidden></p>
     <div class="day-list stagger" id="dayList">
 
-      <div class="day-item open reveal">
+      <div class="day-item open reveal" data-priority="2">
         <button class="day-header">
           <span class="day-number">1</span>
           <span class="day-header-text"><h3>Arrival &amp; Vieux Nice</h3><span>Settling into the old town and Riviera light</span></span>
@@ -128,7 +139,7 @@
         </div></div>
       </div>
 
-      <div class="day-item reveal">
+      <div class="day-item reveal" data-priority="3">
         <button class="day-header">
           <span class="day-number">2</span>
           <span class="day-header-text"><h3>Castle Hill &amp; the Baie des Anges</h3><span>Panoramic views, beach time, and Riviera art</span></span>
@@ -142,7 +153,7 @@
         </div></div>
       </div>
 
-      <div class="day-item reveal">
+      <div class="day-item reveal" data-priority="5">
         <button class="day-header">
           <span class="day-number">3</span>
           <span class="day-header-text"><h3>Èze, the Eagle's Nest Village</h3><span>A clifftop village high above the Mediterranean</span></span>
@@ -156,7 +167,7 @@
         </div></div>
       </div>
 
-      <div class="day-item reveal">
+      <div class="day-item reveal" data-priority="1">
         <button class="day-header">
           <span class="day-number">4</span>
           <span class="day-header-text"><h3>Monaco &amp; Monte Carlo</h3><span>Palaces, casinos, and a glimpse of the Grand Prix circuit</span></span>
@@ -170,7 +181,7 @@
         </div></div>
       </div>
 
-      <div class="day-item reveal">
+      <div class="day-item reveal" data-priority="7">
         <button class="day-header">
           <span class="day-number">5</span>
           <span class="day-header-text"><h3>Antibes &amp; Saint-Paul de Vence</h3><span>Ramparts, Picasso, and a hilltop art colony</span></span>
@@ -184,7 +195,7 @@
         </div></div>
       </div>
 
-      <div class="day-item reveal">
+      <div class="day-item reveal" data-priority="6">
         <button class="day-header">
           <span class="day-number">6</span>
           <span class="day-header-text"><h3>Cannes</h3><span>La Croisette and the old town of Le Suquet</span></span>
@@ -198,7 +209,7 @@
         </div></div>
       </div>
 
-      <div class="day-item reveal">
+      <div class="day-item reveal" data-priority="4">
         <button class="day-header">
           <span class="day-number">7</span>
           <span class="day-header-text"><h3>Last Morning in Nice &amp; Departure</h3><span>One final ride along the Promenade</span></span>

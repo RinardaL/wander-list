@@ -91,6 +91,15 @@
 
   <!-- ===== TAB: DAY BY DAY ===== -->
   <div class="tab-panel active" id="panel-days">
+    <div class="duration-picker reveal">
+      <span class="duration-picker-label">How many days do you have?</span>
+      <div class="duration-options" id="durationOptions">
+        <button class="filter-chip duration-btn" data-days="1">1 Day</button>
+        <button class="filter-chip duration-btn active" data-days="2">2 Days (Full)</button>
+      </div>
+      <label class="duration-custom">Custom: <input type="number" id="customDuration" min="1" max="14" placeholder="e.g. 4"></label>
+    </div>
+    <p class="duration-note" id="durationNote" hidden></p>
     <div class="day-list stagger" id="dayList">
 
       <div class="day-item open reveal">

@@ -188,6 +188,62 @@ function initWanderList() {
     }
   });
 
+  /* ---------- Custom trip-length picker (condenses the day-by-day to N days) ---------- */
+  const durationOptions = document.getElementById("durationOptions");
+  if (durationOptions) {
+    const dayItems = Array.from(document.querySelectorAll("#dayList .day-item"));
+    const totalDays = dayItems.length;
+    const customInput = document.getElementById("customDuration");
+    const note = document.getElementById("durationNote");
+
+    function rankedDays() {
+      return dayItems.slice().sort((a, b) => {
+        const pa = parseInt(a.dataset.priority || a.querySelector(".day-number").textContent, 10);
+        const pb = parseInt(b.dataset.priority || b.querySelector(".day-number").textContent, 10);
+        return pa - pb;
+      });
+    }
+
+    function applyDuration(n) {
+      n = Math.max(1, Math.min(n, 14));
+      if (n >= totalDays) {
+        dayItems.forEach((d) => d.classList.remove("duration-hidden"));
+        note.hidden = true;
+        return;
+      }
+      const keep = new Set(rankedDays().slice(0, n));
+      dayItems.forEach((d) => d.classList.toggle("duration-hidden", !keep.has(d)));
+      note.hidden = false;
+      note.innerHTML = `Showing our recommended ${n}-day plan for this trip. <a data-show-all>Show the full ${totalDays}-day itinerary</a>`;
+    }
+
+    durationOptions.querySelectorAll(".duration-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        durationOptions.querySelectorAll(".duration-btn").forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+        if (customInput) customInput.value = "";
+        applyDuration(parseInt(btn.dataset.days, 10));
+      });
+    });
+
+    if (customInput) {
+      customInput.addEventListener("input", () => {
+        const val = parseInt(customInput.value, 10);
+        durationOptions.querySelectorAll(".duration-btn").forEach((b) => b.classList.remove("active"));
+        if (!isNaN(val) && val > 0) applyDuration(val);
+      });
+    }
+
+    note.addEventListener("click", (e) => {
+      if (!e.target.hasAttribute("data-show-all")) return;
+      durationOptions.querySelectorAll(".duration-btn").forEach((b) => {
+        b.classList.toggle("active", parseInt(b.dataset.days, 10) === totalDays);
+      });
+      if (customInput) customInput.value = "";
+      applyDuration(totalDays);
+    });
+  }
+
   /* ---------- Scroll-reveal ---------- */
   const revealEls = document.querySelectorAll(".reveal");
   if (revealEls.length) {

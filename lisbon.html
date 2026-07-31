@@ -91,9 +91,20 @@
 
   <!-- ===== TAB: DAY BY DAY ===== -->
   <div class="tab-panel active" id="panel-days">
+    <div class="duration-picker reveal">
+      <span class="duration-picker-label">How many days do you have?</span>
+      <div class="duration-options" id="durationOptions">
+        <button class="filter-chip duration-btn" data-days="3">3 Days</button>
+        <button class="filter-chip duration-btn" data-days="4">4 Days</button>
+        <button class="filter-chip duration-btn" data-days="5">5 Days</button>
+        <button class="filter-chip duration-btn active" data-days="7">7 Days (Full)</button>
+      </div>
+      <label class="duration-custom">Custom: <input type="number" id="customDuration" min="1" max="14" placeholder="e.g. 6"></label>
+    </div>
+    <p class="duration-note" id="durationNote" hidden></p>
     <div class="day-list stagger" id="dayList">
 
-      <div class="day-item open reveal">
+      <div class="day-item open reveal" data-priority="2">
         <button class="day-header">
           <span class="day-number">1</span>
           <span class="day-header-text"><h3>Arrival &amp; Baixa Orientation</h3><span>Land, settle in, get a feel for the grid streets</span></span>
@@ -128,7 +139,7 @@
         </div></div>
       </div>
 
-      <div class="day-item reveal">
+      <div class="day-item reveal" data-priority="3">
         <button class="day-header">
           <span class="day-number">2</span>
           <span class="day-header-text"><h3>Alfama &amp; Fado Night</h3><span>Steep lanes, a hilltop castle, and Lisbon's soulful music</span></span>
@@ -142,7 +153,7 @@
         </div></div>
       </div>
 
-      <div class="day-item reveal">
+      <div class="day-item reveal" data-priority="1">
         <button class="day-header">
           <span class="day-number">3</span>
           <span class="day-header-text"><h3>Belém: Towers, Monasteries &amp; Pastéis</h3><span>Monuments, and the original custard tart</span></span>
@@ -156,7 +167,7 @@
         </div></div>
       </div>
 
-      <div class="day-item reveal">
+      <div class="day-item reveal" data-priority="6">
         <button class="day-header">
           <span class="day-number">4</span>
           <span class="day-header-text"><h3>Day Trip to Sintra</h3><span>Fairy-tale palaces in the hills above the coast</span></span>
@@ -170,7 +181,7 @@
         </div></div>
       </div>
 
-      <div class="day-item reveal">
+      <div class="day-item reveal" data-priority="4">
         <button class="day-header">
           <span class="day-number">5</span>
           <span class="day-header-text"><h3>Tram 28 &amp; Bairro Alto</h3><span>The city's iconic yellow tram, then a night out</span></span>
@@ -184,7 +195,7 @@
         </div></div>
       </div>
 
-      <div class="day-item reveal">
+      <div class="day-item reveal" data-priority="7">
         <button class="day-header">
           <span class="day-number">6</span>
           <span class="day-header-text"><h3>Cascais Coastal Day Trip</h3><span>A breezy seaside town along the old royal coastline</span></span>
@@ -198,7 +209,7 @@
         </div></div>
       </div>
 
-      <div class="day-item reveal">
+      <div class="day-item reveal" data-priority="5">
         <button class="day-header">
           <span class="day-number">7</span>
           <span class="day-header-text"><h3>Markets &amp; Departure</h3><span>One last market breakfast before flying home</span></span>

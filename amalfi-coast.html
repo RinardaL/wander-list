@@ -91,9 +91,20 @@
 
   <!-- ===== TAB: DAY BY DAY ===== -->
   <div class="tab-panel active" id="panel-days">
+    <div class="duration-picker reveal">
+      <span class="duration-picker-label">How many days do you have?</span>
+      <div class="duration-options" id="durationOptions">
+        <button class="filter-chip duration-btn" data-days="3">3 Days</button>
+        <button class="filter-chip duration-btn" data-days="4">4 Days</button>
+        <button class="filter-chip duration-btn" data-days="5">5 Days</button>
+        <button class="filter-chip duration-btn active" data-days="7">7 Days (Full)</button>
+      </div>
+      <label class="duration-custom">Custom: <input type="number" id="customDuration" min="1" max="14" placeholder="e.g. 6"></label>
+    </div>
+    <p class="duration-note" id="durationNote" hidden></p>
     <div class="day-list stagger" id="dayList">
 
-      <div class="day-item open reveal">
+      <div class="day-item open reveal" data-priority="2">
         <button class="day-header">
           <span class="day-number">1</span>
           <span class="day-header-text"><h3>Arrival &amp; First Sunset in Positano</h3><span>Land in Naples, settle into a budget base in Sorrento</span></span>
@@ -128,7 +139,7 @@
         </div></div>
       </div>
 
-      <div class="day-item reveal">
+      <div class="day-item reveal" data-priority="3">
         <button class="day-header">
           <span class="day-number">2</span>
           <span class="day-header-text"><h3>Path of the Gods Hike</h3><span>The coast's best views, and they're completely free</span></span>
@@ -142,7 +153,7 @@
         </div></div>
       </div>
 
-      <div class="day-item reveal">
+      <div class="day-item reveal" data-priority="5">
         <button class="day-header">
           <span class="day-number">3</span>
           <span class="day-header-text"><h3>Amalfi Town &amp; the Duomo</h3><span>Cathedral steps, a free waterfall trail, and granita</span></span>
@@ -156,7 +167,7 @@
         </div></div>
       </div>
 
-      <div class="day-item reveal">
+      <div class="day-item reveal" data-priority="1">
         <button class="day-header">
           <span class="day-number">4</span>
           <span class="day-header-text"><h3>Ravello's Gardens</h3><span>The Terrace of Infinity, high above the coastline</span></span>
@@ -170,7 +181,7 @@
         </div></div>
       </div>
 
-      <div class="day-item reveal">
+      <div class="day-item reveal" data-priority="4">
         <button class="day-header">
           <span class="day-number">5</span>
           <span class="day-header-text"><h3>Capri on a Day Ferry</h3><span>The Faraglioni, without the overnight price tag</span></span>
@@ -184,7 +195,7 @@
         </div></div>
       </div>
 
-      <div class="day-item reveal">
+      <div class="day-item reveal" data-priority="7">
         <button class="day-header">
           <span class="day-number">6</span>
           <span class="day-header-text"><h3>Fiordo di Furore &amp; a Slow Beach Day</h3><span>A free fjord view and the coast's quietest cove</span></span>
@@ -198,7 +209,7 @@
         </div></div>
       </div>
 
-      <div class="day-item reveal">
+      <div class="day-item reveal" data-priority="6">
         <button class="day-header">
           <span class="day-number">7</span>
           <span class="day-header-text"><h3>Lemon Groves &amp; Departure</h3><span>One last taste of the coast before flying home</span></span>

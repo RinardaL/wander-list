@@ -91,9 +91,20 @@
 
   <!-- ===== TAB: DAY BY DAY ===== -->
   <div class="tab-panel active" id="panel-days">
+    <div class="duration-picker reveal">
+      <span class="duration-picker-label">How many days do you have?</span>
+      <div class="duration-options" id="durationOptions">
+        <button class="filter-chip duration-btn" data-days="3">3 Days</button>
+        <button class="filter-chip duration-btn" data-days="4">4 Days</button>
+        <button class="filter-chip duration-btn" data-days="5">5 Days</button>
+        <button class="filter-chip duration-btn active" data-days="7">7 Days (Full)</button>
+      </div>
+      <label class="duration-custom">Custom: <input type="number" id="customDuration" min="1" max="14" placeholder="e.g. 6"></label>
+    </div>
+    <p class="duration-note" id="durationNote" hidden></p>
     <div class="day-list stagger" id="dayList">
 
-      <div class="day-item open reveal">
+      <div class="day-item open reveal" data-priority="2">
         <button class="day-header">
           <span class="day-number">1</span>
           <span class="day-header-text"><h3>Arrival &amp; Plaka</h3><span>Settle into the old town, then a first look at the Acropolis lit up above it</span></span>
@@ -128,7 +139,7 @@
         </div></div>
       </div>
 
-      <div class="day-item reveal">
+      <div class="day-item reveal" data-priority="1">
         <button class="day-header">
           <span class="day-number">2</span>
           <span class="day-header-text"><h3>Acropolis, Museum &amp; the Ancient Agora</h3><span>The city's defining monuments, tackled before the heat sets in</span></span>
@@ -163,7 +174,7 @@
         </div></div>
       </div>
 
-      <div class="day-item reveal">
+      <div class="day-item reveal" data-priority="4">
         <button class="day-header">
           <span class="day-number">3</span>
           <span class="day-header-text"><h3>Museum, Flea Market &amp; Psiri</h3><span>Bronze-age treasures, secondhand stalls, and a night out</span></span>
@@ -198,7 +209,7 @@
         </div></div>
       </div>
 
-      <div class="day-item reveal">
+      <div class="day-item reveal" data-priority="6">
         <button class="day-header">
           <span class="day-number">4</span>
           <span class="day-header-text"><h3>Cape Sounion Day Trip</h3><span>A clifftop temple at the edge of the Aegean</span></span>
@@ -233,7 +244,7 @@
         </div></div>
       </div>
 
-      <div class="day-item reveal">
+      <div class="day-item reveal" data-priority="5">
         <button class="day-header">
           <span class="day-number">5</span>
           <span class="day-header-text"><h3>Delphi Day Trip</h3><span>The Oracle's sanctuary, high in the mountains</span></span>
@@ -268,7 +279,7 @@
         </div></div>
       </div>
 
-      <div class="day-item reveal">
+      <div class="day-item reveal" data-priority="7">
         <button class="day-header">
           <span class="day-number">6</span>
           <span class="day-header-text"><h3>Hydra Island Day Trip</h3><span>A car-free island in the Saronic Gulf</span></span>
@@ -303,7 +314,7 @@
         </div></div>
       </div>
 
-      <div class="day-item reveal">
+      <div class="day-item reveal" data-priority="3">
         <button class="day-header">
           <span class="day-number">7</span>
           <span class="day-header-text"><h3>Syntagma Square &amp; Departure</h3><span>A ceremonial guard change and one last skyline view</span></span>

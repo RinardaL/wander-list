@@ -91,9 +91,20 @@
 
   <!-- ===== TAB: DAY BY DAY ===== -->
   <div class="tab-panel active" id="panel-days">
+    <div class="duration-picker reveal">
+      <span class="duration-picker-label">How many days do you have?</span>
+      <div class="duration-options" id="durationOptions">
+        <button class="filter-chip duration-btn" data-days="3">3 Days</button>
+        <button class="filter-chip duration-btn" data-days="4">4 Days</button>
+        <button class="filter-chip duration-btn" data-days="5">5 Days</button>
+        <button class="filter-chip duration-btn active" data-days="7">7 Days (Full)</button>
+      </div>
+      <label class="duration-custom">Custom: <input type="number" id="customDuration" min="1" max="14" placeholder="e.g. 6"></label>
+    </div>
+    <p class="duration-note" id="durationNote" hidden></p>
     <div class="day-list stagger" id="dayList">
 
-      <div class="day-item open reveal">
+      <div class="day-item open reveal" data-priority="2">
         <button class="day-header">
           <span class="day-number">1</span>
           <span class="day-header-text"><h3>Arrival &amp; Banff Townsite</h3><span>Land in Calgary, settle into the mountains</span></span>
@@ -128,7 +139,7 @@
         </div></div>
       </div>
 
-      <div class="day-item reveal">
+      <div class="day-item reveal" data-priority="1">
         <button class="day-header">
           <span class="day-number">2</span>
           <span class="day-header-text"><h3>Lake Louise</h3><span>The postcard lake, and afternoon tea with a view</span></span>
@@ -141,7 +152,7 @@
         </div></div>
       </div>
 
-      <div class="day-item reveal">
+      <div class="day-item reveal" data-priority="3">
         <button class="day-header">
           <span class="day-number">3</span>
           <span class="day-header-text"><h3>Moraine Lake &amp; the Banff Gondola</h3><span>Valley of the Ten Peaks at sunrise</span></span>
@@ -155,7 +166,7 @@
         </div></div>
       </div>
 
-      <div class="day-item reveal">
+      <div class="day-item reveal" data-priority="4">
         <button class="day-header">
           <span class="day-number">4</span>
           <span class="day-header-text"><h3>Icefields Parkway</h3><span>One of the world's most scenic drives</span></span>
@@ -169,7 +180,7 @@
         </div></div>
       </div>
 
-      <div class="day-item reveal">
+      <div class="day-item reveal" data-priority="6">
         <button class="day-header">
           <span class="day-number">5</span>
           <span class="day-header-text"><h3>Peyto Lake &amp; Bow Lake</h3><span>The parkway's two showstopper viewpoints</span></span>
@@ -183,7 +194,7 @@
         </div></div>
       </div>
 
-      <div class="day-item reveal">
+      <div class="day-item reveal" data-priority="7">
         <button class="day-header">
           <span class="day-number">6</span>
           <span class="day-header-text"><h3>Emerald Lake &amp; Johnston Canyon</h3><span>A hidden Yoho lake and a canyon waterfall hike</span></span>
@@ -197,7 +208,7 @@
         </div></div>
       </div>
 
-      <div class="day-item reveal">
+      <div class="day-item reveal" data-priority="5">
         <button class="day-header">
           <span class="day-number">7</span>
           <span class="day-header-text"><h3>Fairmont Spa Day &amp; Departure</h3><span>One last soak before flying home</span></span>

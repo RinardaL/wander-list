@@ -91,9 +91,20 @@
 
   <!-- ===== TAB: DAY BY DAY ===== -->
   <div class="tab-panel active" id="panel-days">
+    <div class="duration-picker reveal">
+      <span class="duration-picker-label">How many days do you have?</span>
+      <div class="duration-options" id="durationOptions">
+        <button class="filter-chip duration-btn" data-days="3">3 Days</button>
+        <button class="filter-chip duration-btn" data-days="4">4 Days</button>
+        <button class="filter-chip duration-btn" data-days="5">5 Days</button>
+        <button class="filter-chip duration-btn active" data-days="7">7 Days (Full)</button>
+      </div>
+      <label class="duration-custom">Custom: <input type="number" id="customDuration" min="1" max="14" placeholder="e.g. 6"></label>
+    </div>
+    <p class="duration-note" id="durationNote" hidden></p>
     <div class="day-list stagger" id="dayList">
 
-      <div class="day-item open reveal">
+      <div class="day-item open reveal" data-priority="1">
         <button class="day-header">
           <span class="day-number">1</span>
           <span class="day-header-text"><h3>Arrival &amp; Welcome to Ubud</h3><span>Land in Denpasar, settle into the island's cultural heart</span></span>
@@ -128,7 +139,7 @@
         </div></div>
       </div>
 
-      <div class="day-item reveal">
+      <div class="day-item reveal" data-priority="2">
         <button class="day-header">
           <span class="day-number">2</span>
           <span class="day-header-text"><h3>Rice Terraces &amp; the Local Market</h3><span>Tegallalang's famous green tiers</span></span>
@@ -141,7 +152,7 @@
         </div></div>
       </div>
 
-      <div class="day-item reveal">
+      <div class="day-item reveal" data-priority="5">
         <button class="day-header">
           <span class="day-number">3</span>
           <span class="day-header-text"><h3>Sacred Monkey Forest &amp; Water Purification</h3><span>A jungle sanctuary and a Hindu holy spring</span></span>
@@ -154,7 +165,7 @@
         </div></div>
       </div>
 
-      <div class="day-item reveal">
+      <div class="day-item reveal" data-priority="3">
         <button class="day-header">
           <span class="day-number">4</span>
           <span class="day-header-text"><h3>Uluwatu Temple</h3><span>A clifftop temple and a sunset fire dance</span></span>
@@ -168,7 +179,7 @@
         </div></div>
       </div>
 
-      <div class="day-item reveal">
+      <div class="day-item reveal" data-priority="6">
         <button class="day-header">
           <span class="day-number">5</span>
           <span class="day-header-text"><h3>Seminyak</h3><span>Trade the jungle for the coast</span></span>
@@ -182,7 +193,7 @@
         </div></div>
       </div>
 
-      <div class="day-item reveal">
+      <div class="day-item reveal" data-priority="4">
         <button class="day-header">
           <span class="day-number">6</span>
           <span class="day-header-text"><h3>Nusa Penida Day Trip</h3><span>The island's most dramatic viewpoint</span></span>
@@ -196,7 +207,7 @@
         </div></div>
       </div>
 
-      <div class="day-item reveal">
+      <div class="day-item reveal" data-priority="7">
         <button class="day-header">
           <span class="day-number">7</span>
           <span class="day-header-text"><h3>Kuta Beach &amp; Departure</h3><span>One last sunrise before flying home</span></span>
