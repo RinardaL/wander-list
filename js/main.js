@@ -4,18 +4,38 @@
 
 /* ---------- Trip catalog (used to render Saved Trips from localStorage) ---------- */
 const TRIP_CATALOG = {
-  "itinerary.html": { title: "A Week of Hidden Gems in Tokyo & Kyoto", tag: "Hidden Gems", duration: "7 Days", cost: "$$$ · ~$1,650/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Kyoto%2C_Japan_%2849667780482%29.jpg/500px-Kyoto%2C_Japan_%2849667780482%29.jpg", alt: "Kyoto cityscape, Japan" },
-  "amalfi-coast.html": { title: "7 Days in Amalfi Coast on a Budget", tag: "Budget", duration: "7 Days", cost: "$$ · ~$900/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Amalfi_Coast_%28Italy%2C_October_2020%29_-_75_%2850558355441%29.jpg/500px-Amalfi_Coast_%28Italy%2C_October_2020%29_-_75_%2850558355441%29.jpg", alt: "Amalfi Coast, Italy" },
-  "utah-national-parks.html": { title: "Ultimate Road Trip Through Utah's National Parks", tag: "Road Trip", duration: "7 Days", cost: "$$ · ~$1,100/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Delicate_arch_sunset.jpg/500px-Delicate_arch_sunset.jpg", alt: "Delicate Arch at sunset, Utah" },
-  "lisbon.html": { title: "7 Days of Lisbon Local Highlights", tag: "Culture", duration: "7 Days", cost: "$$ · ~$700/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Bel%C3%A9m_Tower_in_Lisbon%2C_Portugal.jpg/500px-Bel%C3%A9m_Tower_in_Lisbon%2C_Portugal.jpg", alt: "Belém Tower, Lisbon" },
-  "banff.html": { title: "A Luxury Week in Banff & Lake Louise", tag: "Luxury", duration: "7 Days", cost: "$$$ · ~$2,400/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Moraine_Lake_17092005.jpg/500px-Moraine_Lake_17092005.jpg", alt: "Moraine Lake, Banff National Park" },
-  "bali.html": { title: "A Week of Wellness & Solo Discovery in Bali", tag: "Wellness", duration: "7 Days", cost: "$$ · ~$850/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/TanahLot_2014.JPG/500px-TanahLot_2014.JPG", alt: "Tanah Lot, Bali" },
-  "paris.html": { title: "A Perfect Long Weekend in Paris", tag: "Weekend Getaway", duration: "3 Days", cost: "$$ · ~$650/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Tour_Eiffel_Wikimedia_Commons.jpg/500px-Tour_Eiffel_Wikimedia_Commons.jpg", alt: "Eiffel Tower, Paris" },
-  "new-york-city.html": { title: "48 Hours in New York City", tag: "Weekend Getaway", duration: "2 Days", cost: "$$$ · ~$750/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Brooklyn_Bridge_and_the_Lower_Manhattan_skyline_from_Pebble_Beach%2C_New_York.jpg/500px-Brooklyn_Bridge_and_the_Lower_Manhattan_skyline_from_Pebble_Beach%2C_New_York.jpg", alt: "Brooklyn Bridge, New York City" },
-  "barcelona.html": { title: "3 Days in Barcelona", tag: "Weekend Getaway", duration: "3 Days", cost: "$$ · ~$600/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/SF_maig_2_cropped.jpg/500px-SF_maig_2_cropped.jpg", alt: "Sagrada Família, Barcelona" },
-  "athens.html": { title: "7 Days in Athens: Ancient Ruins & Island Escapes", tag: "Culture", duration: "7 Days", cost: "$$ · ~$850/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/The_Parthenon_in_Athens.jpg/500px-The_Parthenon_in_Athens.jpg", alt: "The Parthenon, Athens, Greece" },
-  "nice.html": { title: "7 Days in Nice & the French Riviera", tag: "Luxury", duration: "7 Days", cost: "$$$ · ~$1,900/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Promenade_des_Anglais_in_Nice.jpg/500px-Promenade_des_Anglais_in_Nice.jpg", alt: "Promenade des Anglais, Nice, France" },
+  "itinerary.html": { title: "A Week of Hidden Gems in Tokyo & Kyoto", tag: "Hidden Gems", duration: "7 Days", cost: "$$$ · ~$1,650/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Kyoto%2C_Japan_%2849667780482%29.jpg/500px-Kyoto%2C_Japan_%2849667780482%29.jpg", alt: "Kyoto cityscape, Japan", lat: 35.68, lon: 139.65 },
+  "amalfi-coast.html": { title: "7 Days in Amalfi Coast on a Budget", tag: "Budget", duration: "7 Days", cost: "$$ · ~$900/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Amalfi_Coast_%28Italy%2C_October_2020%29_-_75_%2850558355441%29.jpg/500px-Amalfi_Coast_%28Italy%2C_October_2020%29_-_75_%2850558355441%29.jpg", alt: "Amalfi Coast, Italy", lat: 40.63, lon: 14.6 },
+  "utah-national-parks.html": { title: "Ultimate Road Trip Through Utah's National Parks", tag: "Road Trip", duration: "7 Days", cost: "$$ · ~$1,100/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Delicate_arch_sunset.jpg/500px-Delicate_arch_sunset.jpg", alt: "Delicate Arch at sunset, Utah", lat: 38.57, lon: -109.55 },
+  "lisbon.html": { title: "7 Days of Lisbon Local Highlights", tag: "Culture", duration: "7 Days", cost: "$$ · ~$700/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Bel%C3%A9m_Tower_in_Lisbon%2C_Portugal.jpg/500px-Bel%C3%A9m_Tower_in_Lisbon%2C_Portugal.jpg", alt: "Belém Tower, Lisbon", lat: 38.72, lon: -9.14 },
+  "banff.html": { title: "A Luxury Week in Banff & Lake Louise", tag: "Luxury", duration: "7 Days", cost: "$$$ · ~$2,400/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Moraine_Lake_17092005.jpg/500px-Moraine_Lake_17092005.jpg", alt: "Moraine Lake, Banff National Park", lat: 51.18, lon: -115.57 },
+  "bali.html": { title: "A Week of Wellness & Solo Discovery in Bali", tag: "Wellness", duration: "7 Days", cost: "$$ · ~$850/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/TanahLot_2014.JPG/500px-TanahLot_2014.JPG", alt: "Tanah Lot, Bali", lat: -8.34, lon: 115.09 },
+  "paris.html": { title: "A Perfect Long Weekend in Paris", tag: "Weekend Getaway", duration: "3 Days", cost: "$$ · ~$650/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Tour_Eiffel_Wikimedia_Commons.jpg/500px-Tour_Eiffel_Wikimedia_Commons.jpg", alt: "Eiffel Tower, Paris", lat: 48.86, lon: 2.35 },
+  "new-york-city.html": { title: "48 Hours in New York City", tag: "Weekend Getaway", duration: "2 Days", cost: "$$$ · ~$750/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Brooklyn_Bridge_and_the_Lower_Manhattan_skyline_from_Pebble_Beach%2C_New_York.jpg/500px-Brooklyn_Bridge_and_the_Lower_Manhattan_skyline_from_Pebble_Beach%2C_New_York.jpg", alt: "Brooklyn Bridge, New York City", lat: 40.71, lon: -74.01 },
+  "barcelona.html": { title: "3 Days in Barcelona", tag: "Weekend Getaway", duration: "3 Days", cost: "$$ · ~$600/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/SF_maig_2_cropped.jpg/500px-SF_maig_2_cropped.jpg", alt: "Sagrada Família, Barcelona", lat: 41.39, lon: 2.17 },
+  "athens.html": { title: "7 Days in Athens: Ancient Ruins & Island Escapes", tag: "Culture", duration: "7 Days", cost: "$$ · ~$850/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/The_Parthenon_in_Athens.jpg/500px-The_Parthenon_in_Athens.jpg", alt: "The Parthenon, Athens, Greece", lat: 37.98, lon: 23.73 },
+  "nice.html": { title: "7 Days in Nice & the French Riviera", tag: "Luxury", duration: "7 Days", cost: "$$$ · ~$1,900/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Promenade_des_Anglais_in_Nice.jpg/500px-Promenade_des_Anglais_in_Nice.jpg", alt: "Promenade des Anglais, Nice, France", lat: 43.70, lon: 7.27 },
 };
+
+/* ---------- Live weather (Open-Meteo, free, no API key required) ---------- */
+const WEATHER_CODES = {
+  0: ["☀️", "Clear sky"], 1: ["🌤️", "Mostly clear"], 2: ["⛅", "Partly cloudy"], 3: ["☁️", "Overcast"],
+  45: ["🌫️", "Foggy"], 48: ["🌫️", "Foggy"],
+  51: ["🌦️", "Light drizzle"], 53: ["🌦️", "Drizzle"], 55: ["🌧️", "Heavy drizzle"],
+  61: ["🌦️", "Light rain"], 63: ["🌧️", "Rain"], 65: ["🌧️", "Heavy rain"],
+  71: ["🌨️", "Light snow"], 73: ["🌨️", "Snow"], 75: ["❄️", "Heavy snow"],
+  80: ["🌦️", "Rain showers"], 81: ["🌧️", "Rain showers"], 82: ["⛈️", "Violent showers"],
+  95: ["⛈️", "Thunderstorm"], 96: ["⛈️", "Thunderstorm"], 99: ["⛈️", "Thunderstorm"],
+};
+
+async function fetchDestinationWeather(lat, lon) {
+  const res = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,weather_code&temperature_unit=fahrenheit`);
+  if (!res.ok) throw new Error("Weather request failed");
+  const data = await res.json();
+  const temp = Math.round(data.current.temperature_2m);
+  const [icon, label] = WEATHER_CODES[data.current.weather_code] || ["🌡️", "Current conditions"];
+  return { temp, icon, label };
+}
 
 /* ---------- Saved Trips (persisted in localStorage across visits) ---------- */
 const SAVED_TRIPS_KEY = "wanderlist_saved_trips";
@@ -585,6 +605,21 @@ function initWanderList() {
     });
 
     updatePackingProgress();
+  }
+
+  /* ---------- Live weather widget in the itinerary meta-bar ---------- */
+  const metaActions = document.querySelector(".itinerary-meta-bar .meta-actions");
+  const destInfo = TRIP_CATALOG[currentPageId()];
+  if (metaActions && destInfo && typeof destInfo.lat === "number") {
+    const weatherItem = document.createElement("div");
+    weatherItem.className = "meta-item";
+    weatherItem.innerHTML = '<span class="label">Right Now</span><span class="value" id="weatherValue">Loading…</span>';
+    metaActions.parentNode.insertBefore(weatherItem, metaActions);
+    fetchDestinationWeather(destInfo.lat, destInfo.lon)
+      .then(({ temp, icon, label }) => {
+        document.getElementById("weatherValue").innerHTML = `${icon} ${temp}°F <span style="font-size:.7rem;font-weight:500;color:var(--charcoal-soft);display:block;">${label}</span>`;
+      })
+      .catch(() => { weatherItem.remove(); });
   }
 
   /* ---------- Save trip button (persisted to localStorage) ---------- */
