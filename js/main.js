@@ -253,6 +253,45 @@ function initWanderList() {
     });
   }
 
+  /* ---------- Testimonials: live-loaded from data/reviews.json ---------- */
+  const testimonialGrid = document.getElementById("testimonialGrid");
+  if (testimonialGrid) {
+    const escapeHtml = (s) => String(s).replace(/[&<>"']/g, (c) => ({
+      "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+    }[c]));
+
+    let lastPayload = "";
+    function renderReviews(reviews) {
+      testimonialGrid.innerHTML = reviews.map((r) => `
+        <div class="testimonial-card reveal in-view">
+          <div class="testimonial-stars">${"★".repeat(Math.round(r.rating || 5))}</div>
+          <p>"${escapeHtml(r.text)}"</p>
+          <div class="testimonial-author">
+            <span class="testimonial-avatar" style="background:${escapeHtml(r.color || "var(--emerald)")}">${escapeHtml(r.initial || r.author[0])}</span>
+            <div><strong>${escapeHtml(r.author)}</strong><span>${escapeHtml(r.trip)}</span></div>
+          </div>
+        </div>`).join("");
+    }
+
+    async function loadReviews() {
+      try {
+        const res = await fetch(`data/reviews.json?t=${Date.now()}`, { cache: "no-store" });
+        if (!res.ok) return;
+        const reviews = await res.json();
+        if (!Array.isArray(reviews) || !reviews.length) return;
+        const payload = JSON.stringify(reviews);
+        if (payload === lastPayload) return;
+        lastPayload = payload;
+        renderReviews(reviews);
+      } catch (e) {
+        /* Keep the static fallback markup already in the page. */
+      }
+    }
+
+    loadReviews();
+    setInterval(loadReviews, 45000);
+  }
+
   /* ---------- Saved Trips page: render from localStorage ---------- */
   const savedGrid = document.getElementById("savedGrid");
   if (savedGrid) {
