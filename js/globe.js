@@ -14,6 +14,8 @@ const DESTINATIONS = [
   { name: "Paris, France", lat: 48.86, lon: 2.35, href: "paris.html" },
   { name: "New York City, USA", lat: 40.71, lon: -74.01, href: "new-york-city.html" },
   { name: "Barcelona, Spain", lat: 41.39, lon: 2.17, href: "barcelona.html" },
+  { name: "Athens, Greece", lat: 37.98, lon: 23.73, href: "athens.html" },
+  { name: "Nice, France", lat: 43.70, lon: 7.27, href: "nice.html" },
 ];
 
 function latLonToVector3(lat, lon, radius, THREE) {

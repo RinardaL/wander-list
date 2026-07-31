@@ -13,6 +13,8 @@ const TRIP_CATALOG = {
   "paris.html": { title: "A Perfect Long Weekend in Paris", tag: "Weekend Getaway", duration: "3 Days", cost: "$$ · ~$650/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Tour_Eiffel_Wikimedia_Commons.jpg/500px-Tour_Eiffel_Wikimedia_Commons.jpg", alt: "Eiffel Tower, Paris" },
   "new-york-city.html": { title: "48 Hours in New York City", tag: "Weekend Getaway", duration: "2 Days", cost: "$$$ · ~$750/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Brooklyn_Bridge_and_the_Lower_Manhattan_skyline_from_Pebble_Beach%2C_New_York.jpg/500px-Brooklyn_Bridge_and_the_Lower_Manhattan_skyline_from_Pebble_Beach%2C_New_York.jpg", alt: "Brooklyn Bridge, New York City" },
   "barcelona.html": { title: "3 Days in Barcelona", tag: "Weekend Getaway", duration: "3 Days", cost: "$$ · ~$600/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/SF_maig_2_cropped.jpg/500px-SF_maig_2_cropped.jpg", alt: "Sagrada Família, Barcelona" },
+  "athens.html": { title: "7 Days in Athens: Ancient Ruins & Island Escapes", tag: "Culture", duration: "7 Days", cost: "$$ · ~$850/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/The_Parthenon_in_Athens.jpg/500px-The_Parthenon_in_Athens.jpg", alt: "The Parthenon, Athens, Greece" },
+  "nice.html": { title: "7 Days in Nice & the French Riviera", tag: "Luxury", duration: "7 Days", cost: "$$$ · ~$1,900/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Promenade_des_Anglais_in_Nice.jpg/500px-Promenade_des_Anglais_in_Nice.jpg", alt: "Promenade des Anglais, Nice, France" },
 };
 
 /* ---------- Saved Trips (persisted in localStorage across visits) ---------- */
