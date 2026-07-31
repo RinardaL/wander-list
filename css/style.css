@@ -498,6 +498,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; color: var(
 .globe-visual {
   position: relative;
   width: 100%;
+  min-width: 0;
   max-width: 440px;
   aspect-ratio: 1 / 1;
   margin: 0 auto;
@@ -1368,4 +1369,17 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; color: var(
   .filter-secondary { flex-direction: column; align-items: stretch; }
   .filter-secondary input { width: 100%; }
   .step-row { gap: 16px; }
+  .tab-btn { padding: 14px 16px; font-size: 0.88rem; }
+  .tab-nav::after {
+    content: "";
+    position: sticky;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 28px;
+    margin-left: -28px;
+    flex-shrink: 0;
+    background: linear-gradient(to right, transparent, var(--cream));
+    pointer-events: none;
+  }
 }
