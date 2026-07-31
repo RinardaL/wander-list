@@ -47,6 +47,85 @@ function currentPageId() {
   return window.location.pathname.split("/").pop() || "index.html";
 }
 
+/* ---------- Trip-search autocomplete dropdown ----------
+   Attaches a dropdown to a text input that lists ONLY trips that
+   actually exist on the site (sourced from TRIP_CATALOG). Selecting
+   an entry navigates straight to that trip's page. */
+function attachTripAutocomplete(input) {
+  if (!input) return;
+
+  const entries = Object.entries(TRIP_CATALOG);
+  const panel = document.createElement("div");
+  panel.className = "search-autocomplete";
+  panel.setAttribute("role", "listbox");
+  input.insertAdjacentElement("afterend", panel);
+  input.setAttribute("autocomplete", "off");
+
+  let activeIndex = -1;
+  let currentMatches = [];
+
+  function close() {
+    panel.classList.remove("is-open");
+    activeIndex = -1;
+  }
+
+  function renderActive() {
+    Array.from(panel.children).forEach((el, i) => el.classList.toggle("is-active", i === activeIndex));
+  }
+
+  function open(query) {
+    const q = query.trim().toLowerCase();
+    currentMatches = (q ? entries.filter(([, trip]) => trip.title.toLowerCase().includes(q)) : entries).slice(0, 12);
+    activeIndex = -1;
+    panel.innerHTML = "";
+
+    if (!currentMatches.length) {
+      panel.innerHTML = '<div class="search-autocomplete-empty">No trips match — try Browse All Trips instead.</div>';
+      panel.classList.add("is-open");
+      return;
+    }
+
+    currentMatches.forEach(([id, trip]) => {
+      const item = document.createElement("div");
+      item.className = "search-autocomplete-item";
+      item.setAttribute("role", "option");
+      item.innerHTML = `<img src="${trip.img}" alt="" loading="lazy" decoding="async"><div class="sa-meta"><strong>${trip.title}</strong><span>${trip.tag} · ${trip.duration}</span></div>`;
+      item.addEventListener("mousedown", (e) => {
+        e.preventDefault(); // fires before input blur, so the click always registers
+        window.location.href = id;
+      });
+      panel.appendChild(item);
+    });
+    panel.classList.add("is-open");
+  }
+
+  input.addEventListener("focus", () => open(input.value));
+  input.addEventListener("input", () => open(input.value));
+
+  input.addEventListener("keydown", (e) => {
+    if (!panel.classList.contains("is-open")) return;
+    if (e.key === "ArrowDown") {
+      e.preventDefault();
+      activeIndex = Math.min(activeIndex + 1, currentMatches.length - 1);
+      renderActive();
+    } else if (e.key === "ArrowUp") {
+      e.preventDefault();
+      activeIndex = Math.max(activeIndex - 1, 0);
+      renderActive();
+    } else if (e.key === "Enter" && activeIndex >= 0 && currentMatches[activeIndex]) {
+      e.preventDefault();
+      window.location.href = currentMatches[activeIndex][0];
+    } else if (e.key === "Escape") {
+      close();
+    }
+  });
+
+  input.addEventListener("blur", () => setTimeout(close, 120));
+  document.addEventListener("click", (e) => {
+    if (e.target !== input && !panel.contains(e.target)) close();
+  });
+}
+
 function initWanderList() {
 
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -269,6 +348,7 @@ function initWanderList() {
     });
     budgetFilter.addEventListener("change", applyFilters);
     searchInput.addEventListener("input", applyFilters);
+    attachTripAutocomplete(searchInput);
 
     // Deep-link support: browse.html?style=budget pre-selects that chip,
     // browse.html?q=paris pre-fills the search box — both combine naturally.
@@ -317,6 +397,7 @@ function initWanderList() {
       const dest = document.getElementById("destInput").value.trim();
       window.location.href = dest ? `browse.html?q=${encodeURIComponent(dest)}` : "browse.html";
     });
+    attachTripAutocomplete(document.getElementById("destInput"));
   }
 
   /* ---------- 404 page search: same destination as the hero search ---------- */
@@ -327,6 +408,7 @@ function initWanderList() {
       const dest = document.getElementById("notfoundDestInput").value.trim();
       window.location.href = dest ? `browse.html?q=${encodeURIComponent(dest)}` : "browse.html";
     });
+    attachTripAutocomplete(document.getElementById("notfoundDestInput"));
   }
 
   /* ---------- Newsletter form ---------- */
