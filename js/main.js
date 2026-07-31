@@ -619,7 +619,10 @@ function initWanderList() {
       .then(({ temp, icon, label }) => {
         document.getElementById("weatherValue").innerHTML = `${icon} ${temp}°F <span style="font-size:.7rem;font-weight:500;color:var(--charcoal-soft);display:block;">${label}</span>`;
       })
-      .catch(() => { weatherItem.remove(); });
+      .catch((err) => {
+        console.error("WanderList weather fetch failed:", err);
+        document.getElementById("weatherValue").textContent = "Unavailable";
+      });
   }
 
   /* ---------- Save trip button (persisted to localStorage) ---------- */
