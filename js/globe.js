@@ -18,6 +18,12 @@ const DESTINATIONS = [
   { name: "Nice, France", lat: 43.70, lon: 7.27, href: "nice.html" },
 ];
 
+// A click/hover within this angular radius of a destination pin counts as
+// "on that country/region", not just the tiny pin dot itself.
+const HIT_RADIUS_RAD = (12 * Math.PI) / 180;
+
+const EARTH_TEXTURE_URL = "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Equirectangular_projection_SW.jpg/1920px-Equirectangular_projection_SW.jpg";
+
 function latLonToVector3(lat, lon, radius, THREE) {
   const phi = (90 - lat) * (Math.PI / 180);
   const theta = (lon + 180) * (Math.PI / 180);
@@ -50,7 +56,6 @@ async function initGlobe() {
     return;
   }
 
-  const emerald = 0x0b6b4f;
   const emeraldDark = 0x073d2e;
   const mint = 0x17b893;
 
@@ -72,33 +77,33 @@ async function initGlobe() {
   const group = new THREE.Group();
   scene.add(group);
 
-  // Inner solid sphere for depth
+  // Earth map sphere: real, correctly-projected equirectangular photography,
+  // so every country/continent is where it actually is on the pin layout.
+  const earthTexture = await new Promise((resolve) => {
+    new THREE.TextureLoader().load(EARTH_TEXTURE_URL, resolve, undefined, () => resolve(null));
+  });
+
   const core = new THREE.Mesh(
-    new THREE.SphereGeometry(0.98, 32, 32),
-    new THREE.MeshBasicMaterial({ color: emeraldDark, transparent: true, opacity: 0.25 })
+    new THREE.SphereGeometry(0.98, 48, 32),
+    earthTexture
+      ? new THREE.MeshBasicMaterial({ map: earthTexture })
+      : new THREE.MeshBasicMaterial({ color: emeraldDark, transparent: true, opacity: 0.25 })
   );
   group.add(core);
-
-  // Wireframe globe
-  const wire = new THREE.Mesh(
-    new THREE.SphereGeometry(1, 24, 18),
-    new THREE.MeshBasicMaterial({ color: emerald, wireframe: true, transparent: true, opacity: 0.45 })
-  );
-  group.add(wire);
 
   // Outer atmosphere glow
   const glow = new THREE.Mesh(
     new THREE.SphereGeometry(1.06, 24, 18),
-    new THREE.MeshBasicMaterial({ color: mint, transparent: true, opacity: 0.06, side: THREE.BackSide })
+    new THREE.MeshBasicMaterial({ color: mint, transparent: true, opacity: 0.08, side: THREE.BackSide })
   );
   group.add(glow);
 
   // Destination pins
   const pinMeshes = [];
   DESTINATIONS.forEach((dest) => {
-    const pos = latLonToVector3(dest.lat, dest.lon, 1.015, THREE);
+    const pos = latLonToVector3(dest.lat, dest.lon, 1.02, THREE);
     const pin = new THREE.Mesh(
-      new THREE.SphereGeometry(0.045, 12, 12),
+      new THREE.SphereGeometry(0.05, 12, 12),
       new THREE.MeshBasicMaterial({ color: mint })
     );
     pin.position.copy(pos);
@@ -108,31 +113,49 @@ async function initGlobe() {
 
     // Halo ring around each pin for visibility
     const halo = new THREE.Mesh(
-      new THREE.RingGeometry(0.06, 0.075, 20),
-      new THREE.MeshBasicMaterial({ color: mint, transparent: true, opacity: 0.5, side: THREE.DoubleSide })
+      new THREE.RingGeometry(0.065, 0.085, 20),
+      new THREE.MeshBasicMaterial({ color: mint, transparent: true, opacity: 0.55, side: THREE.DoubleSide })
     );
     halo.position.copy(pos);
     halo.lookAt(0, 0, 0);
     group.add(halo);
   });
 
+  // Finds the destination nearest a given point in the group's local space
+  // (works for both pin hits and general sphere-surface hits), so clicking
+  // anywhere within a country's general area, not just the exact pin dot,
+  // still navigates to that trip.
+  function nearestDestination(localPoint) {
+    let best = null;
+    let bestAngle = Infinity;
+    pinMeshes.forEach((pin) => {
+      const angle = localPoint.angleTo(pin.position);
+      if (angle < bestAngle) {
+        bestAngle = angle;
+        best = pin.userData.dest;
+      }
+    });
+    return bestAngle <= HIT_RADIUS_RAD ? best : null;
+  }
+
   // ---------- Tooltip (HTML overlay, projected from 3D) ----------
   const tooltip = document.createElement("div");
   tooltip.className = "globe-tooltip";
   container.appendChild(tooltip);
-  let hoveredPin = null;
+  let hoveredDest = null;
 
-  function updateTooltipPosition(pin) {
-    const vector = pin.position.clone().applyMatrix4(group.matrixWorld).project(camera);
+  function updateTooltipPosition(localPoint) {
+    const vector = localPoint.clone().applyMatrix4(group.matrixWorld).project(camera);
     const x = (vector.x * 0.5 + 0.5) * container.clientWidth;
     const y = (-vector.y * 0.5 + 0.5) * container.clientHeight;
     tooltip.style.left = `${x}px`;
     tooltip.style.top = `${y}px`;
   }
 
-  // ---------- Pointer interaction: drag to rotate, click a pin to navigate ----------
+  // ---------- Pointer interaction: drag to rotate, click a pin or nearby country to navigate ----------
   const raycaster = new THREE.Raycaster();
   const pointerNDC = new THREE.Vector2();
+  const raycastTargets = [core, ...pinMeshes];
   let isDragging = false;
   let dragMoved = false;
   let lastX = 0, lastY = 0;
@@ -172,29 +195,41 @@ async function initGlobe() {
     }
 
     raycaster.setFromCamera(pointerNDC, camera);
-    const hits = raycaster.intersectObjects(pinMeshes);
+    const hits = raycaster.intersectObjects(raycastTargets);
+    let dest = null;
+    let localPoint = null;
     if (hits.length) {
-      const pin = hits[0].object;
+      const hit = hits[0];
+      if (hit.object.userData.dest) {
+        dest = hit.object.userData.dest;
+        localPoint = hit.object.position;
+      } else {
+        localPoint = group.worldToLocal(hit.point.clone());
+        dest = nearestDestination(localPoint);
+      }
+    }
+
+    if (dest) {
       renderer.domElement.style.cursor = "pointer";
-      if (hoveredPin !== pin) {
-        hoveredPin = pin;
-        tooltip.textContent = pin.userData.dest.name;
+      if (hoveredDest !== dest) {
+        hoveredDest = dest;
+        tooltip.textContent = dest.name;
         tooltip.classList.add("is-visible");
       }
-      updateTooltipPosition(pin);
-    } else if (hoveredPin) {
-      hoveredPin = null;
+      updateTooltipPosition(localPoint);
+    } else if (hoveredDest) {
+      hoveredDest = null;
       tooltip.classList.remove("is-visible");
       renderer.domElement.style.cursor = "grab";
     }
   }
 
   function onPointerUp() {
-    if (isDragging && !dragMoved && hoveredPin) {
-      window.location.href = hoveredPin.userData.dest.href;
+    if (isDragging && !dragMoved && hoveredDest) {
+      window.location.href = hoveredDest.href;
     }
     isDragging = false;
-    renderer.domElement.style.cursor = hoveredPin ? "pointer" : "grab";
+    renderer.domElement.style.cursor = hoveredDest ? "pointer" : "grab";
   }
 
   renderer.domElement.style.cursor = "grab";
@@ -226,7 +261,10 @@ async function initGlobe() {
     }
 
     renderer.render(scene, camera);
-    if (hoveredPin) updateTooltipPosition(hoveredPin);
+    if (hoveredDest) {
+      const pin = pinMeshes.find((p) => p.userData.dest === hoveredDest);
+      if (pin) updateTooltipPosition(pin.position);
+    }
   }
   requestAnimationFrame(animate);
 
