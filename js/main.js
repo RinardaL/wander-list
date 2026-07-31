@@ -80,7 +80,7 @@ function attachTripAutocomplete(input) {
     panel.innerHTML = "";
 
     if (!currentMatches.length) {
-      panel.innerHTML = '<div class="search-autocomplete-empty">No trips match — try Browse All Trips instead.</div>';
+      panel.innerHTML = '<div class="search-autocomplete-empty">No trips match, try Browse All Trips instead.</div>';
       panel.classList.add("is-open");
       return;
     }
