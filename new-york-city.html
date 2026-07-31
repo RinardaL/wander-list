@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>48 Hours in New York City — WanderList</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<meta name="description" content="A tightly planned 48-hour New York City itinerary covering Times Square, Central Park, and a free Statue of Liberty view — ideal for a quick weekend trip.">
+<link rel="canonical" href="https://www.wanderlist.example/new-york-city.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="WanderList">
+<meta property="og:title" content="48 Hours in New York City — WanderList">
+<meta property="og:description" content="A tightly planned 48-hour New York City itinerary covering Times Square, Central Park, and a free Statue of Liberty view — ideal for a quick weekend trip.">
+<meta property="og:url" content="https://www.wanderlist.example/new-york-city.html">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Brooklyn_Bridge_and_the_Lower_Manhattan_skyline_from_Pebble_Beach%2C_New_York.jpg/1200px-Brooklyn_Bridge_and_the_Lower_Manhattan_skyline_from_Pebble_Beach%2C_New_York.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="48 Hours in New York City — WanderList">
+<meta name="twitter:description" content="A tightly planned 48-hour New York City itinerary covering Times Square, Central Park, and a free Statue of Liberty view — ideal for a quick weekend trip.">
+<meta name="twitter:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Brooklyn_Bridge_and_the_Lower_Manhattan_skyline_from_Pebble_Beach%2C_New_York.jpg/1200px-Brooklyn_Bridge_and_the_Lower_Manhattan_skyline_from_Pebble_Beach%2C_New_York.jpg">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.wanderlist.example/index.html"},{"@type":"ListItem","position":2,"name":"Weekend Getaway","item":"https://www.wanderlist.example/browse.html?style=weekend"},{"@type":"ListItem","position":3,"name":"48 Hours in New York City"}]}</script>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="container nav">
+    <a href="index.html" class="logo">
+      <span class="logo-mark">W</span> WanderList
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="browse.html">Browse Destinations</a>
+      <a href="new-york-city.html#packing" data-tab="packing">Packing Guides</a>
+      <a href="new-york-city.html#culture" data-tab="culture">Culture Tips</a>
+      <a href="index.html" class="btn btn-secondary btn-sm mobile-cta">Browse More Trips</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="saved-trips.html" class="icon-btn" title="Saved Trips" aria-label="Saved Trips">♥</a>
+      <a href="index.html" class="btn btn-secondary btn-sm">Browse More Trips</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="container breadcrumb">
+  <a href="index.html">Home</a> / <a href="browse.html?style=weekend">Weekend Getaway</a> / 48 Hours in New York City
+</div>
+
+<!-- ============ ITINERARY HERO ============ -->
+<section class="itinerary-hero">
+  <div class="container">
+    <div class="itinerary-cover photo ph-5">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Brooklyn_Bridge_and_the_Lower_Manhattan_skyline_from_Pebble_Beach%2C_New_York.jpg/1920px-Brooklyn_Bridge_and_the_Lower_Manhattan_skyline_from_Pebble_Beach%2C_New_York.jpg" alt="Brooklyn Bridge and the Manhattan skyline, New York City" loading="eager" decoding="async">
+      <div class="itinerary-cover-content">
+        <div class="trip-tags">
+          <span class="tag">Weekend Getaway</span>
+          <span class="tag">City Break</span>
+          <span class="tag">2 Days</span>
+        </div>
+        <h1>48 Hours in New York City</h1>
+        <p>Times Square, Central Park, and a free view of the Statue of Liberty — a tightly packed two days that still leaves room to breathe.</p>
+      </div>
+    </div>
+
+    <div class="itinerary-meta-bar">
+      <div class="meta-item"><span class="label">Ideal Season</span><span class="value">Apr – Jun, Sep – Nov</span></div>
+      <div class="meta-item"><span class="label">Est. Budget</span><span class="value">$$$ · ~$750</span></div>
+      <div class="meta-item"><span class="label">Duration</span><span class="value">2 Days</span></div>
+      <div class="meta-item"><span class="label">Pace</span><span class="value">Active</span></div>
+      <div class="meta-actions">
+        <button class="btn btn-outline btn-sm" id="saveBtn">♥ Save Trip</button>
+        <button class="btn btn-primary btn-sm" id="printBtn">⬇ Export PDF</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TABS ============ -->
+<div class="container">
+  <nav class="tab-nav" id="tabNav">
+    <button class="tab-btn active" data-tab="days">Day-by-Day</button>
+    <button class="tab-btn" data-tab="culture">Need to Know</button>
+    <button class="tab-btn" data-tab="packing">Packing Checklist</button>
+    <button class="tab-btn" data-tab="tricks">Insider Tricks &amp; Hacks</button>
+    <span class="tab-indicator" id="tabIndicator"></span>
+  </nav>
+
+  <!-- ===== TAB: DAY BY DAY ===== -->
+  <div class="tab-panel active" id="panel-days">
+    <div class="day-list stagger" id="dayList">
+
+      <div class="day-item open reveal">
+        <button class="day-header">
+          <span class="day-number">1</span>
+          <span class="day-header-text"><h3>Midtown &amp; Central Park</h3><span>The classic postcard sights, back to back</span></span>
+          <span class="day-chevron">⌄</span>
+        </button>
+        <div class="day-body"><div class="day-body-inner">
+          <div class="day-photo"><img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/New_york_times_square-terabass.jpg/960px-New_york_times_square-terabass.jpg" alt="Times Square, New York City" loading="lazy" decoding="async"></div>
+          <div class="block">
+            <div class="block-time">Morning</div>
+            <div class="block-content">
+              <h4>Times Square &amp; Top of the Rock</h4>
+              <p>Go early — Times Square is genuinely more interesting with fewer people, and the Rockefeller observation deck lines are shortest before 10am.</p>
+              <span class="travel-badge">🚶 walkable in Midtown</span>
+            </div>
+          </div>
+          <div class="block">
+            <div class="block-time">Afternoon</div>
+            <div class="block-content">
+              <h4>Central Park &amp; a museum</h4>
+              <p>Walk the park's southern loop, then The Met or MoMA depending on your taste.</p>
+              <span class="travel-badge">🚶 15 min walk from Midtown</span>
+            </div>
+          </div>
+          <div class="block">
+            <div class="block-time">Evening</div>
+            <div class="block-content">
+              <h4>Broadway show</h4>
+              <p>Book ahead for a specific show, or line up at the TKTS booth for same-day discounts.</p>
+              <span class="travel-badge">🚶 Theater District</span>
+            </div>
+          </div>
+        </div></div>
+      </div>
+
+      <div class="day-item reveal">
+        <button class="day-header">
+          <span class="day-number">2</span>
+          <span class="day-header-text"><h3>Downtown &amp; the Statue of Liberty</h3><span>A free ferry view, then bridges and skyline</span></span>
+          <span class="day-chevron">⌄</span>
+        </button>
+        <div class="day-body"><div class="day-body-inner">
+          <div class="day-photo"><img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Front_view_of_Statue_of_Liberty_%28cropped%29.jpg/960px-Front_view_of_Statue_of_Liberty_%28cropped%29.jpg" alt="Statue of Liberty, New York" loading="lazy" decoding="async"></div>
+          <div class="block"><div class="block-time">Morning</div><div class="block-content"><h4>Staten Island Ferry</h4><p>Free, and it sails right past the Statue of Liberty — no ticket needed for the view.</p><span class="travel-badge">⛴️ free ferry, ~25 min each way</span></div></div>
+          <div class="block"><div class="block-time">Afternoon</div><div class="block-content"><h4>Brooklyn Bridge walk &amp; DUMBO</h4><p>Walk the bridge into Brooklyn for the classic skyline photo spot at DUMBO.</p><span class="travel-badge">🚶 ~40 min bridge walk</span></div></div>
+          <div class="block"><div class="block-time">Evening</div><div class="block-content"><h4>Rooftop sunset &amp; departure</h4><p>One last skyline view before heading to the airport.</p><span class="travel-badge">🚕 to JFK/LGA/EWR</span></div></div>
+        </div></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ===== TAB: NEED TO KNOW ===== -->
+  <div class="tab-panel" id="panel-culture">
+    <div class="culture-grid stagger">
+      <div class="culture-card reveal">
+        <h3><span class="ic">💵</span> Tipping Etiquette</h3>
+        <ul>
+          <li>18–20% is standard at sit-down restaurants — check if it's already added for large groups.</li>
+          <li>$1–2 per drink at bars, $2–5 for hotel bellhops/housekeeping.</li>
+          <li>No tipping expected at fast-casual counters.</li>
+        </ul>
+      </div>
+      <div class="culture-card reveal">
+        <h3><span class="ic">👟</span> Dress Code</h3>
+        <ul>
+          <li>Casual is the norm everywhere, including most restaurants.</li>
+          <li>Comfortable shoes matter — you'll likely walk 8-10 miles a day.</li>
+          <li>Smart-casual for a Broadway show or a nicer dinner reservation.</li>
+        </ul>
+      </div>
+      <div class="culture-card reveal">
+        <h3><span class="ic">🚇</span> Transit Nuances</h3>
+        <ul>
+          <li>Tap a contactless card or phone directly at the subway turnstile (OMNY) — no need for a MetroCard anymore.</li>
+          <li>The subway runs 24/7, though service changes on weekends are common.</li>
+          <li>Yellow cabs and rideshare apps both work well; traffic makes the subway faster at rush hour.</li>
+        </ul>
+      </div>
+      <div class="culture-card warning reveal">
+        <h3><span class="ic">⚠️</span> Safety Notes</h3>
+        <ul>
+          <li>NYC is generally safe for tourists in central areas — standard city awareness applies.</li>
+          <li>Avoid empty subway cars late at night; ride in cars with other passengers.</li>
+          <li>Only use official yellow cabs or licensed rideshare apps, never unmarked "gypsy cabs" at the airport.</li>
+        </ul>
+      </div>
+      <div class="culture-card reveal">
+        <h3><span class="ic">🗣️</span> Good to Know</h3>
+        <ul>
+          <li>English-speaking — no language barrier to plan around.</li>
+          <li><strong>OMNY</strong> — the tap-to-pay subway/bus fare system.</li>
+          <li><strong>TKTS booth</strong> — same-day discount Broadway tickets in Times Square.</li>
+        </ul>
+      </div>
+      <div class="culture-card reveal">
+        <h3><span class="ic">💳</span> Money &amp; Payments</h3>
+        <ul>
+          <li>Cards and tap-to-pay accepted virtually everywhere, minimal cash needed.</li>
+          <li>Sales tax (around 8.875%) is added at checkout, not included in listed prices.</li>
+          <li>ATMs are everywhere, though bank ones avoid extra withdrawal fees.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== TAB: PACKING ===== -->
+  <div class="tab-panel" id="panel-packing">
+    <div class="packing-progress-bar">
+      <span class="progress-label" id="progressLabel">0 / 10 packed</span>
+      <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+    <div class="packing-grid stagger" id="packingGrid">
+      <div class="packing-category reveal">
+        <h3>👕 Clothing (Variable city weather)</h3>
+        <label class="packing-item"><input type="checkbox"><span>Very comfortable walking shoes</span></label>
+        <label class="packing-item"><input type="checkbox"><span>Layers for changing temperatures</span></label>
+        <label class="packing-item"><input type="checkbox"><span>One smart-casual outfit for a show or dinner</span></label>
+      </div>
+      <div class="packing-category reveal">
+        <h3>🔌 Tech &amp; Documents</h3>
+        <label class="packing-item"><input type="checkbox"><span>Contactless card or phone wallet set up for OMNY</span></label>
+        <label class="packing-item"><input type="checkbox"><span>Portable charger for long touring days</span></label>
+        <label class="packing-item"><input type="checkbox"><span>Show/museum tickets saved offline</span></label>
+      </div>
+      <div class="packing-category reveal">
+        <h3>🧴 Health &amp; Toiletries</h3>
+        <label class="packing-item"><input type="checkbox"><span>Blister plasters</span></label>
+        <label class="packing-item"><input type="checkbox"><span>Travel-size sunscreen</span></label>
+      </div>
+      <div class="packing-category reveal">
+        <h3>🎒 Gear &amp; Extras</h3>
+        <label class="packing-item"><input type="checkbox"><span>Crossbody bag</span></label>
+        <label class="packing-item"><input type="checkbox"><span>Compact umbrella</span></label>
+      </div>
+    </div>
+    <div class="packing-actions">
+      <button class="btn btn-primary" id="downloadPacking">⬇ Download Printable PDF</button>
+    </div>
+  </div>
+
+  <!-- ===== TAB: INSIDER TRICKS ===== -->
+  <div class="tab-panel" id="panel-tricks">
+    <div class="tricks-grid stagger">
+      <div class="trick-card reveal">
+        <h3>💰 Money-Saving Hacks</h3>
+        <div class="trick-item"><div class="trick-icon">⛴️</div><div><h4>Staten Island Ferry</h4><p>Free, and it sails right past the Statue of Liberty — no need to book the paid ferry to the island itself.</p></div></div>
+        <div class="trick-item"><div class="trick-icon">🎟️</div><div><h4>TKTS booth</h4><p>Same-day Broadway tickets at 20-50% off face value.</p></div></div>
+        <div class="trick-item"><div class="trick-icon">🎫</div><div><h4>City attraction passes</h4><p>Worth it if you're hitting 3+ paid sights — compare CityPASS and New York Pass options first.</p></div></div>
+      </div>
+      <div class="trick-card reveal">
+        <h3>📸 Off-the-Beaten-Path Secrets</h3>
+        <div class="trick-item"><div class="trick-icon">🌳</div><div><h4>The High Line</h4><p>An elevated park built on an old rail line — a quieter, greener way to cross the West Side.</p></div></div>
+        <div class="trick-item"><div class="trick-icon">🌉</div><div><h4>DUMBO over the Brooklyn Bridge itself</h4><p>The classic skyline photo spot, with far less foot traffic than the bridge walkway at peak hours.</p></div></div>
+        <div class="trick-item"><div class="trick-icon">🚡</div><div><h4>Roosevelt Island Tram</h4><p>A cheap aerial cable car with skyline views most visitors never think to ride.</p></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ RELATED TRIPS ============ -->
+<section class="related-trips">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">More weekend getaways</p>
+      <h2>Other short trips worth the flight</h2>
+    </div>
+    <div class="related-grid stagger">
+      <a class="related-card reveal" href="paris.html">
+        <img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Tour_Eiffel_Wikimedia_Commons.jpg/500px-Tour_Eiffel_Wikimedia_Commons.jpg" alt="Eiffel Tower, Paris" loading="lazy" decoding="async">
+        <span>A Perfect Long Weekend in Paris</span>
+      </a>
+      <a class="related-card reveal" href="barcelona.html">
+        <img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/SF_maig_2_cropped.jpg/500px-SF_maig_2_cropped.jpg" alt="Sagrada Família, Barcelona" loading="lazy" decoding="async">
+        <span>3 Days in Barcelona</span>
+      </a>
+      <a class="related-card reveal" href="banff.html">
+        <img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Moraine_Lake_17092005.jpg/500px-Moraine_Lake_17092005.jpg" alt="Moraine Lake, Banff National Park" loading="lazy" decoding="async">
+        <span>A Luxury Week in Banff &amp; Lake Louise</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo"><span class="logo-mark">W</span> WanderList</a>
+        <p>End-to-end itineraries so you spend less time researching and more time traveling.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="browse.html">Browse Destinations</a></li>
+          <li><a href="index.html#browse">Featured Itineraries</a></li>
+          <li><a href="itinerary.html#packing">Packing Guides</a></li>
+          <li><a href="itinerary.html#culture">Culture Tips</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="how-it-works.html">How It Works</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="contact.html">Careers</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 WanderList. All rights reserved.</span>
+      <div class="social-icons">
+        <a href="#" aria-label="Instagram">📷</a>
+        <a href="#" aria-label="Pinterest">📌</a>
+        <a href="#" aria-label="X">✕</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

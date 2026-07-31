@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WanderList — Your Perfect 7-Day Trip, Fully Unlocked</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<meta name="description" content="Skip 20 hours of trip research. WanderList gives you complete, ready-to-go travel itineraries — day-by-day plans, culture guides, packing lists, and insider tips for every destination.">
+<link rel="canonical" href="https://www.wanderlist.example/index.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WanderList">
+<meta property="og:title" content="WanderList — Your Perfect 7-Day Trip, Fully Unlocked">
+<meta property="og:description" content="Skip 20 hours of trip research. WanderList gives you complete, ready-to-go travel itineraries — day-by-day plans, culture guides, packing lists, and insider tips for every destination.">
+<meta property="og:url" content="https://www.wanderlist.example/index.html">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Mountain-sunset_view_from_Telluride_%28highsm.35833%29.jpg/1200px-Mountain-sunset_view_from_Telluride_%28highsm.35833%29.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="WanderList — Your Perfect 7-Day Trip, Fully Unlocked">
+<meta name="twitter:description" content="Skip 20 hours of trip research. WanderList gives you complete, ready-to-go travel itineraries — day-by-day plans, culture guides, packing lists, and insider tips for every destination.">
+<meta name="twitter:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Mountain-sunset_view_from_Telluride_%28highsm.35833%29.jpg/1200px-Mountain-sunset_view_from_Telluride_%28highsm.35833%29.jpg">
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="container nav">
+    <a href="index.html" class="logo">
+      <span class="logo-mark">W</span> WanderList
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="browse.html" class="active">Browse Destinations</a>
+      <a href="itinerary.html#packing">Packing Guides</a>
+      <a href="itinerary.html#culture">Culture Tips</a>
+      <a href="itinerary.html" class="btn btn-secondary btn-sm mobile-cta">View Sample Trip</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="saved-trips.html" class="icon-btn" title="Saved Trips" aria-label="Saved Trips">♥</a>
+      <a href="itinerary.html" class="btn btn-secondary btn-sm">View Sample Trip</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="container hero-content">
+    <p class="eyebrow">Curated end-to-end trip planning</p>
+    <h1>Your Perfect 7-Day Trip, <span>Fully Unlocked.</span></h1>
+    <p class="lead">Skip the 20 hours of tab-hopping. Get a complete week-long itinerary — where to go, what to pack, and how to navigate local customs — all in one guide.</p>
+
+    <form class="search-bar" id="searchForm">
+      <div class="search-field">
+        <label for="destInput">Destination</label>
+        <input type="text" id="destInput" placeholder="Tokyo, Amalfi Coast, Utah…">
+      </div>
+      <div class="search-field">
+        <label for="styleInput">Travel Style</label>
+        <select id="styleInput">
+          <option value="">Any style</option>
+          <option>Budget Backpacking</option>
+          <option>Cultural Immersion</option>
+          <option>Luxury Getaway</option>
+          <option>Road Trip</option>
+          <option>Hidden Gems</option>
+        </select>
+      </div>
+      <div class="search-field">
+        <label for="durationInput">Duration</label>
+        <select id="durationInput">
+          <option>7 Days</option>
+          <option>5 Days</option>
+          <option>10 Days</option>
+          <option>14 Days</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary">Find My Trip</button>
+    </form>
+
+    <div class="hero-stats" id="heroStats">
+      <div><strong data-count-to="180" data-suffix="+">0</strong><span>Curated itineraries</span></div>
+      <div><strong data-count-to="65">0</strong><span>Destinations covered</span></div>
+      <div><strong data-count-to="4.9" data-suffix="★">0</strong><span>Avg. traveler rating</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CATEGORIES ============ -->
+<section id="browse">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Explore by travel style</p>
+      <h2>Find the trip that fits your vibe</h2>
+      <p>Every itinerary is grouped by travel style, so you only browse what actually matches how you like to travel.</p>
+    </div>
+    <div class="category-grid stagger" id="categoryGrid">
+      <a class="category-card photo ph-1 active reveal" href="browse.html" data-cat="all">
+        <img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Skyscrapers_of_Shinjuku_2009_January.jpg/500px-Skyscrapers_of_Shinjuku_2009_January.jpg" alt="Tokyo skyline at dusk" loading="lazy" decoding="async">
+        <span class="category-icon">🌍</span>
+        <h3>All Itineraries</h3>
+        <span class="count">9 trips</span>
+      </a>
+      <a class="category-card photo ph-2 reveal" href="browse.html?style=budget" data-cat="budget">
+        <img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Hiking_to_the_Ice_Lakes._San_Juan_National_Forest%2C_Colorado.jpg/500px-Hiking_to_the_Ice_Lakes._San_Juan_National_Forest%2C_Colorado.jpg" alt="Backpacker hiking a mountain trail" loading="lazy" decoding="async">
+        <span class="category-icon">🎒</span>
+        <h3>Budget Backpacking</h3>
+        <span class="count">1 trip</span>
+      </a>
+      <a class="category-card photo ph-3 reveal" href="browse.html?style=culture" data-cat="culture">
+        <img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Sensoji_2023.jpg/500px-Sensoji_2023.jpg" alt="Senso-ji Temple in Asakusa, Tokyo" loading="lazy" decoding="async">
+        <span class="category-icon">🏯</span>
+        <h3>Cultural Immersion</h3>
+        <span class="count">2 trips</span>
+      </a>
+      <a class="category-card photo ph-4 reveal" href="browse.html?style=luxury" data-cat="luxury">
+        <img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Pyramid_resort_jasper.JPG/500px-Pyramid_resort_jasper.JPG" alt="Lakeside luxury resort lodge" loading="lazy" decoding="async">
+        <span class="category-icon">🥂</span>
+        <h3>Luxury Getaways</h3>
+        <span class="count">1 trip</span>
+      </a>
+      <a class="category-card photo ph-5 reveal" href="browse.html?style=road-trip" data-cat="roadtrip">
+        <img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/NM_124_and_US_66_WB_near_Budville_NM.jpg/500px-NM_124_and_US_66_WB_near_Budville_NM.jpg" alt="Open highway road trip through New Mexico" loading="lazy" decoding="async">
+        <span class="category-icon">🚙</span>
+        <h3>Road Trips</h3>
+        <span class="count">1 trip</span>
+      </a>
+      <a class="category-card photo ph-6 reveal" href="browse.html?style=hidden-gems" data-cat="hidden">
+        <img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Arashiyama%2C_Part_II_-_Arashiyama7534.jpg/500px-Arashiyama%2C_Part_II_-_Arashiyama7534.jpg" alt="Arashiyama bamboo grove, Kyoto" loading="lazy" decoding="async">
+        <span class="category-icon">💎</span>
+        <h3>Hidden Gems</h3>
+        <span class="count">1 trip</span>
+      </a>
+      <a class="category-card photo ph-2 reveal" href="browse.html?style=wellness" data-cat="wellness">
+        <img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/TanahLot_2014.JPG/500px-TanahLot_2014.JPG" alt="Tanah Lot sea temple, Bali" loading="lazy" decoding="async">
+        <span class="category-icon">🧘</span>
+        <h3>Wellness &amp; Solo</h3>
+        <span class="count">1 trip</span>
+      </a>
+      <a class="category-card photo ph-4 reveal" href="browse.html?style=weekend" data-cat="weekend">
+        <img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Tour_Eiffel_Wikimedia_Commons.jpg/500px-Tour_Eiffel_Wikimedia_Commons.jpg" alt="Eiffel Tower, Paris" loading="lazy" decoding="async">
+        <span class="category-icon">⏱️</span>
+        <h3>Weekend Getaways</h3>
+        <span class="count">3 trips</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FEATURED CAROUSEL ============ -->
+<section>
+  <div class="container">
+    <div class="carousel-head">
+      <div class="section-head reveal">
+        <p class="eyebrow">Handpicked for you</p>
+        <h2>Featured itineraries</h2>
+      </div>
+      <div class="carousel-controls">
+        <button id="carouselPrev" aria-label="Previous" disabled>←</button>
+        <button id="carouselNext" aria-label="Next">→</button>
+      </div>
+    </div>
+
+    <div class="carousel-track" id="carouselTrack">
+      <article class="trip-card reveal">
+        <div class="photo ph-2" style="height:190px;">
+          <img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Amalfi_Coast_%28Italy%2C_October_2020%29_-_75_%2850558355441%29.jpg/500px-Amalfi_Coast_%28Italy%2C_October_2020%29_-_75_%2850558355441%29.jpg" alt="Cliffside villages along the Amalfi Coast, Italy" loading="lazy" decoding="async">
+          <span class="photo-label">Amalfi Coast, Italy</span>
+        </div>
+        <div class="trip-card-body">
+          <div class="trip-tags"><span class="tag terracotta">Budget</span><span class="tag">7 Days</span></div>
+          <h3>7 Days in Amalfi Coast on a Budget</h3>
+          <p style="font-size:.88rem;color:var(--charcoal-soft)">Cliffside villages, ferry-hopping, and the best €10 lunches on the coast.</p>
+          <div class="trip-meta"><span class="cost">$$ · ~$900/person</span><a href="amalfi-coast.html" class="btn btn-outline btn-sm">View Trip</a></div>
+        </div>
+      </article>
+      <article class="trip-card reveal">
+        <div class="photo ph-4" style="height:190px;">
+          <img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Kyoto%2C_Japan_%2849667780482%29.jpg/500px-Kyoto%2C_Japan_%2849667780482%29.jpg" alt="Kyoto cityscape, Japan" loading="lazy" decoding="async">
+          <span class="photo-label">Tokyo & Kyoto, Japan</span>
+        </div>
+        <div class="trip-card-body">
+          <div class="trip-tags"><span class="tag terracotta">Hidden Gems</span><span class="tag">7 Days</span></div>
+          <h3>A Week of Hidden Gems in Tokyo & Kyoto</h3>
+          <p style="font-size:.88rem;color:var(--charcoal-soft)">Temple mornings, izakaya nights, and neighborhoods most guides skip.</p>
+          <div class="trip-meta"><span class="cost">$$$ · ~$1,650/person</span><a href="itinerary.html" class="btn btn-outline btn-sm">View Trip</a></div>
+        </div>
+      </article>
+      <article class="trip-card reveal">
+        <div class="photo ph-5" style="height:190px;">
+          <img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Delicate_arch_sunset.jpg/500px-Delicate_arch_sunset.jpg" alt="Delicate Arch at sunset, Arches National Park, Utah" loading="lazy" decoding="async">
+          <span class="photo-label">Utah National Parks, USA</span>
+        </div>
+        <div class="trip-card-body">
+          <div class="trip-tags"><span class="tag terracotta">Road Trip</span><span class="tag">7 Days</span></div>
+          <h3>Ultimate Road Trip Through Utah's National Parks</h3>
+          <p style="font-size:.88rem;color:var(--charcoal-soft)">Zion, Bryce, Arches and Canyonlands — mapped mile by mile.</p>
+          <div class="trip-meta"><span class="cost">$$ · ~$1,100/person</span><a href="utah-national-parks.html" class="btn btn-outline btn-sm">View Trip</a></div>
+        </div>
+      </article>
+      <article class="trip-card reveal">
+        <div class="photo ph-6" style="height:190px;">
+          <img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Lisboa_-_Portugal_%2852597836992%29.jpg/500px-Lisboa_-_Portugal_%2852597836992%29.jpg" alt="Lisbon skyline, Portugal" loading="lazy" decoding="async">
+          <span class="photo-label">Lisbon, Portugal</span>
+        </div>
+        <div class="trip-card-body">
+          <div class="trip-tags"><span class="tag terracotta">Culture</span><span class="tag">7 Days</span></div>
+          <h3>7 Days of Lisbon Local Highlights</h3>
+          <p style="font-size:.88rem;color:var(--charcoal-soft)">Tram routes, fado bars, and the pastel de nata worth the walk.</p>
+          <div class="trip-meta"><span class="cost">$$ · ~$700/person</span><a href="lisbon.html" class="btn btn-outline btn-sm">View Trip</a></div>
+        </div>
+      </article>
+      <article class="trip-card reveal">
+        <div class="photo ph-1" style="height:190px;">
+          <img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Moraine_Lake_17092005.jpg/500px-Moraine_Lake_17092005.jpg" alt="Moraine Lake, Banff National Park, Canada" loading="lazy" decoding="async">
+          <span class="photo-label">Banff, Canada</span>
+        </div>
+        <div class="trip-card-body">
+          <div class="trip-tags"><span class="tag terracotta">Luxury</span><span class="tag">7 Days</span></div>
+          <h3>A Luxury Week in Banff & Lake Louise</h3>
+          <p style="font-size:.88rem;color:var(--charcoal-soft)">Alpine lodges, glacier-fed lakes, and turquoise water at every turn.</p>
+          <div class="trip-meta"><span class="cost">$$$ · ~$2,400/person</span><a href="banff.html" class="btn btn-outline btn-sm">View Trip</a></div>
+        </div>
+      </article>
+      <article class="trip-card reveal">
+        <div class="photo ph-3" style="height:190px;">
+          <img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/TanahLot_2014.JPG/500px-TanahLot_2014.JPG" alt="Tanah Lot sea temple, Bali, Indonesia" loading="lazy" decoding="async">
+          <span class="photo-label">Bali, Indonesia</span>
+        </div>
+        <div class="trip-card-body">
+          <div class="trip-tags"><span class="tag terracotta">Wellness</span><span class="tag">7 Days</span></div>
+          <h3>A Week of Wellness & Solo Discovery in Bali</h3>
+          <p style="font-size:.88rem;color:var(--charcoal-soft)">Rice terraces, clifftop temples, and a pace slow enough to unwind.</p>
+          <div class="trip-meta"><span class="cost">$$ · ~$850/person</span><a href="bali.html" class="btn btn-outline btn-sm">View Trip</a></div>
+        </div>
+      </article>
+      <article class="trip-card reveal">
+        <div class="photo ph-4" style="height:190px;">
+          <img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Tour_Eiffel_Wikimedia_Commons.jpg/500px-Tour_Eiffel_Wikimedia_Commons.jpg" alt="Eiffel Tower, Paris, France" loading="lazy" decoding="async">
+          <span class="photo-label">Paris, France</span>
+        </div>
+        <div class="trip-card-body">
+          <div class="trip-tags"><span class="tag terracotta">Weekend Getaway</span><span class="tag">3 Days</span></div>
+          <h3>A Perfect Long Weekend in Paris</h3>
+          <p style="font-size:.88rem;color:var(--charcoal-soft)">The Eiffel Tower, the Louvre, and Montmartre sunsets in one tight trip.</p>
+          <div class="trip-meta"><span class="cost">$$ · ~$650/person</span><a href="paris.html" class="btn btn-outline btn-sm">View Trip</a></div>
+        </div>
+      </article>
+      <article class="trip-card reveal">
+        <div class="photo ph-5" style="height:190px;">
+          <img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Brooklyn_Bridge_and_the_Lower_Manhattan_skyline_from_Pebble_Beach%2C_New_York.jpg/500px-Brooklyn_Bridge_and_the_Lower_Manhattan_skyline_from_Pebble_Beach%2C_New_York.jpg" alt="Brooklyn Bridge and Manhattan skyline, New York City" loading="lazy" decoding="async">
+          <span class="photo-label">New York City, USA</span>
+        </div>
+        <div class="trip-card-body">
+          <div class="trip-tags"><span class="tag terracotta">Weekend Getaway</span><span class="tag">2 Days</span></div>
+          <h3>48 Hours in New York City</h3>
+          <p style="font-size:.88rem;color:var(--charcoal-soft)">Times Square, Central Park, and a free view of the Statue of Liberty.</p>
+          <div class="trip-meta"><span class="cost">$$$ · ~$750/person</span><a href="new-york-city.html" class="btn btn-outline btn-sm">View Trip</a></div>
+        </div>
+      </article>
+      <article class="trip-card reveal">
+        <div class="photo ph-6" style="height:190px;">
+          <img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/SF_maig_2_cropped.jpg/500px-SF_maig_2_cropped.jpg" alt="Sagrada Família, Barcelona, Spain" loading="lazy" decoding="async">
+          <span class="photo-label">Barcelona, Spain</span>
+        </div>
+        <div class="trip-card-body">
+          <div class="trip-tags"><span class="tag terracotta">Weekend Getaway</span><span class="tag">3 Days</span></div>
+          <h3>3 Days in Barcelona</h3>
+          <p style="font-size:.88rem;color:var(--charcoal-soft)">Gaudí's rooftops, Gothic Quarter alleys, and a beach afternoon.</p>
+          <div class="trip-meta"><span class="cost">$$ · ~$600/person</span><a href="barcelona.html" class="btn btn-outline btn-sm">View Trip</a></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3D GLOBE ============ -->
+<section class="globe-section">
+  <div class="container globe-layout">
+    <div class="globe-visual reveal">
+      <div id="globeCanvas" class="globe-canvas"></div>
+    </div>
+    <div class="globe-copy reveal">
+      <p class="eyebrow">Everywhere we guide you</p>
+      <h2>One planet, one guide at a time.</h2>
+      <p>Drag the globe or click a pin to jump straight into that trip.</p>
+      <ul class="globe-dest-list">
+        <li><a href="itinerary.html"><span class="dot"></span>Tokyo &amp; Kyoto, Japan</a></li>
+        <li><a href="amalfi-coast.html"><span class="dot"></span>Amalfi Coast, Italy</a></li>
+        <li><a href="utah-national-parks.html"><span class="dot"></span>Utah, USA</a></li>
+        <li><a href="lisbon.html"><span class="dot"></span>Lisbon, Portugal</a></li>
+        <li><a href="banff.html"><span class="dot"></span>Banff, Canada</a></li>
+        <li><a href="bali.html"><span class="dot"></span>Bali, Indonesia</a></li>
+        <li><a href="paris.html"><span class="dot"></span>Paris, France</a></li>
+        <li><a href="new-york-city.html"><span class="dot"></span>New York City, USA</a></li>
+        <li><a href="barcelona.html"><span class="dot"></span>Barcelona, Spain</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="value-props">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Why WanderList</p>
+      <h2>Everything you need. Nothing you have to research.</h2>
+      <p>One guide, four things sorted — so all that's left to do is go.</p>
+    </div>
+    <div class="value-grid stagger">
+      <div class="value-card reveal">
+        <div class="value-icon">🗓️</div>
+        <h3>Curated 7-Day Plans</h3>
+        <p>Day-by-day timelines with morning, afternoon, and evening plans, plus travel time between every stop.</p>
+      </div>
+      <div class="value-card reveal">
+        <div class="value-icon">🤝</div>
+        <h3>Cultural Etiquette & Local Laws</h3>
+        <p>Tipping norms, dress codes, transit rules, and scam warnings specific to your destination.</p>
+      </div>
+      <div class="value-card reveal">
+        <div class="value-icon">🎒</div>
+        <h3>Destination-Specific Packing Lists</h3>
+        <p>Season- and terrain-aware checklists — plug adapters, voltage, hiking gear vs. city wear.</p>
+      </div>
+      <div class="value-card reveal">
+        <div class="value-icon">🔑</div>
+        <h3>Pro Insider Hacks</h3>
+        <p>Skip-the-line tricks, city travel passes, and the sunset spot only locals know about.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section>
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Loved by travelers</p>
+      <h2>What people say after they've gone.</h2>
+    </div>
+    <div class="testimonial-grid stagger">
+      <div class="testimonial-card reveal">
+        <div class="testimonial-stars">★★★★★</div>
+        <p>"We used the Amalfi guide almost word for word — the Path of the Gods hike alone was worth the whole trip. Having real travel times between towns saved us from missing the last ferry twice."</p>
+        <div class="testimonial-author">
+          <span class="testimonial-avatar" style="background:var(--emerald)">R</span>
+          <div><strong>Rania K.</strong><span>Amalfi Coast, 7 Days</span></div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal">
+        <div class="testimonial-stars">★★★★★</div>
+        <p>"First trip to Japan alone and the culture tab genuinely made me less anxious about getting something wrong. The packing list called out the exact plug adapter I needed — small thing, huge relief."</p>
+        <div class="testimonial-author">
+          <span class="testimonial-avatar" style="background:var(--mint-dark)">D</span>
+          <div><strong>Daniel M.</strong><span>Tokyo &amp; Kyoto, 7 Days</span></div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal">
+        <div class="testimonial-stars">★★★★★</div>
+        <p>"Did the Utah road trip with three friends and not one argument about the route. The insider tips sent us to Dead Horse Point instead of the crowded overlook — best decision of the trip."</p>
+        <div class="testimonial-author">
+          <span class="testimonial-avatar" style="background:var(--emerald-dark)">S</span>
+          <div><strong>Sofia L.</strong><span>Utah National Parks, 7 Days</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NEWSLETTER ============ -->
+<section>
+  <div class="container">
+    <div class="newsletter reveal">
+      <h2>Get weekly hidden-gem itineraries sent to your inbox.</h2>
+      <p>No spam — just one new trip guide a week, picked by our editors.</p>
+      <form class="newsletter-form" id="newsletterForm">
+        <input type="email" placeholder="you@email.com" required>
+        <button type="submit">Subscribe</button>
+      </form>
+      <p class="form-success" id="formSuccess">✓ You're in! Check your inbox for a confirmation email.</p>
+      <p class="newsletter-note">Free forever. Unsubscribe anytime.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo"><span class="logo-mark">W</span> WanderList</a>
+        <p>End-to-end 7-day itineraries so you spend less time researching and more time traveling.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="browse.html">Browse Destinations</a></li>
+          <li><a href="index.html#browse">Featured Itineraries</a></li>
+          <li><a href="itinerary.html#packing">Packing Guides</a></li>
+          <li><a href="itinerary.html#culture">Culture Tips</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="how-it-works.html">How It Works</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="contact.html">Careers</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 WanderList. All rights reserved.</span>
+      <div class="social-icons">
+        <a href="#" aria-label="Instagram">📷</a>
+        <a href="#" aria-label="Pinterest">📌</a>
+        <a href="#" aria-label="X">✕</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script type="module" src="js/globe.js"></script>
+</body>
+</html>

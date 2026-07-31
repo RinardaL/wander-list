@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>7 Days of Lisbon Local Highlights — WanderList</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<meta name="description" content="A 7-day Lisbon itinerary covering Alfama, Belém, Sintra, and the Tram 28 route — with local etiquette tips and a packing checklist for a European city trip.">
+<link rel="canonical" href="https://www.wanderlist.example/lisbon.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="WanderList">
+<meta property="og:title" content="7 Days of Lisbon Local Highlights — WanderList">
+<meta property="og:description" content="A 7-day Lisbon itinerary covering Alfama, Belém, Sintra, and the Tram 28 route — with local etiquette tips and a packing checklist for a European city trip.">
+<meta property="og:url" content="https://www.wanderlist.example/lisbon.html">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Bel%C3%A9m_Tower_in_Lisbon%2C_Portugal.jpg/1200px-Bel%C3%A9m_Tower_in_Lisbon%2C_Portugal.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="7 Days of Lisbon Local Highlights — WanderList">
+<meta name="twitter:description" content="A 7-day Lisbon itinerary covering Alfama, Belém, Sintra, and the Tram 28 route — with local etiquette tips and a packing checklist for a European city trip.">
+<meta name="twitter:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Bel%C3%A9m_Tower_in_Lisbon%2C_Portugal.jpg/1200px-Bel%C3%A9m_Tower_in_Lisbon%2C_Portugal.jpg">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.wanderlist.example/index.html"},{"@type":"ListItem","position":2,"name":"Culture","item":"https://www.wanderlist.example/browse.html?style=culture"},{"@type":"ListItem","position":3,"name":"7 Days of Lisbon Local Highlights"}]}</script>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="container nav">
+    <a href="index.html" class="logo">
+      <span class="logo-mark">W</span> WanderList
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="browse.html">Browse Destinations</a>
+      <a href="lisbon.html#packing" data-tab="packing">Packing Guides</a>
+      <a href="lisbon.html#culture" data-tab="culture">Culture Tips</a>
+      <a href="index.html" class="btn btn-secondary btn-sm mobile-cta">Browse More Trips</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="saved-trips.html" class="icon-btn" title="Saved Trips" aria-label="Saved Trips">♥</a>
+      <a href="index.html" class="btn btn-secondary btn-sm">Browse More Trips</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="container breadcrumb">
+  <a href="index.html">Home</a> / <a href="browse.html?style=culture">Culture</a> / 7 Days of Lisbon Local Highlights
+</div>
+
+<!-- ============ ITINERARY HERO ============ -->
+<section class="itinerary-hero">
+  <div class="container">
+    <div class="itinerary-cover photo ph-6">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Bel%C3%A9m_Tower_in_Lisbon%2C_Portugal.jpg/1920px-Bel%C3%A9m_Tower_in_Lisbon%2C_Portugal.jpg" alt="Belém Tower, Lisbon, Portugal" loading="eager" decoding="async">
+      <div class="itinerary-cover-content">
+        <div class="trip-tags">
+          <span class="tag">Culture</span>
+          <span class="tag">European Break</span>
+          <span class="tag">7 Days</span>
+        </div>
+        <h1>7 Days of Lisbon Local Highlights</h1>
+        <p>Tram routes, fado bars, and the pastel de nata worth the walk — a full week built around how Lisbon actually lives, not just its postcard spots.</p>
+      </div>
+    </div>
+
+    <div class="itinerary-meta-bar">
+      <div class="meta-item"><span class="label">Ideal Season</span><span class="value">Mar – May, Sep</span></div>
+      <div class="meta-item"><span class="label">Est. Budget</span><span class="value">$$ · ~$700</span></div>
+      <div class="meta-item"><span class="label">Duration</span><span class="value">7 Days</span></div>
+      <div class="meta-item"><span class="label">Pace</span><span class="value">Relaxed</span></div>
+      <div class="meta-actions">
+        <button class="btn btn-outline btn-sm" id="saveBtn">♥ Save Trip</button>
+        <button class="btn btn-primary btn-sm" id="printBtn">⬇ Export PDF</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TABS ============ -->
+<div class="container">
+  <nav class="tab-nav" id="tabNav">
+    <button class="tab-btn active" data-tab="days">Day-by-Day</button>
+    <button class="tab-btn" data-tab="culture">Need to Know</button>
+    <button class="tab-btn" data-tab="packing">Packing Checklist</button>
+    <button class="tab-btn" data-tab="tricks">Insider Tricks &amp; Hacks</button>
+    <span class="tab-indicator" id="tabIndicator"></span>
+  </nav>
+
+  <!-- ===== TAB: DAY BY DAY ===== -->
+  <div class="tab-panel active" id="panel-days">
+    <div class="day-list stagger" id="dayList">
+
+      <div class="day-item open reveal">
+        <button class="day-header">
+          <span class="day-number">1</span>
+          <span class="day-header-text"><h3>Arrival &amp; Baixa Orientation</h3><span>Land, settle in, get a feel for the grid streets</span></span>
+          <span class="day-chevron">⌄</span>
+        </button>
+        <div class="day-body"><div class="day-body-inner">
+          <div class="day-photo"><img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Commerce_Square.jpg/960px-Commerce_Square.jpg" alt="Praça do Comércio, Lisbon" loading="lazy" decoding="async"></div>
+          <div class="block">
+            <div class="block-time">Morning</div>
+            <div class="block-content">
+              <h4>Arrive &amp; transfer into Baixa</h4>
+              <p>The metro from the airport is fast, cheap, and drops you close to most central hotels.</p>
+              <span class="travel-badge">🚇 ~25 min by metro</span>
+            </div>
+          </div>
+          <div class="block">
+            <div class="block-time">Afternoon</div>
+            <div class="block-content">
+              <h4>Praça do Comércio &amp; Rua Augusta Arch</h4>
+              <p>Lisbon's grand riverfront square, then wander the grid streets of the Baixa district.</p>
+              <span class="travel-badge">🚶 walkable city center</span>
+            </div>
+          </div>
+          <div class="block">
+            <div class="block-time">Evening</div>
+            <div class="block-content">
+              <h4>Sunset at Miradouro de Santa Catarina</h4>
+              <p>A laid-back viewpoint over the river, then dinner in Cais do Sodré.</p>
+              <span class="travel-badge">🚶 15 min walk</span>
+            </div>
+          </div>
+        </div></div>
+      </div>
+
+      <div class="day-item reveal">
+        <button class="day-header">
+          <span class="day-number">2</span>
+          <span class="day-header-text"><h3>Alfama &amp; Fado Night</h3><span>Steep lanes, a hilltop castle, and Lisbon's soulful music</span></span>
+          <span class="day-chevron">⌄</span>
+        </button>
+        <div class="day-body"><div class="day-body-inner">
+          <div class="day-photo"><img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Lisbon_alfalma.jpg/960px-Lisbon_alfalma.jpg" alt="Alfama district, Lisbon" loading="lazy" decoding="async"></div>
+          <div class="block"><div class="block-time">Morning</div><div class="block-content"><h4>Wander Alfama's lanes &amp; São Jorge Castle</h4><p>Lisbon's oldest neighborhood — get lost on purpose, then climb to the castle for the city's best rooftop view.</p><span class="travel-badge">🚶 steep, uneven streets</span></div></div>
+          <div class="block"><div class="block-time">Afternoon</div><div class="block-content"><h4>National Pantheon &amp; Feira da Ladra</h4><p>The flea market runs Tuesdays and Saturdays only — check before you plan around it.</p><span class="travel-badge">🚶 10 min from the castle</span></div></div>
+          <div class="block"><div class="block-time">Evening</div><div class="block-content"><h4>Traditional fado dinner</h4><p>A small tasca in Alfama, not a tourist-menu fado house — ask your hotel for their pick.</p><span class="travel-badge">🚶 within the neighborhood</span></div></div>
+        </div></div>
+      </div>
+
+      <div class="day-item reveal">
+        <button class="day-header">
+          <span class="day-number">3</span>
+          <span class="day-header-text"><h3>Belém: Towers, Monasteries &amp; Pastéis</h3><span>Monuments, and the original custard tart</span></span>
+          <span class="day-chevron">⌄</span>
+        </button>
+        <div class="day-body"><div class="day-body-inner">
+          <div class="day-photo"><img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Pasteis_de_Belem.jpg/960px-Pasteis_de_Belem.jpg" alt="Pastéis de Belém, the original Portuguese custard tarts" loading="lazy" decoding="async"></div>
+          <div class="block"><div class="block-time">Morning</div><div class="block-content"><h4>Jerónimos Monastery &amp; Belém Tower</h4><p>Book Jerónimos tickets online — the ticket-office queue can run over an hour in summer.</p><span class="travel-badge">🚋 ~20 min by tram</span></div></div>
+          <div class="block"><div class="block-time">Afternoon</div><div class="block-content"><h4>Pastéis de Belém, still warm</h4><p>The original bakery since 1837 — worth the line, which moves fast for takeaway.</p><span class="travel-badge">🚶 5 min from the tower</span></div></div>
+          <div class="block"><div class="block-time">Evening</div><div class="block-content"><h4>MAAT museum &amp; riverside sunset</h4><p>A modern riverside walk to close out the day.</p><span class="travel-badge">🚶 10 min riverside walk</span></div></div>
+        </div></div>
+      </div>
+
+      <div class="day-item reveal">
+        <button class="day-header">
+          <span class="day-number">4</span>
+          <span class="day-header-text"><h3>Day Trip to Sintra</h3><span>Fairy-tale palaces in the hills above the coast</span></span>
+          <span class="day-chevron">⌄</span>
+        </button>
+        <div class="day-body"><div class="day-body-inner">
+          <div class="day-photo"><img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Sintra_-_Palacio_da_Pena_%2820332995770%29_%28cropped2%29.jpg/960px-Sintra_-_Palacio_da_Pena_%2820332995770%29_%28cropped2%29.jpg" alt="Pena Palace, Sintra, Portugal" loading="lazy" decoding="async"></div>
+          <div class="block"><div class="block-time">Morning</div><div class="block-content"><h4>Early train to Sintra</h4><p>Book Pena Palace tickets ahead — the timed entry sells out on weekends.</p><span class="travel-badge">🚆 ~40 min from Rossio Station</span></div></div>
+          <div class="block"><div class="block-time">Afternoon</div><div class="block-content"><h4>Pena Palace &amp; Quinta da Regaleira</h4><p>The colorful hilltop palace, then the mysterious spiral Initiation Well.</p><span class="travel-badge">🚌 local shuttle bus between sites</span></div></div>
+          <div class="block"><div class="block-time">Evening</div><div class="block-content"><h4>Train back &amp; quiet dinner near Rossio</h4><p>Save energy — tomorrow starts with Lisbon's most famous tram ride.</p><span class="travel-badge">🚆 ~40 min back to Lisbon</span></div></div>
+        </div></div>
+      </div>
+
+      <div class="day-item reveal">
+        <button class="day-header">
+          <span class="day-number">5</span>
+          <span class="day-header-text"><h3>Tram 28 &amp; Bairro Alto</h3><span>The city's iconic yellow tram, then a night out</span></span>
+          <span class="day-chevron">⌄</span>
+        </button>
+        <div class="day-body"><div class="day-body-inner">
+          <div class="day-photo"><img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Lisbon-Day3-1_%2834184431096%29.jpg/960px-Lisbon-Day3-1_%2834184431096%29.jpg" alt="Historic yellow tram, Lisbon" loading="lazy" decoding="async"></div>
+          <div class="block"><div class="block-time">Morning</div><div class="block-content"><h4>Ride Tram 28 end to end</h4><p>Board at the terminus (Martim Moniz or Campo Ourique) to actually get a seat.</p><span class="travel-badge">🚋 ~40 min full route</span></div></div>
+          <div class="block"><div class="block-time">Afternoon</div><div class="block-content"><h4>Chiado &amp; Livraria Bertrand</h4><p>The world's oldest operating bookshop, plus Chiado's boutique shopping streets.</p><span class="travel-badge">🚶 central, walkable</span></div></div>
+          <div class="block"><div class="block-time">Evening</div><div class="block-content"><h4>Bairro Alto bar-hopping</h4><p>Grab a ginjinha shot from a hole-in-the-wall window before you start.</p><span class="travel-badge">🚶 within the neighborhood</span></div></div>
+        </div></div>
+      </div>
+
+      <div class="day-item reveal">
+        <button class="day-header">
+          <span class="day-number">6</span>
+          <span class="day-header-text"><h3>Cascais Coastal Day Trip</h3><span>A breezy seaside town along the old royal coastline</span></span>
+          <span class="day-chevron">⌄</span>
+        </button>
+        <div class="day-body"><div class="day-body-inner">
+          <div class="day-photo"><img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Cascais_-_Santa_Marta_%2853854018150%29.jpg/960px-Cascais_-_Santa_Marta_%2853854018150%29.jpg" alt="Cascais coastal town, Portugal" loading="lazy" decoding="async"></div>
+          <div class="block"><div class="block-time">Morning</div><div class="block-content"><h4>Train along the coast to Cascais</h4><p>One of Europe's most scenic commuter train rides, hugging the shoreline the whole way.</p><span class="travel-badge">🚆 ~40 min from Cais do Sodré</span></div></div>
+          <div class="block"><div class="block-time">Afternoon</div><div class="block-content"><h4>Boca do Inferno &amp; the old town marina</h4><p>A dramatic sea cave, then a relaxed walk along the beach promenade.</p><span class="travel-badge">🚶 or short taxi to the cave</span></div></div>
+          <div class="block"><div class="block-time">Evening</div><div class="block-content"><h4>Seafood dinner &amp; train back</h4><p>Cascais does excellent grilled fish at a fraction of central Lisbon prices.</p><span class="travel-badge">🚆 ~40 min back to Lisbon</span></div></div>
+        </div></div>
+      </div>
+
+      <div class="day-item reveal">
+        <button class="day-header">
+          <span class="day-number">7</span>
+          <span class="day-header-text"><h3>Markets &amp; Departure</h3><span>One last market breakfast before flying home</span></span>
+          <span class="day-chevron">⌄</span>
+        </button>
+        <div class="day-body"><div class="day-body-inner">
+          <div class="day-photo"><img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Commerce_Square.jpg/960px-Commerce_Square.jpg" alt="Praça do Comércio on a departure morning, Lisbon" loading="lazy" decoding="async"></div>
+          <div class="block"><div class="block-time">Morning</div><div class="block-content"><h4>Time Out Market breakfast</h4><p>Dozens of the city's best kitchens under one roof — go before 10am to beat the lunch rush.</p><span class="travel-badge">🚶 near Cais do Sodré</span></div></div>
+          <div class="block"><div class="block-time">Afternoon</div><div class="block-content"><h4>Last souvenir shopping in Baixa</h4><p>Or squeeze in LX Factory's converted warehouses if time allows.</p><span class="travel-badge">🚶 or short taxi to LX Factory</span></div></div>
+          <div class="block"><div class="block-time">Evening</div><div class="block-content"><h4>Transfer to the airport</h4><p>The metro runs direct from central Lisbon — no need for a taxi.</p><span class="travel-badge">🚇 ~25 min by metro</span></div></div>
+        </div></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ===== TAB: NEED TO KNOW ===== -->
+  <div class="tab-panel" id="panel-culture">
+    <div class="culture-grid stagger">
+      <div class="culture-card reveal">
+        <h3><span class="ic">💶</span> Tipping Etiquette</h3>
+        <ul>
+          <li>Not obligatory — round up or leave 5–10% at sit-down restaurants for good service.</li>
+          <li>No tipping expected at cafés, bars, or counter service.</li>
+          <li>Taxi/rideshare drivers — rounding up is common but not required.</li>
+        </ul>
+      </div>
+      <div class="culture-card reveal">
+        <h3><span class="ic">👗</span> Dress Code</h3>
+        <ul>
+          <li>Casual dress is fine everywhere, including most restaurants.</li>
+          <li>Cover shoulders to enter Jerónimos Monastery and other churches.</li>
+          <li>Comfortable shoes are essential — Lisbon's cobblestones are steep and slick when wet.</li>
+        </ul>
+      </div>
+      <div class="culture-card reveal">
+        <h3><span class="ic">🚋</span> Transit Nuances</h3>
+        <ul>
+          <li>Buy a Viva Viagem card at any metro station — it covers metro, tram, bus, and funiculars.</li>
+          <li>Tram 28 gets extremely crowded — ride at the terminus, early morning, or evening.</li>
+          <li>Pickpockets specifically target Tram 28 — keep bags zipped and in front.</li>
+        </ul>
+      </div>
+      <div class="culture-card warning reveal">
+        <h3><span class="ic">⚠️</span> Safety &amp; Scam Warnings</h3>
+        <ul>
+          <li>Politely decline "free" bracelet or rose sellers near major tourist spots — they'll ask for money after.</li>
+          <li>Use metered taxis or Uber/Bolt — both are reliable and reasonably priced.</li>
+          <li>Watch belongings closely on crowded trams and in Baixa's busy squares.</li>
+        </ul>
+      </div>
+      <div class="culture-card reveal">
+        <h3><span class="ic">🗣️</span> Crucial Phrases</h3>
+        <ul>
+          <li><strong>Bom dia</strong> — good morning / hello</li>
+          <li><strong>Obrigado / Obrigada</strong> — thank you (said by men / women respectively)</li>
+          <li><strong>A conta, por favor</strong> — the bill, please</li>
+        </ul>
+      </div>
+      <div class="culture-card reveal">
+        <h3><span class="ic">💳</span> Money &amp; Payments</h3>
+        <ul>
+          <li>Cards widely accepted, including most trams and taxis.</li>
+          <li>Small tascas and traditional markets are often cash-only — carry some euros.</li>
+          <li>ATMs (Multibanco) are everywhere in central Lisbon.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== TAB: PACKING ===== -->
+  <div class="tab-panel" id="panel-packing">
+    <div class="packing-progress-bar">
+      <span class="progress-label" id="progressLabel">0 / 16 packed</span>
+      <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+    <div class="packing-grid stagger" id="packingGrid">
+      <div class="packing-category reveal">
+        <h3>👕 Clothing (Mild spring/fall)</h3>
+        <label class="packing-item"><input type="checkbox"><span>Layerable jacket (coastal wind)</span></label>
+        <label class="packing-item"><input type="checkbox"><span>Comfortable walking shoes (cobblestones are unforgiving)</span></label>
+        <label class="packing-item"><input type="checkbox"><span>Light rain layer</span></label>
+        <label class="packing-item"><input type="checkbox"><span>One smart-casual outfit for a fado dinner</span></label>
+      </div>
+      <div class="packing-category reveal">
+        <h3>🔌 Tech &amp; Documents</h3>
+        <label class="packing-item"><input type="checkbox"><span>EU plug adapter (Type C/F, 230V)</span></label>
+        <label class="packing-item"><input type="checkbox"><span>Viva Viagem transit card (buy on arrival)</span></label>
+        <label class="packing-item"><input type="checkbox"><span>Printed Sintra train/palace tickets</span></label>
+        <label class="packing-item"><input type="checkbox"><span>Offline maps downloaded</span></label>
+      </div>
+      <div class="packing-category reveal">
+        <h3>🧴 Health &amp; Toiletries</h3>
+        <label class="packing-item"><input type="checkbox"><span>Compact umbrella</span></label>
+        <label class="packing-item"><input type="checkbox"><span>Blister plasters (cobblestones)</span></label>
+        <label class="packing-item"><input type="checkbox"><span>Reusable water bottle</span></label>
+        <label class="packing-item"><input type="checkbox"><span>Travel-size sunscreen</span></label>
+      </div>
+      <div class="packing-category reveal">
+        <h3>🎒 Gear &amp; Extras</h3>
+        <label class="packing-item"><input type="checkbox"><span>Crossbody bag with a zip (pickpocket-prone trams)</span></label>
+        <label class="packing-item"><input type="checkbox"><span>Day bag for the Sintra day trip</span></label>
+        <label class="packing-item"><input type="checkbox"><span>Portable phone charger</span></label>
+        <label class="packing-item"><input type="checkbox"><span>Reusable shopping tote for markets</span></label>
+      </div>
+    </div>
+    <div class="packing-actions">
+      <button class="btn btn-primary" id="downloadPacking">⬇ Download Printable PDF</button>
+    </div>
+  </div>
+
+  <!-- ===== TAB: INSIDER TRICKS ===== -->
+  <div class="tab-panel" id="panel-tricks">
+    <div class="tricks-grid stagger">
+      <div class="trick-card reveal">
+        <h3>💰 Money-Saving Hacks</h3>
+        <div class="trick-item"><div class="trick-icon">🎫</div><div><h4>Lisboa Card</h4><p>Covers transit plus free entry to major museums — worth it if you're hitting 3+ sights a day.</p></div></div>
+        <div class="trick-item"><div class="trick-icon">🏰</div><div><h4>Book Sintra tickets online</h4><p>Skip the ticket-office queue entirely, and prices are sometimes lower than at the gate.</p></div></div>
+        <div class="trick-item"><div class="trick-icon">🍽️</div><div><h4>Order the prato do dia</h4><p>The lunch special at neighborhood tascas — a full meal for a fraction of tourist-menu dinner prices.</p></div></div>
+      </div>
+      <div class="trick-card reveal">
+        <h3>📸 Off-the-Beaten-Path Secrets</h3>
+        <div class="trick-item"><div class="trick-icon">🌆</div><div><h4>Miradouro da Graça</h4><p>The same skyline view as the busier Portas do Sol viewpoint, with a fraction of the visitors.</p></div></div>
+        <div class="trick-item"><div class="trick-icon">☕</div><div><h4>LX Factory</h4><p>A converted industrial warehouse district full of independent cafes, bookshops, and studios.</p></div></div>
+        <div class="trick-item"><div class="trick-icon">🏖️</div><div><h4>Cascais over Sintra</h4><p>If you're short on time, Cascais gets you a full coastal day trip without Sintra's crowds or ticket lines.</p></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ RELATED TRIPS ============ -->
+<section class="related-trips">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Where to next</p>
+      <h2>More itineraries you might like</h2>
+    </div>
+    <div class="related-grid stagger">
+      <a class="related-card reveal" href="barcelona.html">
+        <img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/SF_maig_2_cropped.jpg/500px-SF_maig_2_cropped.jpg" alt="Sagrada Família, Barcelona" loading="lazy" decoding="async">
+        <span>3 Days in Barcelona</span>
+      </a>
+      <a class="related-card reveal" href="amalfi-coast.html">
+        <img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Amalfi_Coast_%28Italy%2C_October_2020%29_-_75_%2850558355441%29.jpg/500px-Amalfi_Coast_%28Italy%2C_October_2020%29_-_75_%2850558355441%29.jpg" alt="Amalfi Coast, Italy" loading="lazy" decoding="async">
+        <span>7 Days in Amalfi Coast on a Budget</span>
+      </a>
+      <a class="related-card reveal" href="paris.html">
+        <img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Tour_Eiffel_Wikimedia_Commons.jpg/500px-Tour_Eiffel_Wikimedia_Commons.jpg" alt="Eiffel Tower, Paris" loading="lazy" decoding="async">
+        <span>A Perfect Long Weekend in Paris</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo"><span class="logo-mark">W</span> WanderList</a>
+        <p>End-to-end 7-day itineraries so you spend less time researching and more time traveling.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="browse.html">Browse Destinations</a></li>
+          <li><a href="index.html#browse">Featured Itineraries</a></li>
+          <li><a href="#panel-packing">Packing Guides</a></li>
+          <li><a href="#panel-culture">Culture Tips</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="how-it-works.html">How It Works</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="contact.html">Careers</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 WanderList. All rights reserved.</span>
+      <div class="social-icons">
+        <a href="#" aria-label="Instagram">📷</a>
+        <a href="#" aria-label="Pinterest">📌</a>
+        <a href="#" aria-label="X">✕</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Browse 7-Day &amp; Weekend Travel Itineraries — WanderList</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<meta name="description" content="Browse every WanderList itinerary by travel style and budget — from weekend city breaks to full 7-day adventures across Europe, Asia, and North America.">
+<link rel="canonical" href="https://www.wanderlist.example/browse.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WanderList">
+<meta property="og:title" content="Browse 7-Day & Weekend Travel Itineraries — WanderList">
+<meta property="og:description" content="Browse every WanderList itinerary by travel style and budget — from weekend city breaks to full 7-day adventures across Europe, Asia, and North America.">
+<meta property="og:url" content="https://www.wanderlist.example/browse.html">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Mountain-sunset_view_from_Telluride_%28highsm.35833%29.jpg/1200px-Mountain-sunset_view_from_Telluride_%28highsm.35833%29.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Browse 7-Day & Weekend Travel Itineraries — WanderList">
+<meta name="twitter:description" content="Browse every WanderList itinerary by travel style and budget — from weekend city breaks to full 7-day adventures across Europe, Asia, and North America.">
+<meta name="twitter:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Mountain-sunset_view_from_Telluride_%28highsm.35833%29.jpg/1200px-Mountain-sunset_view_from_Telluride_%28highsm.35833%29.jpg">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.wanderlist.example/index.html"},{"@type":"ListItem","position":2,"name":"Browse Destinations"}]}</script>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="container nav">
+    <a href="index.html" class="logo">
+      <span class="logo-mark">W</span> WanderList
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="browse.html" class="active">Browse Destinations</a>
+      <a href="itinerary.html#packing">Packing Guides</a>
+      <a href="itinerary.html#culture">Culture Tips</a>
+      <a href="index.html" class="btn btn-secondary btn-sm mobile-cta">Browse More Trips</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="saved-trips.html" class="icon-btn" title="Saved Trips" aria-label="Saved Trips">♥</a>
+      <a href="index.html" class="btn btn-secondary btn-sm">Browse More Trips</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="container breadcrumb">
+  <a href="index.html">Home</a> / Browse Destinations
+</div>
+
+<!-- ============ PAGE HEADER ============ -->
+<section class="browse-hero">
+  <div class="container">
+    <p class="eyebrow reveal">All itineraries</p>
+    <h1 class="reveal">Find your next 7 days.</h1>
+    <p class="browse-lead reveal">Filter by travel style or budget — every result is a complete, ready-to-go guide.</p>
+  </div>
+</section>
+
+<!-- ============ FILTER BAR ============ -->
+<section class="browse-filters-section">
+  <div class="container">
+    <div class="filter-bar reveal">
+      <div class="filter-group" id="styleFilters">
+        <button class="filter-chip active" data-style="all">All</button>
+        <button class="filter-chip" data-style="budget">Budget</button>
+        <button class="filter-chip" data-style="culture">Culture</button>
+        <button class="filter-chip" data-style="luxury">Luxury</button>
+        <button class="filter-chip" data-style="road-trip">Road Trip</button>
+        <button class="filter-chip" data-style="wellness">Wellness</button>
+        <button class="filter-chip" data-style="hidden-gems">Hidden Gems</button>
+        <button class="filter-chip" data-style="weekend">Weekend Getaway</button>
+      </div>
+      <div class="filter-secondary">
+        <input type="text" id="searchInput" placeholder="Search a destination…">
+        <select id="budgetFilter">
+          <option value="all">Any budget</option>
+          <option value="$">$ Budget</option>
+          <option value="$$">$$ Moderate</option>
+          <option value="$$$">$$$ Luxury</option>
+        </select>
+      </div>
+    </div>
+    <p class="browse-count" id="browseCount">9 itineraries</p>
+  </div>
+</section>
+
+<!-- ============ RESULTS GRID ============ -->
+<section class="browse-results">
+  <div class="container">
+    <div class="browse-grid stagger" id="browseGrid">
+
+      <article class="trip-card reveal" data-style="budget coastal" data-budget="$$" data-name="7 Days in Amalfi Coast on a Budget">
+        <div class="photo ph-2" style="height:190px;">
+          <img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Amalfi_Coast_%28Italy%2C_October_2020%29_-_75_%2850558355441%29.jpg/500px-Amalfi_Coast_%28Italy%2C_October_2020%29_-_75_%2850558355441%29.jpg" alt="Cliffside villages along the Amalfi Coast, Italy" loading="lazy" decoding="async">
+          <span class="photo-label">Amalfi Coast, Italy</span>
+        </div>
+        <div class="trip-card-body">
+          <div class="trip-tags"><span class="tag terracotta">Budget</span><span class="tag">7 Days</span></div>
+          <h3>7 Days in Amalfi Coast on a Budget</h3>
+          <p style="font-size:.88rem;color:var(--charcoal-soft)">Cliffside villages, ferry-hopping, and the best €10 lunches on the coast.</p>
+          <div class="trip-meta"><span class="cost">$$ · ~$900/person</span><a href="amalfi-coast.html" class="btn btn-outline btn-sm">View Trip</a></div>
+        </div>
+      </article>
+
+      <article class="trip-card reveal" data-style="hidden-gems culture" data-budget="$$$" data-name="A Week of Hidden Gems in Tokyo & Kyoto">
+        <div class="photo ph-4" style="height:190px;">
+          <img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Kyoto%2C_Japan_%2849667780482%29.jpg/500px-Kyoto%2C_Japan_%2849667780482%29.jpg" alt="Kyoto cityscape, Japan" loading="lazy" decoding="async">
+          <span class="photo-label">Tokyo & Kyoto, Japan</span>
+        </div>
+        <div class="trip-card-body">
+          <div class="trip-tags"><span class="tag terracotta">Hidden Gems</span><span class="tag">7 Days</span></div>
+          <h3>A Week of Hidden Gems in Tokyo & Kyoto</h3>
+          <p style="font-size:.88rem;color:var(--charcoal-soft)">Temple mornings, izakaya nights, and neighborhoods most guides skip.</p>
+          <div class="trip-meta"><span class="cost">$$$ · ~$1,650/person</span><a href="itinerary.html" class="btn btn-outline btn-sm">View Trip</a></div>
+        </div>
+      </article>
+
+      <article class="trip-card reveal" data-style="road-trip" data-budget="$$" data-name="Ultimate Road Trip Through Utah's National Parks">
+        <div class="photo ph-5" style="height:190px;">
+          <img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Delicate_arch_sunset.jpg/500px-Delicate_arch_sunset.jpg" alt="Delicate Arch at sunset, Arches National Park, Utah" loading="lazy" decoding="async">
+          <span class="photo-label">Utah National Parks, USA</span>
+        </div>
+        <div class="trip-card-body">
+          <div class="trip-tags"><span class="tag terracotta">Road Trip</span><span class="tag">7 Days</span></div>
+          <h3>Ultimate Road Trip Through Utah's National Parks</h3>
+          <p style="font-size:.88rem;color:var(--charcoal-soft)">Zion, Bryce, Arches and Canyonlands — mapped mile by mile.</p>
+          <div class="trip-meta"><span class="cost">$$ · ~$1,100/person</span><a href="utah-national-parks.html" class="btn btn-outline btn-sm">View Trip</a></div>
+        </div>
+      </article>
+
+      <article class="trip-card reveal" data-style="culture" data-budget="$$" data-name="7 Days of Lisbon Local Highlights">
+        <div class="photo ph-6" style="height:190px;">
+          <img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Lisboa_-_Portugal_%2852597836992%29.jpg/500px-Lisboa_-_Portugal_%2852597836992%29.jpg" alt="Lisbon skyline, Portugal" loading="lazy" decoding="async">
+          <span class="photo-label">Lisbon, Portugal</span>
+        </div>
+        <div class="trip-card-body">
+          <div class="trip-tags"><span class="tag terracotta">Culture</span><span class="tag">7 Days</span></div>
+          <h3>7 Days of Lisbon Local Highlights</h3>
+          <p style="font-size:.88rem;color:var(--charcoal-soft)">Tram routes, fado bars, and the pastel de nata worth the walk.</p>
+          <div class="trip-meta"><span class="cost">$$ · ~$700/person</span><a href="lisbon.html" class="btn btn-outline btn-sm">View Trip</a></div>
+        </div>
+      </article>
+
+      <article class="trip-card reveal" data-style="luxury" data-budget="$$$" data-name="A Luxury Week in Banff & Lake Louise">
+        <div class="photo ph-1" style="height:190px;">
+          <img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Moraine_Lake_17092005.jpg/500px-Moraine_Lake_17092005.jpg" alt="Moraine Lake, Banff National Park, Canada" loading="lazy" decoding="async">
+          <span class="photo-label">Banff, Canada</span>
+        </div>
+        <div class="trip-card-body">
+          <div class="trip-tags"><span class="tag terracotta">Luxury</span><span class="tag">7 Days</span></div>
+          <h3>A Luxury Week in Banff & Lake Louise</h3>
+          <p style="font-size:.88rem;color:var(--charcoal-soft)">Alpine lodges, glacier-fed lakes, and turquoise water at every turn.</p>
+          <div class="trip-meta"><span class="cost">$$$ · ~$2,400/person</span><a href="banff.html" class="btn btn-outline btn-sm">View Trip</a></div>
+        </div>
+      </article>
+
+      <article class="trip-card reveal" data-style="wellness" data-budget="$$" data-name="A Week of Wellness & Solo Discovery in Bali">
+        <div class="photo ph-3" style="height:190px;">
+          <img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/TanahLot_2014.JPG/500px-TanahLot_2014.JPG" alt="Tanah Lot sea temple, Bali, Indonesia" loading="lazy" decoding="async">
+          <span class="photo-label">Bali, Indonesia</span>
+        </div>
+        <div class="trip-card-body">
+          <div class="trip-tags"><span class="tag terracotta">Wellness</span><span class="tag">7 Days</span></div>
+          <h3>A Week of Wellness & Solo Discovery in Bali</h3>
+          <p style="font-size:.88rem;color:var(--charcoal-soft)">Rice terraces, clifftop temples, and a pace slow enough to unwind.</p>
+          <div class="trip-meta"><span class="cost">$$ · ~$850/person</span><a href="bali.html" class="btn btn-outline btn-sm">View Trip</a></div>
+        </div>
+      </article>
+
+      <article class="trip-card reveal" data-style="weekend culture" data-budget="$$" data-name="A Perfect Long Weekend in Paris">
+        <div class="photo ph-4" style="height:190px;">
+          <img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Tour_Eiffel_Wikimedia_Commons.jpg/500px-Tour_Eiffel_Wikimedia_Commons.jpg" alt="Eiffel Tower, Paris, France" loading="lazy" decoding="async">
+          <span class="photo-label">Paris, France</span>
+        </div>
+        <div class="trip-card-body">
+          <div class="trip-tags"><span class="tag terracotta">Weekend Getaway</span><span class="tag">3 Days</span></div>
+          <h3>A Perfect Long Weekend in Paris</h3>
+          <p style="font-size:.88rem;color:var(--charcoal-soft)">The Eiffel Tower, the Louvre, and Montmartre sunsets in one tight trip.</p>
+          <div class="trip-meta"><span class="cost">$$ · ~$650/person</span><a href="paris.html" class="btn btn-outline btn-sm">View Trip</a></div>
+        </div>
+      </article>
+
+      <article class="trip-card reveal" data-style="weekend" data-budget="$$$" data-name="48 Hours in New York City">
+        <div class="photo ph-5" style="height:190px;">
+          <img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Brooklyn_Bridge_and_the_Lower_Manhattan_skyline_from_Pebble_Beach%2C_New_York.jpg/500px-Brooklyn_Bridge_and_the_Lower_Manhattan_skyline_from_Pebble_Beach%2C_New_York.jpg" alt="Brooklyn Bridge and Manhattan skyline, New York City" loading="lazy" decoding="async">
+          <span class="photo-label">New York City, USA</span>
+        </div>
+        <div class="trip-card-body">
+          <div class="trip-tags"><span class="tag terracotta">Weekend Getaway</span><span class="tag">2 Days</span></div>
+          <h3>48 Hours in New York City</h3>
+          <p style="font-size:.88rem;color:var(--charcoal-soft)">Times Square, Central Park, and a free view of the Statue of Liberty.</p>
+          <div class="trip-meta"><span class="cost">$$$ · ~$750/person</span><a href="new-york-city.html" class="btn btn-outline btn-sm">View Trip</a></div>
+        </div>
+      </article>
+
+      <article class="trip-card reveal" data-style="weekend culture" data-budget="$$" data-name="3 Days in Barcelona">
+        <div class="photo ph-6" style="height:190px;">
+          <img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/SF_maig_2_cropped.jpg/500px-SF_maig_2_cropped.jpg" alt="Sagrada Família, Barcelona, Spain" loading="lazy" decoding="async">
+          <span class="photo-label">Barcelona, Spain</span>
+        </div>
+        <div class="trip-card-body">
+          <div class="trip-tags"><span class="tag terracotta">Weekend Getaway</span><span class="tag">3 Days</span></div>
+          <h3>3 Days in Barcelona</h3>
+          <p style="font-size:.88rem;color:var(--charcoal-soft)">Gaudí's rooftops, Gothic Quarter alleys, and a beach afternoon.</p>
+          <div class="trip-meta"><span class="cost">$$ · ~$600/person</span><a href="barcelona.html" class="btn btn-outline btn-sm">View Trip</a></div>
+        </div>
+      </article>
+
+    </div>
+
+    <p class="browse-empty" id="browseEmpty" hidden>No itineraries match those filters yet — try clearing one.</p>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo"><span class="logo-mark">W</span> WanderList</a>
+        <p>End-to-end 7-day itineraries so you spend less time researching and more time traveling.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="browse.html">Browse Destinations</a></li>
+          <li><a href="index.html#browse">Featured Itineraries</a></li>
+          <li><a href="itinerary.html#packing">Packing Guides</a></li>
+          <li><a href="itinerary.html#culture">Culture Tips</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="how-it-works.html">How It Works</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="contact.html">Careers</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 WanderList. All rights reserved.</span>
+      <div class="social-icons">
+        <a href="#" aria-label="Instagram">📷</a>
+        <a href="#" aria-label="Pinterest">📌</a>
+        <a href="#" aria-label="X">✕</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

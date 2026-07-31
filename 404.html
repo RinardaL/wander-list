@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Page Not Found — WanderList</title>
+<meta name="robots" content="noindex, follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="container nav">
+    <a href="index.html" class="logo">
+      <span class="logo-mark">W</span> WanderList
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="browse.html">Browse Destinations</a>
+      <a href="itinerary.html#packing">Packing Guides</a>
+      <a href="itinerary.html#culture">Culture Tips</a>
+      <a href="index.html" class="btn btn-secondary btn-sm mobile-cta">Browse More Trips</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="saved-trips.html" class="icon-btn" title="Saved Trips" aria-label="Saved Trips">♥</a>
+      <a href="index.html" class="btn btn-secondary btn-sm">Browse More Trips</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ 404 ============ -->
+<section class="notfound-hero">
+  <div class="container">
+    <p class="eyebrow reveal">Error 404</p>
+    <h1 class="reveal">Looks like this trip got lost.</h1>
+    <p class="info-lead reveal">The page you're looking for doesn't exist — maybe it moved, maybe the link was mistyped. Let's get you back on route.</p>
+
+    <form class="search-bar notfound-search reveal" id="notfoundSearchForm">
+      <div class="search-field">
+        <label for="notfoundDestInput">Search a destination</label>
+        <input type="text" id="notfoundDestInput" placeholder="Tokyo, Amalfi Coast, Paris…">
+      </div>
+      <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+
+    <div class="notfound-links reveal">
+      <a href="index.html" class="btn btn-secondary">Back to Home</a>
+      <a href="browse.html" class="btn btn-outline">Browse All Trips</a>
+    </div>
+
+    <div class="notfound-popular reveal">
+      <p class="notfound-popular-label">Or jump straight to a popular guide:</p>
+      <div class="globe-dest-list notfound-popular-list">
+        <a href="itinerary.html"><span class="dot"></span>Tokyo &amp; Kyoto, Japan</a>
+        <a href="amalfi-coast.html"><span class="dot"></span>Amalfi Coast, Italy</a>
+        <a href="paris.html"><span class="dot"></span>Paris, France</a>
+        <a href="barcelona.html"><span class="dot"></span>Barcelona, Spain</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo"><span class="logo-mark">W</span> WanderList</a>
+        <p>End-to-end itineraries so you spend less time researching and more time traveling.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="browse.html">Browse Destinations</a></li>
+          <li><a href="index.html#browse">Featured Itineraries</a></li>
+          <li><a href="itinerary.html#packing">Packing Guides</a></li>
+          <li><a href="itinerary.html#culture">Culture Tips</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="how-it-works.html">How It Works</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="contact.html">Careers</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 WanderList. All rights reserved.</span>
+      <div class="social-icons">
+        <a href="#" aria-label="Instagram">📷</a>
+        <a href="#" aria-label="Pinterest">📌</a>
+        <a href="#" aria-label="X">✕</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
