@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>4 Days in Sofia, Bulgaria: WanderList</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<meta name="description" content="A budget-friendly 4-day Sofia itinerary covering Alexander Nevsky Cathedral, Vitosha Boulevard, a Vitosha Mountain hike, and a Rila Monastery day trip, with a Bulgaria packing list and culture tips.">
+<link rel="canonical" href="https://www.wanderlist.example/sofia.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="WanderList">
+<meta property="og:title" content="4 Days in Sofia, Bulgaria">
+<meta property="og:description" content="A budget-friendly 4-day Sofia itinerary covering Alexander Nevsky Cathedral, Vitosha Boulevard, a Vitosha Mountain hike, and a Rila Monastery day trip, with a Bulgaria packing list and culture tips.">
+<meta property="og:url" content="https://www.wanderlist.example/sofia.html">
+<meta property="og:image" content="https://images.unsplash.com/photo-1641458706911-92b0d6a3d9c3?w=1280&q=80&fm=jpg&fit=crop">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="4 Days in Sofia, Bulgaria">
+<meta name="twitter:description" content="A budget-friendly 4-day Sofia itinerary covering Alexander Nevsky Cathedral, Vitosha Boulevard, a Vitosha Mountain hike, and a Rila Monastery day trip, with a Bulgaria packing list and culture tips.">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1641458706911-92b0d6a3d9c3?w=1280&q=80&fm=jpg&fit=crop">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.wanderlist.example/index.html"},{"@type":"ListItem","position":2,"name":"Budget","item":"https://www.wanderlist.example/browse.html?style=budget"},{"@type":"ListItem","position":3,"name":"4 Days in Sofia, Bulgaria"}]}</script>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="container nav">
+    <a href="index.html" class="logo">
+      <span class="logo-mark">W</span> WanderList
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="browse.html">Browse Destinations</a>
+      <a href="sofia.html#packing" data-tab="packing">Packing Guides</a>
+      <a href="sofia.html#culture" data-tab="culture">Culture Tips</a>
+      <a href="index.html" class="btn btn-secondary btn-sm mobile-cta">Browse More Trips</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="saved-trips.html" class="icon-btn" title="Saved Trips" aria-label="Saved Trips">♥</a>
+      <a href="index.html" class="btn btn-secondary btn-sm">Browse More Trips</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="container breadcrumb">
+  <a href="index.html">Home</a> / <a href="browse.html?style=budget">Budget</a> / 4 Days in Sofia, Bulgaria
+</div>
+
+<!-- ============ ITINERARY HERO ============ -->
+<section class="itinerary-hero">
+  <div class="container">
+    <div class="itinerary-cover photo ph-4">
+      <img src="https://images.unsplash.com/photo-1641458706911-92b0d6a3d9c3?w=1920&q=80&fm=jpg&fit=crop" alt="Alexander Nevsky Cathedral's golden domes against the sky, Sofia, Bulgaria" loading="eager" decoding="async">
+      <div class="itinerary-cover-content">
+        <div class="trip-tags">
+          <span class="tag terracotta">Budget</span>
+          <span class="tag">Culture</span>
+          <span class="tag">4 Days</span>
+        </div>
+        <h1>4 Days in Sofia, Bulgaria</h1>
+        <p>Gold-domed cathedrals, a mountain you can hike straight from the city center, and a UNESCO monastery two hours away, all on one of Europe's smallest budgets.</p>
+      </div>
+    </div>
+
+    <div class="itinerary-meta-bar">
+      <div class="meta-item"><span class="label">Ideal Season</span><span class="value">May – Jun, Sep</span></div>
+      <div class="meta-item"><span class="label">Est. Budget</span><span class="value">$ · ~$500</span></div>
+      <div class="meta-item"><span class="label">Duration</span><span class="value">4 Days</span></div>
+      <div class="meta-item"><span class="label">Pace</span><span class="value">Moderate</span></div>
+      <div class="meta-actions">
+        <button class="btn btn-outline btn-sm" id="saveBtn">♥ Save Trip</button>
+        <button class="btn btn-primary btn-sm" id="printBtn">⬇ Export PDF</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TABS ============ -->
+<div class="container">
+  <nav class="tab-nav" id="tabNav">
+    <button class="tab-btn active" data-tab="days">Day-by-Day</button>
+    <button class="tab-btn" data-tab="culture">Need to Know</button>
+    <button class="tab-btn" data-tab="packing">Packing Checklist</button>
+    <button class="tab-btn" data-tab="tricks">Insider Tricks &amp; Hacks</button>
+    <button class="tab-btn" data-tab="services">Travel Services</button>
+    <span class="tab-indicator" id="tabIndicator"></span>
+  </nav>
+
+  <!-- ===== TAB: DAY BY DAY ===== -->
+  <div class="tab-panel active" id="panel-days">
+    <div class="duration-picker reveal">
+      <span class="duration-picker-label">How many days do you have?</span>
+      <div class="duration-options" id="durationOptions">
+        <button class="filter-chip duration-btn" data-days="1">1 Day</button>
+        <button class="filter-chip duration-btn" data-days="2">2 Days</button>
+        <button class="filter-chip duration-btn" data-days="3">3 Days</button>
+        <button class="filter-chip duration-btn active" data-days="4">4 Days (Full)</button>
+      </div>
+      <label class="duration-custom">Custom: <input type="number" id="customDuration" min="1" max="14" placeholder="e.g. 3"></label>
+    </div>
+    <p class="duration-note" id="durationNote" hidden></p>
+    <div class="day-list stagger" id="dayList">
+
+      <div class="day-item open reveal" data-priority="1">
+        <button class="day-header">
+          <span class="day-number">1</span>
+          <span class="day-header-text"><h3>Arrival &amp; Alexander Nevsky Cathedral</h3><span>Landing in Sofia and a first walk through the historic center</span></span>
+          <span class="day-chevron">⌄</span>
+        </button>
+        <div class="day-body"><div class="day-body-inner">
+          <div class="day-photo"><img data-src="https://images.unsplash.com/photo-1641458706911-92b0d6a3d9c3?w=960&q=80&fm=jpg&fit=crop" alt="Alexander Nevsky Cathedral's golden dome against the sky" loading="lazy" decoding="async"></div>
+          <div class="block">
+            <div class="block-time">Morning</div>
+            <div class="block-content">
+              <h4>Arrival at Sofia Airport &amp; transfer to the center</h4>
+              <p>Metro Line 1 runs directly from the airport terminal into the city center, one of the cheapest and most reliable airport connections in Europe.</p>
+              <span class="travel-badge">🚇 ~20 min metro from the airport</span> <span class="cost-badge">💵 ~€1</span> <span class="time-badge">🕐 Trains run every 10 min, plan around your flight</span>
+            </div>
+          </div>
+          <div class="block">
+            <div class="block-time">Afternoon</div>
+            <div class="block-content">
+              <h4>Alexander Nevsky Cathedral</h4>
+              <p>Sofia's landmark, gold-domed cathedral is one of the largest Orthodox churches in the world and the city's most recognizable sight, right in the historic core.</p>
+              <span class="travel-badge">🚶 Central, walkable from most hotels</span> <span class="cost-badge">💵 Free entry, crypt ~€6</span> <span class="time-badge">🕐 Midday for the best light on the gold domes</span>
+            </div>
+          </div>
+          <div class="block">
+            <div class="block-time">Evening</div>
+            <div class="block-content">
+              <h4>First walk through the historic center</h4>
+              <p>The Largo, the ancient Serdica ruins beneath the underpass, and the tiny St. George Rotunda sit within a few minutes of each other, a compact intro to layers of Sofia's history.</p>
+              <span class="travel-badge">🚶 ~5 min from the cathedral</span> <span class="cost-badge">💵 Free</span> <span class="time-badge">🕐 Early evening before dinner</span>
+            </div>
+          </div>
+        </div></div>
+      </div>
+
+      <div class="day-item reveal" data-priority="4">
+        <button class="day-header">
+          <span class="day-number">2</span>
+          <span class="day-header-text"><h3>Vitosha Boulevard &amp; the Square of Tolerance</h3><span>Sofia's pedestrian heart and its synagogue-mosque-church cluster</span></span>
+          <span class="day-chevron">⌄</span>
+        </button>
+        <div class="day-body"><div class="day-body-inner">
+          <div class="day-photo"><img data-src="https://images.unsplash.com/photo-1512757257124-b6bec9a213d1?w=960&q=80&fm=jpg&fit=crop" alt="Bird's-eye view of the Sofia cityscape, Bulgaria" loading="lazy" decoding="async"></div>
+          <div class="block"><div class="block-time">Morning</div><div class="block-content"><h4>Vitosha Boulevard &amp; the National Palace of Culture</h4><p>Sofia's main pedestrian shopping street runs straight toward the NDK, the vast Communist-era cultural complex that anchors the south end of downtown.</p><span class="travel-badge">🚶 Pedestrian boulevard, easy walking</span> <span class="cost-badge">💵 Free to wander</span> <span class="time-badge">🕐 Late morning, before the lunch crowds</span></div></div>
+          <div class="block"><div class="block-time">Afternoon</div><div class="block-content"><h4>Sofia's religious tolerance square</h4><p>The Sofia Synagogue, Banya Bashi Mosque, and St. Nedelya Church sit within a few blocks of each other, a genuinely rare cluster of active Jewish, Muslim, and Orthodox sites side by side.</p><span class="travel-badge">🚶 ~10 min from Serdica metro station</span> <span class="cost-badge">💵 ~€3 synagogue entry</span> <span class="time-badge">🕐 Early afternoon, before mosque prayer times</span></div></div>
+          <div class="block"><div class="block-time">Evening</div><div class="block-content"><h4>Dinner at a traditional mehana</h4><p>A tavern-style dinner of shopska salad and banitsa, with live folk music at some of the older spots near the center, costs a fraction of a Western European meal.</p><span class="travel-badge">🚶 Central Sofia, walkable</span> <span class="cost-badge">💵 ~€12 with drinks</span> <span class="time-badge">🕐 Dinner around 7 to 8 PM</span></div></div>
+        </div></div>
+      </div>
+
+      <div class="day-item reveal" data-priority="2">
+        <button class="day-header">
+          <span class="day-number">3</span>
+          <span class="day-header-text"><h3>Vitosha Mountain</h3><span>A day hike and cable car ride up the mountain at the edge of the city</span></span>
+          <span class="day-chevron">⌄</span>
+        </button>
+        <div class="day-body"><div class="day-body-inner">
+          <div class="day-photo"><img data-src="https://images.unsplash.com/photo-1694764258782-37a286826965?w=960&q=80&fm=jpg&fit=crop" alt="Mountain range view through trees on Vitosha Mountain" loading="lazy" decoding="async"></div>
+          <div class="block"><div class="block-time">Morning</div><div class="block-content"><h4>Cable car up from Simeonovo</h4><p>Few European capitals let you ride a cable car onto a mountain within 30 minutes of downtown. The Simeonovo line climbs straight into the Vitosha Nature Park.</p><span class="travel-badge">🚌 ~30 min bus + cable car from the center</span> <span class="cost-badge">💵 ~€10 round trip</span> <span class="time-badge">🕐 Early morning, cable car opens around 9:30 AM</span></div></div>
+          <div class="block"><div class="block-time">Afternoon</div><div class="block-content"><h4>Hike toward Cherni Vrah or the Golden Bridges</h4><p>From the Aleko hut area, a network of marked trails leads to the Golden Bridges rock river or, for a longer day, up to Cherni Vrah, Vitosha's 2,290-meter summit.</p><span class="travel-badge">🚶 ~2 to 3 hr moderate trail from Aleko</span> <span class="cost-badge">💵 Free, no trail fees</span> <span class="time-badge">🕐 Midday, allow a full stretch of daylight</span></div></div>
+          <div class="block"><div class="block-time">Evening</div><div class="block-content"><h4>Descend for dinner at a mountain hut</h4><p>Several hizhas near the cable car base serve simple, hearty Bulgarian food at mountain-hut prices, a relaxed way to end a hiking day before heading back down.</p><span class="travel-badge">🚌 Confirm the last cable car down</span> <span class="cost-badge">💵 ~€10 hut meal</span> <span class="time-badge">🕐 Before dusk, the last car fills up</span></div></div>
+        </div></div>
+      </div>
+
+      <div class="day-item reveal" data-priority="3">
+        <button class="day-header">
+          <span class="day-number">4</span>
+          <span class="day-header-text"><h3>Rila Monastery Day Trip &amp; Departure</h3><span>Bulgaria's most famous monastery, then home</span></span>
+          <span class="day-chevron">⌄</span>
+        </button>
+        <div class="day-body"><div class="day-body-inner">
+          <div class="day-photo"><img data-src="https://images.unsplash.com/photo-1722447145262-3ff87e068c95?w=960&q=80&fm=jpg&fit=crop" alt="Rila Monastery's building and clock tower, Bulgaria" loading="lazy" decoding="async"></div>
+          <div class="block"><div class="block-time">Morning</div><div class="block-content"><h4>Depart Sofia for Rila Monastery</h4><p>Bulgaria's most famous monastery and a UNESCO World Heritage Site sits about two hours south of Sofia in the Rila mountains, easiest reached by an organized day tour.</p><span class="travel-badge">🚗 ~2 hr drive from Sofia</span> <span class="cost-badge">💵 ~€25 organized tour seat</span> <span class="time-badge">🕐 Depart by 8 AM to beat the tour buses</span></div></div>
+          <div class="block"><div class="block-time">Afternoon</div><div class="block-content"><h4>Explore the monastery complex</h4><p>The striped arches, vivid frescoes, and small museum inside make Rila's courtyard one of the most photographed spots in the country.</p><span class="travel-badge">🚶 Self-guided within the complex</span> <span class="cost-badge">💵 Free entry, museum ~€3</span> <span class="time-badge">🕐 Late morning, before the midday crowds peak</span></div></div>
+          <div class="block"><div class="block-time">Evening</div><div class="block-content"><h4>Return to Sofia &amp; departure</h4><p>Back in the city by early evening, with the same direct metro line covering the last leg out to the airport for a departing flight.</p><span class="travel-badge">🚇 ~20 min metro to the airport</span> <span class="cost-badge">💵 ~€1</span> <span class="time-badge">🕐 Leave 2 hrs before your flight</span></div></div>
+        </div></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ===== TAB: NEED TO KNOW ===== -->
+  <div class="tab-panel" id="panel-culture">
+    <div class="culture-grid stagger">
+      <div class="culture-card reveal">
+        <h3><span class="ic">💶</span> Tipping Etiquette</h3>
+        <ul>
+          <li>A tip of around 10% is common at sit-down restaurants, though it isn't strictly obligatory.</li>
+          <li>Rounding up the fare for taxis and casual cafes is normal and appreciated.</li>
+          <li>Tour guides and free walking tours run on tips, so bring small lev notes for them.</li>
+        </ul>
+      </div>
+      <div class="culture-card reveal">
+        <h3><span class="ic">👗</span> Dress Code</h3>
+        <ul>
+          <li>Cover shoulders and knees to enter Alexander Nevsky Cathedral and Rila Monastery, both active places of worship.</li>
+          <li>Some churches offer wraps at the entrance for visitors who arrive uncovered, but it's easier to plan ahead.</li>
+          <li>Pack real layers for Day 3, temperatures on Vitosha's summit run noticeably colder than downtown Sofia.</li>
+        </ul>
+      </div>
+      <div class="culture-card reveal">
+        <h3><span class="ic">🚇</span> Getting Around</h3>
+        <ul>
+          <li>Sofia's metro is modern, clean, and cheap, with two lines that cover the airport, the center, and Vitosha's cable car access points.</li>
+          <li>Trams and buses fill in the gaps the metro doesn't reach, all on the same ticket system.</li>
+          <li>A single ticket costs around €1, and multi-ride cards bring the price down further for a multi-day stay.</li>
+        </ul>
+      </div>
+      <div class="culture-card warning reveal">
+        <h3><span class="ic">⚠️</span> Safety &amp; Etiquette Warnings</h3>
+        <ul>
+          <li>Sofia is generally very safe, though pickpocketing does occur around crowded tourist sites and on public transport.</li>
+          <li>Airport taxi overcharging is a known issue, covered in the Travel Services section below.</li>
+          <li>Sidewalks and cobblestones in the historic center can be uneven, worth watching for at night.</li>
+        </ul>
+      </div>
+      <div class="culture-card reveal">
+        <h3><span class="ic">🗣️</span> Crucial Phrases in Bulgarian</h3>
+        <ul>
+          <li><strong>Zdravey</strong>: hello</li>
+          <li><strong>Blagodarya</strong>: thank you</li>
+          <li>Famously, Bulgarians reverse the usual gesture: a nod of the head can mean "no," and a side-to-side shake can mean "yes," so it's safer to listen for a verbal да (yes) or не (no) than to trust the gesture alone.</li>
+        </ul>
+      </div>
+      <div class="culture-card reveal">
+        <h3><span class="ic">💳</span> Money &amp; Payments</h3>
+        <ul>
+          <li>Bulgaria uses the Bulgarian lev (BGN), not the euro, despite being an EU member, a point worth flagging clearly before you land.</li>
+          <li>Cards are widely accepted in Sofia's center, but small vendors, mountain huts, and the Women's Market run on cash.</li>
+          <li>ATMs are common downtown; withdraw lev rather than paying in euros at inflated tourist exchange rates.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== TAB: PACKING ===== -->
+  <div class="tab-panel" id="panel-packing">
+    <div class="packing-progress-bar">
+      <span class="progress-label" id="progressLabel">0 / 13 packed</span>
+      <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+    <div class="packing-grid stagger" id="packingGrid">
+      <div class="packing-category reveal">
+        <h3>👕 Clothing (city days + a mountain day)</h3>
+        <label class="packing-item"><input type="checkbox"><span>Comfortable walking shoes for cobblestones and the Vitosha trails</span></label>
+        <label class="packing-item"><input type="checkbox"><span>Layered clothing, mountain weather shifts fast above the city</span></label>
+        <label class="packing-item"><input type="checkbox"><span>Modest outfit covering shoulders and knees for church and monastery visits</span></label>
+        <label class="packing-item"><input type="checkbox"><span>Light rain jacket</span></label>
+      </div>
+      <div class="packing-category reveal">
+        <h3>🔌 Tech &amp; Documents</h3>
+        <label class="packing-item"><input type="checkbox"><span>Type C/F plug adapter (230V)</span></label>
+        <label class="packing-item"><input type="checkbox"><span>Passport, valid against current EU and Schengen entry rules</span></label>
+        <label class="packing-item"><input type="checkbox"><span>Rila Monastery tour or transport booking confirmed</span></label>
+      </div>
+      <div class="packing-category reveal">
+        <h3>🧴 Health &amp; Toiletries</h3>
+        <label class="packing-item"><input type="checkbox"><span>Reusable water bottle</span></label>
+        <label class="packing-item"><input type="checkbox"><span>Sunscreen for the exposed mountain ridge</span></label>
+        <label class="packing-item"><input type="checkbox"><span>Small blister kit or moleskin for the Vitosha hike</span></label>
+      </div>
+      <div class="packing-category reveal">
+        <h3>🎒 Gear &amp; Extras</h3>
+        <label class="packing-item"><input type="checkbox"><span>Small daypack for the mountain day</span></label>
+        <label class="packing-item"><input type="checkbox"><span>Cash in Bulgarian lev for markets, huts, and small vendors</span></label>
+        <label class="packing-item"><input type="checkbox"><span>Portable charger</span></label>
+      </div>
+    </div>
+    <div class="packing-actions">
+      <button class="btn btn-primary" id="downloadPacking">⬇ Download Printable PDF</button>
+    </div>
+  </div>
+
+  <!-- ===== TAB: INSIDER TRICKS ===== -->
+  <div class="tab-panel" id="panel-tricks">
+    <div class="tricks-grid stagger">
+      <div class="trick-card reveal">
+        <h3>💰 Money-Saving Hacks</h3>
+        <div class="trick-item"><div class="trick-icon">🍽️</div><div><h4>Eat a block off the main boulevard</h4><p>Mehanas just off Vitosha Boulevard serve the same dishes as the boulevard-front cafes for noticeably less.</p></div></div>
+        <div class="trick-item"><div class="trick-icon">🚇</div><div><h4>Buy a multi-ride metro card</h4><p>A short-term transit card beats individual tickets and cuts out any need for taxis on the city days.</p></div></div>
+        <div class="trick-item"><div class="trick-icon">🚶</div><div><h4>Join a free walking tour</h4><p>Sofia's tip-based walking tours cover the historic center in under two hours and cost only what you choose to tip.</p></div></div>
+      </div>
+      <div class="trick-card reveal">
+        <h3>📸 Off-the-Beaten-Path Secrets</h3>
+        <div class="trick-item"><div class="trick-icon">⛪</div><div><h4>Boyana Church's medieval frescoes</h4><p>A tiny UNESCO-listed church on the way to Vitosha, with frescoes older and quieter than anything at Alexander Nevsky.</p></div></div>
+        <div class="trick-item"><div class="trick-icon">🥾</div><div><h4>Start the hike from Dragalevtsi instead</h4><p>The Dragalevtsi monastery trailhead sees far fewer hikers than the Simeonovo cable car route, for the same mountain.</p></div></div>
+        <div class="trick-item"><div class="trick-icon">🥕</div><div><h4>Browse the Women's Market</h4><p>Zhenski Pazar is Sofia's real produce market, cheap, unpolished, and a genuine slice of neighborhood life away from the tourist center.</p></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== TAB: TRAVEL SERVICES ===== -->
+  <div class="tab-panel" id="panel-services">
+    <div class="culture-grid stagger">
+      <div class="culture-card reveal">
+        <h3><span class="ic">✈️</span> Flights</h3>
+        <ul>
+          <li>Sofia Airport (SOF) is small and easy to navigate, with Metro Line 1 running directly into the city center.</li>
+          <li>The metro ride into downtown takes about 20 minutes and costs roughly €1, no transfer needed.</li>
+          <li>Given the trip's low overall budget, the metro is the obvious choice over a taxi or private transfer for arrival and departure.</li>
+        </ul>
+      </div>
+      <div class="culture-card reveal">
+        <h3><span class="ic">🚕</span> Taxis &amp; Rideshare</h3>
+        <ul>
+          <li>Bolt operates well throughout Sofia and is the easiest way to book a fair-priced ride from a phone.</li>
+          <li>Airport taxi overcharging is a well-known issue, stick to official taxi stands or an app-booked ride rather than drivers who approach you in the arrivals hall.</li>
+          <li>Always confirm the fare or use the app's estimate before getting in, since unmetered "special" rates target visitors.</li>
+        </ul>
+      </div>
+      <div class="culture-card reveal">
+        <h3><span class="ic">🚗</span> Rental Cars</h3>
+        <ul>
+          <li>A car isn't necessary for any of the three city-based days, the metro, trams, and Vitosha cable car cover everything.</li>
+          <li>It becomes relevant only for Day 4, if you'd rather self-drive to Rila Monastery than join an organized tour.</li>
+          <li>Mountain roads into Rila are well-paved but winding, so a tour bus or driver is the lower-stress option for most visitors.</li>
+        </ul>
+      </div>
+      <div class="culture-card reveal">
+        <h3><span class="ic">🏨</span> Hotels &amp; Where to Stay</h3>
+        <ul>
+          <li>City Center, near Alexander Nevsky Cathedral: puts Day 1 and Day 2's sights within easy walking distance.</li>
+          <li>Vitosha Boulevard: central, walkable, and lined with affordable places to eat for the Day 2 dinner.</li>
+          <li>Lozenets: a quieter residential district south of the center, with easier access to the Day 3 bus and cable car up Vitosha.</li>
+        </ul>
+      </div>
+      <div class="culture-card reveal">
+        <h3><span class="ic">⛴️</span> Boat Trips</h3>
+        <ul>
+          <li>Sofia is landlocked, sitting inland at the base of Vitosha Mountain, so no boat or ferry trips apply to this itinerary.</li>
+          <li>The closest thing on this trip to a scenic ride over water is the view of the reservoirs from the Vitosha trails on Day 3.</li>
+        </ul>
+      </div>
+      <div class="culture-card reveal">
+        <h3><span class="ic">🧳</span> Other Essentials</h3>
+        <ul>
+          <li>Bulgaria is an EU member but has historically sat outside the Schengen area, so confirm current border and passport-control rules before you fly, since this has been changing in recent years.</li>
+          <li>The currency is the Bulgarian lev (BGN), not the euro, worth double-checking again here since it trips up first-time visitors.</li>
+          <li>Travel insurance is cheap relative to the trip's overall cost and worth it for the Rila Monastery day trip and the Vitosha hike alike.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ RELATED TRIPS ============ -->
+<section class="related-trips">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Where to next</p>
+      <h2>More itineraries you might like</h2>
+    </div>
+    <div class="related-grid stagger">
+      <a class="related-card reveal" href="athens.html">
+        <img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/The_Parthenon_in_Athens.jpg/500px-The_Parthenon_in_Athens.jpg" alt="The Parthenon on the Acropolis, Athens" loading="lazy" decoding="async">
+        <span>7 Days in Athens: Ancient Ruins &amp; Island Escapes</span>
+      </a>
+      <a class="related-card reveal" href="lisbon.html">
+        <img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Bel%C3%A9m_Tower_in_Lisbon%2C_Portugal.jpg/500px-Bel%C3%A9m_Tower_in_Lisbon%2C_Portugal.jpg" alt="Belém Tower, Lisbon, Portugal" loading="lazy" decoding="async">
+        <span>7 Days of Lisbon Local Highlights</span>
+      </a>
+      <a class="related-card reveal" href="barcelona.html">
+        <img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/SF_maig_2_cropped.jpg/500px-SF_maig_2_cropped.jpg" alt="Sagrada Família, Barcelona, Spain" loading="lazy" decoding="async">
+        <span>3 Days in Barcelona</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo"><span class="logo-mark">W</span> WanderList</a>
+        <p>End-to-end itineraries so you spend less time researching and more time traveling.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="browse.html">Browse Destinations</a></li>
+          <li><a href="index.html#browse">Featured Itineraries</a></li>
+          <li><a href="sofia.html#packing">Packing Guides</a></li>
+          <li><a href="sofia.html#culture">Culture Tips</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="how-it-works.html">How It Works</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="contact.html">Careers</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 WanderList. All rights reserved.</span>
+      <div class="social-icons">
+        <a href="#" aria-label="Instagram">📷</a>
+        <a href="#" aria-label="Pinterest">📌</a>
+        <a href="#" aria-label="X">✕</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js?v=20260731d"></script>
+</body>
+</html>

@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>5 Days in Madeira, Portugal: WanderList</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<meta name="description" content="A 5-day Madeira itinerary covering Funchal, the Pico do Arieiro to Pico Ruivo hike, a levada walk through laurel forest, and Porto Moniz's volcanic pools, with hiking packing tips and local culture notes.">
+<link rel="canonical" href="https://www.wanderlist.example/madeira.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="WanderList">
+<meta property="og:title" content="5 Days in Madeira, Portugal">
+<meta property="og:description" content="A 5-day Madeira itinerary covering Funchal, the Pico do Arieiro to Pico Ruivo hike, a levada walk through laurel forest, and Porto Moniz's volcanic pools, with hiking packing tips and local culture notes.">
+<meta property="og:url" content="https://www.wanderlist.example/madeira.html">
+<meta property="og:image" content="https://images.unsplash.com/photo-1757440156710-574dcfae0bcc?w=1280&q=80&fm=jpg&fit=crop">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="5 Days in Madeira, Portugal">
+<meta name="twitter:description" content="A 5-day Madeira itinerary covering Funchal, the Pico do Arieiro to Pico Ruivo hike, a levada walk through laurel forest, and Porto Moniz's volcanic pools, with hiking packing tips and local culture notes.">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1757440156710-574dcfae0bcc?w=1280&q=80&fm=jpg&fit=crop">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.wanderlist.example/index.html"},{"@type":"ListItem","position":2,"name":"Hidden Gems","item":"https://www.wanderlist.example/browse.html?style=hidden-gems"},{"@type":"ListItem","position":3,"name":"5 Days in Madeira, Portugal"}]}</script>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="container nav">
+    <a href="index.html" class="logo">
+      <span class="logo-mark">W</span> WanderList
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="browse.html">Browse Destinations</a>
+      <a href="madeira.html#packing" data-tab="packing">Packing Guides</a>
+      <a href="madeira.html#culture" data-tab="culture">Culture Tips</a>
+      <a href="index.html" class="btn btn-secondary btn-sm mobile-cta">Browse More Trips</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="saved-trips.html" class="icon-btn" title="Saved Trips" aria-label="Saved Trips">♥</a>
+      <a href="index.html" class="btn btn-secondary btn-sm">Browse More Trips</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="container breadcrumb">
+  <a href="index.html">Home</a> / <a href="browse.html?style=hidden-gems">Hidden Gems</a> / 5 Days in Madeira, Portugal
+</div>
+
+<!-- ============ ITINERARY HERO ============ -->
+<section class="itinerary-hero">
+  <div class="container">
+    <div class="itinerary-cover photo ph-2">
+      <img src="https://images.unsplash.com/photo-1757440156710-574dcfae0bcc?w=1920&q=80&fm=jpg&fit=crop" alt="Dramatic coastal cliffs with a waterfall cascading into the Atlantic, Madeira" loading="eager" decoding="async">
+      <div class="itinerary-cover-content">
+        <div class="trip-tags">
+          <span class="tag terracotta">Hidden Gems</span>
+          <span class="tag">Nature</span>
+          <span class="tag">5 Days</span>
+        </div>
+        <h1>5 Days in Madeira, Portugal</h1>
+        <p>Laurel forest levadas, a hike above the clouds between Madeira's highest peaks, and volcanic pools carved into the north coast: five days built around Portugal's dramatic Atlantic island.</p>
+      </div>
+    </div>
+
+    <div class="itinerary-meta-bar">
+      <div class="meta-item"><span class="label">Ideal Season</span><span class="value">Apr – Oct</span></div>
+      <div class="meta-item"><span class="label">Est. Budget</span><span class="value">$$ · ~$950</span></div>
+      <div class="meta-item"><span class="label">Duration</span><span class="value">5 Days</span></div>
+      <div class="meta-item"><span class="label">Pace</span><span class="value">Active</span></div>
+      <div class="meta-actions">
+        <button class="btn btn-outline btn-sm" id="saveBtn">♥ Save Trip</button>
+        <button class="btn btn-primary btn-sm" id="printBtn">⬇ Export PDF</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TABS ============ -->
+<div class="container">
+  <nav class="tab-nav" id="tabNav">
+    <button class="tab-btn active" data-tab="days">Day-by-Day</button>
+    <button class="tab-btn" data-tab="culture">Need to Know</button>
+    <button class="tab-btn" data-tab="packing">Packing Checklist</button>
+    <button class="tab-btn" data-tab="tricks">Insider Tricks &amp; Hacks</button>
+    <button class="tab-btn" data-tab="services">Travel Services</button>
+    <span class="tab-indicator" id="tabIndicator"></span>
+  </nav>
+
+  <!-- ===== TAB: DAY BY DAY ===== -->
+  <div class="tab-panel active" id="panel-days">
+    <div class="duration-picker reveal">
+      <span class="duration-picker-label">How many days do you have?</span>
+      <div class="duration-options" id="durationOptions">
+        <button class="filter-chip duration-btn" data-days="2">2 Days</button>
+        <button class="filter-chip duration-btn" data-days="3">3 Days</button>
+        <button class="filter-chip duration-btn" data-days="4">4 Days</button>
+        <button class="filter-chip duration-btn active" data-days="5">5 Days (Full)</button>
+      </div>
+      <label class="duration-custom">Custom: <input type="number" id="customDuration" min="1" max="14" placeholder="e.g. 6"></label>
+    </div>
+    <p class="duration-note" id="durationNote" hidden></p>
+    <div class="day-list stagger" id="dayList">
+
+      <div class="day-item open reveal" data-priority="2">
+        <button class="day-header">
+          <span class="day-number">1</span>
+          <span class="day-header-text"><h3>Arrival in Funchal</h3><span>Landing on Portugal's volcanic island in the Atlantic</span></span>
+          <span class="day-chevron">⌄</span>
+        </button>
+        <div class="day-body"><div class="day-body-inner">
+          <div class="day-photo"><img data-src="https://images.unsplash.com/photo-1757440156710-574dcfae0bcc?w=960&q=80&fm=jpg&fit=crop" alt="Dramatic coastal cliffs with a waterfall cascading into the Atlantic, Madeira" loading="lazy" decoding="async"></div>
+          <div class="block">
+            <div class="block-time">Morning</div>
+            <div class="block-content">
+              <h4>Arrival at Madeira Airport &amp; transfer to Funchal</h4>
+              <p>Officially Cristiano Ronaldo Madeira International Airport, its short runway is famously built out over the ocean on stilts. Funchal is a quick drive from the terminal.</p>
+              <span class="travel-badge">🚕 ~20 min taxi from the airport</span> <span class="cost-badge">💵 ~€25</span> <span class="time-badge">🕐 Plan around your flight time</span>
+            </div>
+          </div>
+          <div class="block">
+            <div class="block-time">Afternoon</div>
+            <div class="block-content">
+              <h4>Check in &amp; wander the Zona Velha</h4>
+              <p>Funchal's old town alleys are lined with painted doors, each one a small art project. Ease into the pace before the busier days ahead.</p>
+              <span class="travel-badge">🚶 Walkable in central Funchal</span> <span class="cost-badge">💵 Free to wander</span> <span class="time-badge">🕐 Mid-afternoon, easy first walk</span>
+            </div>
+          </div>
+          <div class="block">
+            <div class="block-time">Evening</div>
+            <div class="block-content">
+              <h4>First dinner &amp; a poncha tasting</h4>
+              <p>Poncha, Madeira's honey-and-citrus rum drink, started as a fisherman's remedy and is now the island's signature cocktail. Pair it with fresh tuna or espetada skewers.</p>
+              <span class="travel-badge">🚶 Old town restaurants, walkable</span> <span class="cost-badge">💵 ~€25 dinner</span> <span class="time-badge">🕐 Evening, around 7 to 8 PM</span>
+            </div>
+          </div>
+        </div></div>
+      </div>
+
+      <div class="day-item reveal" data-priority="4">
+        <button class="day-header">
+          <span class="day-number">2</span>
+          <span class="day-header-text"><h3>Funchal's Gardens, Market &amp; the Monte Toboggan</h3><span>Cable cars, tropical gardens, and a century-old ride downhill</span></span>
+          <span class="day-chevron">⌄</span>
+        </button>
+        <div class="day-body"><div class="day-body-inner">
+          <div class="day-photo"><img data-src="https://images.unsplash.com/photo-1709878483656-2258406ba9ae?w=960&q=80&fm=jpg&fit=crop" alt="Funchal cityscape with palm trees, Madeira" loading="lazy" decoding="async"></div>
+          <div class="block"><div class="block-time">Morning</div><div class="block-content"><h4>Mercado dos Lavradores</h4><p>Madeira's Workers' Market overflows with tropical fruit, flowers, and the catch of the day, including the strange-looking espada (black scabbardfish).</p><span class="travel-badge">🚶 Walkable in central Funchal</span> <span class="cost-badge">💵 Free to browse, ~€5 fruit tasting</span> <span class="time-badge">🕐 Early morning, freshest stalls</span></div></div>
+          <div class="block"><div class="block-time">Afternoon</div><div class="block-content"><h4>Cable car to Monte &amp; the Tropical Garden</h4><p>The gondola climbs almost 600 meters above Funchal's rooftops in under 15 minutes. At the top, Monte Palace Tropical Garden's koi ponds and Asian pavilions are one of the island's best botanical stops.</p><span class="travel-badge">🚡 ~15 min cable car from Funchal</span> <span class="cost-badge">💵 ~€15 one-way cable car, ~€12.50 garden entry</span> <span class="time-badge">🕐 Midday, clearest valley views</span></div></div>
+          <div class="block"><div class="block-time">Evening</div><div class="block-content"><h4>Wicker toboggan ride down to Livramento</h4><p>Two drivers in straw hats steer a wicker sled down the steep streets, a tradition dating back to the 1850s. It's touristy, and everyone should do it once.</p><span class="travel-badge">🛷 ~10 min toboggan run</span> <span class="cost-badge">💵 ~€30 per sledge (2 people)</span> <span class="time-badge">🕐 Late afternoon, before the last run</span></div></div>
+        </div></div>
+      </div>
+
+      <div class="day-item reveal" data-priority="3">
+        <button class="day-header">
+          <span class="day-number">3</span>
+          <span class="day-header-text"><h3>A Levada Walk Through the Laurel Forest</h3><span>Madeira's famous irrigation channels cut a path through ancient forest</span></span>
+          <span class="day-chevron">⌄</span>
+        </button>
+        <div class="day-body"><div class="day-body-inner">
+          <div class="day-photo"><img data-src="https://images.unsplash.com/photo-1777473709442-adc7e4eda811?w=960&q=80&fm=jpg&fit=crop" alt="Hikers walking a narrow path beside a levada water channel, Madeira" loading="lazy" decoding="async"></div>
+          <div class="block"><div class="block-time">Morning</div><div class="block-content"><h4>Transfer to Rabaçal</h4><p>A scenic drive through mountain tunnels to the trailhead for Levada das 25 Fontes, deep in Madeira's UNESCO-listed laurissilva forest.</p><span class="travel-badge">🚗 ~50 min drive from Funchal</span> <span class="cost-badge">💵 ~€40 return taxi or tour transfer</span> <span class="time-badge">🕐 Depart mid-morning</span></div></div>
+          <div class="block"><div class="block-time">Afternoon</div><div class="block-content"><h4>Levada das 25 Fontes hike</h4><p>The flat, narrow path hugs the water channel through moss-draped laurel forest, ending at a pool fed by two dozen small waterfalls.</p><span class="travel-badge">🥾 ~3 hr round trip, ~6 km</span> <span class="cost-badge">💵 Free (transfer cost covers access)</span> <span class="time-badge">🕐 Midday, allow the full afternoon</span></div></div>
+          <div class="block"><div class="block-time">Evening</div><div class="block-content"><h4>Return via Ribeira Brava</h4><p>A quieter fishing town on the south coast, worth an easy stop and a seafood dinner on the way back to Funchal.</p><span class="travel-badge">🚗 ~30 min back to Funchal</span> <span class="cost-badge">💵 ~€25 dinner</span> <span class="time-badge">🕐 Early evening</span></div></div>
+        </div></div>
+      </div>
+
+      <div class="day-item reveal" data-priority="1">
+        <button class="day-header">
+          <span class="day-number">4</span>
+          <span class="day-header-text"><h3>Pico do Arieiro to Pico Ruivo</h3><span>Above the clouds on Madeira's most dramatic ridge trail</span></span>
+          <span class="day-chevron">⌄</span>
+        </button>
+        <div class="day-body"><div class="day-body-inner">
+          <div class="day-photo"><img data-src="https://images.unsplash.com/photo-1686026368380-abb0b5d24b9c?w=960&q=80&fm=jpg&fit=crop" alt="Hikers on a mountain trail above the clouds between Pico do Arieiro and Pico Ruivo, Madeira" loading="lazy" decoding="async"></div>
+          <div class="block"><div class="block-time">Morning</div><div class="block-content"><h4>Pre-dawn drive to Pico do Arieiro</h4><p>Madeira's third-highest peak sits at 1,818 meters, and clouds tend to roll in by mid-morning, so an early start matters more here than almost anywhere else on the trip.</p><span class="travel-badge">🚗 ~45 min drive from Funchal</span> <span class="cost-badge">💵 ~€35 private transfer</span> <span class="time-badge">🕐 Leave before sunrise</span></div></div>
+          <div class="block"><div class="block-time">Afternoon</div><div class="block-content"><h4>PR1 trail to Pico Ruivo</h4><p>A dramatic ridge path through hand-cut tunnels and exposed rock ledges connects Madeira's third-highest and highest peaks. Fog and narrow sections make it demanding, not just scenic.</p><span class="travel-badge">🥾 ~4 hr one-way, ~7 km</span> <span class="cost-badge">💵 Free</span> <span class="time-badge">🕐 Start by 8 AM, before the clouds</span></div></div>
+          <div class="block"><div class="block-time">Evening</div><div class="block-content"><h4>Pickup at Achada do Teixeira &amp; return to Funchal</h4><p>Arrange a driver to meet the trail's other end rather than doubling back over the same terrain. A quiet dinner is enough after a full day at altitude.</p><span class="travel-badge">🚗 ~50 min back to Funchal</span> <span class="cost-badge">💵 ~€35 return transfer</span> <span class="time-badge">🕐 Confirm pickup time in advance</span></div></div>
+        </div></div>
+      </div>
+
+      <div class="day-item reveal" data-priority="5">
+        <button class="day-header">
+          <span class="day-number">5</span>
+          <span class="day-header-text"><h3>North Coast: Cabo Girão &amp; Porto Moniz</h3><span>Europe's highest sea cliff and volcanic swimming pools, then departure</span></span>
+          <span class="day-chevron">⌄</span>
+        </button>
+        <div class="day-body"><div class="day-body-inner">
+          <div class="day-photo"><img data-src="https://images.unsplash.com/photo-1723098281716-bb15452fed31?w=960&q=80&fm=jpg&fit=crop" alt="Large volcanic rock pools by the ocean, Porto Moniz, Madeira" loading="lazy" decoding="async"></div>
+          <div class="block"><div class="block-time">Morning</div><div class="block-content"><h4>Cabo Girão skywalk</h4><p>A glass-floored platform juts out from Europe's highest sea cliff at 580 meters, with banana terraces clinging to the slope directly below.</p><span class="travel-badge">🚗 ~20 min drive from Funchal</span> <span class="cost-badge">💵 ~€5 skywalk parking/entry</span> <span class="time-badge">🕐 Early morning, before tour buses arrive</span></div></div>
+          <div class="block"><div class="block-time">Afternoon</div><div class="block-content"><h4>Porto Moniz natural swimming pools</h4><p>Volcanic rock pools on the island's northwest tip, filled and refreshed by the Atlantic. Grab lunch at one of the seafront restaurants overlooking the pools.</p><span class="travel-badge">🚗 ~1 hr drive from Cabo Girão</span> <span class="cost-badge">💵 ~€3 pool entry, ~€20 lunch</span> <span class="time-badge">🕐 Midday, warmest for swimming</span></div></div>
+          <div class="block"><div class="block-time">Evening</div><div class="block-content"><h4>Transfer to Madeira Airport &amp; departure</h4><p>The drive back to the airport retraces the coast road, with one last look at the cliffs before the short runway comes into view.</p><span class="travel-badge">🚗 ~50 min to the airport</span> <span class="cost-badge">💵 ~€45 return transfer</span> <span class="time-badge">🕐 Leave 2 to 3 hrs before your flight</span></div></div>
+        </div></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ===== TAB: NEED TO KNOW ===== -->
+  <div class="tab-panel" id="panel-culture">
+    <div class="culture-grid stagger">
+      <div class="culture-card reveal">
+        <h3><span class="ic">💶</span> Tipping Etiquette</h3>
+        <ul>
+          <li>Not obligatory: rounding up or leaving 5 to 10% at sit-down restaurants is appreciated for good service.</li>
+          <li>No tipping expected at cafés, bars, or counter service.</li>
+          <li>Tour and transfer drivers welcome a small tip, but it's not required.</li>
+        </ul>
+      </div>
+      <div class="culture-card reveal">
+        <h3><span class="ic">👗</span> Dress Code</h3>
+        <ul>
+          <li>Casual, layered clothing works for most of the trip, mild coastal weather during the day, cooler evenings.</li>
+          <li>Proper hiking footwear, broken in and with good grip, is essential for the levada and mountain trails, not optional sneakers.</li>
+          <li>Pack a warm layer even in summer: temperatures at Pico do Arieiro and Pico Ruivo run well below Funchal's.</li>
+        </ul>
+      </div>
+      <div class="culture-card reveal">
+        <h3><span class="ic">🚗</span> Getting Around</h3>
+        <ul>
+          <li>Madeira's terrain is steep and mountainous, laced with tunnels, so a rental car gives the most flexibility for reaching trailheads and the north coast.</li>
+          <li>Tour buses and shared minivans cover the popular sights and the Pico hike without the stress of mountain driving.</li>
+          <li>Funchal itself is easily walkable, so a car mainly matters for day trips outside the city.</li>
+        </ul>
+      </div>
+      <div class="culture-card warning reveal">
+        <h3><span class="ic">⚠️</span> Safety &amp; Etiquette Warnings</h3>
+        <ul>
+          <li>Fog can roll into Pico do Arieiro and Pico Ruivo within minutes, cutting visibility on narrow, exposed sections of the trail.</li>
+          <li>Levada paths run alongside open water channels with no railing in places, so stay on the marked path, especially after rain.</li>
+          <li>Check trail conditions before setting out: sections of both the levada and mountain routes close after heavy rain or landslides.</li>
+        </ul>
+      </div>
+      <div class="culture-card reveal">
+        <h3><span class="ic">🗣️</span> Crucial Phrases in Portuguese</h3>
+        <ul>
+          <li><strong>Bom dia</strong>: good morning / hello</li>
+          <li><strong>Obrigado / Obrigada</strong>: thank you (said by men / women respectively)</li>
+          <li><strong>A conta, por favor</strong>: the bill, please</li>
+        </ul>
+      </div>
+      <div class="culture-card reveal">
+        <h3><span class="ic">💳</span> Money &amp; Payments</h3>
+        <ul>
+          <li>The euro is used throughout, the same as mainland Portugal.</li>
+          <li>Cards and contactless are accepted almost everywhere in Funchal and at tourist sites.</li>
+          <li>Carry some cash for small cafés, market stalls, and the toboggan run.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== TAB: PACKING ===== -->
+  <div class="tab-panel" id="panel-packing">
+    <div class="packing-progress-bar">
+      <span class="progress-label" id="progressLabel">0 / 16 packed</span>
+      <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+    <div class="packing-grid stagger" id="packingGrid">
+      <div class="packing-category reveal">
+        <h3>👕 Clothing (Layered, coastal warmth &amp; mountain cold)</h3>
+        <label class="packing-item"><input type="checkbox"><span>Moisture-wicking base layers for the mountain hike</span></label>
+        <label class="packing-item"><input type="checkbox"><span>Broken-in, waterproof hiking boots with ankle support</span></label>
+        <label class="packing-item"><input type="checkbox"><span>Warm packable layer (fleece or light down) for above-the-clouds cold</span></label>
+        <label class="packing-item"><input type="checkbox"><span>Swimsuit for the Porto Moniz volcanic pools</span></label>
+      </div>
+      <div class="packing-category reveal">
+        <h3>🔌 Tech &amp; Documents</h3>
+        <label class="packing-item"><input type="checkbox"><span>EU plug adapter (Type C/F, 230V)</span></label>
+        <label class="packing-item"><input type="checkbox"><span>Rental car documents and driving license</span></label>
+        <label class="packing-item"><input type="checkbox"><span>Offline maps downloaded for mountain roads and tunnels</span></label>
+        <label class="packing-item"><input type="checkbox"><span>Portable charger</span></label>
+      </div>
+      <div class="packing-category reveal">
+        <h3>🧴 Health &amp; Toiletries</h3>
+        <label class="packing-item"><input type="checkbox"><span>High-SPF sunscreen (stronger sun at altitude)</span></label>
+        <label class="packing-item"><input type="checkbox"><span>Blister plasters and moleskin</span></label>
+        <label class="packing-item"><input type="checkbox"><span>Reusable water bottle</span></label>
+        <label class="packing-item"><input type="checkbox"><span>Motion sickness tablets for winding mountain roads</span></label>
+      </div>
+      <div class="packing-category reveal">
+        <h3>🎒 Gear &amp; Extras</h3>
+        <label class="packing-item"><input type="checkbox"><span>Trekking poles for the Pico do Arieiro to Pico Ruivo ridge trail</span></label>
+        <label class="packing-item"><input type="checkbox"><span>Headlamp (some levada and mountain tunnels are unlit)</span></label>
+        <label class="packing-item"><input type="checkbox"><span>Small daypack with a rain cover</span></label>
+        <label class="packing-item"><input type="checkbox"><span>Sunglasses and a warm hat for the summit</span></label>
+      </div>
+    </div>
+    <div class="packing-actions">
+      <button class="btn btn-primary" id="downloadPacking">⬇ Download Printable PDF</button>
+    </div>
+  </div>
+
+  <!-- ===== TAB: INSIDER TRICKS ===== -->
+  <div class="tab-panel" id="panel-tricks">
+    <div class="tricks-grid stagger">
+      <div class="trick-card reveal">
+        <h3>💰 Money-Saving Hacks</h3>
+        <div class="trick-item"><div class="trick-icon">🚗</div><div><h4>Rent a car for the whole trip</h4><p>One multi-day rental beats stacking individual taxis and tours once you're covering the mountains and the north coast.</p></div></div>
+        <div class="trick-item"><div class="trick-icon">🍽️</div><div><h4>Eat at an adega or local tasca</h4><p>Espetada (beef skewers grilled over wood) at a family-run spot costs a fraction of the marina-front restaurants in Funchal.</p></div></div>
+        <div class="trick-item"><div class="trick-icon">🎫</div><div><h4>Book the cable car and toboggan together</h4><p>Combined tickets for the Monte cable car and the wicker toboggan run cost less than buying each separately at the counter.</p></div></div>
+      </div>
+      <div class="trick-card reveal">
+        <h3>📸 Off-the-Beaten-Path Secrets</h3>
+        <div class="trick-item"><div class="trick-icon">🌲</div><div><h4>Fanal Forest</h4><p>Ancient, wind-twisted laurel trees wrapped in mist, a quieter alternative to the more visited Rabaçal trails.</p></div></div>
+        <div class="trick-item"><div class="trick-icon">🥾</div><div><h4>Ponta de São Lourenço</h4><p>The island's arid, dramatic eastern tip looks nothing like the green interior, and most visitors skip it entirely.</p></div></div>
+        <div class="trick-item"><div class="trick-icon">🎨</div><div><h4>Câmara de Lobos</h4><p>A working fishing village near Cabo Girão where Winston Churchill once set up his easel to paint the harbor.</p></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== TAB: TRAVEL SERVICES ===== -->
+  <div class="tab-panel" id="panel-services">
+    <div class="culture-grid stagger">
+      <div class="culture-card reveal">
+        <h3><span class="ic">✈️</span> Flights</h3>
+        <ul>
+          <li>Cristiano Ronaldo Madeira International Airport (FNC) is famous for its short cliffside runway, extended out over the ocean on massive concrete stilts.</li>
+          <li>The airport sits about 20 minutes from central Funchal, an easy taxi or transfer regardless of arrival time.</li>
+          <li>Crosswinds occasionally delay landings, so build a little buffer into tight connections.</li>
+        </ul>
+      </div>
+      <div class="culture-card reveal">
+        <h3><span class="ic">🚕</span> Taxis &amp; Rideshare</h3>
+        <ul>
+          <li>Uber and other rideshare apps have a limited presence on the island, mostly around Funchal, so don't count on one for the mountain or north coast days.</li>
+          <li>Regular taxis are easy to hail in Funchal and can be booked in advance for early starts like the Pico do Arieiro hike.</li>
+          <li>Agree a fare or confirm the meter before longer trips outside the city.</li>
+        </ul>
+      </div>
+      <div class="culture-card reveal">
+        <h3><span class="ic">🚗</span> Rental Cars</h3>
+        <ul>
+          <li>Genuinely essential for this itinerary: the levada trailhead, the mountain peaks, and the north coast are all spread across the island, well beyond easy taxi range.</li>
+          <li>Roads climb through frequent tunnels and tight switchbacks, so drive cautiously, use headlights in tunnels, and expect slower average speeds than the map suggests.</li>
+          <li>Book automatic transmission ahead if you need it: manual is far more common in the rental fleet.</li>
+        </ul>
+      </div>
+      <div class="culture-card reveal">
+        <h3><span class="ic">🏨</span> Hotels &amp; Where to Stay</h3>
+        <ul>
+          <li>Funchal old town (Zona Velha): puts Day 1's evening stroll and dinner right outside the door, with an authentic, walkable base.</li>
+          <li>The hotel zone (Lido): larger resorts with sea-facing pools, a short taxi or bus from the old town's restaurants.</li>
+          <li>Either base works well for the day trips on Days 2 through 5, since transfers start from central Funchal either way.</li>
+        </ul>
+      </div>
+      <div class="culture-card reveal">
+        <h3><span class="ic">⛴️</span> Boat Trips</h3>
+        <ul>
+          <li>No ferry or boat leg is part of this 5-day itinerary; every day trip runs by road.</li>
+          <li>A whale and dolphin watching boat tour out of Funchal marina is a popular optional add-on, with sightings common in the deep waters just offshore.</li>
+          <li>Slot it into a lighter morning rather than swapping out the hike or the levada walk.</li>
+        </ul>
+      </div>
+      <div class="culture-card reveal">
+        <h3><span class="ic">🧳</span> Other Essentials</h3>
+        <ul>
+          <li>Madeira is Portuguese and EU territory, so standard Schengen entry rules apply for the whole trip.</li>
+          <li>Travel insurance is worth it given the amount of hiking on Days 3 and 4, particularly the exposed ridge trail to Pico Ruivo.</li>
+          <li>Weather and temperature at Pico do Arieiro can differ sharply from Funchal at sea level: check the mountain forecast the night before, not just the coastal one.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ RELATED TRIPS ============ -->
+<section class="related-trips">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Where to next</p>
+      <h2>More itineraries you might like</h2>
+    </div>
+    <div class="related-grid stagger">
+      <a class="related-card reveal" href="bali.html">
+        <img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/TanahLot_2014.JPG/500px-TanahLot_2014.JPG" alt="Tanah Lot sea temple, Bali, Indonesia" loading="lazy" decoding="async">
+        <span>A Week of Wellness &amp; Solo Discovery in Bali</span>
+      </a>
+      <a class="related-card reveal" href="lisbon.html">
+        <img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Bel%C3%A9m_Tower_in_Lisbon%2C_Portugal.jpg/500px-Bel%C3%A9m_Tower_in_Lisbon%2C_Portugal.jpg" alt="Belém Tower, Lisbon" loading="lazy" decoding="async">
+        <span>7 Days of Lisbon Local Highlights</span>
+      </a>
+      <a class="related-card reveal" href="amalfi-coast.html">
+        <img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Positano_Sunset.JPG/500px-Positano_Sunset.JPG" alt="Positano at sunset, Amalfi Coast" loading="lazy" decoding="async">
+        <span>7 Days in Amalfi Coast on a Budget</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo"><span class="logo-mark">W</span> WanderList</a>
+        <p>End-to-end itineraries so you spend less time researching and more time traveling.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="browse.html">Browse Destinations</a></li>
+          <li><a href="index.html#browse">Featured Itineraries</a></li>
+          <li><a href="madeira.html#packing">Packing Guides</a></li>
+          <li><a href="madeira.html#culture">Culture Tips</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="how-it-works.html">How It Works</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="contact.html">Careers</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 WanderList. All rights reserved.</span>
+      <div class="social-icons">
+        <a href="#" aria-label="Instagram">📷</a>
+        <a href="#" aria-label="Pinterest">📌</a>
+        <a href="#" aria-label="X">✕</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js?v=20260731d"></script>
+</body>
+</html>

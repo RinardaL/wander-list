@@ -66,6 +66,26 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.wanderlist.example/milano.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.wanderlist.example/toscana.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.wanderlist.example/madeira.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.wanderlist.example/sofia.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.wanderlist.example/about.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
