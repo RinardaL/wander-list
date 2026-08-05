@@ -106,6 +106,31 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.wanderlist.example/thailand.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.wanderlist.example/shanghai.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.wanderlist.example/strasbourg.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.wanderlist.example/kotor.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.wanderlist.example/seville.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.wanderlist.example/about.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>

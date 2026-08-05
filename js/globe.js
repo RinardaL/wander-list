@@ -24,6 +24,11 @@ const DESTINATIONS = [
   { name: "Prague, Czech Republic", lat: 50.09, lon: 14.42, href: "prague.html" },
   { name: "Finnish Lapland", lat: 66.50, lon: 25.73, href: "lapland.html" },
   { name: "Zermatt, Switzerland", lat: 46.02, lon: 7.75, href: "zermatt.html" },
+  { name: "Bangkok & Andaman Coast, Thailand", lat: 13.75, lon: 100.50, href: "thailand.html" },
+  { name: "Shanghai, China", lat: 31.23, lon: 121.47, href: "shanghai.html" },
+  { name: "Strasbourg, France", lat: 48.58, lon: 7.75, href: "strasbourg.html" },
+  { name: "Kotor, Montenegro", lat: 42.42, lon: 18.77, href: "kotor.html" },
+  { name: "Seville, Spain", lat: 37.39, lon: -5.99, href: "seville.html" },
 ];
 
 // A click/hover within this angular radius of a destination pin counts as
