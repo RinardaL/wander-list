@@ -561,11 +561,7 @@ function initWanderList() {
     searchForm.addEventListener("submit", (e) => {
       e.preventDefault();
       const dest = document.getElementById("destInput").value.trim();
-      const style = document.getElementById("styleInput").value;
-      const params = new URLSearchParams();
-      if (dest) params.set("q", dest);
-      if (style) params.set("style", style);
-      window.location.href = params.toString() ? `browse.html?${params}` : "browse.html";
+      window.location.href = dest ? `browse.html?q=${encodeURIComponent(dest)}` : "browse.html";
     });
     attachTripAutocomplete(document.getElementById("destInput"));
   }

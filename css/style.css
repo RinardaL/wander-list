@@ -304,7 +304,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; color: var(
   box-shadow: var(--shadow-lg);
   padding: 8px;
   gap: 6px;
-  max-width: 780px;
+  max-width: 520px;
   margin: 0 auto;
 }
 .search-field {
