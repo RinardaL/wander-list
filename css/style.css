@@ -275,13 +275,15 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; color: var(
 .hero-content { max-width: 760px; margin: 0 auto; position: relative; z-index: 2; }
 .hero .eyebrow { color: var(--mint); text-shadow: 0 1px 8px rgba(0,0,0,0.25); }
 .hero h1 {
-  font-size: clamp(2.4rem, 5.5vw, 4rem);
-  line-height: 1.08;
+  font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+  font-weight: 400;
+  line-height: 1.12;
+  letter-spacing: -0.01em;
   margin-bottom: 22px;
   color: #fff;
   text-shadow: 0 2px 20px rgba(0,0,0,0.3);
 }
-.hero h1 span { color: var(--mint); }
+.hero h1 span { display: block; color: var(--mint); font-style: italic; font-weight: 500; }
 .hero p.lead {
   font-size: 1.2rem;
   color: rgba(255,255,255,0.88);
@@ -411,7 +413,6 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; color: var(
 .category-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
 .category-card:active { transform: translateY(-2px) scale(0.98); }
 .category-card.active { outline: 3px solid var(--mint); outline-offset: 3px; }
-.category-icon { font-size: 1.6rem; margin-bottom: 8px; z-index: 2; position: relative; }
 .category-card h3 { color: #fff; font-size: 1.15rem; z-index: 2; position: relative; }
 .category-card span.count { font-size: 0.8rem; opacity: 0.85; z-index: 2; position: relative; }
 
