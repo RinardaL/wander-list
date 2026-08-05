@@ -18,7 +18,7 @@
   --warning-amber: #c4781e;
 
   /* Typography */
-  --font-display: "Fraunces", "Georgia", serif;
+  --font-display: "Arial", "Verdana", sans-serif;
   --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 
   /* Layout */
@@ -693,7 +693,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; color: var(
 .value-card:hover { background: rgba(255,255,255,0.11); border-color: rgba(255,255,255,0.22); transform: translateY(-4px); }
 .value-index {
   display: block;
-  font-family: 'Fraunces', serif;
+  font-family: var(--font-display);
   font-size: 0.85rem;
   font-weight: 600;
   letter-spacing: 0.06em;
