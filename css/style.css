@@ -443,8 +443,8 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; color: var(
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 .trip-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
-.trip-card .photo { height: 190px; }
-.trip-card-body { padding: 20px; }
+.trip-card .photo { height: 160px; }
+.trip-card-body { padding: 16px; }
 .trip-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 10px; }
 .tag {
   font-size: 0.7rem;
@@ -457,13 +457,13 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; color: var(
   color: var(--emerald-dark);
 }
 .tag.terracotta { background: rgba(23,184,147,0.15); color: var(--mint-dark); }
-.trip-card h3 { font-size: 1.22rem; font-weight: 500; line-height: 1.35; letter-spacing: -0.015em; margin-bottom: 8px; }
+.trip-card h3 { font-size: 1.22rem; font-weight: 500; line-height: 1.35; letter-spacing: -0.015em; margin-bottom: 0; }
 .trip-meta {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 14px;
-  padding-top: 14px;
+  margin-top: 10px;
+  padding-top: 10px;
   border-top: 1px dashed var(--line);
   font-size: 0.85rem;
   color: var(--charcoal-soft);
