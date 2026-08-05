@@ -146,7 +146,7 @@ function attachTripAutocomplete(input, onSelect) {
       const item = document.createElement("div");
       item.className = "search-autocomplete-item";
       item.setAttribute("role", "option");
-      item.innerHTML = `<img src="${trip.img}" alt="" loading="lazy" decoding="async"><div class="sa-meta"><strong>${trip.place}</strong><span>${trip.tag} · ${trip.duration}</span></div>`;
+      item.textContent = trip.place;
       item.addEventListener("mousedown", (e) => {
         e.preventDefault(); // fires before input blur, so the click always registers
         input.value = trip.place;
