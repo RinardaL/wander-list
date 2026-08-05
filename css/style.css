@@ -472,7 +472,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; color: var(
   color: var(--emerald-dark);
 }
 .tag.terracotta { background: rgba(23,184,147,0.15); color: var(--mint-dark); }
-.trip-card h3 { font-size: 1.15rem; margin-bottom: 8px; }
+.trip-card h3 { font-size: 1.22rem; font-weight: 500; line-height: 1.35; letter-spacing: -0.015em; margin-bottom: 8px; }
 .trip-meta {
   display: flex;
   align-items: center;
