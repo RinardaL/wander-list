@@ -82,11 +82,33 @@ function currentPageId() {
   return window.location.pathname.split("/").pop() || "index.html";
 }
 
+/* ---------- Reviews (Write a Review, persisted to localStorage) ---------- */
+const REVIEWS_KEY = "wanderlist_reviews";
+
+function getReviews() {
+  try {
+    const raw = JSON.parse(localStorage.getItem(REVIEWS_KEY));
+    return Array.isArray(raw) ? raw : [];
+  } catch (e) {
+    return [];
+  }
+}
+
+function addReview(review) {
+  const list = getReviews();
+  list.unshift(review);
+  try { localStorage.setItem(REVIEWS_KEY, JSON.stringify(list.slice(0, 50))); } catch (e) {}
+  return list;
+}
+
 /* ---------- Trip-search autocomplete dropdown ----------
    Attaches a dropdown to a text input that lists ONLY trips that
    actually exist on the site (sourced from TRIP_CATALOG). Selecting
-   an entry navigates straight to that trip's page. */
-function attachTripAutocomplete(input) {
+   an entry fills the field with that place (it does not navigate away),
+   so the rest of the search form (travel style, duration) still applies
+   when the user submits. Pass onSelect to react to a pick, e.g. to
+   re-run a live filter. */
+function attachTripAutocomplete(input, onSelect) {
   if (!input) return;
 
   const entries = Object.entries(TRIP_CATALOG);
@@ -127,7 +149,9 @@ function attachTripAutocomplete(input) {
       item.innerHTML = `<img src="${trip.img}" alt="" loading="lazy" decoding="async"><div class="sa-meta"><strong>${trip.place}</strong><span>${trip.tag} · ${trip.duration}</span></div>`;
       item.addEventListener("mousedown", (e) => {
         e.preventDefault(); // fires before input blur, so the click always registers
-        window.location.href = id;
+        input.value = trip.place;
+        close();
+        if (onSelect) onSelect(id, trip);
       });
       panel.appendChild(item);
     });
@@ -149,7 +173,10 @@ function attachTripAutocomplete(input) {
       renderActive();
     } else if (e.key === "Enter" && activeIndex >= 0 && currentMatches[activeIndex]) {
       e.preventDefault();
-      window.location.href = currentMatches[activeIndex][0];
+      const [id, trip] = currentMatches[activeIndex];
+      input.value = trip.place;
+      close();
+      if (onSelect) onSelect(id, trip);
     } else if (e.key === "Escape") {
       close();
     }
@@ -206,7 +233,6 @@ function initWanderList() {
   if (durationOptions) {
     const dayItems = Array.from(document.querySelectorAll("#dayList .day-item"));
     const totalDays = dayItems.length;
-    const customInput = document.getElementById("customDuration");
     const note = document.getElementById("durationNote");
 
     function rankedDays() {
@@ -234,25 +260,15 @@ function initWanderList() {
       btn.addEventListener("click", () => {
         durationOptions.querySelectorAll(".duration-btn").forEach((b) => b.classList.remove("active"));
         btn.classList.add("active");
-        if (customInput) customInput.value = "";
         applyDuration(parseInt(btn.dataset.days, 10));
       });
     });
-
-    if (customInput) {
-      customInput.addEventListener("input", () => {
-        const val = parseInt(customInput.value, 10);
-        durationOptions.querySelectorAll(".duration-btn").forEach((b) => b.classList.remove("active"));
-        if (!isNaN(val) && val > 0) applyDuration(val);
-      });
-    }
 
     note.addEventListener("click", (e) => {
       if (!e.target.hasAttribute("data-show-all")) return;
       durationOptions.querySelectorAll(".duration-btn").forEach((b) => {
         b.classList.toggle("active", parseInt(b.dataset.days, 10) === totalDays);
       });
-      if (customInput) customInput.value = "";
       applyDuration(totalDays);
     });
   }
@@ -344,25 +360,45 @@ function initWanderList() {
     });
   }
 
-  /* ---------- Testimonials: live-loaded from data/reviews.json ---------- */
+  /* ---------- Testimonials: live-loaded from data/reviews.json + locally written reviews ---------- */
   const testimonialGrid = document.getElementById("testimonialGrid");
   if (testimonialGrid) {
     const escapeHtml = (s) => String(s).replace(/[&<>"']/g, (c) => ({
       "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
     }[c]));
+    const REVIEW_AVATAR_COLORS = ["var(--emerald)", "var(--mint-dark)", "var(--emerald-dark)"];
 
-    let lastPayload = "";
-    function renderReviews(reviews) {
-      testimonialGrid.innerHTML = reviews.map((r) => `
+    function reviewCardHtml(r) {
+      const rating = Math.round(r.rating || 5);
+      const color = r.color || REVIEW_AVATAR_COLORS[(r.author || "").length % REVIEW_AVATAR_COLORS.length];
+      const initial = r.initial || (r.author || "?").trim().charAt(0).toUpperCase();
+      return `
         <div class="testimonial-card reveal in-view">
-          <div class="testimonial-stars">${"★".repeat(Math.round(r.rating || 5))}</div>
+          <div class="testimonial-stars">${"★".repeat(rating)}${"☆".repeat(5 - rating)}</div>
           <p>"${escapeHtml(r.text)}"</p>
           <div class="testimonial-author">
-            <span class="testimonial-avatar" style="background:${escapeHtml(r.color || "var(--emerald)")}">${escapeHtml(r.initial || r.author[0])}</span>
-            <div><strong>${escapeHtml(r.author)}</strong><span>${escapeHtml(r.trip)}</span></div>
+            <span class="testimonial-avatar" style="background:${escapeHtml(color)}">${escapeHtml(initial)}</span>
+            <div><strong>${escapeHtml(r.author)}</strong><span>${escapeHtml(r.trip || "WanderList traveler")}</span></div>
           </div>
-        </div>`).join("");
+        </div>`;
     }
+
+    // Show any locally written reviews immediately, without waiting on the fetch below.
+    testimonialGrid.insertAdjacentHTML("afterbegin", getReviews().map(reviewCardHtml).join(""));
+
+    let lastPayload = "";
+    let latestFetchedReviews = null;
+    function renderReviews(reviews) {
+      latestFetchedReviews = reviews;
+      testimonialGrid.innerHTML = getReviews().map(reviewCardHtml).join("") + reviews.map(reviewCardHtml).join("");
+    }
+    window.wanderListRenderReviews = () => {
+      if (latestFetchedReviews) {
+        renderReviews(latestFetchedReviews);
+      } else {
+        testimonialGrid.insertAdjacentHTML("afterbegin", reviewCardHtml(getReviews()[0]));
+      }
+    };
 
     async function loadReviews() {
       try {
@@ -478,7 +514,7 @@ function initWanderList() {
     });
     budgetFilter.addEventListener("change", applyFilters);
     searchInput.addEventListener("input", applyFilters);
-    attachTripAutocomplete(searchInput);
+    attachTripAutocomplete(searchInput, () => applyFilters());
 
     // Deep-link support: browse.html?style=budget pre-selects that chip,
     // browse.html?q=paris pre-fills the search box — both combine naturally.
@@ -525,7 +561,11 @@ function initWanderList() {
     searchForm.addEventListener("submit", (e) => {
       e.preventDefault();
       const dest = document.getElementById("destInput").value.trim();
-      window.location.href = dest ? `browse.html?q=${encodeURIComponent(dest)}` : "browse.html";
+      const style = document.getElementById("styleInput").value;
+      const params = new URLSearchParams();
+      if (dest) params.set("q", dest);
+      if (style) params.set("style", style);
+      window.location.href = params.toString() ? `browse.html?${params}` : "browse.html";
     });
     attachTripAutocomplete(document.getElementById("destInput"));
   }
@@ -560,6 +600,51 @@ function initWanderList() {
       e.preventDefault();
       contactSuccess.classList.add("show");
       contactForm.reset();
+    });
+  }
+
+  /* ---------- Write a Review ---------- */
+  const reviewToggle = document.getElementById("reviewToggle");
+  const reviewForm = document.getElementById("reviewForm");
+  const reviewSuccess = document.getElementById("reviewSuccess");
+  const reviewStars = document.getElementById("reviewStars");
+
+  if (reviewToggle && reviewForm) {
+    reviewToggle.addEventListener("click", () => {
+      reviewForm.hidden = !reviewForm.hidden;
+      reviewToggle.setAttribute("aria-expanded", String(!reviewForm.hidden));
+      if (!reviewForm.hidden && reviewSuccess) reviewSuccess.classList.remove("show");
+    });
+  }
+
+  let setReviewStars = () => {};
+  if (reviewStars) {
+    const starBtns = Array.from(reviewStars.querySelectorAll(".star-btn"));
+    setReviewStars = (n) => {
+      reviewStars.dataset.value = n;
+      starBtns.forEach((btn) => btn.classList.toggle("is-filled", parseInt(btn.dataset.star, 10) <= n));
+    };
+    starBtns.forEach((btn) => btn.addEventListener("click", () => setReviewStars(parseInt(btn.dataset.star, 10))));
+    setReviewStars(5);
+  }
+
+  if (reviewForm && window.wanderListRenderReviews) {
+    reviewForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const name = document.getElementById("reviewName").value.trim();
+      const trip = document.getElementById("reviewTrip").value.trim();
+      const text = document.getElementById("reviewText").value.trim();
+      const rating = parseInt(reviewStars.dataset.value, 10) || 5;
+      if (!name || !text) return;
+
+      addReview({ author: name, trip, text, rating });
+      window.wanderListRenderReviews();
+
+      reviewForm.reset();
+      setReviewStars(5);
+      if (reviewSuccess) reviewSuccess.classList.add("show");
+      reviewForm.hidden = true;
+      reviewToggle.setAttribute("aria-expanded", "false");
     });
   }
 

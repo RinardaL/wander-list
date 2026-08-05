@@ -61,18 +61,22 @@
         <label for="styleInput">Travel Style</label>
         <select id="styleInput">
           <option value="">Any style</option>
-          <option>Budget Backpacking</option>
-          <option>Cultural Immersion</option>
-          <option>Luxury Getaway</option>
-          <option>Road Trip</option>
-          <option>Hidden Gems</option>
+          <option value="budget">Budget Backpacking</option>
+          <option value="culture">Cultural Immersion</option>
+          <option value="luxury">Luxury Getaway</option>
+          <option value="road-trip">Road Trip</option>
+          <option value="hidden-gems">Hidden Gems</option>
+          <option value="wellness">Wellness &amp; Solo</option>
+          <option value="weekend">Weekend Getaway</option>
         </select>
       </div>
       <div class="search-field">
         <label for="durationInput">Duration</label>
         <select id="durationInput">
-          <option>7 Days</option>
+          <option>3 Days</option>
+          <option>4 Days</option>
           <option>5 Days</option>
+          <option>7 Days</option>
         </select>
       </div>
       <button type="submit" class="btn btn-primary">Find My Trip</button>
@@ -371,6 +375,37 @@
         </div>
       </div>
     </div>
+
+    <div class="review-form-wrap reveal">
+      <button type="button" class="btn btn-outline" id="reviewToggle" aria-expanded="false" aria-controls="reviewForm">Write a Review</button>
+      <form class="review-form" id="reviewForm" hidden>
+        <div class="contact-field">
+          <label for="reviewName">Name</label>
+          <input type="text" id="reviewName" required placeholder="Your name">
+        </div>
+        <div class="contact-field">
+          <label for="reviewTrip">Trip (optional)</label>
+          <input type="text" id="reviewTrip" placeholder="e.g. Amalfi Coast, 7 Days">
+        </div>
+        <div class="contact-field">
+          <label>Rating</label>
+          <div class="star-rating" id="reviewStars" data-value="5">
+            <button type="button" class="star-btn" data-star="1" aria-label="1 star">★</button>
+            <button type="button" class="star-btn" data-star="2" aria-label="2 stars">★</button>
+            <button type="button" class="star-btn" data-star="3" aria-label="3 stars">★</button>
+            <button type="button" class="star-btn" data-star="4" aria-label="4 stars">★</button>
+            <button type="button" class="star-btn" data-star="5" aria-label="5 stars">★</button>
+          </div>
+        </div>
+        <div class="contact-field">
+          <label for="reviewText">Your review</label>
+          <textarea id="reviewText" rows="4" required placeholder="What was your trip like?"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Submit Review</button>
+        <p class="review-form-note">Reviews are saved on this device and shown below, not sent anywhere.</p>
+        <p class="form-success" id="reviewSuccess">✓ Thanks for sharing! Your review is posted below.</p>
+      </form>
+    </div>
   </div>
 </section>
 
@@ -429,7 +464,7 @@
   </div>
 </footer>
 
-<script src="js/main.js?v=20260731f"></script>
+<script src="js/main.js?v=20260731i"></script>
 <script type="module" src="js/globe.js"></script>
 </body>
 </html>
