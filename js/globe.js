@@ -35,7 +35,51 @@ const DESTINATIONS = [
 // "on that country/region", not just the tiny pin dot itself.
 const HIT_RADIUS_RAD = (12 * Math.PI) / 180;
 
-const EARTH_TEXTURE_URL = "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Equirectangular_projection_SW.jpg/1920px-Equirectangular_projection_SW.jpg";
+const EARTH_TEXTURE_URL = "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Earth%27s_City_Lights_by_DMSP%2C_1994-1995_%28large%29.jpg/1920px-Earth%27s_City_Lights_by_DMSP%2C_1994-1995_%28large%29.jpg";
+
+// Soft radial-gradient sprite used for both the destination "stars" and the
+// background starfield, generated once at runtime (no extra image request).
+function createGlowTexture(THREE, inner, outer) {
+  const size = 128;
+  const canvas = document.createElement("canvas");
+  canvas.width = size;
+  canvas.height = size;
+  const ctx = canvas.getContext("2d");
+  const gradient = ctx.createRadialGradient(size / 2, size / 2, 0, size / 2, size / 2, size / 2);
+  gradient.addColorStop(0, inner);
+  gradient.addColorStop(0.35, outer);
+  gradient.addColorStop(1, "rgba(0,0,0,0)");
+  ctx.fillStyle = gradient;
+  ctx.fillRect(0, 0, size, size);
+  return new THREE.CanvasTexture(canvas);
+}
+
+// A fixed field of tiny background stars, independent of the globe's own
+// rotation, for a realistic "in space" backdrop.
+function createStarfield(THREE, scene, texture) {
+  const count = 500;
+  const positions = new Float32Array(count * 3);
+  for (let i = 0; i < count; i++) {
+    const r = 6 + Math.random() * 3;
+    const theta = Math.random() * Math.PI * 2;
+    const phi = Math.acos(2 * Math.random() - 1);
+    positions[i * 3] = r * Math.sin(phi) * Math.cos(theta);
+    positions[i * 3 + 1] = r * Math.sin(phi) * Math.sin(theta);
+    positions[i * 3 + 2] = r * Math.cos(phi);
+  }
+  const geometry = new THREE.BufferGeometry();
+  geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
+  const material = new THREE.PointsMaterial({
+    map: texture,
+    size: 0.05,
+    transparent: true,
+    opacity: 0.85,
+    depthWrite: false,
+    blending: THREE.AdditiveBlending,
+    sizeAttenuation: true,
+  });
+  scene.add(new THREE.Points(geometry, material));
+}
 
 function latLonToVector3(lat, lon, radius, THREE) {
   const phi = (90 - lat) * (Math.PI / 180);
@@ -107,31 +151,35 @@ async function initGlobe() {
   // Outer atmosphere glow
   const glow = new THREE.Mesh(
     new THREE.SphereGeometry(1.06, 24, 18),
-    new THREE.MeshBasicMaterial({ color: mint, transparent: true, opacity: 0.08, side: THREE.BackSide })
+    new THREE.MeshBasicMaterial({ color: mint, transparent: true, opacity: 0.1, side: THREE.BackSide })
   );
   group.add(glow);
 
-  // Destination pins
+  // Fixed background starfield (in the scene, not the rotating group), for a
+  // realistic night-sky backdrop behind the globe.
+  const starTexture = createGlowTexture(THREE, "rgba(255,255,255,1)", "rgba(255,255,255,0.6)");
+  createStarfield(THREE, scene, starTexture);
+
+  // Destination pins: soft glowing sprites that twinkle like stars, always
+  // facing the camera regardless of globe rotation.
+  const pinGlowTexture = createGlowTexture(THREE, "rgba(255,255,255,1)", "rgba(23,184,147,0.65)");
   const pinMeshes = [];
   DESTINATIONS.forEach((dest) => {
     const pos = latLonToVector3(dest.lat, dest.lon, 1.02, THREE);
-    const pin = new THREE.Mesh(
-      new THREE.SphereGeometry(0.05, 12, 12),
-      new THREE.MeshBasicMaterial({ color: mint })
-    );
+    const pin = new THREE.Sprite(new THREE.SpriteMaterial({
+      map: pinGlowTexture,
+      color: 0xffffff,
+      transparent: true,
+      depthWrite: false,
+      blending: THREE.AdditiveBlending,
+    }));
     pin.position.copy(pos);
+    pin.scale.setScalar(0.15);
     pin.userData.dest = dest;
+    pin.userData.twinklePhase = Math.random() * Math.PI * 2;
+    pin.userData.twinkleSpeed = 1 + Math.random() * 1.2;
     group.add(pin);
     pinMeshes.push(pin);
-
-    // Halo ring around each pin for visibility
-    const halo = new THREE.Mesh(
-      new THREE.RingGeometry(0.065, 0.085, 20),
-      new THREE.MeshBasicMaterial({ color: mint, transparent: true, opacity: 0.55, side: THREE.DoubleSide })
-    );
-    halo.position.copy(pos);
-    halo.lookAt(0, 0, 0);
-    group.add(halo);
   });
 
   // Finds the destination nearest a given point in the group's local space
@@ -271,6 +319,15 @@ async function initGlobe() {
 
     if (!prefersReducedMotion && !isDragging && now > autoRotateResumeAt) {
       group.rotation.y += 0.0016;
+    }
+
+    if (!prefersReducedMotion) {
+      const t = now * 0.001;
+      pinMeshes.forEach((pin) => {
+        const twinkle = 0.5 + 0.5 * Math.sin(t * pin.userData.twinkleSpeed + pin.userData.twinklePhase);
+        pin.scale.setScalar(0.15 * (0.8 + 0.35 * twinkle));
+        pin.material.opacity = 0.65 + 0.35 * twinkle;
+      });
     }
 
     renderer.render(scene, camera);

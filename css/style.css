@@ -496,7 +496,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; color: var(
   content: "";
   position: absolute; inset: -6%;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(23,184,147,0.16), transparent 70%);
+  background: radial-gradient(circle, rgba(5,10,24,0.92) 0%, rgba(5,10,24,0.6) 55%, rgba(23,184,147,0.14) 78%, transparent 82%);
   z-index: -1;
 }
 .globe-tooltip {
