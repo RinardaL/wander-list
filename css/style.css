@@ -537,7 +537,8 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; color: var(
 }
 .globe-copy h2 { margin-bottom: 10px; }
 .globe-copy > p { color: var(--charcoal-soft); font-size: 1.05rem; margin-bottom: 28px; }
-.globe-dest-list { display: flex; flex-direction: column; gap: 4px; }
+.globe-dest-list { columns: 2; column-gap: 28px; }
+.globe-dest-list li { break-inside: avoid; }
 .globe-dest-list a {
   display: flex;
   align-items: center;
@@ -1358,7 +1359,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; color: var(
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .globe-layout { grid-template-columns: 1fr; text-align: center; }
   .globe-copy > p { max-width: 440px; margin-left: auto; margin-right: auto; }
-  .globe-dest-list { text-align: left; max-width: 380px; margin: 0 auto; }
+  .globe-dest-list { columns: 1; text-align: left; max-width: 380px; margin: 0 auto; }
   .contact-layout { grid-template-columns: 1fr; }
   .browse-grid { grid-template-columns: repeat(2, 1fr); }
 }
