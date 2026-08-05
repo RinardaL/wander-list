@@ -35,6 +35,15 @@ const DESTINATIONS = [
   { name: "Grindelwald, Switzerland", lat: 46.62, lon: 8.03, href: "grindelwald.html" },
   { name: "Canary Islands, Spain", lat: 28.29, lon: -16.63, href: "canary-islands.html" },
   { name: "Edinburgh, Scotland", lat: 55.95, lon: -3.19, href: "edinburgh.html" },
+  { name: "Austrian Alps, Austria", lat: 47.26, lon: 11.39, href: "austrian-alps.html" },
+  { name: "Bansko, Bulgaria", lat: 41.84, lon: 23.49, href: "bansko.html" },
+  { name: "Bruges, Belgium", lat: 51.21, lon: 3.22, href: "bruges.html" },
+  { name: "Copenhagen, Denmark", lat: 55.68, lon: 12.57, href: "copenhagen.html" },
+  { name: "Lauterbrunnen, Switzerland", lat: 46.59, lon: 7.91, href: "lauterbrunnen.html" },
+  { name: "Plitvice Lakes, Croatia", lat: 44.86, lon: 15.58, href: "plitvice-lakes.html" },
+  { name: "Hakone, Japan", lat: 35.23, lon: 139.03, href: "hakone.html" },
+  { name: "Hallstatt, Austria", lat: 47.56, lon: 13.65, href: "hallstatt.html" },
+  { name: "Cortina d'Ampezzo, Italy", lat: 46.54, lon: 12.14, href: "cortina-dampezzo.html" },
 ];
 
 // A click/hover within this angular radius of a destination pin counts as
