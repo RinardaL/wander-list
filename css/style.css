@@ -1102,7 +1102,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; color: var(
 }
 .duration-picker-label { font-weight: 700; font-size: 0.92rem; color: var(--emerald-dark); }
 .duration-options { display: flex; flex-wrap: wrap; gap: 8px; }
-.duration-options .filter-chip { background: #fff; }
+.duration-options .filter-chip:not(.active) { background: #fff; }
 .duration-note {
   font-size: 0.85rem;
   color: var(--emerald-dark);

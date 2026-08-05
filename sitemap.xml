@@ -131,6 +131,36 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.wanderlist.example/zakopane.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.wanderlist.example/chamonix.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.wanderlist.example/valletta.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.wanderlist.example/grindelwald.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.wanderlist.example/canary-islands.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.wanderlist.example/edinburgh.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.wanderlist.example/about.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
