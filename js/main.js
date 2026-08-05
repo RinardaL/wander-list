@@ -490,10 +490,12 @@ function initWanderList() {
         const styles = (card.dataset.style || "").split(" ");
         const budget = card.dataset.budget || "";
         const name = (card.dataset.name || "").toLowerCase();
+        const href = card.querySelector(".trip-meta a")?.getAttribute("href") || "";
+        const place = (TRIP_CATALOG[href]?.place || "").toLowerCase();
 
         const matchesStyle = activeStyle === "all" || styles.includes(activeStyle);
         const matchesBudget = activeBudget === "all" || budget === activeBudget;
-        const matchesSearch = !query || name.includes(query);
+        const matchesSearch = !query || name.includes(query) || place.includes(query);
         const isMatch = matchesStyle && matchesBudget && matchesSearch;
 
         card.classList.toggle("is-hidden", !isMatch);
