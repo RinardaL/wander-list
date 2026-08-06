@@ -1038,7 +1038,11 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; color: var(
   border-bottom: 2px solid var(--line);
   margin-top: 56px;
   overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
+.tab-nav::-webkit-scrollbar { display: none; }
 .tab-btn {
   padding: 16px 26px;
   font-weight: 700;
