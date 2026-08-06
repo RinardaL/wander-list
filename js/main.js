@@ -925,6 +925,67 @@ function initWanderList() {
     if (btn) btn.addEventListener("click", () => window.print());
   });
 
+  /* ---------- Share button ---------- */
+  const shareBtn = document.getElementById("shareBtn");
+  if (shareBtn) {
+    function flashShareBtn(label) {
+      const original = shareBtn.textContent;
+      shareBtn.textContent = label;
+      shareBtn.disabled = true;
+      setTimeout(() => {
+        shareBtn.textContent = original;
+        shareBtn.disabled = false;
+      }, 2000);
+    }
+
+    function legacyCopy(text) {
+      const input = document.createElement("textarea");
+      input.value = text;
+      input.style.position = "fixed";
+      input.style.opacity = "0";
+      document.body.appendChild(input);
+      input.focus();
+      input.select();
+      let ok = false;
+      try {
+        ok = document.execCommand("copy");
+      } catch (err) {
+        ok = false;
+      }
+      document.body.removeChild(input);
+      return ok;
+    }
+
+    shareBtn.addEventListener("click", async () => {
+      const shareData = {
+        title: document.title,
+        text: `Check out this itinerary on WanderList: ${document.title}`,
+        url: window.location.href,
+      };
+
+      if (navigator.share) {
+        try {
+          await navigator.share(shareData);
+        } catch (err) {
+          /* user cancelled the native share sheet — nothing to do */
+        }
+        return;
+      }
+
+      if (navigator.clipboard) {
+        try {
+          await navigator.clipboard.writeText(shareData.url);
+          flashShareBtn("✓ Link Copied");
+          return;
+        } catch (err) {
+          /* fall through to legacy copy */
+        }
+      }
+
+      flashShareBtn(legacyCopy(shareData.url) ? "✓ Link Copied" : "Copy failed — copy from address bar");
+    });
+  }
+
 }
 
 if (document.readyState === "loading") {
