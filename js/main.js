@@ -97,6 +97,26 @@ function currentPageId() {
   return window.location.pathname.split("/").pop() || "index.html";
 }
 
+/* ---------- Currency display (fixed approximate rates, USD is the source of truth) ---------- */
+const CURRENCY_KEY = "wanderlist_currency";
+const CURRENCIES = {
+  USD: { symbol: "$", rate: 1, step: 10 },
+  EUR: { symbol: "€", rate: 0.92, step: 10 },
+  GBP: { symbol: "£", rate: 0.79, step: 10 },
+  JPY: { symbol: "¥", rate: 149, step: 500 },
+  CAD: { symbol: "CA$", rate: 1.36, step: 10 },
+  AUD: { symbol: "AU$", rate: 1.52, step: 10 },
+};
+
+function getCurrency() {
+  return CURRENCIES[localStorage.getItem(CURRENCY_KEY)] ? localStorage.getItem(CURRENCY_KEY) : "USD";
+}
+
+function convertUsd(usdAmount, code) {
+  const { rate, step } = CURRENCIES[code];
+  return Math.round((usdAmount * rate) / step) * step;
+}
+
 /* ---------- Reviews (Write a Review, persisted to localStorage) ---------- */
 const REVIEWS_KEY = "wanderlist_reviews";
 
@@ -361,6 +381,46 @@ function initWanderList() {
     navToggle.addEventListener("click", () => {
       navToggle.classList.toggle("open");
       navLinks.classList.toggle("mobile-open");
+    });
+  }
+
+  /* ---------- Currency selector ---------- */
+  const currencySelect = document.getElementById("currencySelect");
+  if (currencySelect) {
+    const costRe = /^(\$+ · )?\$([\d,]+)-([\d,]+)(\/person)?$/;
+
+    const costEls = Array.from(document.querySelectorAll(".trip-card .cost")).concat(
+      Array.from(document.querySelectorAll(".meta-item")).filter(
+        (item) => item.querySelector(".label")?.textContent.trim() === "Est. Budget"
+      ).map((item) => item.querySelector(".value"))
+    ).filter(Boolean);
+
+    costEls.forEach((el) => {
+      if (el.dataset.usdLow) return;
+      const match = el.textContent.trim().match(costRe);
+      if (!match) return;
+      el.dataset.usdLow = match[2].replace(/,/g, "");
+      el.dataset.usdHigh = match[3].replace(/,/g, "");
+      el.dataset.tier = match[1] || "";
+      el.dataset.suffix = match[4] || "";
+    });
+
+    function renderCosts(code) {
+      const { symbol } = CURRENCIES[code];
+      costEls.forEach((el) => {
+        if (!el.dataset.usdLow) return;
+        const low = convertUsd(parseInt(el.dataset.usdLow, 10), code).toLocaleString();
+        const high = convertUsd(parseInt(el.dataset.usdHigh, 10), code).toLocaleString();
+        el.textContent = `${el.dataset.tier}${symbol}${low}-${high}${el.dataset.suffix}`;
+      });
+    }
+
+    currencySelect.value = getCurrency();
+    renderCosts(currencySelect.value);
+
+    currencySelect.addEventListener("change", () => {
+      localStorage.setItem(CURRENCY_KEY, currencySelect.value);
+      renderCosts(currencySelect.value);
     });
   }
 
