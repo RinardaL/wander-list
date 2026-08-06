@@ -584,7 +584,7 @@ function initWanderList() {
   /* ---------- Browse page: style/budget/search filtering ---------- */
   const browseGrid = document.getElementById("browseGrid");
   if (browseGrid) {
-    const styleChips = document.querySelectorAll("#styleFilters .filter-chip");
+    const styleFilter = document.getElementById("styleFilter");
     const budgetFilter = document.getElementById("budgetFilter");
     const continentFilter = document.getElementById("continentFilter");
     const searchInput = document.getElementById("searchInput");
@@ -592,9 +592,8 @@ function initWanderList() {
     const browseEmpty = document.getElementById("browseEmpty");
     const cards = Array.from(browseGrid.querySelectorAll(".trip-card"));
 
-    let activeStyle = "all";
-
     function applyFilters() {
+      const activeStyle = styleFilter.value;
       const activeBudget = budgetFilter.value;
       const activeContinent = continentFilter.value;
       const query = searchInput.value.trim().toLowerCase();
@@ -622,20 +621,13 @@ function initWanderList() {
       browseEmpty.hidden = visibleCount > 0;
     }
 
-    styleChips.forEach((chip) => {
-      chip.addEventListener("click", () => {
-        styleChips.forEach((c) => c.classList.remove("active"));
-        chip.classList.add("active");
-        activeStyle = chip.dataset.style;
-        applyFilters();
-      });
-    });
+    styleFilter.addEventListener("change", applyFilters);
     budgetFilter.addEventListener("change", applyFilters);
     continentFilter.addEventListener("change", applyFilters);
     searchInput.addEventListener("input", applyFilters);
     attachTripAutocomplete(searchInput, () => applyFilters());
 
-    // Deep-link support: browse.html?style=budget pre-selects that chip,
+    // Deep-link support: browse.html?style=budget pre-selects that option,
     // browse.html?q=paris pre-fills the search box — both combine naturally.
     const params = new URLSearchParams(window.location.search);
     const styleParam = params.get("style");
@@ -644,12 +636,11 @@ function initWanderList() {
     if (queryParam) searchInput.value = queryParam;
 
     if (styleParam) {
-      const matchingChip = Array.from(styleChips).find((c) => c.dataset.style === styleParam);
-      if (matchingChip) {
-        matchingChip.click(); // click() already calls applyFilters()
-      } else {
-        applyFilters();
+      const matchingOption = Array.from(styleFilter.options).find((o) => o.value === styleParam);
+      if (matchingOption) {
+        styleFilter.value = styleParam;
       }
+      applyFilters();
     } else {
       applyFilters();
     }

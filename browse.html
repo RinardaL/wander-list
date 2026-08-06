@@ -7,7 +7,7 @@
 <title>Browse 7-Day &amp; Weekend Travel Itineraries: WanderList</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=20260807a">
+<link rel="stylesheet" href="css/style.css?v=20260807b">
 <meta name="description" content="Browse every WanderList itinerary by travel style and budget, from weekend city breaks to full 7-day adventures across Europe, Asia, and North America.">
 <link rel="canonical" href="https://www.wanderlist.example/browse.html">
 <meta property="og:type" content="website">
@@ -71,15 +71,6 @@
 <section class="browse-filters-section">
   <div class="container">
     <div class="filter-bar reveal">
-      <div class="filter-group" id="styleFilters">
-        <button class="filter-chip active" data-style="all">All</button>
-        <button class="filter-chip" data-style="mountain">Mountain Escapes</button>
-        <button class="filter-chip" data-style="beach">Beach & Coastal</button>
-        <button class="filter-chip" data-style="modern-city">Modern Cities</button>
-        <button class="filter-chip" data-style="historic-city">Historic Old Towns</button>
-        <button class="filter-chip" data-style="road-trip">Road Trips & National Parks</button>
-        <button class="filter-chip" data-style="lakes-nature">Lakes & Nature</button>
-      </div>
       <div class="filter-secondary">
         <div class="search-input-wrap">
           <input type="text" id="searchInput" placeholder="Search a destination…" autocomplete="off">
@@ -100,6 +91,16 @@
             <span>Filters</span>
           </button>
           <div class="filter-popover" id="filterPopover">
+            <label class="filter-popover-label" for="styleFilter">Travel Style</label>
+            <select id="styleFilter">
+              <option value="all">All styles</option>
+              <option value="mountain">Mountain Escapes</option>
+              <option value="beach">Beach & Coastal</option>
+              <option value="modern-city">Modern Cities</option>
+              <option value="historic-city">Historic Old Towns</option>
+              <option value="road-trip">Road Trips & National Parks</option>
+              <option value="lakes-nature">Lakes & Nature</option>
+            </select>
             <label class="filter-popover-label" for="continentFilter">Continent</label>
             <select id="continentFilter">
               <option value="all">Any continent</option>
@@ -640,6 +641,6 @@
   </div>
 </footer>
 
-<script src="js/main.js?v=20260807b"></script>
+<script src="js/main.js?v=20260807c"></script>
 </body>
 </html>
