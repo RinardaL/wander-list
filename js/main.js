@@ -364,6 +364,20 @@ function initWanderList() {
     });
   }
 
+  /* ---------- Surprise Me (random trip) ---------- */
+  const surpriseButtons = document.querySelectorAll(".surprise-me-btn");
+  if (surpriseButtons.length) {
+    const allTripPages = Object.keys(TRIP_CATALOG);
+    surpriseButtons.forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        const others = allTripPages.filter((page) => page !== currentPageId());
+        const pool = others.length ? others : allTripPages;
+        window.location.href = pool[Math.floor(Math.random() * pool.length)];
+      });
+    });
+  }
+
   /* ---------- Category filter (visual active state) ---------- */
   const categoryGrid = document.getElementById("categoryGrid");
   if (categoryGrid) {

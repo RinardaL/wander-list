@@ -9,7 +9,7 @@
   --mint: #17b893;
   --mint-dark: #0f9478;
   --mint-tint: #defaf1;
-  --cream: #fbf6e9;
+  --cream: #fdfbf4;
   --off-white: #fefcf6;
   --charcoal: #23261f;
   --charcoal-soft: #585c4e;
@@ -522,21 +522,22 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; color: var(
 }
 .globe-copy h2 { margin-bottom: 10px; }
 .globe-copy > p { color: var(--charcoal-soft); font-size: 1.05rem; margin-bottom: 28px; }
-.globe-dest-list { columns: 2; column-gap: 28px; }
+.globe-dest-list { columns: 3; column-gap: 18px; }
 .globe-dest-list li { break-inside: avoid; }
 .globe-dest-list a {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 12px 4px;
+  gap: 8px;
+  padding: 5px 4px;
   font-weight: 600;
+  font-size: 0.82rem;
   color: var(--charcoal);
   border-bottom: 1px solid rgba(11,107,79,0.12);
   transition: color var(--dur-fast) ease, padding-left var(--dur-fast) ease;
 }
 .globe-dest-list a:last-child { border-bottom: none; }
 .globe-dest-list a:hover { color: var(--emerald); padding-left: 10px; }
-.globe-dest-list .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--mint); flex-shrink: 0; }
+.globe-dest-list .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--mint); flex-shrink: 0; }
 
 /* ===========================================================
    Browse / Search page
@@ -1365,7 +1366,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; color: var(
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .globe-layout { grid-template-columns: 1fr; text-align: center; }
   .globe-copy > p { max-width: 440px; margin-left: auto; margin-right: auto; }
-  .globe-dest-list { columns: 1; text-align: left; max-width: 380px; margin: 0 auto; }
+  .globe-dest-list { columns: 2; text-align: left; max-width: 420px; margin: 0 auto; }
   .contact-layout { grid-template-columns: 1fr; }
   .browse-grid { grid-template-columns: repeat(2, 1fr); }
 }
