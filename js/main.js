@@ -424,29 +424,6 @@ function initWanderList() {
     });
   }
 
-  /* ---------- Header filter popover (Continent) ---------- */
-  const filterToggleBtn = document.getElementById("filterToggleBtn");
-  const filterPopover = document.getElementById("filterPopover");
-  if (filterToggleBtn && filterPopover) {
-    const closePopover = () => {
-      filterPopover.classList.remove("is-open");
-      filterToggleBtn.classList.remove("is-active");
-      filterToggleBtn.setAttribute("aria-expanded", "false");
-    };
-    filterToggleBtn.addEventListener("click", (e) => {
-      e.stopPropagation();
-      const isOpen = filterPopover.classList.toggle("is-open");
-      filterToggleBtn.classList.toggle("is-active", isOpen);
-      filterToggleBtn.setAttribute("aria-expanded", String(isOpen));
-    });
-    document.addEventListener("click", (e) => {
-      if (!filterPopover.contains(e.target) && e.target !== filterToggleBtn) closePopover();
-    });
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") closePopover();
-    });
-  }
-
   /* ---------- Surprise Me (random trip) ---------- */
   const surpriseButtons = document.querySelectorAll(".surprise-me-btn");
   if (surpriseButtons.length) {
