@@ -245,6 +245,16 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; color: var(
 .icon-btn:active { transform: scale(0.92); }
 .icon-btn.is-saved { background: var(--mint); border-color: var(--mint); color: #fff; animation: pop 0.4s var(--ease-premium); }
 .filter-popover-wrap { position: relative; }
+.filter-toggle-btn {
+  width: auto;
+  height: 42px;
+  padding: 0 18px;
+  border-radius: 100px;
+  gap: 8px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
 .filter-toggle-btn.is-active { background: var(--mint); border-color: var(--mint); color: #fff; }
 .filter-popover {
   display: none;
@@ -259,6 +269,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; color: var(
   min-width: 220px;
   z-index: 90;
 }
+.filter-popover .filter-popover-label:not(:first-child) { margin-top: 14px; }
 .filter-popover.is-open { display: block; }
 .filter-popover-label { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--charcoal-soft); font-weight: 700; margin-bottom: 8px; }
 .filter-popover select {
@@ -627,7 +638,8 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; color: var(
   transition: border-color var(--dur-fast) ease;
 }
 .filter-secondary input:focus, .filter-secondary select:focus { border-color: var(--mint); }
-.filter-secondary input { width: 200px; }
+.filter-secondary .search-input-wrap { flex: 1; }
+.filter-secondary input { width: 100%; }
 .browse-count { margin-top: 16px; font-size: 0.88rem; color: var(--charcoal-soft); font-weight: 600; }
 
 .browse-results { padding-top: 0; }
