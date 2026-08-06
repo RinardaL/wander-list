@@ -562,7 +562,6 @@ function initWanderList() {
   const browseGrid = document.getElementById("browseGrid");
   if (browseGrid) {
     const styleFilter = document.getElementById("styleFilter");
-    const budgetFilter = document.getElementById("budgetFilter");
     const continentFilter = document.getElementById("continentFilter");
     const searchInput = document.getElementById("searchInput");
     const browseCount = document.getElementById("browseCount");
@@ -571,24 +570,21 @@ function initWanderList() {
 
     function applyFilters() {
       const activeStyle = styleFilter.value;
-      const activeBudget = budgetFilter.value;
       const activeContinent = continentFilter.value;
       const query = searchInput.value.trim().toLowerCase();
       let visibleCount = 0;
 
       cards.forEach((card) => {
         const styles = (card.dataset.style || "").split(" ");
-        const budget = card.dataset.budget || "";
         const name = (card.dataset.name || "").toLowerCase();
         const href = card.querySelector(".trip-meta a")?.getAttribute("href") || "";
         const place = (TRIP_CATALOG[href]?.place || "").toLowerCase();
         const continent = TRIP_CATALOG[href]?.continent || "";
 
         const matchesStyle = activeStyle === "all" || styles.includes(activeStyle);
-        const matchesBudget = activeBudget === "all" || budget === activeBudget;
         const matchesContinent = activeContinent === "all" || continent === activeContinent;
         const matchesSearch = !query || name.includes(query) || place.includes(query);
-        const isMatch = matchesStyle && matchesBudget && matchesContinent && matchesSearch;
+        const isMatch = matchesStyle && matchesContinent && matchesSearch;
 
         card.classList.toggle("is-hidden", !isMatch);
         if (isMatch) visibleCount++;
@@ -599,7 +595,6 @@ function initWanderList() {
     }
 
     styleFilter.addEventListener("change", applyFilters);
-    budgetFilter.addEventListener("change", applyFilters);
     continentFilter.addEventListener("change", applyFilters);
     searchInput.addEventListener("input", applyFilters);
     attachTripAutocomplete(searchInput, () => applyFilters());
