@@ -525,19 +525,16 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; color: var(
 .globe-dest-list { columns: 3; column-gap: 18px; }
 .globe-dest-list li { break-inside: avoid; }
 .globe-dest-list a {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 5px 4px;
-  font-weight: 600;
+  display: block;
+  padding: 6px 4px;
+  font-weight: 500;
   font-size: 0.82rem;
-  color: var(--charcoal);
-  border-bottom: 1px solid rgba(11,107,79,0.12);
-  transition: color var(--dur-fast) ease, padding-left var(--dur-fast) ease;
+  color: var(--emerald);
+  text-decoration: none;
+  transition: color var(--dur-fast) ease;
 }
-.globe-dest-list a:last-child { border-bottom: none; }
-.globe-dest-list a:hover { color: var(--emerald); padding-left: 10px; }
-.globe-dest-list .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--mint); flex-shrink: 0; }
+.globe-dest-list a:hover { color: var(--emerald-dark); text-decoration: underline; }
+.globe-dest-list .dot { display: none; }
 
 /* ===========================================================
    Browse / Search page
