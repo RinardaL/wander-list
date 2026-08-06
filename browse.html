@@ -7,7 +7,7 @@
 <title>Browse 7-Day &amp; Weekend Travel Itineraries: WanderList</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=20260731x">
+<link rel="stylesheet" href="css/style.css?v=20260731y">
 <meta name="description" content="Browse every WanderList itinerary by travel style and budget, from weekend city breaks to full 7-day adventures across Europe, Asia, and North America.">
 <link rel="canonical" href="https://www.wanderlist.example/browse.html">
 <meta property="og:type" content="website">
@@ -37,6 +37,30 @@
       <a href="index.html" class="btn btn-secondary btn-sm mobile-cta">Browse More Trips</a>
     </nav>
     <div class="nav-actions">
+      <div class="filter-popover-wrap">
+        <button type="button" class="icon-btn filter-toggle-btn" id="filterToggleBtn" title="More filters" aria-label="More filters" aria-expanded="false">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="21" y1="4" x2="14" y2="4"></line>
+            <line x1="10" y1="4" x2="3" y2="4"></line>
+            <circle cx="12" cy="4" r="2"></circle>
+            <line x1="21" y1="12" x2="12" y2="12"></line>
+            <line x1="8" y1="12" x2="3" y2="12"></line>
+            <circle cx="10" cy="12" r="2"></circle>
+            <line x1="21" y1="20" x2="16" y2="20"></line>
+            <line x1="12" y1="20" x2="3" y2="20"></line>
+            <circle cx="14" cy="20" r="2"></circle>
+          </svg>
+        </button>
+        <div class="filter-popover" id="filterPopover">
+          <label class="filter-popover-label" for="continentFilter">Continent</label>
+          <select id="continentFilter">
+            <option value="all">Any continent</option>
+            <option value="Europe">Europe</option>
+            <option value="Asia">Asia</option>
+            <option value="North America">North America</option>
+          </select>
+        </div>
+      </div>
       <a href="saved-trips.html" class="icon-btn" title="Saved Trips" aria-label="Saved Trips">♥</a>
       <a href="index.html" class="btn btn-secondary btn-sm">Browse More Trips</a>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
@@ -606,6 +630,6 @@
   </div>
 </footer>
 
-<script src="js/main.js?v=20260731v"></script>
+<script src="js/main.js?v=20260731y"></script>
 </body>
 </html>
