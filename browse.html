@@ -7,7 +7,7 @@
 <title>Browse 7-Day &amp; Weekend Travel Itineraries: WanderList</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=20260807f">
+<link rel="stylesheet" href="css/style.css?v=20260807g">
 <meta name="description" content="Browse every WanderList itinerary by travel style and budget, from weekend city breaks to full 7-day adventures across Europe, Asia, and North America.">
 <link rel="canonical" href="https://www.wanderlist.example/browse.html">
 <meta property="og:type" content="website">
@@ -31,12 +31,16 @@
       <span class="logo-mark">W</span> WanderList
     </a>
     <nav class="nav-links" id="navLinks">
-      <a href="browse.html" class="active">Browse Destinations</a>
-      <a href="itinerary.html#packing">Packing Guides</a>
-      <a href="itinerary.html#culture">Culture Tips</a>
-      <a href="index.html" class="btn btn-secondary btn-sm mobile-cta">Browse More Trips</a>
+      <a href="browse.html" class="active" data-i18n="nav.browse">Browse Destinations</a>
+      <a href="itinerary.html#packing" data-i18n="nav.packing">Packing Guides</a>
+      <a href="itinerary.html#culture" data-i18n="nav.culture">Culture Tips</a>
+      <a href="index.html" class="btn btn-secondary btn-sm mobile-cta" data-i18n="nav.browseMore">Browse More Trips</a>
     </nav>
     <div class="nav-actions">
+      <select id="languageSelect" class="currency-select" aria-label="Language" title="Language" autocomplete="off">
+        <option value="en">EN</option>
+        <option value="de">DE</option>
+      </select>
       <select id="currencySelect" class="currency-select" aria-label="Currency" title="Currency" autocomplete="off">
         <option value="USD">USD $</option>
         <option value="EUR">EUR €</option>
@@ -46,7 +50,7 @@
         <option value="AUD">AUD AU$</option>
       </select>
       <a href="saved-trips.html" class="icon-btn" title="Saved Trips" aria-label="Saved Trips">♥</a>
-      <a href="index.html" class="btn btn-secondary btn-sm">Browse More Trips</a>
+      <a href="index.html" class="btn btn-secondary btn-sm" data-i18n="nav.browseMore">Browse More Trips</a>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
         <span></span><span></span><span></span>
       </button>
@@ -55,15 +59,15 @@
 </header>
 
 <div class="container breadcrumb">
-  <a href="index.html">Home</a> / Browse Destinations
+  <a href="index.html" data-i18n="breadcrumb.home">Home</a> / <span data-i18n="nav.browse">Browse Destinations</span>
 </div>
 
 <!-- ============ PAGE HEADER ============ -->
 <section class="browse-hero">
   <div class="container">
-    <p class="eyebrow reveal">All itineraries</p>
-    <h1 class="reveal">Find your next 7 days.</h1>
-    <p class="browse-lead reveal">Filter by travel style or continent: every result is a complete, ready-to-go guide.</p>
+    <p class="eyebrow reveal" data-i18n="browse.eyebrow">All itineraries</p>
+    <h1 class="reveal" data-i18n="browse.h1">Find your next 7 days.</h1>
+    <p class="browse-lead reveal" data-i18n="browse.lead">Filter by travel style or continent: every result is a complete, ready-to-go guide.</p>
   </div>
 </section>
 
@@ -76,19 +80,19 @@
           <input type="text" id="searchInput" placeholder="Search a destination…" autocomplete="off">
         </div>
         <select id="styleFilter" class="inline-filter" aria-label="Travel style">
-          <option value="all">All styles</option>
-          <option value="mountain">Mountain Escapes</option>
-          <option value="beach">Beach & Coastal</option>
-          <option value="modern-city">Modern Cities</option>
-          <option value="historic-city">Historic Old Towns</option>
-          <option value="road-trip">Road Trips & National Parks</option>
-          <option value="lakes-nature">Lakes & Nature</option>
+          <option value="all" data-i18n="filter.style.all">All styles</option>
+          <option value="mountain" data-i18n="cats.mountain">Mountain Escapes</option>
+          <option value="beach" data-i18n="cats.beach">Beach & Coastal</option>
+          <option value="modern-city" data-i18n="cats.modern-city">Modern Cities</option>
+          <option value="historic-city" data-i18n="cats.historic-city">Historic Old Towns</option>
+          <option value="road-trip" data-i18n="cats.road-trip">Road Trips & National Parks</option>
+          <option value="lakes-nature" data-i18n="cats.lakes-nature">Lakes & Nature</option>
         </select>
         <select id="continentFilter" class="inline-filter" aria-label="Continent">
-          <option value="all">Any continent</option>
-          <option value="Europe">Europe</option>
-          <option value="Asia">Asia</option>
-          <option value="North America">North America</option>
+          <option value="all" data-i18n="filter.continent.all">Any continent</option>
+          <option value="Europe" data-i18n="filter.continent.eu">Europe</option>
+          <option value="Asia" data-i18n="filter.continent.asia">Asia</option>
+          <option value="North America" data-i18n="filter.continent.na">North America</option>
         </select>
       </div>
     </div>
@@ -581,39 +585,39 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <a href="index.html" class="logo"><span class="logo-mark">W</span> WanderList</a>
-        <p>End-to-end itineraries so you spend less time researching and more time traveling.</p>
+        <p data-i18n="footer.tagline">End-to-end itineraries so you spend less time researching and more time traveling.</p>
       </div>
       <div>
-        <h4>Explore</h4>
+        <h4 data-i18n="footer.explore">Explore</h4>
         <ul>
-          <li><a href="browse.html">Browse Destinations</a></li>
-          <li><a href="index.html#browse">Featured Itineraries</a></li>
-          <li><a href="itinerary.html#packing">Packing Guides</a></li>
-          <li><a href="itinerary.html#culture">Culture Tips</a></li>
+          <li><a href="browse.html" data-i18n="nav.browse">Browse Destinations</a></li>
+          <li><a href="index.html#browse" data-i18n="footer.featured">Featured Itineraries</a></li>
+          <li><a href="itinerary.html#packing" data-i18n="nav.packing">Packing Guides</a></li>
+          <li><a href="itinerary.html#culture" data-i18n="nav.culture">Culture Tips</a></li>
         </ul>
       </div>
       <div>
-        <h4>Company</h4>
+        <h4 data-i18n="footer.company">Company</h4>
         <ul>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="how-it-works.html">How It Works</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="contact.html">Careers</a></li>
+          <li><a href="about.html" data-i18n="footer.about">About Us</a></li>
+          <li><a href="how-it-works.html" data-i18n="footer.howItWorks">How It Works</a></li>
+          <li><a href="contact.html" data-i18n="footer.contact">Contact</a></li>
+          <li><a href="contact.html" data-i18n="footer.careers">Careers</a></li>
         </ul>
       </div>
       <div>
-        <h4>Legal</h4>
+        <h4 data-i18n="footer.legal">Legal</h4>
         <ul>
-          <li><a href="privacy-policy.html">Privacy Policy</a></li>
-          <li><a href="terms.html">Terms of Service</a></li>
+          <li><a href="privacy-policy.html" data-i18n="footer.privacy">Privacy Policy</a></li>
+          <li><a href="terms.html" data-i18n="footer.terms">Terms of Service</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 WanderList. All rights reserved.</span>    </div>
+      <span data-i18n="footer.copyright">© 2026 WanderList. All rights reserved.</span>    </div>
   </div>
 </footer>
 
-<script src="js/main.js?v=20260807e"></script>
+<script src="js/main.js?v=20260807f"></script>
 </body>
 </html>

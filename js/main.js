@@ -112,6 +112,92 @@ function getCurrency() {
   return CURRENCIES[localStorage.getItem(CURRENCY_KEY)] ? localStorage.getItem(CURRENCY_KEY) : "USD";
 }
 
+/* ---------- Language display (UI chrome only; destination/day-by-day content stays English) ---------- */
+const LANGUAGE_KEY = "wanderlist_lang";
+const TRANSLATIONS_DE = {
+  "nav.browse": "Reiseziele entdecken",
+  "nav.packing": "Packlisten",
+  "nav.culture": "Kulturtipps",
+  "nav.surprise": "Überrasch mich",
+  "nav.browseMore": "Weitere Reisen entdecken",
+  "breadcrumb.home": "Startseite",
+  "hero.eyebrow": "Durchdachte Reiseplanung von A bis Z",
+  "hero.h1.line1": "Deine perfekte Kurzreise,",
+  "hero.h1.line2": "vollständig entsperrt.",
+  "hero.lead": "Spar dir die 20 Stunden Recherche in zig Tabs. Erhalte eine komplette Tag-für-Tag-Reiseroute: wohin es geht, was du einpackst und wie du dich vor Ort richtig verhältst – alles in einem Guide.",
+  "hero.search.label": "Reiseziel",
+  "hero.search.btn": "Reise finden",
+  "hero.stat1": "Kuratierte Reiserouten",
+  "hero.stat2": "Abgedeckte Länder",
+  "hero.stat3": "Durchschnittliche Bewertung",
+  "cats.eyebrow": "Nach Reisestil entdecken",
+  "cats.h2": "Finde die Reise, die zu dir passt",
+  "cats.lead": "Jede Reiseroute ist nach Reisestil sortiert, damit du nur das siehst, was wirklich zu deiner Art zu reisen passt.",
+  "cats.all": "Alle Reiserouten",
+  "cats.all.count": "39 Reisen",
+  "cats.mountain": "Bergurlaub",
+  "cats.mountain.count": "9 Reisen",
+  "cats.beach": "Strand & Küste",
+  "cats.beach.count": "6 Reisen",
+  "cats.modern-city": "Moderne Städte",
+  "cats.modern-city.count": "4 Reisen",
+  "cats.historic-city": "Historische Altstädte",
+  "cats.historic-city.count": "14 Reisen",
+  "cats.road-trip": "Roadtrips & Nationalparks",
+  "cats.road-trip.count": "2 Reisen",
+  "cats.lakes-nature": "Seen & Natur",
+  "cats.lakes-nature.count": "4 Reisen",
+  "carousel.eyebrow": "Für dich ausgewählt",
+  "carousel.h2": "Empfohlene Reiserouten",
+  "globe.eyebrow": "Überall an deiner Seite",
+  "globe.h2": "Ein Planet, ein Guide auf einmal.",
+  "globe.lead": "Dreh den Globus oder klicke auf einen Pin, um direkt zu dieser Reise zu springen.",
+  "value.eyebrow": "Warum WanderList",
+  "value.h2": "Alles, was du brauchst. Nichts, was du recherchieren musst.",
+  "value.lead": "Ein Guide, vier Dinge geregelt – dann bleibt nur noch: losfahren.",
+  "value.1.h3": "Kuratierte Tag-für-Tag-Pläne",
+  "value.1.p": "Tagesabläufe für Vormittag, Nachmittag und Abend, inklusive Fahrzeiten zwischen jedem Stopp.",
+  "value.2.h3": "Kulturelle Etikette & örtliche Gesetze",
+  "value.2.p": "Trinkgeldnormen, Kleiderordnung, Verkehrsregeln und Betrugswarnungen speziell für dein Reiseziel.",
+  "value.3.h3": "Reisezielspezifische Packlisten",
+  "value.3.p": "Checklisten passend zu Jahreszeit und Gelände: Steckdosenadapter, Spannung, Wanderausrüstung vs. Stadtkleidung.",
+  "value.4.h3": "Profi-Insider-Tricks",
+  "value.4.p": "Tricks zum Anstehen vermeiden, Stadttickets und der Sonnenuntergangs-Spot, den nur Einheimische kennen.",
+  "testi.eyebrow": "Beliebt bei Reisenden",
+  "testi.h2": "Was Reisende danach sagen.",
+  "review.toggle": "Bewertung schreiben",
+  "review.name": "Name",
+  "review.trip": "Reise (optional)",
+  "review.rating": "Bewertung",
+  "review.text": "Deine Bewertung",
+  "review.submit": "Bewertung absenden",
+  "review.note": "Bewertungen werden auf diesem Gerät gespeichert und unten angezeigt, nicht weitergeleitet.",
+  "news.h2": "Wöchentliche Geheimtipp-Reiserouten direkt ins Postfach.",
+  "news.lead": "Kein Spam, nur ein neuer Reiseguide pro Woche, ausgewählt von unserer Redaktion.",
+  "news.btn": "Abonnieren",
+  "news.note": "Für immer kostenlos. Jederzeit kündbar.",
+  "footer.tagline": "Reiserouten von A bis Z, damit du weniger recherchierst und mehr reist.",
+  "footer.explore": "Entdecken",
+  "footer.featured": "Empfohlene Reiserouten",
+  "footer.company": "Unternehmen",
+  "footer.about": "Über uns",
+  "footer.howItWorks": "So funktioniert's",
+  "footer.contact": "Kontakt",
+  "footer.careers": "Karriere",
+  "footer.legal": "Rechtliches",
+  "footer.privacy": "Datenschutz",
+  "footer.terms": "Nutzungsbedingungen",
+  "footer.copyright": "© 2026 WanderList. Alle Rechte vorbehalten.",
+  "browse.eyebrow": "Alle Reiserouten",
+  "browse.h1": "Finde deine nächsten 7 Tage.",
+  "browse.lead": "Filtere nach Reisestil oder Kontinent: jedes Ergebnis ist eine vollständige, startklare Reiseroute.",
+  "filter.style.all": "Alle Stile",
+  "filter.continent.all": "Jeder Kontinent",
+  "filter.continent.eu": "Europa",
+  "filter.continent.asia": "Asien",
+  "filter.continent.na": "Nordamerika",
+};
+
 function convertUsd(usdAmount, code) {
   const { rate, step } = CURRENCIES[code];
   return Math.round((usdAmount * rate) / step) * step;
@@ -421,6 +507,32 @@ function initWanderList() {
     currencySelect.addEventListener("change", () => {
       localStorage.setItem(CURRENCY_KEY, currencySelect.value);
       renderCosts(currencySelect.value);
+    });
+  }
+
+  /* ---------- Language selector (UI chrome only -- destination content stays English) ---------- */
+  const languageSelect = document.getElementById("languageSelect");
+  if (languageSelect) {
+    const i18nEls = Array.from(document.querySelectorAll("[data-i18n]"));
+    i18nEls.forEach((el) => {
+      if (!el.dataset.i18nOriginal) el.dataset.i18nOriginal = el.textContent;
+    });
+
+    function applyLanguage(lang) {
+      i18nEls.forEach((el) => {
+        const key = el.dataset.i18n;
+        el.textContent = lang === "de" && TRANSLATIONS_DE[key] ? TRANSLATIONS_DE[key] : el.dataset.i18nOriginal;
+      });
+      document.documentElement.lang = lang;
+    }
+
+    const savedLang = localStorage.getItem(LANGUAGE_KEY) === "de" ? "de" : "en";
+    languageSelect.value = savedLang;
+    applyLanguage(savedLang);
+
+    languageSelect.addEventListener("change", () => {
+      localStorage.setItem(LANGUAGE_KEY, languageSelect.value);
+      applyLanguage(languageSelect.value);
     });
   }
 
