@@ -167,7 +167,7 @@ function attachTripAutocomplete(input, onSelect) {
 
   function open(query) {
     const q = query.trim().toLowerCase();
-    currentMatches = (q ? entries.filter(([, trip]) => trip.place.toLowerCase().includes(q) || trip.title.toLowerCase().includes(q)) : entries).slice(0, 12);
+    currentMatches = q ? entries.filter(([, trip]) => trip.place.toLowerCase().includes(q) || trip.title.toLowerCase().includes(q)) : entries;
     activeIndex = -1;
     panel.innerHTML = "";
 
