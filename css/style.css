@@ -1230,6 +1230,15 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; color: var(
 .day-photo img.is-loaded { opacity: 1; transform: scale(1); }
 .day-photo:hover img.is-loaded { transform: scale(1.05); }
 
+.day-photo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.day-photo-grid .day-photo { height: auto; aspect-ratio: 1 / 1; }
+.day-photo-grid .day-photo:nth-child(1) img { object-position: 15% center; }
+.day-photo-grid .day-photo:nth-child(2) img { object-position: center; }
+.day-photo-grid .day-photo:nth-child(3) img { object-position: 85% center; }
+@media (max-width: 560px) {
+  .day-photo-grid { grid-template-columns: repeat(3, 1fr); gap: 5px; }
+}
+
 .block {
   display: flex;
   gap: 18px;
