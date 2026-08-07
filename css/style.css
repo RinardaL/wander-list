@@ -1084,6 +1084,44 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; color: var(
 .meta-item .value { font-family: var(--font-display); font-size: 1.15rem; color: var(--emerald-dark); font-weight: 600; }
 .meta-actions { display: flex; align-items: center; gap: 10px; padding: 12px 20px; }
 
+.temp-toggle {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  margin-left: 6px;
+  padding: 2px;
+  border-radius: 100px;
+  background: var(--mint-tint);
+  cursor: pointer;
+  vertical-align: middle;
+  user-select: none;
+}
+.temp-toggle::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: calc(50% - 2px);
+  height: calc(100% - 4px);
+  border-radius: 100px;
+  background: var(--mint);
+  transition: transform var(--dur-fast) var(--ease-premium);
+}
+.temp-toggle[data-unit="C"]::before { transform: translateX(100%); }
+.temp-toggle-option {
+  position: relative;
+  z-index: 1;
+  min-width: 26px;
+  padding: 3px 6px;
+  font-size: 0.68rem;
+  font-family: var(--font-body);
+  font-weight: 700;
+  text-align: center;
+  color: var(--charcoal-soft);
+  transition: color var(--dur-fast) ease;
+}
+.temp-toggle-option.is-active { color: #fff; }
+
 /* Tabs */
 .tab-nav {
   display: flex;

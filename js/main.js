@@ -881,13 +881,54 @@ function initWanderList() {
   const metaActions = document.querySelector(".itinerary-meta-bar .meta-actions");
   const destInfo = TRIP_CATALOG[currentPageId()];
   if (metaActions && destInfo && typeof destInfo.lat === "number") {
+    const TEMP_UNIT_KEY = "wanderlist_temp_unit";
     const weatherItem = document.createElement("div");
     weatherItem.className = "meta-item";
-    weatherItem.innerHTML = '<span class="label">Right Now</span><span class="value" id="weatherValue">Loading…</span>';
+    weatherItem.innerHTML = `
+      <span class="label">Right Now</span>
+      <span class="value">
+        <span id="weatherValue">Loading…</span>
+        <span class="temp-toggle" id="tempToggle" role="switch" aria-checked="false" tabindex="0" hidden>
+          <span class="temp-toggle-option" data-unit="F">°F</span>
+          <span class="temp-toggle-option" data-unit="C">°C</span>
+        </span>
+      </span>`;
     metaActions.parentNode.insertBefore(weatherItem, metaActions);
+
+    const tempToggle = document.getElementById("tempToggle");
+    let tempF = null;
+    let weatherIcon = "🌡️";
+    let weatherLabel = "Current conditions";
+
+    function renderTemp(unit) {
+      if (tempF === null) return;
+      const displayTemp = unit === "C" ? Math.round((tempF - 32) * 5 / 9) : tempF;
+      document.getElementById("weatherValue").innerHTML = `${weatherIcon} ${displayTemp}°${unit} <span style="font-size:.7rem;font-weight:500;color:var(--charcoal-soft);display:block;">${weatherLabel}</span>`;
+      tempToggle.dataset.unit = unit;
+      tempToggle.setAttribute("aria-checked", String(unit === "C"));
+      tempToggle.querySelectorAll(".temp-toggle-option").forEach((opt) => {
+        opt.classList.toggle("is-active", opt.dataset.unit === unit);
+      });
+    }
+
+    function toggleUnit() {
+      const nextUnit = tempToggle.dataset.unit === "F" ? "C" : "F";
+      localStorage.setItem(TEMP_UNIT_KEY, nextUnit);
+      renderTemp(nextUnit);
+    }
+    tempToggle.addEventListener("click", toggleUnit);
+    tempToggle.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggleUnit(); }
+    });
+
     fetchDestinationWeather(destInfo.lat, destInfo.lon)
       .then(({ temp, icon, label }) => {
-        document.getElementById("weatherValue").innerHTML = `${icon} ${temp}°F <span style="font-size:.7rem;font-weight:500;color:var(--charcoal-soft);display:block;">${label}</span>`;
+        tempF = temp;
+        weatherIcon = icon;
+        weatherLabel = label;
+        tempToggle.hidden = false;
+        const savedUnit = localStorage.getItem(TEMP_UNIT_KEY) === "C" ? "C" : "F";
+        renderTemp(savedUnit);
       })
       .catch((err) => {
         console.error("WanderList weather fetch failed:", err);
