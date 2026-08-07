@@ -881,21 +881,12 @@ function initWanderList() {
   const metaActions = document.querySelector(".itinerary-meta-bar .meta-actions");
   const destInfo = TRIP_CATALOG[currentPageId()];
   if (metaActions && destInfo && typeof destInfo.lat === "number") {
-    const TEMP_UNIT_KEY = "wanderlist_temp_unit";
     const weatherItem = document.createElement("div");
     weatherItem.className = "meta-item";
-    weatherItem.innerHTML = `
-      <span class="label">Right Now</span>
-      <span class="value">
-        <span id="weatherValue">Loading…</span>
-        <span class="temp-toggle" id="tempToggle" role="switch" aria-checked="false" tabindex="0" hidden>
-          <span class="temp-toggle-option" data-unit="F">°F</span>
-          <span class="temp-toggle-option" data-unit="C">°C</span>
-        </span>
-      </span>`;
+    weatherItem.innerHTML = '<span class="label">Right Now</span><span class="value temp-hover" id="weatherValue">Loading…</span>';
     metaActions.parentNode.insertBefore(weatherItem, metaActions);
 
-    const tempToggle = document.getElementById("tempToggle");
+    const weatherValueEl = document.getElementById("weatherValue");
     let tempF = null;
     let weatherIcon = "🌡️";
     let weatherLabel = "Current conditions";
@@ -903,22 +894,24 @@ function initWanderList() {
     function renderTemp(unit) {
       if (tempF === null) return;
       const displayTemp = unit === "C" ? Math.round((tempF - 32) * 5 / 9) : tempF;
-      document.getElementById("weatherValue").innerHTML = `${weatherIcon} ${displayTemp}°${unit} <span style="font-size:.7rem;font-weight:500;color:var(--charcoal-soft);display:block;">${weatherLabel}</span>`;
-      tempToggle.dataset.unit = unit;
-      tempToggle.setAttribute("aria-checked", String(unit === "C"));
-      tempToggle.querySelectorAll(".temp-toggle-option").forEach((opt) => {
-        opt.classList.toggle("is-active", opt.dataset.unit === unit);
-      });
+      weatherValueEl.innerHTML = `${weatherIcon} ${displayTemp}°${unit} <span style="font-size:.7rem;font-weight:500;color:var(--charcoal-soft);display:block;">${weatherLabel}</span>`;
     }
 
-    function toggleUnit() {
-      const nextUnit = tempToggle.dataset.unit === "F" ? "C" : "F";
-      localStorage.setItem(TEMP_UNIT_KEY, nextUnit);
-      renderTemp(nextUnit);
-    }
-    tempToggle.addEventListener("click", toggleUnit);
-    tempToggle.addEventListener("keydown", (e) => {
-      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggleUnit(); }
+    // Hovering the temperature smoothly cross-fades it from °F to °C; moving
+    // the cursor away fades it back. No buttons, just a live hover reveal.
+    weatherValueEl.addEventListener("mouseenter", () => {
+      weatherValueEl.classList.add("is-fading");
+      setTimeout(() => {
+        renderTemp("C");
+        weatherValueEl.classList.remove("is-fading");
+      }, 150);
+    });
+    weatherValueEl.addEventListener("mouseleave", () => {
+      weatherValueEl.classList.add("is-fading");
+      setTimeout(() => {
+        renderTemp("F");
+        weatherValueEl.classList.remove("is-fading");
+      }, 150);
     });
 
     fetchDestinationWeather(destInfo.lat, destInfo.lon)
@@ -926,13 +919,11 @@ function initWanderList() {
         tempF = temp;
         weatherIcon = icon;
         weatherLabel = label;
-        tempToggle.hidden = false;
-        const savedUnit = localStorage.getItem(TEMP_UNIT_KEY) === "C" ? "C" : "F";
-        renderTemp(savedUnit);
+        renderTemp("F");
       })
       .catch((err) => {
         console.error("WanderList weather fetch failed:", err);
-        document.getElementById("weatherValue").textContent = "Unavailable";
+        weatherValueEl.textContent = "Unavailable";
       });
   }
 
