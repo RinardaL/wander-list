@@ -146,7 +146,7 @@ function addReview(review) {
 function attachTripAutocomplete(input, onSelect) {
   if (!input) return;
 
-  const entries = Object.entries(TRIP_CATALOG);
+  const entries = Object.entries(TRIP_CATALOG).sort((a, b) => a[1].place.localeCompare(b[1].place));
   const panel = document.createElement("div");
   panel.className = "search-autocomplete";
   panel.setAttribute("role", "listbox");
