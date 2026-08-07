@@ -7,7 +7,7 @@
 <title>Browse Travel Itineraries: WanderList</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=20260807p">
+<link rel="stylesheet" href="css/style.css?v=20260807s">
 <meta name="description" content="Browse every WanderList itinerary by travel style and budget, from weekend city breaks to full 7-day adventures across Europe, Asia, and North America.">
 <link rel="canonical" href="https://www.wanderlist.example/browse.html">
 <meta property="og:type" content="website">
@@ -31,26 +31,28 @@
       <span class="logo-mark">W</span> WanderList
     </a>
     <nav class="nav-links" id="navLinks">
-      <a href="browse.html" class="active" data-i18n="nav.browse">Browse Destinations</a>
-      <a href="itinerary.html#packing" data-i18n="nav.packing">Packing Guides</a>
-      <a href="itinerary.html#culture" data-i18n="nav.culture">Culture Tips</a>
-      <a href="index.html" class="btn btn-secondary btn-sm mobile-cta" data-i18n="nav.browseMore">Browse More Trips</a>
+      <a href="browse.html" class="active">Browse Destinations</a>
+      <a href="itinerary.html#packing">Packing Guides</a>
+      <a href="itinerary.html#culture">Culture Tips</a>
+      <a href="index.html" class="btn btn-secondary btn-sm mobile-cta">Browse More Trips</a>
     </nav>
     <div class="nav-actions">
-      <select id="languageSelect" class="currency-select" aria-label="Language" title="Language" autocomplete="off">
-        <option value="en">EN</option>
-        <option value="de">DE</option>
-      </select>
-      <select id="currencySelect" class="currency-select" aria-label="Currency" title="Currency" autocomplete="off">
-        <option value="USD">USD $</option>
-        <option value="EUR">EUR €</option>
-        <option value="GBP">GBP £</option>
-        <option value="JPY">JPY ¥</option>
-        <option value="CAD">CAD CA$</option>
-        <option value="AUD">AUD AU$</option>
-      </select>
+      <div class="filter-dropdown nav-dropdown" id="currencySelect" data-value="USD">
+        <button type="button" class="filter-dropdown-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="Currency" title="Currency">
+          <span class="filter-dropdown-label">USD $</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+        <ul class="filter-dropdown-list" role="listbox" hidden>
+          <li role="option" data-value="USD" aria-selected="true">USD $</li>
+          <li role="option" data-value="EUR">EUR €</li>
+          <li role="option" data-value="GBP">GBP £</li>
+          <li role="option" data-value="JPY">JPY ¥</li>
+          <li role="option" data-value="CAD">CAD CA$</li>
+          <li role="option" data-value="AUD">AUD AU$</li>
+        </ul>
+      </div>
       <a href="saved-trips.html" class="icon-btn" title="Saved Trips" aria-label="Saved Trips">♥</a>
-      <a href="index.html" class="btn btn-secondary btn-sm" data-i18n="nav.browseMore">Browse More Trips</a>
+      <a href="index.html" class="btn btn-secondary btn-sm">Browse More Trips</a>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
         <span></span><span></span><span></span>
       </button>
@@ -59,15 +61,15 @@
 </header>
 
 <div class="container breadcrumb">
-  <a href="index.html" data-i18n="breadcrumb.home">Home</a> / <span data-i18n="nav.browse">Browse Destinations</span>
+  <a href="index.html">Home</a> / Browse Destinations
 </div>
 
 <!-- ============ PAGE HEADER ============ -->
 <section class="browse-hero">
   <div class="container">
-    <p class="eyebrow reveal" data-i18n="browse.eyebrow">All itineraries</p>
-    <h1 class="reveal" data-i18n="browse.h1">Find your next trip.</h1>
-    <p class="browse-lead reveal" data-i18n="browse.lead">Filter by travel style or continent: every result is a complete, ready-to-go guide.</p>
+    <p class="eyebrow reveal">All itineraries</p>
+    <h1 class="reveal">Find your next trip.</h1>
+    <p class="browse-lead reveal">Filter by travel style or continent: every result is a complete, ready-to-go guide.</p>
   </div>
 </section>
 
@@ -81,29 +83,29 @@
         </div>
         <div class="filter-dropdown" id="styleFilter" data-value="all">
           <button type="button" class="filter-dropdown-btn" aria-haspopup="listbox" aria-expanded="false">
-            <span class="filter-dropdown-label" data-i18n="filter.style.all">All styles</span>
+            <span class="filter-dropdown-label">All styles</span>
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </button>
           <ul class="filter-dropdown-list" role="listbox" hidden>
-            <li role="option" data-value="all" aria-selected="true" data-i18n="filter.style.all">All styles</li>
-            <li role="option" data-value="mountain" data-i18n="cats.mountain">Mountain Escapes</li>
-            <li role="option" data-value="beach" data-i18n="cats.beach">Beach & Coastal</li>
-            <li role="option" data-value="modern-city" data-i18n="cats.modern-city">Modern Cities</li>
-            <li role="option" data-value="historic-city" data-i18n="cats.historic-city">Historic Old Towns</li>
-            <li role="option" data-value="road-trip" data-i18n="cats.road-trip">Road Trips & National Parks</li>
-            <li role="option" data-value="lakes-nature" data-i18n="cats.lakes-nature">Lakes & Nature</li>
+            <li role="option" data-value="all" aria-selected="true">All styles</li>
+            <li role="option" data-value="mountain">Mountain Escapes</li>
+            <li role="option" data-value="beach">Beach & Coastal</li>
+            <li role="option" data-value="modern-city">Modern Cities</li>
+            <li role="option" data-value="historic-city">Historic Old Towns</li>
+            <li role="option" data-value="road-trip">Road Trips & National Parks</li>
+            <li role="option" data-value="lakes-nature">Lakes & Nature</li>
           </ul>
         </div>
         <div class="filter-dropdown" id="continentFilter" data-value="all">
           <button type="button" class="filter-dropdown-btn" aria-haspopup="listbox" aria-expanded="false">
-            <span class="filter-dropdown-label" data-i18n="filter.continent.all">Any continent</span>
+            <span class="filter-dropdown-label">Any continent</span>
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </button>
           <ul class="filter-dropdown-list" role="listbox" hidden>
-            <li role="option" data-value="all" aria-selected="true" data-i18n="filter.continent.all">Any continent</li>
-            <li role="option" data-value="Europe" data-i18n="filter.continent.eu">Europe</li>
-            <li role="option" data-value="Asia" data-i18n="filter.continent.asia">Asia</li>
-            <li role="option" data-value="North America" data-i18n="filter.continent.na">North America</li>
+            <li role="option" data-value="all" aria-selected="true">Any continent</li>
+            <li role="option" data-value="Europe">Europe</li>
+            <li role="option" data-value="Asia">Asia</li>
+            <li role="option" data-value="North America">North America</li>
           </ul>
         </div>
       </div>
@@ -597,39 +599,39 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <a href="index.html" class="logo"><span class="logo-mark">W</span> WanderList</a>
-        <p data-i18n="footer.tagline">End-to-end itineraries so you spend less time researching and more time traveling.</p>
+        <p>End-to-end itineraries so you spend less time researching and more time traveling.</p>
       </div>
       <div>
-        <h4 data-i18n="footer.explore">Explore</h4>
+        <h4>Explore</h4>
         <ul>
-          <li><a href="browse.html" data-i18n="nav.browse">Browse Destinations</a></li>
-          <li><a href="index.html#browse" data-i18n="footer.featured">Featured Itineraries</a></li>
-          <li><a href="itinerary.html#packing" data-i18n="nav.packing">Packing Guides</a></li>
-          <li><a href="itinerary.html#culture" data-i18n="nav.culture">Culture Tips</a></li>
+          <li><a href="browse.html">Browse Destinations</a></li>
+          <li><a href="index.html#browse">Featured Itineraries</a></li>
+          <li><a href="itinerary.html#packing">Packing Guides</a></li>
+          <li><a href="itinerary.html#culture">Culture Tips</a></li>
         </ul>
       </div>
       <div>
-        <h4 data-i18n="footer.company">Company</h4>
+        <h4>Company</h4>
         <ul>
-          <li><a href="about.html" data-i18n="footer.about">About Us</a></li>
-          <li><a href="how-it-works.html" data-i18n="footer.howItWorks">How It Works</a></li>
-          <li><a href="contact.html" data-i18n="footer.contact">Contact</a></li>
-          <li><a href="contact.html" data-i18n="footer.careers">Careers</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="how-it-works.html">How It Works</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="contact.html">Careers</a></li>
         </ul>
       </div>
       <div>
-        <h4 data-i18n="footer.legal">Legal</h4>
+        <h4>Legal</h4>
         <ul>
-          <li><a href="privacy-policy.html" data-i18n="footer.privacy">Privacy Policy</a></li>
-          <li><a href="terms.html" data-i18n="footer.terms">Terms of Service</a></li>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <span data-i18n="footer.copyright">© 2026 WanderList. All rights reserved.</span>    </div>
+      <span>© 2026 WanderList. All rights reserved.</span>    </div>
   </div>
 </footer>
 
-<script src="js/main.js?v=20260807h"></script>
+<script src="js/main.js?v=20260807j"></script>
 </body>
 </html>

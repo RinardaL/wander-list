@@ -215,32 +215,10 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; color: var(
 .nav-links a:hover::after, .nav-links a.active::after { right: 0; }
 .nav-actions { display: flex; align-items: center; gap: 18px; }
 .mobile-cta { display: none; }
-.currency-select {
-  height: 42px;
-  width: 76px;
-  padding: 0 20px 0 10px;
-  border: none;
-  border-radius: 100px;
-  background-color: transparent;
-  color: var(--emerald-dark);
-  font-weight: 600;
-  font-size: 0.88rem;
-  font-family: inherit;
-  cursor: pointer;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23073d2e' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 4px center;
-  background-size: 14px;
-  transition: color var(--dur-fast) ease, background-color var(--dur-fast) ease;
-}
-#languageSelect.currency-select { width: 52px; }
-.currency-select:hover, .currency-select:focus { color: var(--mint-dark); background-color: var(--mint-tint); outline: none; }
+.nav-dropdown .filter-dropdown-btn { width: 84px; padding: 0 6px; gap: 4px; color: var(--emerald-dark); }
+.nav-dropdown .filter-dropdown-btn:hover,
+.nav-dropdown.is-open .filter-dropdown-btn { color: var(--mint-dark); }
+.nav-dropdown .filter-dropdown-list { left: auto; right: 0; }
 .icon-btn {
   width: 42px; height: 42px;
   border-radius: 50%;
@@ -354,7 +332,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; color: var(
   color: #fff;
   text-shadow: 0 2px 20px rgba(0,0,0,0.3);
 }
-.hero h1 span.accent { display: block; color: var(--mint); font-style: italic; font-weight: 500; }
+.hero h1 span { display: block; color: var(--mint); font-style: italic; font-weight: 500; }
 .hero p.lead {
   font-size: 1.2rem;
   color: rgba(255,255,255,0.88);
@@ -1452,8 +1430,8 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; color: var(
   .nav-links { display: none; }
   .nav-actions { gap: 2px; }
   .nav-actions .btn-secondary { display: none; }
-  .nav-actions .currency-select { width: 66px; font-size: 0.74rem; padding: 0 16px 0 4px; background-position: right 2px center; background-size: 11px; }
-  #languageSelect.currency-select { width: 42px; padding-right: 14px; }
+  .nav-dropdown .filter-dropdown-btn { width: 68px; font-size: 0.74rem; padding: 0 2px; gap: 3px; }
+  .nav-dropdown .filter-dropdown-btn svg { width: 10px; height: 10px; }
   .nav-actions .icon-btn { width: 34px; height: 34px; }
   .nav-toggle { display: flex; }
   .nav-links.mobile-open {
