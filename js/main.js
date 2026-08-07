@@ -228,7 +228,7 @@ function initWanderList() {
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   /* ---------- Lazy-load real photos + fade-in on load ---------- */
-  const lazyImages = document.querySelectorAll(".photo img[data-src], .day-photo img[data-src], .related-card img[data-src]");
+  const lazyImages = document.querySelectorAll(".photo img[data-src], .day-photo img[data-src], .block-photo img[data-src], .related-card img[data-src]");
   function loadImage(img) {
     const reveal = () => img.classList.add("is-loaded");
     img.addEventListener("load", reveal);
