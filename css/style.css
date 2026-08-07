@@ -1413,10 +1413,12 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; color: var(
 @media (max-width: 720px) {
   section { padding: 56px 0; }
   .nav { flex-wrap: nowrap; }
-  .logo { font-size: 1.1rem; }
+  .logo { font-size: 1rem; gap: 6px; }
   .nav-links { display: none; }
-  .nav-actions { gap: 10px; }
+  .nav-actions { gap: 2px; }
   .nav-actions .btn-secondary { display: none; }
+  .nav-actions .currency-select { font-size: 0.74rem; padding: 0 14px 0 0; background-size: 11px; }
+  .nav-actions .icon-btn { width: 34px; height: 34px; }
   .nav-toggle { display: flex; }
   .nav-links.mobile-open {
     display: flex;
