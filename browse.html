@@ -7,7 +7,7 @@
 <title>Browse Travel Itineraries: WanderList</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=20260807o">
+<link rel="stylesheet" href="css/style.css?v=20260807p">
 <meta name="description" content="Browse every WanderList itinerary by travel style and budget, from weekend city breaks to full 7-day adventures across Europe, Asia, and North America.">
 <link rel="canonical" href="https://www.wanderlist.example/browse.html">
 <meta property="og:type" content="website">
@@ -79,21 +79,33 @@
         <div class="search-input-wrap">
           <input type="text" id="searchInput" placeholder="Search a destination…" autocomplete="off">
         </div>
-        <select id="styleFilter" class="inline-filter" aria-label="Travel style">
-          <option value="all" data-i18n="filter.style.all">All styles</option>
-          <option value="mountain" data-i18n="cats.mountain">Mountain Escapes</option>
-          <option value="beach" data-i18n="cats.beach">Beach & Coastal</option>
-          <option value="modern-city" data-i18n="cats.modern-city">Modern Cities</option>
-          <option value="historic-city" data-i18n="cats.historic-city">Historic Old Towns</option>
-          <option value="road-trip" data-i18n="cats.road-trip">Road Trips & National Parks</option>
-          <option value="lakes-nature" data-i18n="cats.lakes-nature">Lakes & Nature</option>
-        </select>
-        <select id="continentFilter" class="inline-filter" aria-label="Continent">
-          <option value="all" data-i18n="filter.continent.all">Any continent</option>
-          <option value="Europe" data-i18n="filter.continent.eu">Europe</option>
-          <option value="Asia" data-i18n="filter.continent.asia">Asia</option>
-          <option value="North America" data-i18n="filter.continent.na">North America</option>
-        </select>
+        <div class="filter-dropdown" id="styleFilter" data-value="all">
+          <button type="button" class="filter-dropdown-btn" aria-haspopup="listbox" aria-expanded="false">
+            <span class="filter-dropdown-label" data-i18n="filter.style.all">All styles</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <ul class="filter-dropdown-list" role="listbox" hidden>
+            <li role="option" data-value="all" aria-selected="true" data-i18n="filter.style.all">All styles</li>
+            <li role="option" data-value="mountain" data-i18n="cats.mountain">Mountain Escapes</li>
+            <li role="option" data-value="beach" data-i18n="cats.beach">Beach & Coastal</li>
+            <li role="option" data-value="modern-city" data-i18n="cats.modern-city">Modern Cities</li>
+            <li role="option" data-value="historic-city" data-i18n="cats.historic-city">Historic Old Towns</li>
+            <li role="option" data-value="road-trip" data-i18n="cats.road-trip">Road Trips & National Parks</li>
+            <li role="option" data-value="lakes-nature" data-i18n="cats.lakes-nature">Lakes & Nature</li>
+          </ul>
+        </div>
+        <div class="filter-dropdown" id="continentFilter" data-value="all">
+          <button type="button" class="filter-dropdown-btn" aria-haspopup="listbox" aria-expanded="false">
+            <span class="filter-dropdown-label" data-i18n="filter.continent.all">Any continent</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <ul class="filter-dropdown-list" role="listbox" hidden>
+            <li role="option" data-value="all" aria-selected="true" data-i18n="filter.continent.all">Any continent</li>
+            <li role="option" data-value="Europe" data-i18n="filter.continent.eu">Europe</li>
+            <li role="option" data-value="Asia" data-i18n="filter.continent.asia">Asia</li>
+            <li role="option" data-value="North America" data-i18n="filter.continent.na">North America</li>
+          </ul>
+        </div>
       </div>
     </div>
     <p class="browse-count" id="browseCount">9 itineraries</p>
@@ -618,6 +630,6 @@
   </div>
 </footer>
 
-<script src="js/main.js?v=20260807g"></script>
+<script src="js/main.js?v=20260807h"></script>
 </body>
 </html>

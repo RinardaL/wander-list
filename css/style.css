@@ -255,40 +255,54 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; color: var(
 .icon-btn:hover { background: var(--mint); border-color: var(--mint); color: #fff; transform: scale(1.08); box-shadow: 0 4px 14px rgba(23,184,147,0.35); }
 .icon-btn:active { transform: scale(0.92); }
 .icon-btn.is-saved { background: var(--mint); border-color: var(--mint); color: #fff; animation: pop 0.4s var(--ease-premium); }
-.inline-filter {
+.filter-dropdown { position: relative; }
+.filter-dropdown-btn {
   height: 42px;
   width: 170px;
-  padding: 0 26px 0 14px;
+  padding: 0 14px;
   border: none;
-  border-radius: 100px;
-  background-color: transparent;
+  background: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
   font-size: 0.88rem;
   font-family: inherit;
   font-weight: 600;
   color: var(--charcoal);
-  outline: none;
   cursor: pointer;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  transition: color var(--dur-fast) ease;
+}
+.filter-dropdown-btn svg { flex-shrink: 0; transition: transform var(--dur-fast) ease; }
+#continentFilter .filter-dropdown-btn { width: 152px; }
+.filter-dropdown-label { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
+.filter-dropdown-btn:hover, .filter-dropdown.is-open .filter-dropdown-btn { color: var(--emerald-dark); }
+.filter-dropdown.is-open .filter-dropdown-btn svg { transform: rotate(180deg); }
+.filter-dropdown-list {
+  list-style: none;
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  min-width: 220px;
+  background: #fff;
+  padding: 6px 0;
+  z-index: 90;
+}
+.filter-dropdown.is-open .filter-dropdown-list { display: block; }
+.filter-dropdown-list li {
+  padding: 7px 14px;
+  font-weight: 500;
+  font-size: 0.85rem;
+  color: var(--emerald);
   white-space: nowrap;
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2323261f' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 10px center;
-  background-size: 14px;
-  transition: color var(--dur-fast) ease, background-color var(--dur-fast) ease;
+  cursor: pointer;
+  transition: color var(--dur-fast) ease;
 }
-#continentFilter.inline-filter { width: 152px; }
-.inline-filter:hover { background-color: var(--mint-tint); color: var(--emerald-dark); }
-.inline-filter:focus {
-  color: var(--emerald-dark);
-  background-color: var(--mint-tint);
-  box-shadow: 0 0 0 2px var(--mint);
-}
-.filter-secondary .search-input-wrap + .inline-filter { margin-left: 6px; padding-left: 20px; border-left: 1px solid var(--line); }
-.inline-filter + .inline-filter { padding-left: 20px; border-left: 1px solid var(--line); }
+.filter-dropdown-list li:hover { color: var(--emerald-dark); text-decoration: underline; }
+.filter-dropdown-list li[aria-selected="true"] { color: var(--emerald-dark); font-weight: 700; }
+.filter-secondary .search-input-wrap + .filter-dropdown { margin-left: 6px; padding-left: 20px; border-left: 1px solid var(--line); }
+.filter-dropdown + .filter-dropdown { padding-left: 20px; border-left: 1px solid var(--line); }
 .nav-toggle {
   display: none;
   width: 42px; height: 42px;
@@ -1475,9 +1489,10 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; color: var(
   .filter-bar { flex-direction: column; align-items: stretch; }
   .filter-secondary { flex-direction: column; align-items: stretch; }
   .filter-secondary input { width: 100%; }
-  .filter-secondary .inline-filter { width: 100%; padding-left: 4px; border-left: none; }
-  .filter-secondary .search-input-wrap + .inline-filter { margin-left: 0; padding-left: 4px; border-left: none; border-top: 1px solid var(--line); padding-top: 10px; }
-  .inline-filter + .inline-filter { border-left: none; border-top: 1px solid var(--line); padding-top: 10px; }
+  .filter-dropdown { width: 100%; }
+  .filter-dropdown-btn, #continentFilter .filter-dropdown-btn { width: 100%; padding-left: 4px; }
+  .filter-secondary .search-input-wrap + .filter-dropdown { margin-left: 0; padding-left: 0; border-left: none; border-top: 1px solid var(--line); padding-top: 10px; }
+  .filter-dropdown + .filter-dropdown { padding-left: 0; border-left: none; border-top: 1px solid var(--line); padding-top: 10px; }
   .step-row { gap: 16px; }
   .tab-btn { padding: 14px 16px; font-size: 0.88rem; }
   .tab-nav::after {

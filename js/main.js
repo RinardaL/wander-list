@@ -670,19 +670,69 @@ function initWanderList() {
     renderSavedTrips();
   }
 
-  /* ---------- Browse page: style/budget/search filtering ---------- */
+  /* ---------- Custom dropdown (used by the Browse page style/continent filters) ---------- */
+  function initCustomDropdown(container, onChange) {
+    const btn = container.querySelector(".filter-dropdown-btn");
+    const label = container.querySelector(".filter-dropdown-label");
+    const list = container.querySelector(".filter-dropdown-list");
+    const items = Array.from(container.querySelectorAll("li[role='option']"));
+
+    function close() {
+      container.classList.remove("is-open");
+      btn.setAttribute("aria-expanded", "false");
+      list.hidden = true;
+    }
+    function open() {
+      container.classList.add("is-open");
+      btn.setAttribute("aria-expanded", "true");
+      list.hidden = false;
+    }
+
+    function selectValue(value) {
+      const item = items.find((li) => li.dataset.value === value);
+      if (!item) return;
+      container.dataset.value = value;
+      items.forEach((li) => li.setAttribute("aria-selected", String(li === item)));
+      label.dataset.i18n = item.dataset.i18n;
+      label.dataset.i18nOriginal = item.dataset.i18nOriginal || item.textContent;
+      label.textContent = item.textContent;
+      if (onChange) onChange();
+    }
+
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      if (container.classList.contains("is-open")) close();
+      else open();
+    });
+    items.forEach((item) => {
+      item.addEventListener("click", () => {
+        selectValue(item.dataset.value);
+        close();
+      });
+    });
+    document.addEventListener("click", (e) => {
+      if (!container.contains(e.target)) close();
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") close();
+    });
+
+    return { selectValue };
+  }
+
+  /* ---------- Browse page: style/continent/search filtering ---------- */
   const browseGrid = document.getElementById("browseGrid");
   if (browseGrid) {
-    const styleFilter = document.getElementById("styleFilter");
-    const continentFilter = document.getElementById("continentFilter");
+    const styleFilterEl = document.getElementById("styleFilter");
+    const continentFilterEl = document.getElementById("continentFilter");
     const searchInput = document.getElementById("searchInput");
     const browseCount = document.getElementById("browseCount");
     const browseEmpty = document.getElementById("browseEmpty");
     const cards = Array.from(browseGrid.querySelectorAll(".trip-card"));
 
     function applyFilters() {
-      const activeStyle = styleFilter.value;
-      const activeContinent = continentFilter.value;
+      const activeStyle = styleFilterEl.dataset.value;
+      const activeContinent = continentFilterEl.dataset.value;
       const query = searchInput.value.trim().toLowerCase();
       let visibleCount = 0;
 
@@ -706,8 +756,8 @@ function initWanderList() {
       browseEmpty.hidden = visibleCount > 0;
     }
 
-    styleFilter.addEventListener("change", applyFilters);
-    continentFilter.addEventListener("change", applyFilters);
+    const styleDropdown = initCustomDropdown(styleFilterEl, applyFilters);
+    initCustomDropdown(continentFilterEl, applyFilters);
     searchInput.addEventListener("input", applyFilters);
     attachTripAutocomplete(searchInput, () => applyFilters());
 
@@ -718,16 +768,8 @@ function initWanderList() {
     const queryParam = params.get("q");
 
     if (queryParam) searchInput.value = queryParam;
-
-    if (styleParam) {
-      const matchingOption = Array.from(styleFilter.options).find((o) => o.value === styleParam);
-      if (matchingOption) {
-        styleFilter.value = styleParam;
-      }
-      applyFilters();
-    } else {
-      applyFilters();
-    }
+    if (styleParam) styleDropdown.selectValue(styleParam);
+    applyFilters();
   }
 
   /* ---------- Featured carousel ---------- */
