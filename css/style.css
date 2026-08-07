@@ -1020,9 +1020,9 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; color: var(
 .breadcrumb {
   padding: 20px 0 0;
   font-size: 0.85rem;
-  color: var(--charcoal-soft);
+  color: rgba(255,255,255,0.7);
 }
-.breadcrumb a { color: var(--emerald); font-weight: 600; }
+.breadcrumb a { color: var(--mint); font-weight: 600; }
 
 .itinerary-hero {
   padding: 32px 0 0;

@@ -189,7 +189,7 @@ const TRANSLATIONS_DE = {
   "footer.terms": "Nutzungsbedingungen",
   "footer.copyright": "© 2026 WanderList. Alle Rechte vorbehalten.",
   "browse.eyebrow": "Alle Reiserouten",
-  "browse.h1": "Finde deine nächsten 7 Tage.",
+  "browse.h1": "Finde deine nächste Reise.",
   "browse.lead": "Filtere nach Reisestil oder Kontinent: jedes Ergebnis ist eine vollständige, startklare Reiseroute.",
   "filter.style.all": "Alle Stile",
   "filter.continent.all": "Jeder Kontinent",
