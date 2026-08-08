@@ -556,22 +556,33 @@ function initWanderList() {
     renderSavedTrips();
   }
 
-  /* ---------- Custom dropdown (used by the Browse page style/continent filters) ---------- */
+  /* ---------- Custom dropdown (used by the currency selector and the Browse page style/continent filters) ---------- */
   function initCustomDropdown(container, onChange) {
     const btn = container.querySelector(".filter-dropdown-btn");
     const label = container.querySelector(".filter-dropdown-label");
     const list = container.querySelector(".filter-dropdown-list");
     const items = Array.from(container.querySelectorAll("li[role='option']"));
 
-    function close() {
+    // Roving tabindex: only one item is ever in the tab order at a time,
+    // so Tab moves focus off the whole widget instead of through every option.
+    items.forEach((item, i) => item.setAttribute("tabindex", i === 0 ? "0" : "-1"));
+
+    function close({ focusButton = false } = {}) {
       container.classList.remove("is-open");
       btn.setAttribute("aria-expanded", "false");
       list.hidden = true;
+      if (focusButton) btn.focus();
     }
     function open() {
       container.classList.add("is-open");
       btn.setAttribute("aria-expanded", "true");
       list.hidden = false;
+    }
+
+    function focusItem(index) {
+      const clamped = Math.max(0, Math.min(index, items.length - 1));
+      items.forEach((li, i) => li.setAttribute("tabindex", i === clamped ? "0" : "-1"));
+      items[clamped].focus();
     }
 
     function selectValue(value) {
@@ -588,17 +599,53 @@ function initWanderList() {
       if (container.classList.contains("is-open")) close();
       else open();
     });
-    items.forEach((item) => {
+
+    btn.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowDown" || e.key === "ArrowUp" || e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        open();
+        const selectedIndex = Math.max(0, items.findIndex((li) => li.getAttribute("aria-selected") === "true"));
+        focusItem(selectedIndex);
+      }
+    });
+
+    items.forEach((item, index) => {
       item.addEventListener("click", () => {
         selectValue(item.dataset.value);
-        close();
+        close({ focusButton: true });
+      });
+
+      item.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowDown") {
+          e.preventDefault();
+          focusItem(index + 1);
+        } else if (e.key === "ArrowUp") {
+          e.preventDefault();
+          focusItem(index - 1);
+        } else if (e.key === "Home") {
+          e.preventDefault();
+          focusItem(0);
+        } else if (e.key === "End") {
+          e.preventDefault();
+          focusItem(items.length - 1);
+        } else if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          selectValue(item.dataset.value);
+          close({ focusButton: true });
+        } else if (e.key === "Escape") {
+          e.preventDefault();
+          close({ focusButton: true });
+        } else if (e.key === "Tab") {
+          close();
+        }
       });
     });
+
     document.addEventListener("click", (e) => {
       if (!container.contains(e.target)) close();
     });
     document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") close();
+      if (e.key === "Escape" && container.classList.contains("is-open") && !container.contains(document.activeElement)) close();
     });
 
     return { selectValue };
@@ -711,11 +758,19 @@ function initWanderList() {
   /* ---------- Contact form ---------- */
   const contactForm = document.getElementById("contactForm");
   const contactSuccess = document.getElementById("contactSuccess");
+  const contactTopicEl = document.getElementById("contactTopic");
+  let contactTopicDropdown;
+  if (contactTopicEl) {
+    contactTopicDropdown = initCustomDropdown(contactTopicEl, () => {
+      contactTopicEl.querySelector('input[type="hidden"]').value = contactTopicEl.dataset.value;
+    });
+  }
   if (contactForm && contactSuccess) {
     contactForm.addEventListener("submit", (e) => {
       e.preventDefault();
       contactSuccess.classList.add("show");
       contactForm.reset();
+      if (contactTopicDropdown) contactTopicDropdown.selectValue("General question");
     });
   }
 

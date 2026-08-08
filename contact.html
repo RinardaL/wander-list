@@ -7,7 +7,7 @@
 <title>Contact WanderList: Get in Touch</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=20260807w">
+<link rel="stylesheet" href="css/style.css?v=20260807z">
 <meta name="description" content="Have a question, a destination suggestion, or feedback on a trip? Get in touch with the WanderList team. We typically reply within 2 business days.">
 <link rel="canonical" href="https://www.wanderlist.example/contact.html">
 <meta property="og:type" content="website">
@@ -86,13 +86,20 @@
         <input type="email" id="contactEmail" required placeholder="you@email.com">
       </div>
       <div class="contact-field">
-        <label for="contactTopic">Topic</label>
-        <select id="contactTopic">
-          <option>General question</option>
-          <option>Suggest a destination</option>
-          <option>Report an issue</option>
-          <option>Partnership / press</option>
-        </select>
+        <label for="contactTopicBtn">Topic</label>
+        <div class="filter-dropdown" id="contactTopic" data-value="General question">
+          <button type="button" class="filter-dropdown-btn" id="contactTopicBtn" aria-haspopup="listbox" aria-expanded="false">
+            <span class="filter-dropdown-label">General question</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <ul class="filter-dropdown-list" role="listbox" hidden>
+            <li role="option" data-value="General question" aria-selected="true">General question</li>
+            <li role="option" data-value="Suggest a destination">Suggest a destination</li>
+            <li role="option" data-value="Report an issue">Report an issue</li>
+            <li role="option" data-value="Partnership / press">Partnership / press</li>
+          </ul>
+          <input type="hidden" name="topic" value="General question">
+        </div>
       </div>
       <div class="contact-field">
         <label for="contactMessage">Message</label>
@@ -142,14 +149,14 @@
           <li><a href="about.html">About Us</a></li>
           <li><a href="how-it-works.html">How It Works</a></li>
           <li><a href="contact.html">Contact</a></li>
-          <li><a href="contact.html">Careers</a></li>
-        </ul>
+          </ul>
       </div>
       <div>
         <h4>Legal</h4>
         <ul>
           <li><a href="privacy-policy.html">Privacy Policy</a></li>
           <li><a href="terms.html">Terms of Service</a></li>
+          <li><a href="credits.html">Photo Credits</a></li>
         </ul>
       </div>
     </div>
@@ -158,6 +165,6 @@
   </div>
 </footer>
 
-<script src="js/main.js?v=20260807o"></script>
+<script src="js/main.js?v=20260807q"></script>
 </body>
 </html>

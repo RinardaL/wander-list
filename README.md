@@ -29,35 +29,44 @@ Don't open pages directly via `file://` (double-clicking the file) — always se
 
 This is a plain static site, so any static host works. Simplest options:
 
-- **Netlify** — drag the whole folder onto [app.netlify.com/drop](https://app.netlify.com/drop), or connect the Git repo for auto-deploys on push. A [netlify.toml](netlify.toml) is already included (security headers + sane CSS/JS caching).
-- **Vercel** — `vercel deploy` from this folder, or connect the Git repo. No config file needed for a static site.
+- **Vercel** — `vercel deploy` from this folder, or connect the Git repo. A [vercel.json](vercel.json) is already included (security headers + sane CSS/JS caching).
+- **Netlify** — drag the whole folder onto [app.netlify.com/drop](https://app.netlify.com/drop), or connect the Git repo for auto-deploys on push. A [netlify.toml](netlify.toml) is also included for the same headers/caching if you deploy there instead.
 - **GitHub Pages** — push to a repo, enable Pages on the `main` branch.
 
 All three (and most other static hosts) automatically serve [404.html](404.html) for any unmatched URL — no extra configuration needed.
 
 ### 2. Set your real domain
 
-Every page currently has its canonical URL, Open Graph tags, and Twitter Card tags pointing at a placeholder: `https://www.wanderlist.example`. **This must be swapped to your real domain before launch**, or search engines and social previews will reference the wrong URL. `robots.txt` and `sitemap.xml` reference the same placeholder.
+Every page currently has its canonical URL, Open Graph tags, and Twitter Card tags pointing at a placeholder: `https://www.wanderlist.example`. **This must be swapped to your real domain before launch**, or search engines and social previews will reference the wrong URL. `robots.txt` and `sitemap.xml` reference the same placeholder; `contact.html` also has a placeholder email (`hello@wanderlist.example`).
 
-Once you have a domain, run this from the project folder (macOS/Linux/Git Bash):
+Once you have a domain, run this one command from the project folder (any OS, requires Node.js — no install needed, it's a plain script):
 
+```bash
+node scripts/set-domain.js www.your-real-domain.com hello@your-real-domain.com
+```
+
+The email argument is optional — omit it to leave the contact email as a placeholder for now. The script reports exactly how many occurrences it changed and in how many files, so you can sanity-check the count.
+
+<details>
+<summary>Manual alternative (if you'd rather not run the script)</summary>
+
+macOS/Linux/Git Bash:
 ```bash
 grep -rl 'www.wanderlist.example' --include="*.html" --include="*.xml" --include="*.txt" . | \
   xargs sed -i 's/www\.wanderlist\.example/your-real-domain.com/g'
 ```
 
-On Windows PowerShell:
-
+Windows PowerShell:
 ```powershell
 Get-ChildItem -Recurse -Include *.html,*.xml,*.txt | ForEach-Object {
   (Get-Content $_.FullName) -replace 'www\.wanderlist\.example', 'your-real-domain.com' | Set-Content $_.FullName
 }
 ```
+</details>
 
 ### 3. Pre-launch checklist
 
-- [ ] Domain swapped everywhere (step 2 above)
-- [ ] `contact.html`'s placeholder email (`hello@wanderlist.example`) updated to a real inbox
+- [ ] Domain (and optionally contact email) swapped everywhere (step 2 above)
 - [ ] Social links in the footer (currently `#`) pointed at real accounts, or removed
 - [ ] Read through [privacy-policy.html](privacy-policy.html) and [terms.html](terms.html) — they're a reasonable starting scaffold, not legal advice; have them reviewed before relying on them
 - [ ] Submit `sitemap.xml` to Google Search Console / Bing Webmaster Tools once the domain is live
@@ -68,7 +77,7 @@ Get-ChildItem -Recurse -Include *.html,*.xml,*.txt | ForEach-Object {
 - [index.html](index.html) — homepage (hero, category browse, featured carousel, 3D globe, testimonials)
 - [browse.html](browse.html) — full itinerary listing with style/budget/text filters
 - [saved-trips.html](saved-trips.html) — renders whatever's saved in the visitor's browser (see Sessions below)
-- 9 itinerary pages: [itinerary.html](itinerary.html) (Tokyo & Kyoto), [amalfi-coast.html](amalfi-coast.html), [utah-national-parks.html](utah-national-parks.html), [lisbon.html](lisbon.html), [banff.html](banff.html), [bali.html](bali.html), [paris.html](paris.html), [new-york-city.html](new-york-city.html), [barcelona.html](barcelona.html)
+- 39 itinerary pages spanning beach/coastal, mountain, historic-city, modern-city, road-trip, and lakes/nature styles across Europe, Asia, and North America — e.g. [itinerary.html](itinerary.html) (Tokyo & Kyoto), [amalfi-coast.html](amalfi-coast.html), [utah-national-parks.html](utah-national-parks.html), [paris.html](paris.html), [thailand.html](thailand.html); the full list is in [browse.html](browse.html) or the `TRIP_CATALOG` object in [js/main.js](js/main.js)
 - [about.html](about.html), [how-it-works.html](how-it-works.html), [contact.html](contact.html)
 - [privacy-policy.html](privacy-policy.html), [terms.html](terms.html)
 - [404.html](404.html) — custom not-found page with a working search box
@@ -94,5 +103,5 @@ This is intentionally device/browser-local, not account-based — clearing site 
 
 ## Notes
 
-- Destination photos are hotlinked from Wikimedia Commons — an internet connection is required to see them load.
+- Destination photos are hotlinked from Wikimedia Commons and Unsplash — an internet connection is required to see them load. Every Commons file's author and license is listed on [credits.html](credits.html); Unsplash images are used under the [Unsplash License](https://unsplash.com/license), which doesn't require attribution.
 - [SPEC.md](SPEC.md) has the original product/technical spec.

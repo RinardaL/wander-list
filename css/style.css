@@ -279,6 +279,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; color: var(
 }
 .filter-dropdown-list li:hover { color: var(--emerald-dark); text-decoration: underline; }
 .filter-dropdown-list li[aria-selected="true"] { color: var(--emerald-dark); font-weight: 700; }
+.filter-dropdown-list li:focus { outline: none; background: var(--mint-tint); color: var(--emerald-dark); }
 .filter-secondary .search-input-wrap + .filter-dropdown { margin-left: 6px; padding-left: 20px; border-left: 1px solid var(--line); }
 .filter-dropdown + .filter-dropdown { padding-left: 20px; border-left: 1px solid var(--line); }
 .nav-toggle {
@@ -882,6 +883,30 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; color: var(
   resize: vertical;
 }
 .contact-field input:focus, .contact-field select:focus, .contact-field textarea:focus { border-color: var(--mint); }
+.contact-field .filter-dropdown { width: 100%; }
+.contact-field .filter-dropdown-btn {
+  width: 100%;
+  height: auto;
+  padding: 12px 16px;
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius-sm);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--charcoal);
+}
+.contact-field .filter-dropdown.is-open .filter-dropdown-btn { border-color: var(--mint); color: var(--charcoal); }
+.contact-field .filter-dropdown-list { width: 100%; min-width: 0; }
+
+/* Photo credits table */
+.credits-table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius-md); margin-top: 8px; }
+.credits-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.credits-table th, .credits-table td { padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--line); vertical-align: top; }
+.credits-table th { background: var(--mint-tint); color: var(--emerald-dark); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.04em; position: sticky; top: 0; }
+.credits-table tbody tr:last-child td { border-bottom: none; }
+.credits-table tbody tr:hover { background: var(--cream); }
+.credits-table td:first-child { max-width: 420px; word-break: break-word; }
+.credits-table a { color: var(--emerald); font-weight: 600; }
+.credits-table a:hover { color: var(--emerald-dark); text-decoration: underline; }
 .contact-info { display: flex; flex-direction: column; gap: 18px; }
 .contact-info-card {
   background: var(--mint-tint);
