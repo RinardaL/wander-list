@@ -1,223 +1,218 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.wanderlist.example/index.html</loc>
+    <loc>https://www.triptocost.com/index.html</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.wanderlist.example/browse.html</loc>
+    <loc>https://www.triptocost.com/browse.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.wanderlist.example/itinerary.html</loc>
+    <loc>https://www.triptocost.com/itinerary.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.wanderlist.example/amalfi-coast.html</loc>
+    <loc>https://www.triptocost.com/amalfi-coast.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.wanderlist.example/utah-national-parks.html</loc>
+    <loc>https://www.triptocost.com/utah-national-parks.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.wanderlist.example/lisbon.html</loc>
+    <loc>https://www.triptocost.com/lisbon.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.wanderlist.example/banff.html</loc>
+    <loc>https://www.triptocost.com/banff.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.wanderlist.example/bali.html</loc>
+    <loc>https://www.triptocost.com/bali.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.wanderlist.example/paris.html</loc>
+    <loc>https://www.triptocost.com/paris.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.wanderlist.example/new-york-city.html</loc>
+    <loc>https://www.triptocost.com/new-york-city.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.wanderlist.example/barcelona.html</loc>
+    <loc>https://www.triptocost.com/barcelona.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.wanderlist.example/athens.html</loc>
+    <loc>https://www.triptocost.com/athens.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.wanderlist.example/nice.html</loc>
+    <loc>https://www.triptocost.com/nice.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.wanderlist.example/milano.html</loc>
+    <loc>https://www.triptocost.com/milano.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.wanderlist.example/toscana.html</loc>
+    <loc>https://www.triptocost.com/toscana.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.wanderlist.example/madeira.html</loc>
+    <loc>https://www.triptocost.com/madeira.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.wanderlist.example/sofia.html</loc>
+    <loc>https://www.triptocost.com/sofia.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.wanderlist.example/budapest.html</loc>
+    <loc>https://www.triptocost.com/budapest.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.wanderlist.example/prague.html</loc>
+    <loc>https://www.triptocost.com/prague.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.wanderlist.example/lapland.html</loc>
+    <loc>https://www.triptocost.com/lapland.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.wanderlist.example/zermatt.html</loc>
+    <loc>https://www.triptocost.com/zermatt.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.wanderlist.example/thailand.html</loc>
+    <loc>https://www.triptocost.com/thailand.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.wanderlist.example/shanghai.html</loc>
+    <loc>https://www.triptocost.com/shanghai.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.wanderlist.example/strasbourg.html</loc>
+    <loc>https://www.triptocost.com/strasbourg.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.wanderlist.example/kotor.html</loc>
+    <loc>https://www.triptocost.com/kotor.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.wanderlist.example/seville.html</loc>
+    <loc>https://www.triptocost.com/seville.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.wanderlist.example/zakopane.html</loc>
+    <loc>https://www.triptocost.com/zakopane.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.wanderlist.example/chamonix.html</loc>
+    <loc>https://www.triptocost.com/chamonix.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.wanderlist.example/valletta.html</loc>
+    <loc>https://www.triptocost.com/valletta.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.wanderlist.example/grindelwald.html</loc>
+    <loc>https://www.triptocost.com/grindelwald.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.wanderlist.example/canary-islands.html</loc>
+    <loc>https://www.triptocost.com/canary-islands.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.wanderlist.example/edinburgh.html</loc>
+    <loc>https://www.triptocost.com/edinburgh.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.wanderlist.example/austrian-alps.html</loc>
+    <loc>https://www.triptocost.com/austrian-alps.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.wanderlist.example/bansko.html</loc>
+    <loc>https://www.triptocost.com/bansko.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.wanderlist.example/bruges.html</loc>
+    <loc>https://www.triptocost.com/bruges.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.wanderlist.example/copenhagen.html</loc>
+    <loc>https://www.triptocost.com/copenhagen.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.wanderlist.example/lauterbrunnen.html</loc>
+    <loc>https://www.triptocost.com/lauterbrunnen.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.wanderlist.example/plitvice-lakes.html</loc>
+    <loc>https://www.triptocost.com/plitvice-lakes.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.wanderlist.example/hakone.html</loc>
+    <loc>https://www.triptocost.com/hakone.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.wanderlist.example/hallstatt.html</loc>
+    <loc>https://www.triptocost.com/hallstatt.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.wanderlist.example/cortina-dampezzo.html</loc>
+    <loc>https://www.triptocost.com/cortina-dampezzo.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.wanderlist.example/about.html</loc>
+    <loc>https://www.triptocost.com/about.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://www.wanderlist.example/how-it-works.html</loc>
+    <loc>https://www.triptocost.com/how-it-works.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://www.wanderlist.example/contact.html</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.4</priority>
   </url>
 </urlset>

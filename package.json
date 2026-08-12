@@ -1,7 +1,7 @@
 {
   "name": "wander-list",
   "version": "1.0.0",
-  "description": "WanderList / Journey Guide: curated 7-day travel itinerary platform prototype",
+  "description": "TripToCost: curated travel itinerary platform prototype",
   "private": true,
   "scripts": {
     "start": "npx --yes serve -l 3000 ."

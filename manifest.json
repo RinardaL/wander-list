@@ -1,0 +1,13 @@
+{
+  "name": "TripToCost",
+  "short_name": "TripToCost",
+  "description": "Complete, ready-to-go travel itineraries: day-by-day plans, culture guides, packing lists, and insider tips for every destination.",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#fdfbf4",
+  "theme_color": "#0b6b4f",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

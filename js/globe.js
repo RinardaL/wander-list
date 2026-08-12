@@ -1,5 +1,5 @@
 // ===========================================================
-// WanderList — 3D destination globe (Three.js, core only)
+// TripToCost — 3D destination globe (Three.js, core only)
 // Progressive enhancement: if WebGL/module loading fails, the
 // static destination chip list in the markup remains fully usable.
 // ===========================================================

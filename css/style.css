@@ -1,5 +1,5 @@
 /* ===========================================================
-   WanderList — Design System
+   TripToCost — Design System
    =========================================================== */
 
 :root {
@@ -899,12 +899,15 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; color: var(
 
 /* Photo credits table */
 .credits-table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius-md); margin-top: 8px; }
-.credits-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.credits-table { width: 100%; min-width: 640px; border-collapse: collapse; font-size: 0.85rem; }
 .credits-table th, .credits-table td { padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--line); vertical-align: top; }
 .credits-table th { background: var(--mint-tint); color: var(--emerald-dark); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.04em; position: sticky; top: 0; }
 .credits-table tbody tr:last-child td { border-bottom: none; }
 .credits-table tbody tr:hover { background: var(--cream); }
 .credits-table td:first-child { max-width: 420px; word-break: break-word; }
+@media (max-width: 720px) {
+  .credits-table td:first-child { max-width: none; }
+}
 .credits-table a { color: var(--emerald); font-weight: 600; }
 .credits-table a:hover { color: var(--emerald-dark); text-decoration: underline; }
 .contact-info { display: flex; flex-direction: column; gap: 18px; }

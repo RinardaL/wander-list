@@ -1,5 +1,5 @@
 // ===========================================================
-// WanderList — shared interactivity
+// TripToCost — shared interactivity
 // ===========================================================
 
 /* ---------- Trip catalog (used to render Saved Trips from localStorage) ---------- */
@@ -465,7 +465,7 @@ function initWanderList() {
           <p>"${escapeHtml(r.text)}"</p>
           <div class="testimonial-author">
             <span class="testimonial-avatar" style="background:${escapeHtml(color)}">${escapeHtml(initial)}</span>
-            <div><strong>${escapeHtml(r.author)}</strong><span>${escapeHtml(r.trip || "WanderList traveler")}</span></div>
+            <div><strong>${escapeHtml(r.author)}</strong><span>${escapeHtml(r.trip || "TripToCost traveler")}</span></div>
           </div>
         </div>`;
     }
@@ -954,20 +954,45 @@ function initWanderList() {
 
     // Hovering the temperature smoothly cross-fades it from °F to °C; moving
     // the cursor away fades it back. No buttons, just a live hover reveal.
-    weatherValueEl.addEventListener("mouseenter", () => {
-      weatherValueEl.classList.add("is-fading");
-      setTimeout(() => {
-        renderTemp("C");
-        weatherValueEl.classList.remove("is-fading");
-      }, 150);
-    });
-    weatherValueEl.addEventListener("mouseleave", () => {
-      weatherValueEl.classList.add("is-fading");
-      setTimeout(() => {
-        renderTemp("F");
-        weatherValueEl.classList.remove("is-fading");
-      }, 150);
-    });
+    // Touch devices have no hover state, so they get a tap-to-toggle instead.
+    const supportsHover = window.matchMedia("(hover: hover)").matches;
+    let currentUnit = "F";
+
+    if (supportsHover) {
+      weatherValueEl.addEventListener("mouseenter", () => {
+        weatherValueEl.classList.add("is-fading");
+        setTimeout(() => {
+          renderTemp("C");
+          weatherValueEl.classList.remove("is-fading");
+        }, 150);
+      });
+      weatherValueEl.addEventListener("mouseleave", () => {
+        weatherValueEl.classList.add("is-fading");
+        setTimeout(() => {
+          renderTemp("F");
+          weatherValueEl.classList.remove("is-fading");
+        }, 150);
+      });
+    } else {
+      weatherValueEl.setAttribute("tabindex", "0");
+      weatherValueEl.setAttribute("role", "button");
+      weatherValueEl.setAttribute("aria-label", "Tap to toggle Fahrenheit and Celsius");
+      const toggleUnit = () => {
+        currentUnit = currentUnit === "F" ? "C" : "F";
+        weatherValueEl.classList.add("is-fading");
+        setTimeout(() => {
+          renderTemp(currentUnit);
+          weatherValueEl.classList.remove("is-fading");
+        }, 150);
+      };
+      weatherValueEl.addEventListener("click", toggleUnit);
+      weatherValueEl.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          toggleUnit();
+        }
+      });
+    }
 
     fetchDestinationWeather(destInfo.lat, destInfo.lon)
       .then(({ temp, icon, label }) => {
@@ -977,7 +1002,7 @@ function initWanderList() {
         renderTemp("F");
       })
       .catch((err) => {
-        console.error("WanderList weather fetch failed:", err);
+        console.error("TripToCost weather fetch failed:", err);
         weatherValueEl.textContent = "Unavailable";
       });
   }
@@ -1047,7 +1072,7 @@ function initWanderList() {
     shareBtn.addEventListener("click", async () => {
       const shareData = {
         title: document.title,
-        text: `Check out this itinerary on WanderList: ${document.title}`,
+        text: `Check out this itinerary on TripToCost: ${document.title}`,
         url: window.location.href,
       };
 
