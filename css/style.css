@@ -197,14 +197,15 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; color: var(
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 36px;
+  gap: 24px;
 }
 .nav-links a {
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   color: var(--charcoal);
   position: relative;
   padding: 6px 0;
+  white-space: nowrap;
 }
 .nav-links a::after {
   content: "";
@@ -1476,6 +1477,10 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; color: var(
   .globe-dest-list { columns: 2; text-align: left; max-width: 420px; margin: 0 auto; }
   .contact-layout { grid-template-columns: 1fr; }
   .browse-grid { grid-template-columns: repeat(2, 1fr); }
+  /* At this width the nav links + currency + heart + "Browse More Trips"
+     button no longer all fit on one line. "Browse Destinations" in the
+     nav already covers what this button does, so drop it first. */
+  .nav-actions > .btn-secondary.btn-sm { display: none; }
 }
 
 @media (max-width: 720px) {
