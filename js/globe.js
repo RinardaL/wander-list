@@ -58,6 +58,20 @@ const DESTINATIONS = [
   { name: "Milos, Greece", lat: 36.69, lon: 24.44, href: "milos.html" },
   { name: "Mykonos, Greece", lat: 37.45, lon: 25.33, href: "mykonos.html" },
   { name: "Crete, Greece", lat: 35.34, lon: 25.13, href: "crete.html" },
+  { name: "Abisko, Sweden", lat: 68.35, lon: 18.83, href: "abisko.html" },
+  { name: "Annecy, France", lat: 45.90, lon: 6.13, href: "annecy.html" },
+  { name: "Bangkok & Phuket, Thailand", lat: 7.88, lon: 98.39, href: "bangkok-phuket.html" },
+  { name: "Colmar, France", lat: 48.08, lon: 7.36, href: "colmar.html" },
+  { name: "Dublin, Ireland", lat: 53.35, lon: -6.26, href: "dublin.html" },
+  { name: "Iceland", lat: 64.13, lon: -21.90, href: "iceland.html" },
+  { name: "Interlaken, Switzerland", lat: 46.69, lon: 7.87, href: "interlaken.html" },
+  { name: "Krakow, Poland", lat: 50.06, lon: 19.94, href: "krakow.html" },
+  { name: "Lofoten Islands, Norway", lat: 68.15, lon: 13.61, href: "lofoten.html" },
+  { name: "London, England", lat: 51.51, lon: -0.13, href: "london.html" },
+  { name: "Puglia, Italy", lat: 40.73, lon: 17.58, href: "puglia.html" },
+  { name: "Salzburg, Austria", lat: 47.80, lon: 13.04, href: "salzburg.html" },
+  { name: "Seoul, South Korea", lat: 37.57, lon: 126.98, href: "seoul.html" },
+  { name: "Tenerife, Spain", lat: 28.09, lon: -16.74, href: "tenerife.html" },
 ];
 
 // A click/hover within this angular radius of a destination pin counts as
