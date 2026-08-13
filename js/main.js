@@ -73,6 +73,325 @@ const TRIP_CATALOG = {
   "tenerife.html": { title: "5 Days in Tenerife: Resort Beaches, Water Parks & Mount Teide by Starlight", place: "Tenerife, Spain", tag: "Beach & Coastal", duration: "5 Days", cost: "$700-950/person", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Aerial_view_of_Playa_de_Torviscas_beach_in_Costa_Adeje_on_Tenerife%2C_Spain_%2848225530037%29.jpg/500px-Aerial_view_of_Playa_de_Torviscas_beach_in_Costa_Adeje_on_Tenerife%2C_Spain_%2848225530037%29.jpg", alt: "Aerial view of Playa de Torviscas beach, Costa Adeje, Tenerife, Spain", country: "Spain", continent: "Europe", lat: 28.09, lon: -16.74 },
 };
 
+/* ---------- Day-level search index: lets search surface a specific landmark buried
+   inside another destination's itinerary (e.g. searching "Ruakuri Cave" finds
+   Waitomo Day 2), not just top-level destination names. ---------- */
+const DAY_INDEX = [
+  { page: "itinerary.html", day: 1, title: "Arrival & Shibuya Nights", text: "Arrival & Shibuya Nights · Arrive at Narita/Haneda & transfer to hotel · Light exploration around Shinjuku · Shibuya Crossing & izakaya dinner", place: "Tokyo & Kyoto, Japan" },
+  { page: "itinerary.html", day: 2, title: "Old Tokyo: Asakusa & Ueno", text: "Old Tokyo: Asakusa & Ueno · Senso-ji Temple, early · Ueno Park & museums · Yanaka Ginza sunset stroll", place: "Tokyo & Kyoto, Japan" },
+  { page: "itinerary.html", day: 3, title: "Tsukiji, teamLab & Odaiba", text: "Tsukiji, teamLab & Odaiba · Tsukiji Outer Market breakfast · teamLab Planets digital art museum · Odaiba waterfront & Rainbow Bridge view", place: "Tokyo & Kyoto, Japan" },
+  { page: "itinerary.html", day: 4, title: "Bullet Train to Kyoto", text: "Bullet Train to Kyoto · Shinkansen from Tokyo to Kyoto · Check in & explore Nishiki Market · Pontocho Alley dinner", place: "Tokyo & Kyoto, Japan" },
+  { page: "itinerary.html", day: 5, title: "Fushimi Inari & Southern Higashiyama", text: "Fushimi Inari & Southern Higashiyama · Fushimi Inari Shrine at sunrise · Kiyomizu-dera & Sannenzaka lanes · Gion district lantern walk", place: "Tokyo & Kyoto, Japan" },
+  { page: "itinerary.html", day: 6, title: "Arashiyama & Hidden Kyoto", text: "Arashiyama & Hidden Kyoto · Arashiyama Bamboo Grove, early · Ohara Village hidden gem · Local sake bar in Kiyamachi", place: "Tokyo & Kyoto, Japan" },
+  { page: "itinerary.html", day: 7, title: "Last Temple, Last Sweets, Departure", text: "Last Temple, Last Sweets, Departure · Ginkaku-ji & Philosopher's Path · Last-minute souvenirs & matcha sweets · Shinkansen back to Tokyo & departure", place: "Tokyo & Kyoto, Japan" },
+  { page: "amalfi-coast.html", day: 1, title: "Arrival & First Sunset in Positano", text: "Arrival & First Sunset in Positano · Naples airport & transfer to Sorrento · Settle in & explore Sorrento's old town · Ferry to Positano for golden hour", place: "Amalfi Coast, Italy" },
+  { page: "amalfi-coast.html", day: 2, title: "Path of the Gods Hike", text: "Path of the Gods Hike · SITA bus to Bomerano · Sentiero degli Dei to Nocelle · Bus back to Sorrento", place: "Amalfi Coast, Italy" },
+  { page: "amalfi-coast.html", day: 3, title: "Amalfi Town & the Duomo", text: "Amalfi Town & the Duomo · Ferry to Amalfi town · Duomo di Sant'Andrea & Valle delle Ferriere · Budget trattoria dinner", place: "Amalfi Coast, Italy" },
+  { page: "amalfi-coast.html", day: 4, title: "Ravello's Gardens", text: "Ravello's Gardens · Bus up to Ravello · Villa Rufolo & Villa Cimbrone · Sunset from the town square", place: "Amalfi Coast, Italy" },
+  { page: "amalfi-coast.html", day: 5, title: "Capri on a Day Ferry", text: "Capri on a Day Ferry · Early ferry from Sorrento · Marina Grande & the Faraglioni · Last ferry back to Sorrento", place: "Amalfi Coast, Italy" },
+  { page: "amalfi-coast.html", day: 6, title: "Fiordo di Furore & a Slow Beach Day", text: "Fiordo di Furore & a Slow Beach Day · Bus to Furore · Marina di Praia · Home-style dinner in Sorrento", place: "Amalfi Coast, Italy" },
+  { page: "amalfi-coast.html", day: 7, title: "Lemon Groves & Departure", text: "Lemon Groves & Departure · Family-run limoncello tasting · Last walk & souvenir shopping · Transfer to Naples for departure", place: "Amalfi Coast, Italy" },
+  { page: "utah-national-parks.html", day: 1, title: "Fly In & Into Zion", text: "Fly In & Into Zion · Land in Las Vegas & pick up rental car · Zion Canyon Visitor Center & shuttle · Riverside Walk & sunset at Canyon Junction Bridge", place: "Utah, USA" },
+  { page: "utah-national-parks.html", day: 2, title: "Zion: Angels Landing & The Narrows", text: "Zion: Angels Landing & The Narrows · Angels Landing (permit required) · The Narrows · Casual dinner in Springdale", place: "Utah, USA" },
+  { page: "utah-national-parks.html", day: 3, title: "Drive to Bryce Canyon", text: "Drive to Bryce Canyon · Zion–Mt. Carmel Highway · Bryce Canyon Rim Trail · Sunset at Inspiration Point", place: "Utah, USA" },
+  { page: "utah-national-parks.html", day: 4, title: "Bryce Sunrise & Drive to Moab", text: "Bryce Sunrise & Drive to Moab · Sunrise at Bryce Point · Scenic drive to Moab · Arrive in Moab", place: "Utah, USA" },
+  { page: "utah-national-parks.html", day: 5, title: "Arches National Park", text: "Arches National Park · Early entry & Delicate Arch hike · Devils Garden & the Windows Section · Sunset at Balanced Rock", place: "Utah, USA" },
+  { page: "utah-national-parks.html", day: 6, title: "Canyonlands: Island in the Sky", text: "Canyonlands: Island in the Sky · Mesa Arch at sunrise · Grand View Point & Green River Overlook · Optional river rafting or jeep trail", place: "Utah, USA" },
+  { page: "utah-national-parks.html", day: 7, title: "Moab Morning & Departure", text: "Moab Morning & Departure · Easy trail or bike rental · Scenic drive back · Return rental car & fly home", place: "Utah, USA" },
+  { page: "lisbon.html", day: 1, title: "Arrival & Baixa Orientation", text: "Arrival & Baixa Orientation · Arrive & transfer into Baixa · Praça do Comércio & Rua Augusta Arch · Sunset at Miradouro de Santa Catarina", place: "Lisbon, Portugal" },
+  { page: "lisbon.html", day: 2, title: "Alfama & Fado Night", text: "Alfama & Fado Night · Wander Alfama's lanes & São Jorge Castle · National Pantheon & Feira da Ladra · Traditional fado dinner", place: "Lisbon, Portugal" },
+  { page: "lisbon.html", day: 3, title: "Belém: Towers, Monasteries & Pastéis", text: "Belém: Towers, Monasteries & Pastéis · Jerónimos Monastery & Belém Tower · Pastéis de Belém, still warm · MAAT museum & riverside sunset", place: "Lisbon, Portugal" },
+  { page: "lisbon.html", day: 4, title: "Day Trip to Sintra", text: "Day Trip to Sintra · Early train to Sintra · Pena Palace & Quinta da Regaleira · Train back & quiet dinner near Rossio", place: "Lisbon, Portugal" },
+  { page: "lisbon.html", day: 5, title: "Tram 28 & Bairro Alto", text: "Tram 28 & Bairro Alto · Ride Tram 28 end to end · Chiado & Livraria Bertrand · Bairro Alto bar-hopping", place: "Lisbon, Portugal" },
+  { page: "lisbon.html", day: 6, title: "Cascais Coastal Day Trip", text: "Cascais Coastal Day Trip · Train along the coast to Cascais · Boca do Inferno & the old town marina · Seafood dinner & train back", place: "Lisbon, Portugal" },
+  { page: "lisbon.html", day: 7, title: "Markets & Departure", text: "Markets & Departure · Time Out Market breakfast · Last souvenir shopping in Baixa · Transfer to the airport", place: "Lisbon, Portugal" },
+  { page: "banff.html", day: 1, title: "Arrival & Banff Townsite", text: "Arrival & Banff Townsite · Calgary airport & transfer to Banff · Check in & explore Banff Avenue · Spa evening & welcome dinner", place: "Banff, Canada" },
+  { page: "banff.html", day: 2, title: "Lake Louise", text: "Lake Louise · Canoe on Lake Louise · Afternoon tea at Fairmont Chateau Lake Louise · Sunset walk along the lakeshore trail", place: "Banff, Canada" },
+  { page: "banff.html", day: 3, title: "Moraine Lake & the Banff Gondola", text: "Moraine Lake & the Banff Gondola · Moraine Lake at sunrise · Rest & spa time back in Banff · Banff Gondola at sunset", place: "Banff, Canada" },
+  { page: "banff.html", day: 4, title: "Icefields Parkway", text: "Icefields Parkway · Drive the Icefields Parkway north · Columbia Icefield · Drive back to Banff", place: "Banff, Canada" },
+  { page: "banff.html", day: 5, title: "Peyto Lake & Bow Lake", text: "Peyto Lake & Bow Lake · Peyto Lake viewpoint · Bow Lake & Bow Glacier Falls · Relaxed dinner back in Banff", place: "Banff, Canada" },
+  { page: "banff.html", day: 6, title: "Emerald Lake & Johnston Canyon", text: "Emerald Lake & Johnston Canyon · Canoe on Emerald Lake · Johnston Canyon hike · Final dinner in Banff", place: "Banff, Canada" },
+  { page: "banff.html", day: 7, title: "Fairmont Spa Day & Departure", text: "Fairmont Spa Day & Departure · Spa morning at the Fairmont Banff Springs · Last souvenir shopping in Banff · Transfer to Calgary for departure", place: "Banff, Canada" },
+  { page: "bali.html", day: 1, title: "Arrival & Welcome to Ubud", text: "Arrival & Welcome to Ubud · Denpasar airport & transfer to Ubud · Check in & ease into the pace · Welcome yoga session", place: "Bali, Indonesia" },
+  { page: "bali.html", day: 2, title: "Rice Terraces & the Local Market", text: "Rice Terraces & the Local Market · Tegallalang Rice Terrace · Ubud Traditional Market · Solo dinner & a traditional dance show", place: "Bali, Indonesia" },
+  { page: "bali.html", day: 3, title: "Sacred Monkey Forest & Water Purification", text: "Sacred Monkey Forest & Water Purification · Sacred Monkey Forest Sanctuary · Tirta Empul water purification · Quiet dinner & early night", place: "Bali, Indonesia" },
+  { page: "bali.html", day: 4, title: "Uluwatu Temple", text: "Uluwatu Temple · Drive south to the Bukit Peninsula · Uluwatu Temple clifftop walk · Kecak fire dance at sunset", place: "Bali, Indonesia" },
+  { page: "bali.html", day: 5, title: "Seminyak", text: "Seminyak · Transfer to Seminyak · Beach time & a proper spa massage · Sunset at a beach club", place: "Bali, Indonesia" },
+  { page: "bali.html", day: 6, title: "Nusa Penida Day Trip", text: "Nusa Penida Day Trip · Fast boat to Nusa Penida · Kelingking Beach & Broken Bay · Return boat to Bali", place: "Bali, Indonesia" },
+  { page: "bali.html", day: 7, title: "Kuta Beach & Departure", text: "Kuta Beach & Departure · Sunrise walk on Kuta Beach · Last-minute souvenirs · Transfer to Denpasar airport", place: "Bali, Indonesia" },
+  { page: "paris.html", day: 1, title: "The Eiffel Tower & the Seine", text: "The Eiffel Tower & the Seine · Arrive & check in near Le Marais · Eiffel Tower summit & Champ de Mars · Seine river cruise at sunset", place: "Paris, France" },
+  { page: "paris.html", day: 2, title: "The Louvre & Notre-Dame", text: "The Louvre & Notre-Dame · The Louvre, skip-the-line entry · Île de la Cité & Notre-Dame exterior · Dinner in Le Marais", place: "Paris, France" },
+  { page: "paris.html", day: 3, title: "Montmartre & Departure", text: "Montmartre & Departure · Sacré-Cœur & Montmartre · Last café & shopping · Transfer to the airport", place: "Paris, France" },
+  { page: "new-york-city.html", day: 1, title: "Midtown & Central Park", text: "Midtown & Central Park · Times Square & Top of the Rock · Central Park & a museum · Broadway show", place: "New York City, USA" },
+  { page: "new-york-city.html", day: 2, title: "Downtown & the Statue of Liberty", text: "Downtown & the Statue of Liberty · Staten Island Ferry · Brooklyn Bridge walk & DUMBO · Rooftop sunset & departure", place: "New York City, USA" },
+  { page: "barcelona.html", day: 1, title: "Sagrada Família & Eixample", text: "Sagrada Família & Eixample · Sagrada Família, timed entry · Casa Batlló & Passeig de Gràcia · Tapas dinner in Eixample", place: "Barcelona, Spain" },
+  { page: "barcelona.html", day: 2, title: "Gothic Quarter & the Beach", text: "Gothic Quarter & the Beach · Gothic Quarter & the Cathedral · Barceloneta Beach · Sunset at Bunkers del Carmel", place: "Barcelona, Spain" },
+  { page: "barcelona.html", day: 3, title: "Park Güell & La Rambla", text: "Park Güell & La Rambla · Park Güell, timed entry · La Rambla & La Boqueria Market · Transfer to the airport", place: "Barcelona, Spain" },
+  { page: "athens.html", day: 1, title: "Arrival & Plaka", text: "Arrival & Plaka · Athens airport transfer & check-in · Wander Plaka's lanes · First Acropolis view at sunset", place: "Athens, Greece" },
+  { page: "athens.html", day: 2, title: "Acropolis, Museum & the Ancient Agora", text: "Acropolis, Museum & the Ancient Agora · Acropolis & the Parthenon · Acropolis Museum · Ancient Agora at golden hour", place: "Athens, Greece" },
+  { page: "athens.html", day: 3, title: "Museum, Flea Market & Psiri", text: "Museum, Flea Market & Psiri · National Archaeological Museum · Monastiraki flea market · Dinner in Psiri", place: "Athens, Greece" },
+  { page: "athens.html", day: 4, title: "Cape Sounion Day Trip", text: "Cape Sounion Day Trip · Sleep in, then head for the coast road · Beach time near Sounion · Temple of Poseidon at sunset", place: "Athens, Greece" },
+  { page: "athens.html", day: 5, title: "Delphi Day Trip", text: "Delphi Day Trip · Drive into the mountains · Sanctuary of Apollo & the Oracle's temple · Delphi Archaeological Museum & return drive", place: "Athens, Greece" },
+  { page: "athens.html", day: 6, title: "Hydra Island Day Trip", text: "Hydra Island Day Trip · Ferry from Piraeus to Hydra · Harbor town & a swim off the rocks · Seafood dinner before the last ferry", place: "Athens, Greece" },
+  { page: "athens.html", day: 7, title: "Syntagma Square & Departure", text: "Syntagma Square & Departure · Changing of the Guard, Syntagma Square · Last-minute shopping & a light lunch · Rooftop bar view, then airport transfer", place: "Athens, Greece" },
+  { page: "nice.html", day: 1, title: "Arrival & Vieux Nice", text: "Arrival & Vieux Nice · Arrival at Nice Côte d'Azur Airport · Vieux Nice & Cours Saleya Market · First sunset walk on the Promenade des Anglais", place: "Nice, France" },
+  { page: "nice.html", day: 2, title: "Castle Hill & the Baie des Anges", text: "Castle Hill & the Baie des Anges · Colline du Château viewpoint · Beach afternoon on the Baie des Anges · Matisse Museum or Chagall Museum", place: "Nice, France" },
+  { page: "nice.html", day: 3, title: "Èze, the Eagle's Nest Village", text: "Èze, the Eagle's Nest Village · Train & shuttle up to Èze village · Jardin d'Èze exotic garden · Clifftop dinner in Èze or back in Nice", place: "Nice, France" },
+  { page: "nice.html", day: 4, title: "Monaco & Monte Carlo", text: "Monaco & Monte Carlo · Train to Monaco-Monte Carlo & the Prince's Palace · Oceanographic Museum of Monaco · Monte Carlo Casino exterior & Café de Paris", place: "Nice, France" },
+  { page: "nice.html", day: 5, title: "Antibes & Saint-Paul de Vence", text: "Antibes & Saint-Paul de Vence · Antibes old town ramparts · Picasso Museum, Antibes · Saint-Paul de Vence art village", place: "Nice, France" },
+  { page: "nice.html", day: 6, title: "Cannes", text: "Cannes · Train to Cannes & La Croisette · Le Suquet old town & Marché Forville · Sunset drinks on La Croisette", place: "Nice, France" },
+  { page: "nice.html", day: 7, title: "Last Morning in Nice & Departure", text: "Last Morning in Nice & Departure · Bike ride along the Promenade des Anglais · Last-minute shopping on Rue de France · Transfer to Nice Côte d'Azur Airport", place: "Nice, France" },
+  { page: "milano.html", day: 1, title: "Arrival & Piazza del Duomo", text: "Arrival & Piazza del Duomo · Arrival & check-in near the city center · First look at Piazza del Duomo · Evening aperitivo near the Duomo", place: "Milan, Italy" },
+  { page: "milano.html", day: 2, title: "Galleria Vittorio Emanuele II & Sforza Castle", text: "Galleria Vittorio Emanuele II & Sforza Castle · Galleria Vittorio Emanuele II · Quadrilatero della Moda shopping district · Castello Sforzesco & Parco Sempione", place: "Milan, Italy" },
+  { page: "milano.html", day: 3, title: "Navigli Canal District", text: "Navigli Canal District · Daytime walk along the Naviglio Grande · Aperitivo culture along the water · Evening along the canals", place: "Milan, Italy" },
+  { page: "milano.html", day: 4, title: "Brera & a Final Duomo Rooftop", text: "Brera & a Final Duomo Rooftop · Pinacoteca di Brera & the antique quarter · Final visit to the Duomo rooftop terraces · Transfer to Malpensa or Linate for departure", place: "Milan, Italy" },
+  { page: "toscana.html", day: 1, title: "Arrival & Into the Val d'Orcia", text: "Arrival & Into the Val d'Orcia · Land in Florence or Pisa & pick up the rental car · Check into an agriturismo near Siena · First cypress-road sunset drive", place: "Tuscany, Italy" },
+  { page: "toscana.html", day: 2, title: "Florence", text: "Florence · Drive in & the Duomo · Uffizi Gallery · Ponte Vecchio & dinner in Oltrarno", place: "Tuscany, Italy" },
+  { page: "toscana.html", day: 3, title: "Siena", text: "Siena · Piazza del Campo · Siena Duomo · Torre del Mangia & a contrada Palio museum", place: "Tuscany, Italy" },
+  { page: "toscana.html", day: 4, title: "San Gimignano & Chianti", text: "San Gimignano & Chianti · San Gimignano's medieval towers · Chianti wine estate tasting · Dinner in a Chianti hill town", place: "Tuscany, Italy" },
+  { page: "toscana.html", day: 5, title: "Val d'Orcia Scenic Drive", text: "Val d'Orcia Scenic Drive · Pienza, the Renaissance \"ideal city\" · Montepulciano & a Vino Nobile cellar · Cypress-road photography at golden hour", place: "Tuscany, Italy" },
+  { page: "toscana.html", day: 6, title: "Pisa & Departure", text: "Pisa & Departure · Drive to Pisa & climb the Leaning Tower · Piazza dei Miracoli, Duomo & Baptistery · Return the rental car & fly out", place: "Tuscany, Italy" },
+  { page: "madeira.html", day: 1, title: "Arrival in Funchal", text: "Arrival in Funchal · Arrival at Madeira Airport & transfer to Funchal · Check in & wander the Zona Velha · First dinner & a poncha tasting", place: "Madeira, Portugal" },
+  { page: "madeira.html", day: 2, title: "Funchal's Gardens, Market & the Monte Toboggan", text: "Funchal's Gardens, Market & the Monte Toboggan · Mercado dos Lavradores · Cable car to Monte & the Tropical Garden · Wicker toboggan ride down to Livramento", place: "Madeira, Portugal" },
+  { page: "madeira.html", day: 3, title: "A Levada Walk Through the Laurel Forest", text: "A Levada Walk Through the Laurel Forest · Transfer to Rabaçal · Levada das 25 Fontes hike · Return via Ribeira Brava", place: "Madeira, Portugal" },
+  { page: "madeira.html", day: 4, title: "Pico do Arieiro to Pico Ruivo", text: "Pico do Arieiro to Pico Ruivo · Pre-dawn drive to Pico do Arieiro · PR1 trail to Pico Ruivo · Pickup at Achada do Teixeira & return to Funchal", place: "Madeira, Portugal" },
+  { page: "madeira.html", day: 5, title: "North Coast: Cabo Girão & Porto Moniz", text: "North Coast: Cabo Girão & Porto Moniz · Cabo Girão skywalk · Porto Moniz natural swimming pools · Transfer to Madeira Airport & departure", place: "Madeira, Portugal" },
+  { page: "thailand.html", day: 1, title: "Arrival in Bangkok & Wat Arun at Sunset", text: "Arrival in Bangkok & Wat Arun at Sunset · Land at Suvarnabhumi & transfer to the riverside · Check in & a first ride on the Chao Phraya Express Boat · Wat Arun, the Temple of Dawn, lit at sunset", place: "Bangkok & Andaman Coast, Thailand" },
+  { page: "thailand.html", day: 2, title: "Grand Palace & Wat Phra Kaew", text: "Grand Palace & Wat Phra Kaew · Grand Palace & Wat Phra Kaew (Temple of the Emerald Buddha) · Wat Pho & the Reclining Buddha · Street food crawl in Chinatown (Yaowarat)", place: "Bangkok & Andaman Coast, Thailand" },
+  { page: "thailand.html", day: 3, title: "Floating Markets & a Flight South", text: "Floating Markets & a Flight South · Damnoen Saduak floating market · Chatuchak Weekend Market (or a quiet Bangkok neighborhood) · Evening flight to Krabi", place: "Bangkok & Andaman Coast, Thailand" },
+  { page: "thailand.html", day: 4, title: "Railay Beach", text: "Railay Beach · Longtail boat to Railay · Railay East to West walk & the lagoon viewpoint hike · Sunset on Railay West Beach", place: "Bangkok & Andaman Coast, Thailand" },
+  { page: "thailand.html", day: 5, title: "Phi Phi Islands Day Trip", text: "Phi Phi Islands Day Trip · Earliest speedboat to Phi Phi & Maya Bay · Snorkeling at Pileh Lagoon & Monkey Beach · Return speedboat to Krabi", place: "Bangkok & Andaman Coast, Thailand" },
+  { page: "thailand.html", day: 6, title: "A Slower Beach Day", text: "A Slower Beach Day · Sleep in & kayak the Railay lagoon · Koh Poda or Chicken Island · Sunset at Phra Nang Cave Beach", place: "Bangkok & Andaman Coast, Thailand" },
+  { page: "thailand.html", day: 7, title: "Return Flight & Departure", text: "Return Flight & Departure · Transfer to Krabi Airport & fly to Bangkok · Last-minute souvenirs near the river · Rooftop sunset & transfer to the airport", place: "Bangkok & Andaman Coast, Thailand" },
+  { page: "sofia.html", day: 1, title: "Arrival & Alexander Nevsky Cathedral", text: "Arrival & Alexander Nevsky Cathedral · Arrival at Sofia Airport & transfer to the center · Alexander Nevsky Cathedral · First walk through the historic center", place: "Sofia, Bulgaria" },
+  { page: "sofia.html", day: 2, title: "Vitosha Boulevard & the Square of Tolerance", text: "Vitosha Boulevard & the Square of Tolerance · Vitosha Boulevard & the National Palace of Culture · Sofia's religious tolerance square · Dinner at a traditional mehana", place: "Sofia, Bulgaria" },
+  { page: "sofia.html", day: 3, title: "Vitosha Mountain", text: "Vitosha Mountain · Cable car up from Simeonovo · Hike toward Cherni Vrah or the Golden Bridges · Descend for dinner at a mountain hut", place: "Sofia, Bulgaria" },
+  { page: "sofia.html", day: 4, title: "Rila Monastery Day Trip & Departure", text: "Rila Monastery Day Trip & Departure · Depart Sofia for Rila Monastery · Explore the monastery complex · Return to Sofia & departure", place: "Sofia, Bulgaria" },
+  { page: "budapest.html", day: 1, title: "Arrival & the Pest Danube Promenade", text: "Arrival & the Pest Danube Promenade · Arrival & transfer into Pest · Danube promenade & the Parliament building · First ruin bar in the Jewish Quarter", place: "Budapest, Hungary" },
+  { page: "budapest.html", day: 2, title: "Buda Castle Hill", text: "Buda Castle Hill · Funicular up to Fisherman's Bastion · Buda Castle grounds · Matthias Church", place: "Budapest, Hungary" },
+  { page: "budapest.html", day: 3, title: "Széchenyi Thermal Baths & City Park", text: "Széchenyi Thermal Baths & City Park · Széchenyi Thermal Baths · Poolside lunch & more soaking · City Park & Heroes' Square", place: "Budapest, Hungary" },
+  { page: "budapest.html", day: 4, title: "Great Market Hall & the Jewish Quarter", text: "Great Market Hall & the Jewish Quarter · Great Market Hall · Jewish Quarter & Dohány Street Synagogue · Danube river cruise", place: "Budapest, Hungary" },
+  { page: "budapest.html", day: 5, title: "Margaret Island & Departure", text: "Margaret Island & Departure · Margaret Island · Last-minute shopping on Váci utca · Transfer to the airport", place: "Budapest, Hungary" },
+  { page: "prague.html", day: 1, title: "Arrival & Old Town Square", text: "Arrival & Old Town Square · Arrival & check-in near the Old Town · Old Town Square, early and uncrowded · The Astronomical Clock & an Old Town evening", place: "Prague, Czech Republic" },
+  { page: "prague.html", day: 2, title: "Prague Castle & Charles Bridge", text: "Prague Castle & Charles Bridge · St. Vitus Cathedral, inside Prague Castle · Golden Lane's tiny artisan houses · Charles Bridge at sunset", place: "Prague, Czech Republic" },
+  { page: "prague.html", day: 3, title: "Jewish Quarter, River Cruise & Malá Strana", text: "Jewish Quarter, River Cruise & Malá Strana · Josefov & the Spanish Synagogue · Vltava river cruise · Lesser Town (Malá Strana)", place: "Prague, Czech Republic" },
+  { page: "prague.html", day: 4, title: "Petřín Hill & Departure", text: "Petřín Hill & Departure · Petřín Hill & its lookout tower · Last-minute shopping in the Old Town · Transfer to Václav Havel Airport for departure", place: "Prague, Czech Republic" },
+  { page: "lapland.html", day: 1, title: "Arrival, the Arctic Circle & Santa Claus Village", text: "Arrival, the Arctic Circle & Santa Claus Village · Arrival at Rovaniemi Airport & transfer to your hotel · Crossing the Arctic Circle & Santa Claus Village · First Northern Lights hunting tour", place: "Finnish Lapland" },
+  { page: "lapland.html", day: 2, title: "Husky Sledding Safari", text: "Husky Sledding Safari · Hotel pickup & husky farm briefing · Husky sledding safari through the snowy forest · Campfire dinner at the husky farm", place: "Finnish Lapland" },
+  { page: "lapland.html", day: 3, title: "Reindeer Farm & Snowmobile Safari", text: "Reindeer Farm & Snowmobile Safari · Reindeer farm visit & sleigh ride · Snowmobile safari · Sami storytelling dinner", place: "Finnish Lapland" },
+  { page: "lapland.html", day: 4, title: "Snow Hotel & a Second Aurora Hunt", text: "Snow Hotel & a Second Aurora Hunt · Transfer to the Arctic SnowHotel & ice room tour · Ice sauna & snow chapel · Second Northern Lights hunting tour", place: "Finnish Lapland" },
+  { page: "lapland.html", day: 5, title: "Relaxed Morning, Sauna & Departure", text: "Relaxed Morning, Sauna & Departure · Relaxed breakfast & optional lake ice swim · Traditional Finnish sauna experience · Transfer to Rovaniemi Airport for departure", place: "Finnish Lapland" },
+  { page: "zermatt.html", day: 1, title: "Arrival by Train & First Village Walk", text: "Arrival by Train & First Village Walk · Train to Täsch, then the shuttle into Zermatt · Check in and an electric taxi to the hotel · First walk through the village with a Matterhorn view", place: "Zermatt, Switzerland" },
+  { page: "zermatt.html", day: 2, title: "Gornergrat Railway & Panoramic Viewpoint", text: "Gornergrat Railway & Panoramic Viewpoint · Ride the Gornergrat Railway to the summit · Gornergrat viewpoint and the terrace · Descend partway and hike back through Riffelalp", place: "Zermatt, Switzerland" },
+  { page: "zermatt.html", day: 3, title: "Matterhorn Glacier Paradise & Close-Up Trails", text: "Matterhorn Glacier Paradise & Close-Up Trails · Cable car up to Matterhorn Glacier Paradise · Glacier Palace and the summit viewing platform · Alpine hike to the Matterhorn Glacier Trail", place: "Zermatt, Switzerland" },
+  { page: "zermatt.html", day: 4, title: "Village Mornings & Departure", text: "Village Mornings & Departure · Slow breakfast and Bahnhofstrasse shopping · Spa hour or a final short walk to Gorner Gorge · Train departure via Täsch or Visp", place: "Zermatt, Switzerland" },
+  { page: "shanghai.html", day: 1, title: "Arrival & The Bund at Dusk", text: "Arrival & The Bund at Dusk · Arrival at Pudong International Airport & transfer into the city · Check-in & a first walk along the Bund promenade · The Bund at dusk, facing the Pudong skyline", place: "Shanghai, China" },
+  { page: "shanghai.html", day: 2, title: "Yu Garden, the Old Bazaar & Nanjing Road", text: "Yu Garden, the Old Bazaar & Nanjing Road · Yu Garden, early · Yuyuan Bazaar's old streets · Nanjing Road Pedestrian Street", place: "Shanghai, China" },
+  { page: "shanghai.html", day: 3, title: "French Concession & Tianzifang", text: "French Concession & Tianzifang · Tree-lined streets of the former French Concession · Tianzifang's lanes · Cafe hopping & dinner in the Concession", place: "Shanghai, China" },
+  { page: "shanghai.html", day: 4, title: "Zhujiajiao Water Town Day Trip", text: "Zhujiajiao Water Town Day Trip · Transfer to Zhujiajiao & the old street · Canal boat ride & Fangsheng Bridge · Old street snacks & the return trip", place: "Shanghai, China" },
+  { page: "shanghai.html", day: 5, title: "Pudong Skyline & Departure", text: "Pudong Skyline & Departure · Shanghai Tower or Oriental Pearl Tower observation deck · Lujiazui & a last riverside lunch · Transfer to Pudong Airport for departure", place: "Shanghai, China" },
+  { page: "strasbourg.html", day: 1, title: "Arrival & Petite France", text: "Arrival & Petite France · Arrival and check-in near the Grande Île · Wandering the canals of Petite France · Golden hour on the Ponts Couverts and a first winstub dinner", place: "Strasbourg, France" },
+  { page: "strasbourg.html", day: 2, title: "Strasbourg Cathedral & Old Town Squares", text: "Strasbourg Cathedral & Old Town Squares · Strasbourg Cathedral's pink sandstone facade · The astronomical clock's mechanical show · Place Kléber, Place Gutenberg & Maison Kammerzell", place: "Strasbourg, France" },
+  { page: "strasbourg.html", day: 3, title: "Alsace Wine Route: Colmar & a Village Tasting", text: "Alsace Wine Route: Colmar & a Village Tasting · Day trip to Colmar by train · Colmar's Petite Venise · Wine tasting in a nearby Alsace village", place: "Strasbourg, France" },
+  { page: "strasbourg.html", day: 4, title: "European Quarter & Departure", text: "European Quarter & Departure · A slow bike ride through the old town · The European Quarter and European Parliament · Transfer to the station or airport for departure", place: "Strasbourg, France" },
+  { page: "kotor.html", day: 1, title: "Arrival & the Walled Old Town", text: "Arrival & the Walled Old Town · Arrival & check-in near the Old Town · First wander through the walled Old Town · First evening inside the walls", place: "Kotor, Montenegro" },
+  { page: "kotor.html", day: 2, title: "Fortress of St. John & the Bay Panorama", text: "Fortress of St. John & the Bay Panorama · Hike the fortress walls of St. John · Rest and rehydrate back in the Old Town · Golden hour on the harbor promenade", place: "Kotor, Montenegro" },
+  { page: "kotor.html", day: 3, title: "Perast & Our Lady of the Rocks", text: "Perast & Our Lady of the Rocks · Drive or bus to Perast · Boat trip to Our Lady of the Rocks · Lunch on the Perast waterfront", place: "Kotor, Montenegro" },
+  { page: "kotor.html", day: 4, title: "Budva's Old Town & Departure", text: "Budva's Old Town & Departure · Bus down the coast to Budva · Wander Budva's Old Town & citadel · Transfer to Tivat or Dubrovnik for departure", place: "Kotor, Montenegro" },
+  { page: "seville.html", day: 1, title: "Arrival & Plaza de España", text: "Arrival & Plaza de España · Arrival & check-in near the historic center · Plaza de España at golden hour · First tapas dinner in the historic center", place: "Seville, Spain" },
+  { page: "seville.html", day: 2, title: "Real Alcázar & the Santa Cruz Quarter", text: "Real Alcázar & the Santa Cruz Quarter · Real Alcázar at opening · The Alcázar's gardens · Wandering the Santa Cruz quarter", place: "Seville, Spain" },
+  { page: "seville.html", day: 3, title: "Seville Cathedral, the Giralda & a Flamenco Night", text: "Seville Cathedral, the Giralda & a Flamenco Night · Seville Cathedral · Climbing the Giralda tower · Flamenco show", place: "Seville, Spain" },
+  { page: "seville.html", day: 4, title: "Triana & Departure", text: "Triana & Departure · Triana's ceramics workshops & market · Riverside tapas in Triana · Transfer to Seville Airport for departure", place: "Seville, Spain" },
+  { page: "zakopane.html", day: 1, title: "Arrival & Krupówki Street", text: "Arrival & Krupówki Street · Arrival by bus or train from Kraków · Krupówki Street and the wooden old town · Highland folk dinner with oscypek and kwaśnica", place: "Zakopane, Poland" },
+  { page: "zakopane.html", day: 2, title: "Kasprowy Wierch by Cable Car", text: "Kasprowy Wierch by Cable Car · Cable car from Kuźnice to Kasprowy Wierch · Summit panorama and the border ridge walk · Mountain-hut lunch, or the Gubałówka funicular for an easier afternoon", place: "Zakopane, Poland" },
+  { page: "zakopane.html", day: 3, title: "Morskie Oko Lake Hike", text: "Morskie Oko Lake Hike · Bus or taxi to the Palenica Białczańska trailhead · The paved uphill walk to Morskie Oko · Lakeside rest and the return walk", place: "Zakopane, Poland" },
+  { page: "zakopane.html", day: 4, title: "Dolina Chochołowska & Departure", text: "Dolina Chochołowska & Departure · Bus to the Dolina Chochołowska trailhead · Flat valley walk beneath the peaks · Return to Zakopane and onward transfer to Kraków", place: "Zakopane, Poland" },
+  { page: "chamonix.html", day: 1, title: "Arrival & the Chamonix Town Center", text: "Arrival & the Chamonix Town Center · Transfer in from Geneva · Town center and the church of Saint-Michel · Riverside walk and a Savoyard dinner", place: "Chamonix, France" },
+  { page: "chamonix.html", day: 2, title: "Aiguille du Midi & Pointe Helbronner", text: "Aiguille du Midi & Pointe Helbronner · Cable car to the Aiguille du Midi · Step into the Void and the summit terraces · Panoramic Mont-Blanc gondola to Pointe Helbronner", place: "Chamonix, France" },
+  { page: "chamonix.html", day: 3, title: "Montenvers & the Mer de Glace", text: "Montenvers & the Mer de Glace · Montenvers rack railway from town · The ice cave and the glacier's retreat · Belvedere trail and the ride back down", place: "Chamonix, France" },
+  { page: "chamonix.html", day: 4, title: "Grand Balcon Nord & a Valley Village", text: "Grand Balcon Nord & a Valley Village · Planpraz lift up to the Grand Balcon Nord · Onward to Lac Blanc for a bigger hike · Afternoon in Argentière or Les Houches", place: "Chamonix, France" },
+  { page: "chamonix.html", day: 5, title: "Slow Morning & Departure", text: "Slow Morning & Departure · Spa morning or a walk to Lac des Gaillands · Last coffee and souvenir shopping in town · Shuttle back to Geneva", place: "Chamonix, France" },
+  { page: "valletta.html", day: 1, title: "Arrival, the Baroque Grid & St. John's Co-Cathedral", text: "Arrival, the Baroque Grid & St. John's Co-Cathedral · Arrival & check-in in the capital · Walking the Baroque grid & St. John's Co-Cathedral · Upper Barrakka Gardens & the Saluting Battery", place: "Valletta, Malta" },
+  { page: "valletta.html", day: 2, title: "The Grand Harbour, Fort St. Elmo & the Three Cities", text: "The Grand Harbour, Fort St. Elmo & the Three Cities · A dgħajsa cruise around the Grand Harbour · Fort St. Elmo & the National War Museum · Across the harbour to the Three Cities", place: "Valletta, Malta" },
+  { page: "valletta.html", day: 3, title: "Mdina, the Silent City & Rabat", text: "Mdina, the Silent City & Rabat · Out to Mdina, the Silent City · Wandering Mdina's walls & cathedral · Rabat's catacombs & the trip back to Valletta", place: "Valletta, Malta" },
+  { page: "grindelwald.html", day: 1, title: "Arrival & First Village Walk", text: "Arrival & First Village Walk · Scenic train from Interlaken Ost on the BOB line · Check in and an easy valley walk · Fondue dinner and a first look at the Eiger", place: "Grindelwald, Switzerland" },
+  { page: "grindelwald.html", day: 2, title: "Jungfraujoch, Top of Europe", text: "Jungfraujoch, Top of Europe · Eiger Express to Eigergletscher, then the cogwheel train up · Sphinx Observatory and the Aletsch Glacier · Ice Palace and the descent through Kleine Scheidegg", place: "Grindelwald, Switzerland" },
+  { page: "grindelwald.html", day: 3, title: "Grindelwald-First & the Eiger Trail", text: "Grindelwald-First & the Eiger Trail · Cable car up to Grindelwald-First and the Cliff Walk · First Flyer, mountain carts, or the walk to Bachalpsee · Alternative: the Eiger Trail beneath the north face", place: "Grindelwald, Switzerland" },
+  { page: "grindelwald.html", day: 4, title: "Lauterbrunnen Valley & Departure", text: "Lauterbrunnen Valley & Departure · A slow morning at the Grindelwald Sports Centre · Waterfalls in the Lauterbrunnen valley · Train departure via Interlaken", place: "Grindelwald, Switzerland" },
+  { page: "canary-islands.html", day: 1, title: "Arrival & La Laguna's Colonial Old Town", text: "Arrival & La Laguna's Colonial Old Town · Land at Tenerife South & transfer north · San Cristóbal de La Laguna's old town · Santa Cruz de Tenerife by night", place: "Canary Islands, Spain" },
+  { page: "canary-islands.html", day: 2, title: "Teide National Park", text: "Teide National Park · Drive up into Teide National Park · Cable car toward Mount Teide's summit · Stargazing under a Starlight-certified sky", place: "Canary Islands, Spain" },
+  { page: "canary-islands.html", day: 3, title: "Anaga Rural Park & the North Coast", text: "Anaga Rural Park & the North Coast · Hike the laurisilva forest of Anaga · Garachico's volcanic rock pools · Dinner in Puerto de la Cruz", place: "Canary Islands, Spain" },
+  { page: "canary-islands.html", day: 4, title: "Beach Morning & Transfer to Lanzarote", text: "Beach Morning & Transfer to Lanzarote · Playa de las Teresitas · Return the car & head to the airport · Short flight to Lanzarote", place: "Canary Islands, Spain" },
+  { page: "canary-islands.html", day: 5, title: "Timanfaya National Park", text: "Timanfaya National Park · Ruta de los Volcanes coach tour · Geyser demonstration & a camel ride · Dinner grilled over geothermal heat at El Diablo", place: "Canary Islands, Spain" },
+  { page: "canary-islands.html", day: 6, title: "César Manrique's Lanzarote & La Geria Vineyards", text: "César Manrique's Lanzarote & La Geria Vineyards · Jameos del Agua · Mirador del Río or the Jardín de Cactus · Wine tasting in La Geria", place: "Canary Islands, Spain" },
+  { page: "canary-islands.html", day: 7, title: "Playa Blanca & Departure", text: "Playa Blanca & Departure · Playa Blanca or the Papagayo coves · Last-minute shopping & lunch at the marina · Transfer to Lanzarote Airport", place: "Canary Islands, Spain" },
+  { page: "edinburgh.html", day: 1, title: "Edinburgh Castle & the Royal Mile", text: "Edinburgh Castle & the Royal Mile · Arrival & transfer into the Old Town · Edinburgh Castle · Royal Mile amble & a historic Old Town pub", place: "Edinburgh, Scotland" },
+  { page: "edinburgh.html", day: 2, title: "Holyrood & Arthur's Seat", text: "Holyrood & Arthur's Seat · Palace of Holyroodhouse & the Scottish Parliament · Hike up Arthur's Seat · National Museum of Scotland", place: "Edinburgh, Scotland" },
+  { page: "edinburgh.html", day: 3, title: "New Town, Calton Hill & Dean Village", text: "New Town, Calton Hill & Dean Village · New Town, Princes Street Gardens & the Scott Monument · Dean Village · Sunset from Calton Hill", place: "Edinburgh, Scotland" },
+  { page: "edinburgh.html", day: 4, title: "Stirling Castle & the Wallace Monument", text: "Stirling Castle & the Wallace Monument · Train to Stirling & Stirling Castle · National Wallace Monument · Return to Edinburgh & departure", place: "Edinburgh, Scotland" },
+  { page: "austrian-alps.html", day: 1, title: "Innsbruck Arrival, the Golden Roof & Nordkette", text: "Innsbruck Arrival, the Golden Roof & Nordkette · Fly into Innsbruck, or take the train from Munich · Wander the Altstadt to the Golden Roof · Nordkette cable car straight from the city center", place: "Austrian Alps, Austria" },
+  { page: "austrian-alps.html", day: 2, title: "Stubai Glacier Day Trip", text: "Stubai Glacier Day Trip · Transfer to the Stubai Glacier's Mutterbergalm base · 3S gondola onto the glacier at Eisgrat · Snowfield walk, or swap for Swarovski Crystal Worlds", place: "Austrian Alps, Austria" },
+  { page: "austrian-alps.html", day: 3, title: "Base Change to Seefeld & Lake Wildsee", text: "Base Change to Seefeld & Lake Wildsee · Regional train up to the Seefeld plateau · Stroll the shore of Lake Wildsee · Rosshütte cable car and a ridge-line hike", place: "Austrian Alps, Austria" },
+  { page: "austrian-alps.html", day: 4, title: "Hut Hike & a Traditional Tyrolean Dinner", text: "Hut Hike & a Traditional Tyrolean Dinner · Hike to the Nördlinger Hütte for lunch · Lunch on the hut's sun terrace · Tiroler Gröstl and Kaiserschmarrn back in the village", place: "Austrian Alps, Austria" },
+  { page: "austrian-alps.html", day: 5, title: "Alpine Spa Morning & Departure", text: "Alpine Spa Morning & Departure · A slow morning at Alpenbad Seefeld · Regional train back to Innsbruck and a last riverside walk · Transfer to Innsbruck Airport or onward by rail", place: "Austrian Alps, Austria" },
+  { page: "bansko.html", day: 1, title: "Arrival & Bansko's Old Town", text: "Arrival & Bansko's Old Town · Arrival by shuttle or bus from Sofia · Baryakova Cheshma and the old town's stone houses · Mehana dinner with kapama and live kaba gaida music", place: "Bansko, Bulgaria" },
+  { page: "bansko.html", day: 2, title: "Bansko Gondola & Pirin National Park", text: "Bansko Gondola & Pirin National Park · Gondola from Bansko to Bunderishka Polyana · Hiking the marked trails around the Bunderishka circus · Vihren hut option for bigger hikers, or an easy ride back down", place: "Bansko, Bulgaria" },
+  { page: "bansko.html", day: 3, title: "Rila Monastery Day Trip", text: "Rila Monastery Day Trip · Transfer to Rila Monastery via Blagoevgrad · The striped courtyard, frescoes, and Hrelyo's Tower · Return to Bansko, or the Vasilashki lakes alternative", place: "Bansko, Bulgaria" },
+  { page: "bansko.html", day: 4, title: "Mineral Spa Morning & Departure", text: "Mineral Spa Morning & Departure · Mineral pools in nearby Banya · Last look at the old town and a light lunch · Transfer back to Sofia", place: "Bansko, Bulgaria" },
+  { page: "bruges.html", day: 1, title: "Arrival, the Markt & the Burg", text: "Arrival, the Markt & the Burg · Arrival and check-in near the Markt · The Belfry tower and the Burg's Basilica of the Holy Blood · A canal boat tour at golden hour", place: "Bruges, Belgium" },
+  { page: "bruges.html", day: 2, title: "Church of Our Lady, Groeninge Museum & the Béguinage", text: "Church of Our Lady, Groeninge Museum & the Béguinage · The Church of Our Lady's Michelangelo Madonna · Flemish Primitives at the Groeninge Museum · The Béguinage and a chocolate and waffle tasting walk", place: "Bruges, Belgium" },
+  { page: "bruges.html", day: 3, title: "Damme by Bike, the Ramparts Windmills & Departure", text: "Damme by Bike, the Ramparts Windmills & Departure · A bike ride along the canal to Damme · The windmills along the old city ramparts · Transfer to the station for departure", place: "Bruges, Belgium" },
+  { page: "copenhagen.html", day: 1, title: "Arrival, Nyhavn & the Changing of the Guard", text: "Arrival, Nyhavn & the Changing of the Guard · Arrival & transfer into central Copenhagen · Amalienborg Palace & the changing of the Guard · Nyhavn & a sunset canal boat tour", place: "Copenhagen, Denmark" },
+  { page: "copenhagen.html", day: 2, title: "Tivoli Gardens & Danish Design", text: "Tivoli Gardens & Danish Design · Tivoli Gardens · Design Museum Denmark or the National Gallery (SMK) · Nordic design shopping on Strøget", place: "Copenhagen, Denmark" },
+  { page: "copenhagen.html", day: 3, title: "Christiania, Christianshavn & a Bike Ride", text: "Christiania, Christianshavn & a Bike Ride · Freetown Christiania · A bike ride through Christianshavn's canals · The Opera House & Royal Danish Playhouse waterfront", place: "Copenhagen, Denmark" },
+  { page: "copenhagen.html", day: 4, title: "Pastries, the Louisiana Museum & Departure", text: "Pastries, the Louisiana Museum & Departure · Breakfast at a Danish bakery · Louisiana Museum of Modern Art · Transfer to the airport", place: "Copenhagen, Denmark" },
+  { page: "lauterbrunnen.html", day: 1, title: "Arrival & the Valley's Waterfalls", text: "Arrival & the Valley's Waterfalls · Train into the valley via Interlaken Ost · Staubbach Falls, then Trümmelbach's glacier-fed chambers · A first evening in the village", place: "Lauterbrunnen, Switzerland" },
+  { page: "lauterbrunnen.html", day: 2, title: "Mürren, Gimmelwald & the Schilthorn", text: "Mürren, Gimmelwald & the Schilthorn · Cable car to Gimmelwald and Mürren · Onward and up to the Schilthorn summit · Birg's Skyline Walk and the descent", place: "Lauterbrunnen, Switzerland" },
+  { page: "lauterbrunnen.html", day: 3, title: "Männlichen Ridge Walk & Departure", text: "Männlichen Ridge Walk & Departure · Train to Wengen, cable car to Männlichen · The ridge walk toward Kleine Scheidegg · Train departure via Interlaken", place: "Lauterbrunnen, Switzerland" },
+  { page: "plitvice-lakes.html", day: 1, title: "Arrival & the Lower Lakes to Veliki Slap", text: "Arrival & the Lower Lakes to Veliki Slap · Arrival & check-in near the park · Lower Lakes boardwalk to Veliki Slap · Dinner back at the guesthouse village", place: "Plitvice Lakes, Croatia" },
+  { page: "plitvice-lakes.html", day: 2, title: "Upper Lakes & the Kozjak Boat Crossing", text: "Upper Lakes & the Kozjak Boat Crossing · The Upper Lakes loop, Gornja jezera · Electric boat crossing on Kozjak Lake · Back through the Lower Lakes at golden hour", place: "Plitvice Lakes, Croatia" },
+  { page: "plitvice-lakes.html", day: 3, title: "A Quieter Trail, Rastoke Village & Departure", text: "A Quieter Trail, Rastoke Village & Departure · A quieter walk to Labudovac Waterfall · Rastoke village, Plitvice's smaller cousin · Departure toward Zagreb or Zadar", place: "Plitvice Lakes, Croatia" },
+  { page: "hakone.html", day: 1, title: "Arrival & the Hakone Open-Air Museum", text: "Arrival & the Hakone Open-Air Museum · Odakyu Romancecar from Shinjuku to Hakone-Yumoto · Hakone Open-Air Museum · Check into a ryokan & a first onsen soak", place: "Hakone, Japan" },
+  { page: "hakone.html", day: 2, title: "The Hakone Round Course: Owakudani & Lake Ashi", text: "The Hakone Round Course: Owakudani & Lake Ashi · Hakone Ropeway over Owakudani · Black eggs at Owakudani, then a cruise across Lake Ashi · Hakone Shrine's torii gate at Motohakone", place: "Hakone, Japan" },
+  { page: "hakone.html", day: 3, title: "Onsen Morning & the Old Tokaido Road", text: "Onsen Morning & the Old Tokaido Road · A slow morning soak in the ryokan onsen · A walk on the old Tokaido highway · Return to Tokyo", place: "Hakone, Japan" },
+  { page: "hallstatt.html", day: 1, title: "Arrival & the Lakeside Village", text: "Arrival & the Lakeside Village · Train and ferry from Salzburg to Hallstatt · The Marktplatz and the village lanes · Sunset at the World Heritage Skywalk", place: "Hallstatt, Austria" },
+  { page: "hallstatt.html", day: 2, title: "Salzwelten Salt Mine & the Bone House", text: "Salzwelten Salt Mine & the Bone House · Funicular up to Salzwelten and the miners' slide · Underground lake and the Bronze Age galleries · The painted skulls of the Beinhaus", place: "Hallstatt, Austria" },
+  { page: "hallstatt.html", day: 3, title: "Waldbachstrub Waterfall & Departure", text: "Waldbachstrub Waterfall & Departure · The walking trail to Waldbachstrub waterfall · A boat trip for the classic view · Ferry and train back toward Salzburg", place: "Hallstatt, Austria" },
+  { page: "cortina-dampezzo.html", day: 1, title: "Arrival & First Views Over the Ampezzo Valley", text: "Arrival & First Views Over the Ampezzo Valley · Transfer in from Venice Marco Polo Airport · Check in and a walk down Corso Italia · Faloria cable car for a sunset panorama", place: "Cortina d'Ampezzo, Italy" },
+  { page: "cortina-dampezzo.html", day: 2, title: "The Tre Cime di Lavaredo Loop", text: "The Tre Cime di Lavaredo Loop · Drive to Rifugio Auronzo via Lago di Misurina · Hike the loop past Rifugio Locatelli · Rifugio lunch and the drive back to Cortina", place: "Cortina d'Ampezzo, Italy" },
+  { page: "cortina-dampezzo.html", day: 3, title: "Lago di Braies & the Cinque Torri", text: "Lago di Braies & the Cinque Torri · Drive to Lago di Braies and walk the shoreline loop · Drive back toward Cortina for lunch · Cinque Torri chairlift and the WWI open-air museum", place: "Cortina d'Ampezzo, Italy" },
+  { page: "cortina-dampezzo.html", day: 4, title: "Slow Morning, Spa & Departure", text: "Slow Morning, Spa & Departure · Slow breakfast and a last look at Corso Italia · Spa hour at a Cortina luxury hotel · Drive back to Venice Marco Polo Airport", place: "Cortina d'Ampezzo, Italy" },
+  { page: "bordeaux.html", day: 1, title: "Arrival & the Port of the Moon", text: "Arrival & the Port of the Moon · Arrive & check in near the Old Town · Place de la Bourse & the Miroir d'Eau · Rue Sainte-Catherine & a first Bordelaise dinner", place: "Bordeaux, France" },
+  { page: "bordeaux.html", day: 2, title: "Cathédrale Saint-André & La Cité du Vin", text: "Cathédrale Saint-André & La Cité du Vin · Cathédrale Saint-André & the Pey-Berland tower · La Cité du Vin · Wine bars in the Chartrons quarter", place: "Bordeaux, France" },
+  { page: "bordeaux.html", day: 3, title: "Saint-Émilion: A Full Day in Wine Country", text: "Saint-Émilion: A Full Day in Wine Country · The monolithic church & village streets · Château tour & tasting · Return to Bordeaux for dinner", place: "Bordeaux, France" },
+  { page: "bordeaux.html", day: 4, title: "Marché des Capucins & Departure", text: "Marché des Capucins & Departure · Marché des Capucins · Jardin Public & last-minute wine shopping · Transfer to Gare Saint-Jean or the airport", place: "Bordeaux, France" },
+  { page: "st-moritz.html", day: 1, title: "Arrival in the Engadin & First Winter Walk", text: "Arrival in the Engadin & First Winter Walk · Arrival by the Rhaetian Railway · A first stroll down Via Serlas · A first fondue in the Dorf", place: "St. Moritz, Switzerland" },
+  { page: "st-moritz.html", day: 2, title: "Corviglia and Corvatsch: Two Ski Areas, One Valley", text: "Corviglia and Corvatsch: Two Ski Areas, One Valley · Funicular up to Corviglia · Lunch on a sun terrace above the Engadin · Cable car to the Corvatsch glacier station", place: "St. Moritz, Switzerland" },
+  { page: "st-moritz.html", day: 3, title: "The Cresta Run, the Frozen Lake & the Engadin's Nordic Trails", text: "The Cresta Run, the Frozen Lake & the Engadin's Nordic Trails · Watch or ride the Cresta Run · Walk out onto the frozen lake · Cross-country skiing on the Engadin's valley trails", place: "St. Moritz, Switzerland" },
+  { page: "st-moritz.html", day: 4, title: "The Bernina Express & a Grand Hotel Farewell", text: "The Bernina Express & a Grand Hotel Farewell · Ride the Bernina Express toward the glaciers · Afternoon tea in the grand-hotel style · A last snowy walk to the station", place: "St. Moritz, Switzerland" },
+  { page: "dolomites.html", day: 1, title: "Innsbruck to Val Gardena Over the Brenner Pass", text: "Innsbruck to Val Gardena Over the Brenner Pass · Land in Innsbruck & pick up the rental car · Drive over the Brenner Pass into South Tyrol · Settle into Ortisei & a South Tyrolean dinner", place: "Val Gardena, Italy" },
+  { page: "dolomites.html", day: 2, title: "Alpe di Siusi: Europe's Largest Alpine Meadow", text: "Alpe di Siusi: Europe's Largest Alpine Meadow · Cable car up from Siusi to Compatsch · Hike across the meadow to the Sassopiatto viewpoints · Rifugio dinner on the plateau, last cabin down", place: "Val Gardena, Italy" },
+  { page: "dolomites.html", day: 3, title: "Seceda Ridge & the Odle Peaks", text: "Seceda Ridge & the Odle Peaks · Two-stage cable car from Ortisei to Seceda · Walk the ridge toward the Val di Funes overlook · Drive to Selva di Val Gardena for dinner", place: "Val Gardena, Italy" },
+  { page: "dolomites.html", day: 4, title: "Three Passes: Gardena, Pordoi & Giau", text: "Three Passes: Gardena, Pordoi & Giau · Passo Gardena & Passo Sella · Passo Pordoi & the Sass Pordoi cable car · Sunset detour over Passo Giau, then down to San Vito di Cadore", place: "Val Gardena, Italy" },
+  { page: "dolomites.html", day: 5, title: "Lago di Sorapis: The Milky Turquoise Lake", text: "Lago di Sorapis: The Milky Turquoise Lake · Drive to the Passo Tre Croci trailhead · Hike in via the CAI 215 trail · The lake, then hike back down for a late dinner", place: "Val Gardena, Italy" },
+  { page: "dolomites.html", day: 6, title: "Lago di Braies at Sunrise & Departure", text: "Lago di Braies at Sunrise & Departure · Sunrise walk around Lago di Braies · Drive south to Venice Marco Polo Airport · Return the rental car & fly home", place: "Val Gardena, Italy" },
+  { page: "marrakech.html", day: 1, title: "Arrival & Jemaa el-Fnaa First Look", text: "Arrival & Jemaa el-Fnaa First Look · Marrakech Menara Airport transfer & riad check-in · First wander into Souk Semmarine · Jemaa el-Fnaa by night", place: "Marrakech, Morocco" },
+  { page: "marrakech.html", day: 2, title: "Palaces, Tombs & a Rooftop Dinner", text: "Palaces, Tombs & a Rooftop Dinner · Bahia Palace · Saadian Tombs · Rooftop dinner with Koutoubia Mosque views", place: "Marrakech, Morocco" },
+  { page: "marrakech.html", day: 3, title: "Deep in the Souks & a Hammam", text: "Deep in the Souks & a Hammam · Spice, leather & dye souks · Ben Youssef Madrasa · Traditional hammam & massage", place: "Marrakech, Morocco" },
+  { page: "marrakech.html", day: 4, title: "Jardin Majorelle & Gueliz", text: "Jardin Majorelle & Gueliz · Jardin Majorelle & the YSL Museum · Wander Gueliz, the Ville Nouvelle · Le Jardin Secret at golden hour", place: "Marrakech, Morocco" },
+  { page: "marrakech.html", day: 5, title: "Atlas Mountains & Ourika Valley Day Trip", text: "Atlas Mountains & Ourika Valley Day Trip · Drive into the High Atlas foothills · Berber villages & the Setti Fatma waterfalls · Return to Marrakech & a farewell dinner", place: "Marrakech, Morocco" },
+  { page: "tromso.html", day: 1, title: "Arrival, the Arctic Cathedral & Fjellheisen", text: "Arrival, the Arctic Cathedral & Fjellheisen · Land at Tromsø Airport & settle in downtown · Walk the bridge to the Arctic Cathedral (Ishavskatedralen) · Fjellheisen cable car to Storsteinen for a first aurora hunt", place: "Tromsø, Norway" },
+  { page: "tromso.html", day: 2, title: "Winter Whale Watching in the Fjords", text: "Winter Whale Watching in the Fjords · Early departure from Tromsø harbor · Orca & humpback encounters on the water · Harbor-front Arctic seafood dinner", place: "Tromsø, Norway" },
+  { page: "tromso.html", day: 3, title: "Husky Sledding & a Sami Reindeer Camp", text: "Husky Sledding & a Sami Reindeer Camp · Husky farm pickup & dog sledding safari · Sami reindeer camp & lavvu culture · Second aurora hunt, away from city lights", place: "Tromsø, Norway" },
+  { page: "tromso.html", day: 4, title: "Polaria, the Polar Museum & Departure", text: "Polaria, the Polar Museum & Departure · Polaria's Arctic aquarium & bearded seal feeding · The Polar Museum: trapping, hunting & polar expeditions · Transfer to Tromsø Airport & depart", place: "Tromsø, Norway" },
+  { page: "stockholm.html", day: 1, title: "Arrival, Gamla Stan & the Royal Palace", text: "Arrival, Gamla Stan & the Royal Palace · Arrival & transfer into central Stockholm · The Royal Palace & changing of the guard · Gamla Stan's golden-hour lanes", place: "Stockholm, Sweden" },
+  { page: "stockholm.html", day: 2, title: "The Vasa Museum, Skansen & Djurgården", text: "The Vasa Museum, Skansen & Djurgården · The Vasa Museum · Skansen open-air museum · The ABBA Museum", place: "Stockholm, Sweden" },
+  { page: "stockholm.html", day: 3, title: "A Stockholm Archipelago Day Trip to Vaxholm", text: "A Stockholm Archipelago Day Trip to Vaxholm · Ferry departure into the archipelago · Vaxholm's town & fortress · Return cruise & a waterfront dinner", place: "Stockholm, Sweden" },
+  { page: "stockholm.html", day: 4, title: "Södermalm, Fotografiska & Fika Culture", text: "Södermalm, Fotografiska & Fika Culture · Fotografiska photography museum · Södermalm cafes, design shops & a proper fika · Stadshuset (City Hall) at sunset", place: "Stockholm, Sweden" },
+  { page: "stockholm.html", day: 5, title: "The Nobel Prize Museum, Kungsträdgården & Departure", text: "The Nobel Prize Museum, Kungsträdgården & Departure · The Nobel Prize Museum · Kungsträdgården & last souvenirs · Transfer to the airport", place: "Stockholm, Sweden" },
+  { page: "bavaria.html", day: 1, title: "Munich: Marienplatz & the Glockenspiel", text: "Munich: Marienplatz & the Glockenspiel · Land at Munich Airport & ride the S-Bahn in · Marienplatz & the Glockenspiel show · Dinner at the Hofbräuhaus", place: "Bavaria, Germany" },
+  { page: "bavaria.html", day: 2, title: "Munich: Nymphenburg, BMW & the Beer Gardens", text: "Munich: Nymphenburg, BMW & the Beer Gardens · Schloss Nymphenburg · BMW Museum & BMW Welt · Viktualienmarkt beer garden", place: "Bavaria, Germany" },
+  { page: "bavaria.html", day: 3, title: "Neuschwanstein & Hohenschwangau Castles", text: "Neuschwanstein & Hohenschwangau Castles · Pick up the rental car & tour Neuschwanstein · Hohenschwangau Castle · Dinner in Füssen's old town", place: "Bavaria, Germany" },
+  { page: "bavaria.html", day: 4, title: "Zugspitze & Garmisch-Partenkirchen", text: "Zugspitze & Garmisch-Partenkirchen · Drive to Grainau & ride the Zugspitzbahn · Partnachklamm gorge walk · Dinner on Ludwigstraße", place: "Bavaria, Germany" },
+  { page: "bavaria.html", day: 5, title: "Berchtesgaden & the Königssee", text: "Berchtesgaden & the Königssee · Drive to Berchtesgaden & the Königssee boat trip · Eagle's Nest (Kehlsteinhaus) · Dinner with a view of the Watzmann", place: "Bavaria, Germany" },
+  { page: "bavaria.html", day: 6, title: "Chiemsee & Departure", text: "Chiemsee & Departure · Ferry to Herreninsel on the Chiemsee · Herrenchiemsee Palace & drive back to Munich · Return the rental car & fly out", place: "Bavaria, Germany" },
+  { page: "zhangye.html", day: 1, title: "Arrival & the Old Silk Road Town", text: "Arrival & the Old Silk Road Town · Arrival by rail into the Hexi Corridor · The Drum Tower and the walled old town · Dinner: Zhangye's own noodle culture", place: "Zhangye, China" },
+  { page: "zhangye.html", day: 2, title: "Sunrise to Sunset at the Zhangye Danxia Rainbow Mountains", text: "Sunrise to Sunset at the Zhangye Danxia Rainbow Mountains · Sunrise at the Colorful Sea of Clouds Platform · Boardwalks across Platforms 2 and 3 · Sunset at Platform 4", place: "Zhangye, China" },
+  { page: "zhangye.html", day: 3, title: "Giant Buddha Temple & Zhangye's Wetland Park", text: "Giant Buddha Temple & Zhangye's Wetland Park · The Giant Buddha Temple complex · Asia's largest reclining Buddha · An afternoon in Zhangye Wetland Park", place: "Zhangye, China" },
+  { page: "zhangye.html", day: 4, title: "Mati Temple's Cliff Grottoes & Departure", text: "Mati Temple's Cliff Grottoes & Departure · The drive out to Mati Temple · Climbing the grottoes · Return to Zhangye & departure", place: "Zhangye, China" },
+  { page: "lencois-maranhenses.html", day: 1, title: "Arrival in Barreirinhas", text: "Arrival in Barreirinhas · Fly into São Luís, then transfer to Barreirinhas · Check in and walk out to the edge of the dune field · First taste of Maranhão cuisine in town", place: "Lençóis Maranhenses, Brazil" },
+  { page: "lencois-maranhenses.html", day: 2, title: "4x4 into the Dunes: Lagoa Azul & Lagoa Bonita", text: "4x4 into the Dunes: Lagoa Azul & Lagoa Bonita · 4x4 dune-buggy tour from Barreirinhas · Swimming in Lagoa Azul · Sunset at Lagoa Bonita", place: "Lençóis Maranhenses, Brazil" },
+  { page: "lencois-maranhenses.html", day: 3, title: "Rio Preguiças Boat Trip to Atins", text: "Rio Preguiças Boat Trip to Atins · Downriver by boat to Vassouras · Mandacaru lighthouse · Atins, where the river meets the ocean", place: "Lençóis Maranhenses, Brazil" },
+  { page: "lencois-maranhenses.html", day: 4, title: "Last Morning & Departure", text: "Last Morning & Departure · A free morning along the river · Transfer back to São Luís · A last look at São Luís before flying out", place: "Lençóis Maranhenses, Brazil" },
+  { page: "waitomo.html", day: 1, title: "Arrival & the Waitomo Glowworm Cave", text: "Arrival & the Waitomo Glowworm Cave · The drive south through King Country farmland · A silent boat glide beneath thousands of glowworms · Settling in above the caves", place: "Waitomo, New Zealand" },
+  { page: "waitomo.html", day: 2, title: "Ruakuri Cave & Black-Water Rafting", text: "Ruakuri Cave & Black-Water Rafting · The spiral ramp into Ruakuri Cave · Floating an underground river on an inner tube · An easy evening over the King Country hills", place: "Waitomo, New Zealand" },
+  { page: "waitomo.html", day: 3, title: "Hobbiton Movie Set & Departure", text: "Hobbiton Movie Set & Departure · The Hobbit Holes of the Shire · A cider at the Green Dragon Inn · The drive back toward Auckland", place: "Waitomo, New Zealand" },
+  { page: "cappadocia.html", day: 1, title: "Arrival & Uçhisar Orientation", text: "Arrival & Uçhisar Orientation · Fly into Kayseri or Nevşehir, transfer to Göreme · Climb Uçhisar Castle · Sunset from the cave hotel terrace & welcome dinner", place: "Cappadocia, Turkey" },
+  { page: "cappadocia.html", day: 2, title: "Sunrise Balloon & Göreme Open Air Museum", text: "Sunrise Balloon & Göreme Open Air Museum · Sunrise hot air balloon flight · Göreme Open Air Museum · Wander Göreme village over çay", place: "Cappadocia, Turkey" },
+  { page: "cappadocia.html", day: 3, title: "Derinkuyu Underground City & Rose Valley Hike", text: "Derinkuyu Underground City & Rose Valley Hike · Derinkuyu underground city · Rose Valley hike · Sunset Point & dinner back in Göreme", place: "Cappadocia, Turkey" },
+  { page: "cappadocia.html", day: 4, title: "Avanos Pottery, Valley ATV Tour & Departure", text: "Avanos Pottery, Valley ATV Tour & Departure · Pottery-making in Avanos · ATV tour through Pigeon Valley · Farewell dinner, then transfer to the airport", place: "Cappadocia, Turkey" },
+  { page: "milos.html", day: 1, title: "Arrival, Adamas & Plaka's Sunset Kastro", text: "Arrival, Adamas & Plaka's Sunset Kastro · Arrive by ferry & check in at Adamas · Wander up to Plaka · Sunset from Plaka's Kastro", place: "Milos, Greece" },
+  { page: "milos.html", day: 2, title: "Sarakiniko's Lunar Coastline & Mytakas", text: "Sarakiniko's Lunar Coastline & Mytakas · Explore Sarakiniko's white rock formations · Mytakas's colorful syrmata & a quiet swim · Seafood dinner in Pollonia", place: "Milos, Greece" },
+  { page: "milos.html", day: 3, title: "Kleftiko Sea Caves & Klima's Boathouses", text: "Kleftiko Sea Caves & Klima's Boathouses · Boat pickup & cruise to Kleftiko · Swim through Kleftiko's sea caves · Klima's colorful syrmata at sunset", place: "Milos, Greece" },
+  { page: "milos.html", day: 4, title: "South Coast Beaches, Mining Museum & Departure", text: "South Coast Beaches, Mining Museum & Departure · Tsigrado's hidden cove · Milos Mining Museum · Airport transfer & departure", place: "Milos, Greece" },
+  { page: "mykonos.html", day: 1, title: "Arrival & Mykonos Town (Chora)", text: "Arrival & Mykonos Town (Chora) · Arrive by ferry & check in · Wander Chora's alleys & boutique shopping · Windmills at Kato Mili, then Little Venice", place: "Mykonos, Greece" },
+  { page: "mykonos.html", day: 2, title: "Paradise & Super Paradise Beach Clubs", text: "Paradise & Super Paradise Beach Clubs · Water-taxi from Platis Gialos to Paradise Beach · Beach club day at Super Paradise · Sunset drinks before heading back to Chora", place: "Mykonos, Greece" },
+  { page: "mykonos.html", day: 3, title: "Delos Island Day Trip", text: "Delos Island Day Trip · Boat over to Delos · Terrace of the Lions & the sacred site · Back to Mykonos for a Little Venice dinner", place: "Mykonos, Greece" },
+  { page: "mykonos.html", day: 4, title: "Panagia Paraportiani & a Calmer Beach", text: "Panagia Paraportiani & a Calmer Beach · Panagia Paraportiani, five churches in one · A calmer afternoon at Ornos Beach · Sunset dinner in Little Venice", place: "Mykonos, Greece" },
+  { page: "mykonos.html", day: 5, title: "Last Swim & Departure", text: "Last Swim & Departure · One last quiet swim · Last-minute shopping in Chora · Airport transfer & departure", place: "Mykonos, Greece" },
+  { page: "crete.html", day: 1, title: "Arrival in Heraklion & the Venetian Harbor", text: "Arrival in Heraklion & the Venetian Harbor · Land in Heraklion & transfer to the old town · Koules Fortress & the Venetian Harbor · Lion Square & a first Cretan dinner", place: "Crete, Greece" },
+  { page: "crete.html", day: 2, title: "Knossos Palace & the Archaeological Museum", text: "Knossos Palace & the Archaeological Museum · Explore the Palace of Knossos · Heraklion Archaeological Museum · Dakos & raki in the old town", place: "Crete, Greece" },
+  { page: "crete.html", day: 3, title: "The Lasithi Plateau: Windmills & the Cave of Zeus", text: "The Lasithi Plateau: Windmills & the Cave of Zeus · Drive up to the Lasithi Plateau · Psychro Cave, mythical birthplace of Zeus · A village taverna on the plateau", place: "Crete, Greece" },
+  { page: "crete.html", day: 4, title: "Rethymno's Old Town & the Road to Chania", text: "Rethymno's Old Town & the Road to Chania · Rethymno's Venetian harbor · The Fortezza, Rethymno's Venetian fortress · Arrival in Chania at sunset", place: "Crete, Greece" },
+  { page: "crete.html", day: 5, title: "Samaria Gorge — A Full-Day Hike", text: "Samaria Gorge — A Full-Day Hike · Descend from Xyloskalo into the gorge · Through the Iron Gates · Agia Roumeli & the boat back", place: "Crete, Greece" },
+  { page: "crete.html", day: 6, title: "Balos Lagoon & Departure", text: "Balos Lagoon & Departure · Boat to Balos Lagoon · Beach time & the return crossing · Transfer to the airport & departure", place: "Crete, Greece" },
+  { page: "abisko.html", day: 1, title: "Arrival in Arctic Sweden & the First Northern Lights Hunt", text: "Arrival in Arctic Sweden & the First Northern Lights Hunt · Arrival at Kiruna Airport & the train to Abisko Turiststation · Settling in & a walk to the Lapporten viewpoint · Chairlift to Aurora Sky Station for the first Northern Lights hunt", place: "Abisko, Sweden" },
+  { page: "abisko.html", day: 2, title: "Dog Sledding & a Sami Reindeer Evening", text: "Dog Sledding & a Sami Reindeer Evening · Husky farm briefing & meeting the team · Dog sledding safari through the birch forest · Sami reindeer encounter & a lavvu tent dinner", place: "Abisko, Sweden" },
+  { page: "abisko.html", day: 3, title: "Snowshoeing, Ice Fishing & the Blue Hole on Frozen Torneträsk", text: "Snowshoeing, Ice Fishing & the Blue Hole on Frozen Torneträsk · Guided snowshoe hike into Abisko National Park · Ice fishing for Arctic char on Lake Torneträsk · Aurora watch from inside Abisko's \"blue hole\"", place: "Abisko, Sweden" },
+  { page: "abisko.html", day: 4, title: "A Slow Morning at Abisko Turiststation & Departure", text: "A Slow Morning at Abisko Turiststation & Departure · Relaxed breakfast & a wood-fired sauna · A last walk in Abisko National Park · Train to Kiruna & departure", place: "Abisko, Sweden" },
+  { page: "annecy.html", day: 1, title: "Arrival & the Canals of the Vieille Ville", text: "Arrival & the Canals of the Vieille Ville · Train into Annecy from Geneva or Lyon · The Thiou canals and the Palais de l'Île · Jardins de l'Europe and the Pont des Amours", place: "Annecy, France" },
+  { page: "annecy.html", day: 2, title: "Lake Annecy: A Swim & a Boat Cruise", text: "Lake Annecy: A Swim & a Boat Cruise · A swim at the Plage de l'Impérial · A cruise on the Lac d'Annecy Express · A Savoyard dinner in the old town", place: "Annecy, France" },
+  { page: "annecy.html", day: 3, title: "Cycling the Lakeshore & Château d'Annecy", text: "Cycling the Lakeshore & Château d'Annecy · Riding the Voie Verte lakeside greenway · Château d'Annecy and the Musée-Château · An excursion to Menthon-Saint-Bernard", place: "Annecy, France" },
+  { page: "annecy.html", day: 4, title: "Paragliding over the Lake & Departure", text: "Paragliding over the Lake & Departure · Tandem paragliding from Col de la Forclaz · Panoramic views from Le Semnoz · Train back toward Geneva or Lyon", place: "Annecy, France" },
+  { page: "bangkok-phuket.html", day: 1, title: "Arrival in Bangkok & Thonburi's Canals", text: "Arrival in Bangkok & Thonburi's Canals · Land at Suvarnabhumi & transfer to Sukhumvit · Longtail boat through Thonburi's khlongs to Khlong Bang Luang · Dinner cruise on the Chao Phraya", place: "Bangkok & Phuket, Thailand" },
+  { page: "bangkok-phuket.html", day: 2, title: "Silk House, Cooking Class & a Muay Thai Fight", text: "Silk House, Cooking Class & a Muay Thai Fight · Jim Thompson House · Hands-on Thai cooking class · Fight night at Rajadamnern Stadium", place: "Bangkok & Phuket, Thailand" },
+  { page: "bangkok-phuket.html", day: 3, title: "Fly to Phuket & the Big Buddha", text: "Fly to Phuket & the Big Buddha · Morning flight Bangkok to Phuket · The Big Buddha & Wat Chalong · Sunset on Patong Beach & Bangla Road", place: "Bangkok & Phuket, Thailand" },
+  { page: "bangkok-phuket.html", day: 4, title: "Old Phuket Town & the West Coast Beaches", text: "Old Phuket Town & the West Coast Beaches · Thalang Road & Soi Rommanee · Karon or Kata Beach · Fresh seafood at Rawai", place: "Bangkok & Phuket, Thailand" },
+  { page: "bangkok-phuket.html", day: 5, title: "Phang Nga Bay & James Bond Island", text: "Phang Nga Bay & James Bond Island · Boat tour into Phang Nga Bay · James Bond Island & Koh Panyee's floating village · Sunset at Laem Phromthep", place: "Bangkok & Phuket, Thailand" },
+  { page: "bangkok-phuket.html", day: 6, title: "Phi Phi Islands Day Trip & Departure", text: "Phi Phi Islands Day Trip & Departure · Speedboat from Phuket to Phi Phi · Phi Phi viewpoint hike & Long Beach snorkel · Return to Phuket & transfer to the airport", place: "Bangkok & Phuket, Thailand" },
+  { page: "colmar.html", day: 1, title: "Arrival & Colmar's Christmas Old Town", text: "Arrival & Colmar's Christmas Old Town · Arrival at Gare de Colmar and check-in near the old town · Place de l'Ancienne Douane and the Koifhus market · Petite Venise strung with lights, and a first cup of vin chaud", place: "Colmar, France" },
+  { page: "colmar.html", day: 2, title: "Colmar's Old Town in Depth", text: "Colmar's Old Town in Depth · Maison Pfister and the carved facades of the old town · Wandering Rue des Marchands and the Grand'Rue · Place Jeanne-d'Arc's market and the Marché Couvert", place: "Colmar, France" },
+  { page: "colmar.html", day: 3, title: "Alsace Wine Route Villages: Riquewihr & Kaysersberg", text: "Alsace Wine Route Villages: Riquewihr & Kaysersberg · Riquewihr's walled village market · Kaysersberg, voted France's favorite village · Back to Colmar for a second evening among the market lights", place: "Colmar, France" },
+  { page: "colmar.html", day: 4, title: "Eguisheim's Circular Market & Farewell to Alsace", text: "Eguisheim's Circular Market & Farewell to Alsace · Eguisheim's circular village market · Last-minute shopping at the Marché Couvert · Transfer to Gare de Colmar for departure", place: "Colmar, France" },
+  { page: "dublin.html", day: 1, title: "Trinity College & Temple Bar", text: "Trinity College & Temple Bar · Arrival & transfer into the city center · Trinity College: the Book of Kells & the Long Room · Grafton Street & Temple Bar's first pints", place: "Dublin, Ireland" },
+  { page: "dublin.html", day: 2, title: "Dublin Castle, St Patrick's & the Guinness Storehouse", text: "Dublin Castle, St Patrick's & the Guinness Storehouse · Dublin Castle · St Patrick's Cathedral · Guinness Storehouse & the Gravity Bar", place: "Dublin, Ireland" },
+  { page: "dublin.html", day: 3, title: "Kilmainham Gaol & the National Museum", text: "Kilmainham Gaol & the National Museum · Kilmainham Gaol · National Museum of Ireland – Archaeology · A real trad session in Smithfield", place: "Dublin, Ireland" },
+  { page: "dublin.html", day: 4, title: "Glendalough & the Wicklow Mountains", text: "Glendalough & the Wicklow Mountains · Drive to Glendalough via the Wicklow Mountains · Upper Lake hike & Lough Tay viewpoint · Return to Dublin & departure", place: "Dublin, Ireland" },
+  { page: "iceland.html", day: 1, title: "Keflavik Arrival, the Blue Lagoon & First Reykjavik Night", text: "Keflavik Arrival, the Blue Lagoon & First Reykjavik Night · Land at Keflavik & pick up a 4x4 with winter tires · Blue Lagoon geothermal spa · Downtown Reykjavik & a first Northern Lights watch", place: "Iceland" },
+  { page: "iceland.html", day: 2, title: "The Golden Circle: Thingvellir, Geysir & Gullfoss", text: "The Golden Circle: Thingvellir, Geysir & Gullfoss · Thingvellir National Park · Geysir geothermal field & Strokkur · Gullfoss waterfall", place: "Iceland" },
+  { page: "iceland.html", day: 3, title: "South Coast Waterfalls & the Black Sand Coast", text: "South Coast Waterfalls & the Black Sand Coast · Seljalandsfoss & Gljufrabui · Skogafoss waterfall · Reynisfjara black sand beach & Vik", place: "Iceland" },
+  { page: "iceland.html", day: 4, title: "Jokulsarlon Glacier Lagoon, Diamond Beach & a Blue Ice Cave", text: "Jokulsarlon Glacier Lagoon, Diamond Beach & a Blue Ice Cave · Drive to Vatnajokull National Park & a guided blue ice cave · Jokulsarlon Glacier Lagoon & Diamond Beach · Long drive back toward the South Coast", place: "Iceland" },
+  { page: "iceland.html", day: 5, title: "Return to Reykjavik & Departure", text: "Return to Reykjavik & Departure · Scenic drive back to Reykjavik · Harpa Concert Hall & downtown Reykjavik · Return rental car & depart from Keflavik", place: "Iceland" },
+  { page: "interlaken.html", day: 1, title: "Arrival on the Bödeli", text: "Arrival on the Bödeli · Train in to Interlaken West · Höhematte park and a walk down the Höheweg · An evening along the turquoise Aare canal", place: "Interlaken, Switzerland" },
+  { page: "interlaken.html", day: 2, title: "Harder Kulm's Eagle's Nest & Tandem Paragliding", text: "Harder Kulm's Eagle's Nest & Tandem Paragliding · Harderbahn funicular up to Harder Kulm · The eagle's-nest terrace over both lakes · Tandem paragliding, landing back in Höhematte", place: "Interlaken, Switzerland" },
+  { page: "interlaken.html", day: 3, title: "Lake Thun", text: "Lake Thun · BLS boat cruise from Interlaken West · St. Beatus Caves · Oberhofen Castle on the lakeshore", place: "Interlaken, Switzerland" },
+  { page: "interlaken.html", day: 4, title: "Lake Brienz & Departure", text: "Lake Brienz & Departure · A swim or boat out on Lake Brienz · Giessbach Falls and Switzerland's oldest funicular · Train departure via Interlaken Ost or West", place: "Interlaken, Switzerland" },
+  { page: "krakow.html", day: 1, title: "Arrival & the Rynek Główny", text: "Arrival & the Rynek Główny · Arrival & check-in near the Old Town · Rynek Główny & the Cloth Hall · St. Mary's Basilica & the hourly bugle call", place: "Krakow, Poland" },
+  { page: "krakow.html", day: 2, title: "Wawel Hill & the Kazimierz Jewish Quarter", text: "Wawel Hill & the Kazimierz Jewish Quarter · Wawel Castle & Cathedral · Schindler's Factory Museum & Kazimierz's synagogues · Plac Nowy & Kazimierz after dark", place: "Krakow, Poland" },
+  { page: "krakow.html", day: 3, title: "Auschwitz-Birkenau Memorial and Museum", text: "Auschwitz-Birkenau Memorial and Museum · Travel to Oświęcim & Auschwitz I · Auschwitz II-Birkenau · Return to Krakow", place: "Krakow, Poland" },
+  { page: "krakow.html", day: 4, title: "Wieliczka Salt Mine & Departure", text: "Wieliczka Salt Mine & Departure · Wieliczka Salt Mine · A milk-bar lunch & last-minute shopping · Transfer to Kraków-Balice for departure", place: "Krakow, Poland" },
+  { page: "lofoten.html", day: 1, title: "Arrival & Settling Into Reine", text: "Arrival & Settling Into Reine · Fly into Bodø, then a short hop to Leknes · Rental car pickup & the E10 south to Reine · Check into a red rorbu & a first walk around Reine's harbour", place: "Lofoten Islands, Norway" },
+  { page: "lofoten.html", day: 2, title: "Reinebringen & the Reine Postcard View", text: "Reinebringen & the Reine Postcard View · Reinebringen: the Sherpa staircase · Wander Reine's harbour & photograph the red rorbuer · Golden hour at the Hamnøy bridge", place: "Lofoten Islands, Norway" },
+  { page: "lofoten.html", day: 3, title: "Kvalvika Beach, Å & Nusfjord", text: "Kvalvika Beach, Å & Nusfjord · Ridge hike in to Kvalvika Beach · Å i Lofoten: the literal end of the road · Nusfjord's preserved 19th-century fishing village", place: "Lofoten Islands, Norway" },
+  { page: "lofoten.html", day: 4, title: "Haukland, Uttakleiv & the Midnight Sun", text: "Haukland, Uttakleiv & the Midnight Sun · Haukland Beach · Uttakleiv Beach & the coastal footpath · Midnight sun boat trip toward Trollfjord", place: "Lofoten Islands, Norway" },
+  { page: "lofoten.html", day: 5, title: "Henningsvær & Departure", text: "Henningsvær & Departure · Henningsvær's football pitch & harbor galleries · Scenic drive back along the E10 to Leknes · Return the rental car & fly out via Bodø", place: "Lofoten Islands, Norway" },
+  { page: "london.html", day: 1, title: "Westminster & Royal London", text: "Westminster & Royal London · Westminster Abbey & the Houses of Parliament · Buckingham Palace & the Changing of the Guard · South Bank walk & the London Eye at sunset", place: "London, England" },
+  { page: "london.html", day: 2, title: "The Tower, the City & Borough Market", text: "The Tower, the City & Borough Market · Tower of London & the Crown Jewels · Tower Bridge & Borough Market lunch · Shakespeare's Globe & a riverside pub dinner", place: "London, England" },
+  { page: "london.html", day: 3, title: "Museums & the West End", text: "Museums & the West End · The British Museum · Covent Garden · A West End show", place: "London, England" },
+  { page: "london.html", day: 4, title: "Notting Hill, Afternoon Tea & Camden", text: "Notting Hill, Afternoon Tea & Camden · Portobello Road & Notting Hill · Traditional afternoon tea · Camden Market & the canal at golden hour", place: "London, England" },
+  { page: "london.html", day: 5, title: "Greenwich & Farewell London", text: "Greenwich & Farewell London · Greenwich, Cutty Sark & the Prime Meridian · Sky Garden's free skyline view · A traditional pub dinner & departure", place: "London, England" },
+  { page: "puglia.html", day: 1, title: "Bari: Arrival & the Old Town's Pasta Alleys", text: "Bari: Arrival & the Old Town's Pasta Alleys · Land in Bari & pick up the rental car · Watch orecchiette made by hand in Bari Vecchia · Sunset walk & seafood on the Lungomare", place: "Puglia, Italy" },
+  { page: "puglia.html", day: 2, title: "Polignano a Mare & the Adriatic Cliffs", text: "Polignano a Mare & the Adriatic Cliffs · Lama Monachile cove & the cliffside old town · Cliffside walk to the diving platform & lunch over the sea · Drive to the Valle d'Itria & check into a trullo stay", place: "Puglia, Italy" },
+  { page: "puglia.html", day: 3, title: "Alberobello's Trulli & Locorotondo", text: "Alberobello's Trulli & Locorotondo · Rione Monti & Rione Aia Piccola, Alberobello's UNESCO trulli · Locorotondo's circular old town · Masseria dinner experience in the Valle d'Itria", place: "Puglia, Italy" },
+  { page: "puglia.html", day: 4, title: "Ostuni, the White City & Torre Guaceto", text: "Ostuni, the White City & Torre Guaceto · Ostuni's whitewashed hilltop center & Cattedrale · Torre Guaceto nature reserve beach & snorkeling · Drive to Lecce & an evening passeggiata", place: "Puglia, Italy" },
+  { page: "puglia.html", day: 5, title: "Lecce, the Florence of the Baroque South", text: "Lecce, the Florence of the Baroque South · Piazza del Duomo & Lecce's Baroque stone facades · Basilica di Santa Croce & the Roman amphitheater · Aperitivo in Piazza Sant'Oronzo", place: "Puglia, Italy" },
+  { page: "puglia.html", day: 6, title: "Salento Coast, Otranto & Departure", text: "Salento Coast, Otranto & Departure · Otranto's Aragonese Castle & the cathedral's mosaic floor · Beach time at Torre dell'Orso · Return the rental car & fly out of Bari", place: "Puglia, Italy" },
+  { page: "salzburg.html", day: 1, title: "Arrival & the Getreidegasse", text: "Arrival & the Getreidegasse · Arrival & check-in near the Altstadt · Getreidegasse's iron signs & Mozart's Birthplace · Residenzplatz & a first Austrian dinner", place: "Salzburg, Austria" },
+  { page: "salzburg.html", day: 2, title: "Hohensalzburg Fortress & St. Peter's", text: "Hohensalzburg Fortress & St. Peter's · Festungsbahn funicular to Hohensalzburg Fortress · St. Peter's Cemetery & catacombs · Augustiner Bräustübl monastery brewery", place: "Salzburg, Austria" },
+  { page: "salzburg.html", day: 3, title: "Mirabell Gardens, Mozart's Residence & Hellbrunn", text: "Mirabell Gardens, Mozart's Residence & Hellbrunn · Mirabell Palace & Gardens · Mozart's Residence on Makartplatz · Hellbrunn Palace's trick fountains", place: "Salzburg, Austria" },
+  { page: "salzburg.html", day: 4, title: "Wolfgangsee Day Trip & Departure", text: "Wolfgangsee Day Trip & Departure · Bus & boat to Wolfgangsee · St. Wolfgang village & the White Horse Inn · Return to Salzburg & departure", place: "Salzburg, Austria" },
+  { page: "seoul.html", day: 1, title: "Arrival & Myeongdong Nights", text: "Arrival & Myeongdong Nights · Arrival at Incheon International Airport & AREX transfer · Check-in & up Namsan by cable car · Myeongdong's street food stalls & neon shopping", place: "Seoul, South Korea" },
+  { page: "seoul.html", day: 2, title: "Gyeongbokgung Palace & Bukchon Hanok Village", text: "Gyeongbokgung Palace & Bukchon Hanok Village · Gyeongbokgung Palace in hanbok · Bukchon Hanok Village's hillside alleys · Insadong's tea houses & craft streets", place: "Seoul, South Korea" },
+  { page: "seoul.html", day: 3, title: "Markets, Design & Hongdae Nights", text: "Markets, Design & Hongdae Nights · Gwangjang Market's food stalls · Dongdaemun Design Plaza · Hongdae's street art & nightlife", place: "Seoul, South Korea" },
+  { page: "seoul.html", day: 4, title: "Han River, Jjimjilbang & Korean BBQ", text: "Han River, Jjimjilbang & Korean BBQ · Biking & picnicking at Yeouido Hangang Park · A jjimjilbang sweat & sauna session · Korean BBQ & the Banpo Bridge fountain", place: "Seoul, South Korea" },
+  { page: "seoul.html", day: 5, title: "Gangnam, Last Bites & Departure", text: "Gangnam, Last Bites & Departure · Starfield Library & a Gangnam stroll · Last-minute shopping at Namdaemun Market · AREX transfer to Incheon Airport for departure", place: "Seoul, South Korea" },
+  { page: "tenerife.html", day: 1, title: "Arrival & Costa Adeje's Resort Coast", text: "Arrival & Costa Adeje's Resort Coast · Land at Tenerife South & transfer to Costa Adeje · Playa del Duque · Dinner at the Los Cristianos harbourfront", place: "Tenerife, Spain" },
+  { page: "tenerife.html", day: 2, title: "Siam Park & Playa de las Américas", text: "Siam Park & Playa de las Américas · Arrive early at Siam Park · Wave Palace & Siam Beach · Dinner & the strip at Playa de las Américas", place: "Tenerife, Spain" },
+  { page: "tenerife.html", day: 3, title: "Loro Parque, Puerto de la Cruz & La Orotava", text: "Loro Parque, Puerto de la Cruz & La Orotava · Loro Parque's parrots, penguins & orcas · Lago Martiánez · La Orotava's balconied old town", place: "Tenerife, Spain" },
+  { page: "tenerife.html", day: 4, title: "Mount Teide National Park & a Night Under the Stars", text: "Mount Teide National Park & a Night Under the Stars · Drive up through La Orotava valley to Llano de Ucanca · Cable car toward Teide's summit · Stargazing near the Teide Observatory", place: "Tenerife, Spain" },
+  { page: "tenerife.html", day: 5, title: "Whale Watching, Paragliding & Departure", text: "Whale Watching, Paragliding & Departure · Whale & dolphin watching boat trip · Tandem paragliding above Costa Adeje · Return the car & fly home from Tenerife South", place: "Tenerife, Spain" },
+];
+
 /* ---------- Live weather (Open-Meteo, free, no API key required) ---------- */
 const WEATHER_CODES = {
   0: ["☀️", "Clear sky"], 1: ["🌤️", "Mostly clear"], 2: ["⛅", "Partly cloudy"], 3: ["☁️", "Overcast"],
@@ -166,15 +485,22 @@ function addReview(review) {
 
 /* ---------- Trip-search autocomplete dropdown ----------
    Attaches a dropdown to a text input that lists ONLY trips that
-   actually exist on the site (sourced from TRIP_CATALOG). Selecting
-   an entry fills the field with that place (it does not navigate away),
-   so the rest of the search form (travel style, duration) still applies
-   when the user submits. Pass onSelect to react to a pick, e.g. to
-   re-run a live filter. */
+   actually exist on the site (sourced from TRIP_CATALOG), plus any
+   specific day inside another trip's itinerary whose title or
+   activities mention the query (sourced from DAY_INDEX) — e.g.
+   searching "Ruakuri Cave" surfaces Waitomo Day 2 even though
+   "Ruakuri" never appears in a destination name. Selecting a
+   destination match fills the field (it does not navigate away), so
+   the rest of the search form (travel style, duration) still applies
+   when the user submits. Selecting a day match navigates straight to
+   that day on its destination page. Pass onSelect to react to a
+   destination pick, e.g. to re-run a live filter. */
 function attachTripAutocomplete(input, onSelect) {
   if (!input) return;
 
   const entries = Object.entries(TRIP_CATALOG).sort((a, b) => a[1].place.localeCompare(b[1].place));
+  const dayEntries = typeof DAY_INDEX !== "undefined" ? DAY_INDEX : [];
+  const MAX_DAY_MATCHES = 6;
   const panel = document.createElement("div");
   panel.className = "search-autocomplete";
   panel.setAttribute("role", "listbox");
@@ -182,7 +508,7 @@ function attachTripAutocomplete(input, onSelect) {
   input.setAttribute("autocomplete", "off");
 
   let activeIndex = -1;
-  let currentMatches = [];
+  let currentMatches = []; // flat list of { kind: "dest"|"day", ... } in display order
 
   function close() {
     panel.classList.remove("is-open");
@@ -190,12 +516,28 @@ function attachTripAutocomplete(input, onSelect) {
   }
 
   function renderActive() {
-    Array.from(panel.children).forEach((el, i) => el.classList.toggle("is-active", i === activeIndex));
+    Array.from(panel.querySelectorAll(".search-autocomplete-item")).forEach((el, i) => el.classList.toggle("is-active", i === activeIndex));
+  }
+
+  function selectDest(id, trip) {
+    input.value = trip.place;
+    close();
+    if (onSelect) onSelect(id, trip);
+  }
+
+  function selectDay(dayEntry) {
+    close();
+    window.location.href = `${dayEntry.page}#day-${dayEntry.day}`;
   }
 
   function open(query) {
     const q = query.trim().toLowerCase();
-    currentMatches = q ? entries.filter(([, trip]) => trip.place.toLowerCase().includes(q) || trip.title.toLowerCase().includes(q)) : entries;
+    const destMatches = q ? entries.filter(([, trip]) => trip.place.toLowerCase().includes(q) || trip.title.toLowerCase().includes(q)) : entries;
+    const dayMatches = q ? dayEntries.filter((d) => d.text.toLowerCase().includes(q)).slice(0, MAX_DAY_MATCHES) : [];
+    currentMatches = [
+      ...destMatches.map(([id, trip]) => ({ kind: "dest", id, trip })),
+      ...dayMatches.map((dayEntry) => ({ kind: "day", dayEntry })),
+    ];
     activeIndex = -1;
     panel.innerHTML = "";
 
@@ -205,19 +547,49 @@ function attachTripAutocomplete(input, onSelect) {
       return;
     }
 
-    currentMatches.forEach(([id, trip]) => {
+    if (destMatches.length && dayMatches.length) {
+      const label = document.createElement("div");
+      label.className = "search-autocomplete-section-label";
+      label.textContent = "Destinations";
+      panel.appendChild(label);
+    }
+
+    destMatches.forEach(([id, trip]) => {
       const item = document.createElement("div");
       item.className = "search-autocomplete-item";
       item.setAttribute("role", "option");
       item.textContent = trip.place;
       item.addEventListener("mousedown", (e) => {
         e.preventDefault(); // fires before input blur, so the click always registers
-        input.value = trip.place;
-        close();
-        if (onSelect) onSelect(id, trip);
+        selectDest(id, trip);
       });
       panel.appendChild(item);
     });
+
+    if (dayMatches.length) {
+      if (destMatches.length) {
+        const label = document.createElement("div");
+        label.className = "search-autocomplete-section-label";
+        label.textContent = "Specific stops in other itineraries";
+        panel.appendChild(label);
+      }
+      dayMatches.forEach((dayEntry) => {
+        const item = document.createElement("div");
+        item.className = "search-autocomplete-item is-day";
+        item.setAttribute("role", "option");
+        const strong = document.createElement("strong");
+        strong.textContent = dayEntry.title;
+        const small = document.createElement("small");
+        small.textContent = `Day ${dayEntry.day} · ${dayEntry.place}`;
+        item.append(strong, small);
+        item.addEventListener("mousedown", (e) => {
+          e.preventDefault();
+          selectDay(dayEntry);
+        });
+        panel.appendChild(item);
+      });
+    }
+
     panel.classList.add("is-open");
   }
 
@@ -236,10 +608,12 @@ function attachTripAutocomplete(input, onSelect) {
       renderActive();
     } else if (e.key === "Enter" && activeIndex >= 0 && currentMatches[activeIndex]) {
       e.preventDefault();
-      const [id, trip] = currentMatches[activeIndex];
-      input.value = trip.place;
-      close();
-      if (onSelect) onSelect(id, trip);
+      const match = currentMatches[activeIndex];
+      if (match.kind === "day") {
+        selectDay(match.dayEntry);
+      } else {
+        selectDest(match.id, match.trip);
+      }
     } else if (e.key === "Escape") {
       close();
     }
@@ -923,6 +1297,23 @@ function initWanderList() {
       const item = header.closest(".day-item");
       item.classList.toggle("open");
     });
+
+    // Deep link to one specific day (from a search result elsewhere on the
+    // site, e.g. wander-list.com/waitomo.html#day-2): open and scroll to it.
+    const dayHashMatch = window.location.hash.match(/^#day-(\d+)$/);
+    if (dayHashMatch) {
+      const targetDay = dayList.querySelectorAll(".day-item")[parseInt(dayHashMatch[1], 10) - 1];
+      if (targetDay) {
+        targetDay.classList.add("open", "highlight");
+        // Scroll after the accordion's expand transition settles, so the
+        // final (open) height is what the scroll position is based on —
+        // scrolling immediately would measure the still-collapsed height.
+        setTimeout(() => {
+          targetDay.scrollIntoView({ behavior: "auto", block: "start" });
+        }, 360);
+        setTimeout(() => targetDay.classList.remove("highlight"), 2600);
+      }
+    }
   }
 
   /* ---------- Packing checklist progress (persisted per trip) ---------- */

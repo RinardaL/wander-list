@@ -409,6 +409,22 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; color: var(
   color: var(--charcoal-soft);
   text-align: center;
 }
+.search-autocomplete-section-label {
+  padding: 10px 10px 4px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--charcoal-soft);
+}
+.search-autocomplete-item.is-day {
+  white-space: normal;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+.search-autocomplete-item.is-day strong { font-weight: 600; font-size: 0.88rem; }
+.search-autocomplete-item.is-day small { font-size: 0.78rem; color: var(--charcoal-soft); }
 .search-field:last-of-type { border-right: none; }
 .search-field label {
   font-size: 0.7rem;
@@ -1203,6 +1219,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; color: var(
 .day-item.duration-hidden { display: none; }
 
 .day-list { display: flex; flex-direction: column; gap: 16px; }
+.day-item { scroll-margin-top: 96px; }
 .day-item {
   background: #fff;
   border-radius: var(--radius-md);
@@ -1239,6 +1256,11 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; color: var(
 .day-item.open .day-chevron { transform: rotate(180deg); }
 .day-body { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
 .day-item.open .day-body { max-height: 1200px; }
+.day-item.highlight { animation: dayHighlight 2.2s ease; }
+@keyframes dayHighlight {
+  0% { box-shadow: 0 0 0 3px var(--mint); }
+  100% { box-shadow: var(--shadow-sm); }
+}
 .day-body-inner { padding: 0 24px 28px; display: flex; flex-direction: column; gap: 20px; }
 .day-photo {
   position: relative;
