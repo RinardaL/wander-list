@@ -188,11 +188,21 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; color: var(
   color: var(--emerald-dark);
 }
 .logo-mark {
-  width: 34px; height: 34px;
-  border-radius: 0;
-  background: linear-gradient(135deg, var(--emerald), var(--mint));
-  display: flex; align-items: center; justify-content: center;
-  color: #fff; font-size: 1rem;
+  width: 30px; height: 30px;
+  display: block;
+  flex-shrink: 0;
+  background-image: url("../images/logo-mark.png");
+  background-repeat: no-repeat;
+  background-size: 255% 244%;
+  background-position: 48% 45%;
+}
+/* The source artwork has a light card background — on the dark footer,
+   give it a small light badge instead of letting the mismatched cream
+   square show against the emerald background. */
+.site-footer .logo-mark {
+  background-color: var(--cream);
+  border-radius: 7px;
+  box-shadow: 0 0 0 3px var(--cream);
 }
 .nav-links {
   display: flex;
@@ -1540,8 +1550,9 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; color: var(
   .newsletter-form { flex-direction: column; }
   .footer-grid { grid-template-columns: 1fr; }
   .footer-bottom { flex-direction: column; gap: 14px; text-align: center; }
-  .itinerary-meta-bar { flex-direction: column; margin: -20px 16px 0; }
-  .meta-item { border-right: none; border-bottom: 1px solid var(--line); }
+  .itinerary-meta-bar { flex-direction: column; flex-wrap: nowrap; margin: -20px 16px 0; }
+  .meta-item { border-right: none; border-bottom: 1px solid var(--line); min-width: 0; width: 100%; }
+  .meta-actions { flex-wrap: wrap; justify-content: center; padding: 14px 16px; }
   .itinerary-cover { padding: 24px; height: 320px; }
   .block { flex-direction: column; gap: 6px; }
   .block-time { width: auto; }
