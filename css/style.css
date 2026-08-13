@@ -1063,6 +1063,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; color: var(
 .footer-grid ul li { margin-bottom: 10px; }
 .footer-grid ul a { color: rgba(255,255,255,0.65); font-size: 0.9rem; transition: color 0.2s ease; }
 .footer-grid ul a:hover { color: var(--mint); }
+.footer-brand .logo { color: #fff; }
 .footer-brand p { font-size: 0.9rem; margin-top: 14px; max-width: 280px; color: rgba(255,255,255,0.6); }
 .footer-bottom {
   display: flex;
