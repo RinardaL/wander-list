@@ -44,6 +44,10 @@ const DESTINATIONS = [
   { name: "Hakone, Japan", lat: 35.23, lon: 139.03, href: "hakone.html" },
   { name: "Hallstatt, Austria", lat: 47.56, lon: 13.65, href: "hallstatt.html" },
   { name: "Cortina d'Ampezzo, Italy", lat: 46.54, lon: 12.14, href: "cortina-dampezzo.html" },
+  { name: "Bordeaux, France", lat: 44.84, lon: -0.58, href: "bordeaux.html" },
+  { name: "St. Moritz, Switzerland", lat: 46.50, lon: 9.84, href: "st-moritz.html" },
+  { name: "Val Gardena, Italy", lat: 46.57, lon: 11.68, href: "dolomites.html" },
+  { name: "Marrakech, Morocco", lat: 31.63, lon: -7.99, href: "marrakech.html" },
 ];
 
 // A click/hover within this angular radius of a destination pin counts as
