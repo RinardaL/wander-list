@@ -72,6 +72,12 @@ const DESTINATIONS = [
   { name: "Salzburg, Austria", lat: 47.80, lon: 13.04, href: "salzburg.html" },
   { name: "Seoul, South Korea", lat: 37.57, lon: 126.98, href: "seoul.html" },
   { name: "Tenerife, Spain", lat: 28.09, lon: -16.74, href: "tenerife.html" },
+  { name: "Fuji Five Lakes, Japan", lat: 35.50, lon: 138.76, href: "mount-fuji.html" },
+  { name: "Valensole, France", lat: 43.84, lon: 5.99, href: "valensole.html" },
+  { name: "Salar de Uyuni, Bolivia", lat: -20.46, lon: -66.83, href: "salar-de-uyuni.html" },
+  { name: "Vatnajökull, Iceland", lat: 64.25, lon: -15.21, href: "vatnajokull.html" },
+  { name: "Tallinn, Estonia", lat: 59.44, lon: 24.75, href: "tallinn.html" },
+  { name: "Megève, France", lat: 45.86, lon: 6.62, href: "megeve.html" },
 ];
 
 // A click/hover within this angular radius of a destination pin counts as

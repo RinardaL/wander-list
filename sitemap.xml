@@ -346,6 +346,36 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.triptocost.com/mount-fuji.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.triptocost.com/valensole.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.triptocost.com/salar-de-uyuni.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.triptocost.com/vatnajokull.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.triptocost.com/tallinn.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.triptocost.com/megeve.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.triptocost.com/about.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
