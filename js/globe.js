@@ -78,6 +78,13 @@ const DESTINATIONS = [
   { name: "Vatnajökull, Iceland", lat: 64.25, lon: -15.21, href: "vatnajokull.html" },
   { name: "Tallinn, Estonia", lat: 59.44, lon: 24.75, href: "tallinn.html" },
   { name: "Megève, France", lat: 45.86, lon: 6.62, href: "megeve.html" },
+  { name: "Quebec City, Canada", lat: 46.81, lon: -71.21, href: "quebec-city.html" },
+  { name: "Bergen, Norway", lat: 60.39, lon: 5.32, href: "bergen.html" },
+  { name: "Ljubljana, Slovenia", lat: 46.06, lon: 14.51, href: "ljubljana.html" },
+  { name: "Riga, Latvia", lat: 56.95, lon: 24.11, href: "riga.html" },
+  { name: "Madagascar", lat: -18.88, lon: 47.51, href: "madagascar.html" },
+  { name: "Marble Caves, Chile", lat: -46.60, lon: -72.68, href: "marble-caves.html" },
+  { name: "Rio de Janeiro, Brazil", lat: -22.91, lon: -43.17, href: "rio-de-janeiro.html" },
 ];
 
 // A click/hover within this angular radius of a destination pin counts as
