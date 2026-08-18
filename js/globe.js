@@ -106,6 +106,7 @@ const DESTINATIONS = [
   { name: "Fes, Morocco", lat: 34.03, lon: -5.00, href: "morocco.html" },
   { name: "Machu Picchu, Peru", lat: -13.16, lon: -72.55, href: "machu-picchu.html" },
   { name: "Nepal", lat: 27.72, lon: 85.32, href: "nepal.html" },
+  { name: "Krujë, Albania", lat: 41.33, lon: 19.82, href: "albania.html" },
 ];
 
 // A click/hover within this angular radius of a destination pin counts as
