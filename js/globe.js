@@ -99,6 +99,13 @@ const DESTINATIONS = [
   { name: "Iguazu Falls, Argentina", lat: -25.68, lon: -54.44, href: "iguazu-falls.html" },
   { name: "Zhangjiajie, China", lat: 29.12, lon: 110.48, href: "zhangjiajie.html" },
   { name: "Brussels, Belgium", lat: 50.85, lon: 4.35, href: "brussels.html" },
+  { name: "Oslo, Norway", lat: 59.91, lon: 10.75, href: "oslo.html" },
+  { name: "Mont Saint-Michel, France", lat: 48.64, lon: -1.51, href: "mont-saint-michel.html" },
+  { name: "Singapore", lat: 1.35, lon: 103.82, href: "singapore.html" },
+  { name: "Istanbul, Turkey", lat: 41.01, lon: 28.98, href: "istanbul.html" },
+  { name: "Fes, Morocco", lat: 34.03, lon: -5.00, href: "morocco.html" },
+  { name: "Machu Picchu, Peru", lat: -13.16, lon: -72.55, href: "machu-picchu.html" },
+  { name: "Nepal", lat: 27.72, lon: 85.32, href: "nepal.html" },
 ];
 
 // A click/hover within this angular radius of a destination pin counts as
