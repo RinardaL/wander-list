@@ -1345,25 +1345,6 @@ function initWanderList() {
     });
   }
 
-  /* ---------- Contact form ---------- */
-  const contactForm = document.getElementById("contactForm");
-  const contactSuccess = document.getElementById("contactSuccess");
-  const contactTopicEl = document.getElementById("contactTopic");
-  let contactTopicDropdown;
-  if (contactTopicEl) {
-    contactTopicDropdown = initCustomDropdown(contactTopicEl, () => {
-      contactTopicEl.querySelector('input[type="hidden"]').value = contactTopicEl.dataset.value;
-    });
-  }
-  if (contactForm && contactSuccess) {
-    contactForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-      contactSuccess.classList.add("show");
-      contactForm.reset();
-      if (contactTopicDropdown) contactTopicDropdown.selectValue("General question");
-    });
-  }
-
   /* ---------- Write a Review ---------- */
   const reviewToggle = document.getElementById("reviewToggle");
   const reviewForm = document.getElementById("reviewForm");
