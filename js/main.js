@@ -632,6 +632,36 @@ function currentPageId() {
   return window.location.pathname.split("/").pop() || "index";
 }
 
+/* ---------- One-time migration: page ids used to end in ".html" before clean URLs ---------- */
+function migrateLegacyPageIds() {
+  try {
+    const saved = getSavedTrips();
+    let changed = false;
+    const migrated = saved.map((id) => {
+      if (typeof id === "string" && id.endsWith(".html")) { changed = true; return id.slice(0, -5); }
+      return id;
+    });
+    if (changed) setSavedTrips([...new Set(migrated)]);
+  } catch (e) {}
+
+  try {
+    const keysToMigrate = [];
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      if (key && key.indexOf("wanderlist_packing_") === 0 && key.slice(-5) === ".html") {
+        keysToMigrate.push(key);
+      }
+    }
+    keysToMigrate.forEach((oldKey) => {
+      const newKey = oldKey.slice(0, -5);
+      if (localStorage.getItem(newKey) === null) {
+        localStorage.setItem(newKey, localStorage.getItem(oldKey));
+      }
+      localStorage.removeItem(oldKey);
+    });
+  } catch (e) {}
+}
+
 /* ---------- Currency display (fixed approximate rates, USD is the source of truth) ---------- */
 const CURRENCY_KEY = "wanderlist_currency";
 const CURRENCIES = {
@@ -814,6 +844,8 @@ function attachTripAutocomplete(input, onSelect) {
 }
 
 function initWanderList() {
+
+  migrateLegacyPageIds();
 
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
