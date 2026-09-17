@@ -1,0 +1,138 @@
+# TripToCost
+
+> TripToCost publishes complete, ready-to-go travel itineraries: day-by-day plans, culture guides, packing checklists, and insider tips for 102 destinations across the world. Every itinerary assumes Day 1 begins with airport arrival, states a real estimated budget upfront, and includes a "Need to Know" culture/etiquette section and a printable packing list.
+
+## Destinations
+
+### Beach & Coastal
+
+- [4 Days in Milos: Sarakiniko's White Rocks, Klima & the Kleftiko Caves](https://www.triptocost.com/milos): 4 Days in Milos, Greece, est. $900-1,200/person
+- [4 Days in the Algarve, Portugal](https://www.triptocost.com/algarve): 4 Days in Algarve, Portugal, est. $700-950/person
+- [5 Days in Madeira, Portugal](https://www.triptocost.com/madeira): 5 Days in Madeira, Portugal, est. $800-1,100/person
+- [5 Days in Mauritius: Le Morne, Chamarel & the Seven Colored Earths](https://www.triptocost.com/mauritius): 5 Days in Mauritius, est. $1,200-1,600/person
+- [5 Days in Mykonos: Windmills, Beach Clubs & Delos](https://www.triptocost.com/mykonos): 5 Days in Mykonos, Greece, est. $1,100-1,500/person
+- [5 Days in Rio de Janeiro: Christ the Redeemer, Sugarloaf & Copacabana](https://www.triptocost.com/rio-de-janeiro): 5 Days in Rio de Janeiro, Brazil, est. $800-1,100/person
+- [5 Days in Tenerife: Resort Beaches, Water Parks & Mount Teide by Starlight](https://www.triptocost.com/tenerife): 5 Days in Tenerife, Spain, est. $700-950/person
+- [6 Days in Crete, Greece: Knossos, the Samaria Gorge & Balos Lagoon](https://www.triptocost.com/crete): 6 Days in Crete, Greece, est. $850-1,150/person
+- [6 Days in Thailand: Bangkok & Phuket Island](https://www.triptocost.com/bangkok-phuket): 6 Days in Bangkok & Phuket, Thailand, est. $750-1,050/person
+- [7 Days in Amalfi Coast on a Budget](https://www.triptocost.com/amalfi-coast): 7 Days in Amalfi Coast, Italy, est. $750-1,050/person
+- [7 Days in Nice & the French Riviera](https://www.triptocost.com/nice): 7 Days in Nice, France, est. $1,600-2,200/person
+- [7 Days in Thailand: Bangkok to the Andaman Coast](https://www.triptocost.com/thailand): 7 Days in Bangkok & Andaman Coast, Thailand, est. $800-1,100/person
+- [7 Days in the Canary Islands: Tenerife's Volcanoes to Lanzarote's Lava Fields](https://www.triptocost.com/canary-islands): 7 Days in Canary Islands, Spain, est. $1,200-1,600/person
+- [A Week of Wellness & Solo Discovery in Bali](https://www.triptocost.com/bali): 7 Days in Bali, Indonesia, est. $700-1,000/person
+
+### Historic Old Towns
+
+- [3 Days in Barcelona](https://www.triptocost.com/barcelona): 3 Days in Barcelona, Spain, est. $500-700/person
+- [3 Days in Bruges: Canals, Belfry & Medieval Streets](https://www.triptocost.com/bruges): 3 Days in Bruges, Belgium, est. $500-700/person
+- [3 Days in Mont Saint-Michel: Abbey, Tides & the Normandy Coast](https://www.triptocost.com/mont-saint-michel): 3 Days in Mont Saint-Michel, France, est. $650-900/person
+- [3 Days in Valletta, Malta: Fortifications, Harbours & Baroque Streets](https://www.triptocost.com/valletta): 3 Days in Valletta, Malta, est. $550-750/person
+- [4 Days in Bergen: Bryggen, Fjords & the Fløibanen Funicular](https://www.triptocost.com/bergen): 4 Days in Bergen, Norway, est. $1,300-1,750/person
+- [4 Days in Bordeaux: Old Town, La Cité du Vin & Saint-Émilion](https://www.triptocost.com/bordeaux): 4 Days in Bordeaux, France, est. $750-1,000/person
+- [4 Days in Cappadocia: Fairy Chimneys, Cave Towns & Sunrise Balloons](https://www.triptocost.com/cappadocia): 4 Days in Cappadocia, Turkey, est. $600-850/person
+- [4 Days in Chiang Mai: The Yi Peng Lantern Festival, Doi Suthep & the Old City](https://www.triptocost.com/chiang-mai): 4 Days in Chiang Mai, Thailand, est. $700-1,000/person
+- [4 Days in Colmar: Christmas Markets & the Alsace Wine Route](https://www.triptocost.com/colmar): 4 Days in Colmar, France, est. $750-1,000/person
+- [4 Days in Dublin: Trinity College, Guinness & the Wicklow Mountains](https://www.triptocost.com/dublin): 4 Days in Dublin, Ireland, est. $850-1,150/person
+- [4 Days in Edinburgh: Castle, Old Town & the Scottish Highlands Edge](https://www.triptocost.com/edinburgh): 4 Days in Edinburgh, Scotland, est. $700-900/person
+- [4 Days in Istanbul: Byzantine Domes, Grand Bazaars & the Bosphorus](https://www.triptocost.com/istanbul): 4 Days in Istanbul, Turkey, est. $650-900/person
+- [4 Days in Kotor, Montenegro: Old Town, Fortress & Bay](https://www.triptocost.com/kotor): 4 Days in Kotor, Montenegro, est. $600-800/person
+- [4 Days in Krakow: Old Town, Wawel & Auschwitz-Birkenau](https://www.triptocost.com/krakow): 4 Days in Krakow, Poland, est. $500-700/person
+- [4 Days in Ljubljana: Old Town, Castle Hill & Lake Bled](https://www.triptocost.com/ljubljana): 4 Days in Ljubljana, Slovenia, est. $600-850/person
+- [4 Days in Prague: Old Town, Castle & the Vltava](https://www.triptocost.com/prague): 4 Days in Prague, Czech Republic, est. $550-750/person
+- [4 Days in Quebec City: Old Town, Château Frontenac & Montmorency Falls](https://www.triptocost.com/quebec-city): 4 Days in Quebec City, Canada, est. $700-1,000/person
+- [4 Days in Riga: Art Nouveau, Old Town & the Central Market](https://www.triptocost.com/riga): 4 Days in Riga, Latvia, est. $500-700/person
+- [4 Days in Salzburg: Old Town, Hohensalzburg Fortress & Wolfgangsee](https://www.triptocost.com/salzburg): 4 Days in Salzburg, Austria, est. $750-1,000/person
+- [4 Days in Seville: Alcázar, Cathedral & Triana](https://www.triptocost.com/seville): 4 Days in Seville, Spain, est. $600-800/person
+- [4 Days in Sofia, Bulgaria](https://www.triptocost.com/sofia): 4 Days in Sofia, Bulgaria, est. $450-600/person
+- [4 Days in Strasbourg: Petite France, Cathedral & the Alsace Wine Route](https://www.triptocost.com/strasbourg): 4 Days in Strasbourg, France, est. $650-850/person
+- [4 Days in Tallinn: Old Town, Toompea & Kalamaja](https://www.triptocost.com/tallinn): 4 Days in Tallinn, Estonia, est. $550-750/person
+- [5 Days at Machu Picchu: The Sacred Valley & the Lost City of the Incas](https://www.triptocost.com/machu-picchu): 5 Days in Machu Picchu, Peru, est. $700-1,000/person
+- [5 Days in Budapest: Danube, Castle Hill & Thermal Baths](https://www.triptocost.com/budapest): 5 Days in Budapest, Hungary, est. $600-800/person
+- [5 Days in Marrakech: Medina Souks, Palaces & the High Atlas](https://www.triptocost.com/marrakech): 5 Days in Marrakech, Morocco, est. $600-850/person
+- [7 Days in Athens: Ancient Ruins & Island Escapes](https://www.triptocost.com/athens): 7 Days in Athens, Greece, est. $700-1,000/person
+- [7 Days in Egypt: Cairo & a Nile Cruise from Luxor to Aswan](https://www.triptocost.com/egypt): 7 Days in Cairo, Egypt, est. $1,200-1,700/person
+- [7 Days of Lisbon Local Highlights](https://www.triptocost.com/lisbon): 7 Days in Lisbon, Portugal, est. $600-800/person
+- [A Perfect Long Weekend in Paris](https://www.triptocost.com/paris): 3 Days in Paris, France, est. $550-750/person
+- [A Week of Hidden Gems in Tokyo & Kyoto](https://www.triptocost.com/itinerary): 7 Days in Tokyo & Kyoto, Japan, est. $1,400-1,900/person
+
+### Lakes & Nature
+
+- [3 Days at Plitvice Lakes: Waterfalls, Turquoise Pools & Boardwalk Trails](https://www.triptocost.com/plitvice-lakes): 3 Days in Plitvice Lakes, Croatia, est. $450-650/person
+- [3 Days in Hakone: Mount Fuji Views, Onsen & Lake Ashi](https://www.triptocost.com/hakone): 3 Days in Hakone, Japan, est. $750-1,050/person
+- [3 Days in Hallstatt: Lakeside Village, Salt Mines & Alpine Views](https://www.triptocost.com/hallstatt): 3 Days in Hallstatt, Austria, est. $650-850/person
+- [3 Days in Page, Arizona: Antelope Canyon, Horseshoe Bend & Lake Powell](https://www.triptocost.com/antelope-canyon): 3 Days in Page, Arizona, USA, est. $550-750/person
+- [3 Days in Waitomo: Glowworm Caves, Ruakuri Cave & Hobbiton](https://www.triptocost.com/waitomo): 3 Days in Waitomo, New Zealand, est. $650-900/person
+- [3 Days in Yoshinoyama: Mount Yoshino's 30,000 Cherry Trees](https://www.triptocost.com/yoshino): 3 Days in Yoshino, Japan, est. $800-1,100/person
+- [4 Days at Iguazu Falls: Devil's Throat, Boat Rides & Both Sides of the Border](https://www.triptocost.com/iguazu-falls): 4 Days in Iguazu Falls, Argentina & Brazil, est. $750-1,050/person
+- [4 Days at Lençóis Maranhenses: White Dunes, Blue Lagoons & the Preguiças River](https://www.triptocost.com/lencois-maranhenses): 4 Days in Lençóis Maranhenses, Brazil, est. $700-950/person
+- [4 Days at Salar de Uyuni: Mirror Reflections, Incahuasi Island & the Colored Lagoons](https://www.triptocost.com/salar-de-uyuni): 4 Days in Salar de Uyuni, Bolivia, est. $600-850/person
+- [4 Days at the Marble Caves: Cuevas de Mármol, General Carrera Lake & the Carretera Austral](https://www.triptocost.com/marble-caves): 4 Days in Marble Caves, Chile, est. $800-1,100/person
+- [4 Days in Abisko, Sweden: Northern Lights & Arctic Wilderness](https://www.triptocost.com/abisko): 4 Days in Abisko, Sweden, est. $1,400-1,900/person
+- [4 Days in Annecy: Canals, Lake Swims & Alpine Paragliding](https://www.triptocost.com/annecy): 4 Days in Annecy, France, est. $700-950/person
+- [4 Days in Cusco: Sacsayhuamán, the Sacred Valley & the Rainbow Mountain Trek](https://www.triptocost.com/rainbow-mountain): 4 Days in Cusco, Peru, est. $650-900/person
+- [4 Days in Luang Prabang: Kuang Si Falls, Old Town & the Mekong](https://www.triptocost.com/luang-prabang): 4 Days in Luang Prabang, Laos, est. $500-700/person
+- [4 Days in Mount Fuji: Fuji Five Lakes, Chureito Pagoda & Kawaguchiko](https://www.triptocost.com/mount-fuji): 4 Days in Fuji Five Lakes, Japan, est. $700-950/person
+- [4 Days in the Vatnajökull Glacier Region: Blue Ice Caves & Jökulsárlón](https://www.triptocost.com/vatnajokull): 4 Days in Vatnajökull, Iceland, est. $1,700-2,300/person
+- [4 Days in Tromsø: Fjellheisen, the Arctic Cathedral & Winter Whale Watching](https://www.triptocost.com/tromso): 4 Days in Tromsø, Norway, est. $1,800-2,400/person
+- [4 Days in Zhangye: Rainbow Mountains, Silk Road Oasis & Giant Buddha](https://www.triptocost.com/zhangye): 4 Days in Zhangye, China, est. $500-700/person
+- [5 Days in Finnish Lapland: Rovaniemi & the Arctic Circle](https://www.triptocost.com/lapland): 5 Days in Finnish Lapland, est. $1,800-2,400/person
+- [5 Days in Tanzania: Serengeti National Park & Ngorongoro Crater Safari](https://www.triptocost.com/serengeti): 5 Days in Tanzania, est. $2,700-3,400/person
+- [5 Days on Socotra Island: Dragon's Blood Forests, Detwah Lagoon & the Dunes of Arher](https://www.triptocost.com/socotra): 5 Days in Socotra Island, Yemen, est. $2,200-2,900/person
+- [6 Days in Madagascar: Avenue of the Baobabs & Andasibe-Mantadia National Park](https://www.triptocost.com/madagascar): 6 Days in Madagascar, est. $1,550-2,050/person
+
+### Modern Cities
+
+- [3 Days in Brussels: Grand Place, Comics & the Atomium](https://www.triptocost.com/brussels): 3 Days in Brussels, Belgium, est. $650-900/person
+- [4 Days in Copenhagen: Nyhavn, Design & Nordic Living](https://www.triptocost.com/copenhagen): 4 Days in Copenhagen, Denmark, est. $1,350-1,850/person
+- [4 Days in Milan: Duomo, Navigli & Brera](https://www.triptocost.com/milano): 4 Days in Milan, Italy, est. $650-850/person
+- [4 Days in Oslo: Opera House, Vigeland & Viking Heritage](https://www.triptocost.com/oslo): 4 Days in Oslo, Norway, est. $1,300-1,750/person
+- [4 Days in Singapore: Gardens by the Bay, Marina Bay & Hawker Culture](https://www.triptocost.com/singapore): 4 Days in Singapore, est. $1,100-1,500/person
+- [48 Hours in New York City](https://www.triptocost.com/new-york-city): 2 Days in New York City, USA, est. $650-850/person
+- [5 Days in London: Royals, the River & the West End](https://www.triptocost.com/london): 5 Days in London, England, est. $1,000-1,400/person
+- [5 Days in Seoul: Palaces, Markets & Neon Nights](https://www.triptocost.com/seoul): 5 Days in Seoul, South Korea, est. $800-1,100/person
+- [5 Days in Shanghai: The Bund, Yu Garden & Zhujiajiao](https://www.triptocost.com/shanghai): 5 Days in Shanghai, China, est. $800-1,100/person
+- [5 Days in Stockholm: Gamla Stan, the Vasa Museum & the Archipelago](https://www.triptocost.com/stockholm): 5 Days in Stockholm, Sweden, est. $1,000-1,400/person
+
+### Mountain Escapes
+
+- [3 Days in Lauterbrunnen: Waterfalls, Cliffside Villages & the Schilthorn](https://www.triptocost.com/lauterbrunnen): 3 Days in Lauterbrunnen, Switzerland, est. $1,450-1,950/person
+- [4 Days in Bansko: Pirin Peaks & Bulgarian Mountain Culture](https://www.triptocost.com/bansko): 4 Days in Bansko, Bulgaria, est. $450-650/person
+- [4 Days in Cortina d'Ampezzo: Dolomites Peaks & Alpine Luxury](https://www.triptocost.com/cortina-dampezzo): 4 Days in Cortina d'Ampezzo, Italy, est. $1,550-2,050/person
+- [4 Days in Grindelwald: Eiger, Jungfraujoch & Alpine Trails](https://www.triptocost.com/grindelwald): 4 Days in Grindelwald, Switzerland, est. $1,700-2,300/person
+- [4 Days in Interlaken: Paragliding, Harder Kulm & Two Alpine Lakes](https://www.triptocost.com/interlaken): 4 Days in Interlaken, Switzerland, est. $1,500-2,000/person
+- [4 Days in Megève: Gentle Slopes, Gourmet Dining & Sleigh Rides](https://www.triptocost.com/megeve): 4 Days in Megève, France, est. $1,900-2,600/person
+- [4 Days in Sedona: Red Rocks, Vortexes & Art Galleries](https://www.triptocost.com/sedona): 4 Days in Sedona, USA, est. $800-1,100/person
+- [4 Days in St. Moritz: Ski Slopes, the Cresta Run & Frozen-Lake Glamour](https://www.triptocost.com/st-moritz): 4 Days in St. Moritz, Switzerland, est. $1,900-2,600/person
+- [4 Days in Zakopane: Tatra Peaks & Highland Culture](https://www.triptocost.com/zakopane): 4 Days in Zakopane, Poland, est. $500-700/person
+- [4 Days in Zermatt: Matterhorn Views & Alpine Trails](https://www.triptocost.com/zermatt): 4 Days in Zermatt, Switzerland, est. $1,600-2,200/person
+- [5 Days in Chamonix: Mont Blanc, Aiguille du Midi & Alpine Villages](https://www.triptocost.com/chamonix): 5 Days in Chamonix, France, est. $1,850-2,550/person
+- [5 Days in the Austrian Alps: Innsbruck, Tyrol & Mountain Villages](https://www.triptocost.com/austrian-alps): 5 Days in Austrian Alps, Austria, est. $1,100-1,500/person
+- [6 Days in Nepal: Kathmandu, Pokhara & the Poon Hill Trek](https://www.triptocost.com/nepal): 6 Days in Nepal, est. $750-1,050/person
+- [A Luxury Week in Banff & Lake Louise](https://www.triptocost.com/banff): 7 Days in Banff, Canada, est. $2,050-2,750/person
+
+### Road Trips & National Parks
+
+- [4 Days in Valensole: A Provence Lavender Fields Road Trip](https://www.triptocost.com/valensole): 4 Days in Valensole, France, est. $900-1,200/person
+- [5 Days in Iceland: Golden Circle, South Coast & the Northern Lights](https://www.triptocost.com/iceland): 5 Days in Iceland, est. $1,600-2,200/person
+- [5 Days in the Lofoten Islands: Reinebringen, Reine & the Midnight Sun](https://www.triptocost.com/lofoten): 5 Days in Lofoten Islands, Norway, est. $1,600-2,200/person
+- [5 Days in Zhangjiajie: Avatar Mountains, Glass Bridge & Fenghuang Ancient Town](https://www.triptocost.com/zhangjiajie): 5 Days in Zhangjiajie, China, est. $650-900/person
+- [6 Days in Bavaria: Castles, Alps & Beer Halls](https://www.triptocost.com/bavaria): 6 Days in Bavaria, Germany, est. $1,000-1,400/person
+- [6 Days in Morocco: Fes, Chefchaouen & the Sahara Desert](https://www.triptocost.com/morocco): 6 Days in Fes, Chefchaouen & the Sahara, Morocco, est. $750-1,050/person
+- [6 Days in Puglia: A Self-Drive Road Trip Through Italy's Heel](https://www.triptocost.com/puglia): 6 Days in Puglia, Italy, est. $1,000-1,350/person
+- [6 Days in Tuscany: A Self-Drive Road Trip](https://www.triptocost.com/toscana): 6 Days in Tuscany, Italy, est. $1,100-1,500/person
+- [6 Days of Hidden Gems in Albania: Krujë, Valbona-Theth & the Blue Eye](https://www.triptocost.com/albania): 6 Days in Krujë, the Blue Eye & the Albanian Alps, est. $550-750/person
+- [6 Days Through the Dolomites: Alpe di Siusi, Seceda & Mountain Passes](https://www.triptocost.com/dolomites): 6 Days in Val Gardena, Italy, est. $1,300-1,750/person
+- [Ultimate Road Trip Through Utah's National Parks](https://www.triptocost.com/utah-national-parks): 7 Days in Utah, USA, est. $950-1,250/person
+
+## Site
+
+- [Browse all destinations](https://www.triptocost.com/browse): filterable list of every itinerary by travel style, budget, and region
+- [About TripToCost](https://www.triptocost.com/about): why the site exists and what it believes about trip planning
+- [How It Works](https://www.triptocost.com/how-it-works): what's included in every itinerary guide
+- [Saved Trips](https://www.triptocost.com/saved-trips): a visitor's bookmarked itineraries (stored locally in their browser only)
+
+## Optional
+
+- [Photo Credits](https://www.triptocost.com/credits): attribution for every photograph used on the site
+- [Privacy Policy](https://www.triptocost.com/privacy-policy): what TripToCost stores and where (all client-side, no accounts, no server-side tracking)
+- [Terms of Service](https://www.triptocost.com/terms)
