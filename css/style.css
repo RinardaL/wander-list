@@ -96,7 +96,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; color: var(
   white-space: nowrap;
 }
 .btn-primary { background: var(--mint); color: #fff; }
-.btn-primary:hover { background: var(--mint-dark); }
+.btn-primary:hover { background: var(--emerald-dark); }
 .btn-secondary {
   background: transparent;
   border: 1.5px solid var(--emerald-dark);
@@ -107,7 +107,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; color: var(
 .btn-outline { background: transparent; border: 1.5px solid var(--emerald); color: var(--emerald); }
 .btn-outline:hover { background: var(--emerald); color: #fff; }
 .btn-ghost { background: rgba(255,255,255,0.15); color: #fff; border: 1.5px solid rgba(255,255,255,0.5); backdrop-filter: blur(4px); }
-.btn-ghost:hover { background: rgba(255,255,255,0.28); }
+.btn-ghost:hover { background: #fff; color: var(--emerald-dark); border-color: #fff; }
 .btn:active { opacity: 0.85; transition-duration: 0.1s; }
 .btn-sm { padding: 9px 18px; font-size: 0.85rem; }
 .btn-block { width: 100%; }
@@ -241,9 +241,9 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; color: var(
   box-shadow: var(--shadow-sm);
   transition: background var(--dur-fast) ease, border-color var(--dur-fast) ease, color var(--dur-fast) ease, transform var(--dur-fast) var(--ease-premium), box-shadow var(--dur-fast) ease;
 }
-.icon-btn:hover { background: var(--mint); border-color: var(--mint); color: #fff; transform: scale(1.08); box-shadow: 0 4px 14px rgba(23,184,147,0.35); }
+.icon-btn:hover { background: var(--mint); border-color: var(--mint); color: var(--emerald-dark); transform: scale(1.08); box-shadow: 0 4px 14px rgba(23,184,147,0.35); }
 .icon-btn:active { transform: scale(0.92); }
-.icon-btn.is-saved { background: var(--mint); border-color: var(--mint); color: #fff; animation: pop 0.4s var(--ease-premium); }
+.icon-btn.is-saved { background: var(--mint); border-color: var(--mint); color: var(--emerald-dark); animation: pop 0.4s var(--ease-premium); }
 .filter-dropdown { position: relative; }
 .filter-dropdown-btn {
   height: 42px;
@@ -947,7 +947,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; color: var(
 .contact-info-card p { color: var(--charcoal-soft); font-size: 0.92rem; }
 .contact-socials { margin-top: 8px; }
 .contact-socials a { background: #fff; color: var(--emerald-dark); }
-.contact-socials a:hover { background: var(--mint); color: #fff; }
+.contact-socials a:hover { background: var(--mint); color: var(--emerald-dark); }
 
 /* ===========================================================
    Testimonials
@@ -1258,7 +1258,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; color: var(
 }
 .day-header { transition: background var(--dur-fast) ease; }
 .day-header:hover { background: rgba(23,184,147,0.04); }
-.day-header:hover .day-number { background: var(--mint); color: #fff; }
+.day-header:hover .day-number { background: var(--mint); color: var(--emerald-dark); }
 .day-number { transition: background var(--dur-fast) ease, color var(--dur-fast) ease; }
 .day-header-text { flex: 1; }
 .day-header-text h3 { font-size: 1.05rem; }
