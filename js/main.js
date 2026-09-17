@@ -1334,17 +1334,6 @@ function initWanderList() {
     attachTripAutocomplete(document.getElementById("notfoundDestInput"));
   }
 
-  /* ---------- Newsletter form ---------- */
-  const newsletterForm = document.getElementById("newsletterForm");
-  const formSuccess = document.getElementById("formSuccess");
-  if (newsletterForm && formSuccess) {
-    newsletterForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-      formSuccess.classList.add("show");
-      newsletterForm.reset();
-    });
-  }
-
   /* ---------- Write a Review ---------- */
   const reviewToggle = document.getElementById("reviewToggle");
   const reviewForm = document.getElementById("reviewForm");
